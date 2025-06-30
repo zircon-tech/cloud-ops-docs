@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Multi-Account Strategy - ZirconTech Cloud Operations on AWS</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">ZirconTech Cloud Operations on AWS</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Methodology</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Multi-Account Strategy</a>
+</li>
+                                    
+<li>
+    <a href="../account-lifecycle/" class="dropdown-item">Account Lifecycle</a>
+</li>
+                                    
+<li>
+    <a href="../gitops-methodology/" class="dropdown-item">GitOps Methodology</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">SOW Examples</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../sow-multi-account-strategy/" class="dropdown-item">Multi-Account SOW</a>
+</li>
+                                    
+<li>
+    <a href="../gitops-sow/" class="dropdown-item">GitOps SOW</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href=".." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../account-lifecycle/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#zircontech-methodology-for-an-aws-multi-account-strategy" class="nav-link">ZirconTech Methodology for an AWS Multi-Account Strategy</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1-purpose" class="nav-link">1. Purpose</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-discovery-and-inputs" class="nav-link">2. Discovery and Inputs</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3-design-principles" class="nav-link">3. Design Principles</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4-reference-ou-layout" class="nav-link">4. Reference OU Layout</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5-tooling-and-automation" class="nav-link">5. Tooling and Automation</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6-implementation-phases" class="nav-link">6. Implementation Phases</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7-governance-and-support" class="nav-link">7. Governance and Support</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8-deliverables" class="nav-link">8. Deliverables</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="zircontech-methodology-for-an-aws-multi-account-strategy">ZirconTech Methodology for an AWS Multi-Account Strategy</h1>
+<h2 id="1-purpose">1. Purpose</h2>
+<p>Describe how ZirconTech helps customers design, build, and support an AWS multi-account environment that aligns with security, operations, and cost-management goals.</p>
+<h2 id="2-discovery-and-inputs">2. Discovery and Inputs</h2>
+<ul>
+<li>Current AWS footprint, workloads, compliance needs</li>
+<li>Org structure and separation of duties</li>
+<li>Identity provider and access patterns</li>
+<li>Budget and preferred tooling (native only, Terraform, etc.)</li>
+</ul>
+<h2 id="3-design-principles">3. Design Principles</h2>
+<ul>
+<li>Organize accounts around security boundaries and operational needs—not the corporate org chart.</li>
+<li>Apply preventative and detective controls at the OU level with Service Control Policies (SCPs).</li>
+<li>Keep OU depth shallow; add additional OUs only when new guardrail or funding boundaries justify them.</li>
+<li>Separate production from non-production accounts to limit blast radius and simplify cost allocation.</li>
+<li>Automate account provisioning and guardrail enforcement (Control Tower Account Factory, AFT, or pipelines).</li>
+</ul>
+<h2 id="4-reference-ou-layout">4. Reference OU Layout</h2>
+<pre><code class="language-text">Root
+├─ Security (Log archive, Audit, Security tooling)
+├─ Infrastructure (Shared networking, CI/CD)
+├─ Sandbox (Experimental / learning)
+└─ Workloads
+├─ Prod
+└─ NonProd
+</code></pre>
+<h2 id="5-tooling-and-automation">5. Tooling and Automation</h2>
+<table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Primary AWS service(s)</th>
+<th>Optional / Complementary</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Baseline guardrails</td>
+<td><strong>AWS Control Tower</strong> (built-in mandatory guardrails)</td>
+<td>Landing Zone Accelerator, custom landing zone modules</td>
+</tr>
+<tr>
+<td>Account provisioning</td>
+<td>Control Tower <strong>Account Factory</strong> or <strong>Account Factory for Terraform (AFT)</strong></td>
+<td>Custom CICD pipelines (e.g., GitHub Actions, CodePipeline)</td>
+</tr>
+<tr>
+<td>Identity federation</td>
+<td><strong>IAM Identity Center</strong> integrated with external IdP</td>
+<td>AWS Directory Service</td>
+</tr>
+<tr>
+<td>Policy enforcement</td>
+<td><strong>Service Control Policies (SCPs)</strong>, AWS Config, CloudTrail</td>
+<td>Security Hub, GuardDuty</td>
+</tr>
+<tr>
+<td>Cost allocation &amp; tags</td>
+<td>AWS Budgets, Cost Explorer, AWS Organizations tagging</td>
+<td>Third-party FinOps tools</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-implementation-phases">6. Implementation Phases</h2>
+<ol>
+<li><strong>Blueprint</strong> – confirm requirements, draft OU map, pick tooling  </li>
+<li><strong>Landing Zone Deploy</strong> – enable Control Tower, set mandatory guardrails  </li>
+<li><strong>Account Factory Setup</strong> – define account vending workflow (native or AFT)  </li>
+<li><strong>Controls and Integrations</strong> – SCPs, central logging, Security Hub, Cost Explorer views  </li>
+<li><strong>Handover</strong> – documentation, runbooks, knowledge-transfer workshop</li>
+</ol>
+<h2 id="7-governance-and-support">7. Governance and Support</h2>
+<ul>
+<li><strong>Monthly drift-detection reports</strong> exported from AWS Control Tower and shared with the customer’s ops or security team.</li>
+<li><strong>Quarterly guardrail &amp; cost reviews</strong> led by ZirconTech architects with customer stakeholders.</li>
+<li><strong>Optional support retainer</strong> – incident response and routine maintenance hours can be added to the SOW on a per-project basis; service windows, SLAs, and escalation paths are defined during project kickoff.</li>
+</ul>
+<h2 id="8-deliverables">8. Deliverables</h2>
+<ul>
+<li>Final OU diagram and SCP library  </li>
+<li>Automated account vending pipeline code  </li>
+<li>Runbooks for break-glass access, new-account request, guardrail exception  </li>
+<li>Knowledge-transfer session recording and slides</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Multi-Account SOW - ZirconTech Cloud Operations on AWS</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../css/brands.min.css" rel="stylesheet">
+        <link href="../css/solid.min.css" rel="stylesheet">
+        <link href="../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">ZirconTech Cloud Operations on AWS</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Methodology</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../multi-account-methodology/" class="dropdown-item">Multi-Account Strategy</a>
+</li>
+                                    
+<li>
+    <a href="../account-lifecycle/" class="dropdown-item">Account Lifecycle</a>
+</li>
+                                    
+<li>
+    <a href="../gitops-methodology/" class="dropdown-item">GitOps Methodology</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">SOW Examples</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Multi-Account SOW</a>
+</li>
+                                    
+<li>
+    <a href="../gitops-sow/" class="dropdown-item">GitOps SOW</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../gitops-methodology/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../gitops-sow/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#scope-of-work" class="nav-link">Scope of Work</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#1-objectives" class="nav-link">1. Objectives</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#2-in-scope-activities" class="nav-link">2. In-Scope Activities</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#3-deliverables" class="nav-link">3. Deliverables</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#4-timeline" class="nav-link">4. Timeline</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#5-roles-and-responsibilities" class="nav-link">5. Roles and Responsibilities</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#6-assumptions" class="nav-link">6. Assumptions</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#7-out-of-scope" class="nav-link">7. Out-of-Scope</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#8-acceptance-criteria" class="nav-link">8. Acceptance Criteria</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#9-pricing-and-payment" class="nav-link">9. Pricing and Payment</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#10-change-management" class="nav-link">10. Change Management</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="scope-of-work">Scope of Work</h1>
+<p><strong>AWS Multi-Account Strategy Engagement</strong></p>
+<p><em>Prepared for: <Customer></em><br />
+<em>Prepared by: ZirconTech</em></p>
+<h2 id="1-objectives">1. Objectives</h2>
+<ul>
+<li>Design and deploy an AWS multi-account landing zone that meets security, operations, and cost-management requirements.</li>
+<li>Enable automated and auditable account provisioning.</li>
+</ul>
+<h2 id="2-in-scope-activities">2. In-Scope Activities</h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Activities</th>
+<th>Outputs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1. Discovery</td>
+<td>Stakeholder workshops, requirements matrix</td>
+<td>Current-state report</td>
+</tr>
+<tr>
+<td>2. Design</td>
+<td>OU map, guardrail set, account factory design</td>
+<td>Architecture doc</td>
+</tr>
+<tr>
+<td>3. Build</td>
+<td>Deploy Control Tower, SCPs, logging, AFT pipeline</td>
+<td>Configured landing zone</td>
+</tr>
+<tr>
+<td>4. Validate</td>
+<td>Functional and security testing, handover</td>
+<td>Test report</td>
+</tr>
+<tr>
+<td>5. Knowledge Transfer</td>
+<td>Runbooks, KT session</td>
+<td>Final documentation pack</td>
+</tr>
+</tbody>
+</table>
+<h2 id="3-deliverables">3. Deliverables</h2>
+<ul>
+<li>Multi-account architecture document  </li>
+<li>Configured AWS Control Tower landing zone  </li>
+<li>Terraform / AFT repository with account factory workflows  </li>
+<li>SCP and AWS Config rules library  </li>
+<li>Operational runbooks and knowledge-transfer recording</li>
+</ul>
+<h2 id="4-timeline">4. Timeline</h2>
+<table>
+<thead>
+<tr>
+<th>Milestone</th>
+<th>Week</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Kick-off</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Landing zone deployed</td>
+<td>2</td>
+</tr>
+<tr>
+<td>Account factory operational</td>
+<td>3</td>
+</tr>
+<tr>
+<td>Validation complete</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Actual dates confirmed during project planning.</p>
+</blockquote>
+<h2 id="5-roles-and-responsibilities">5. Roles and Responsibilities</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>ZirconTech</th>
+<th>Customer</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Project manager</td>
+<td>✓</td>
+<td></td>
+</tr>
+<tr>
+<td>Landing-zone engineer</td>
+<td>✓</td>
+<td></td>
+</tr>
+<tr>
+<td>Security lead</td>
+<td>✓</td>
+<td>Point of contact</td>
+</tr>
+<tr>
+<td>Identity architect</td>
+<td></td>
+<td>✓ (IdP integration)</td>
+</tr>
+<tr>
+<td>Change approval board</td>
+<td></td>
+<td>✓</td>
+</tr>
+</tbody>
+</table>
+<h2 id="6-assumptions">6. Assumptions</h2>
+<ul>
+<li>Customer grants required IAM permissions.  </li>
+<li>External IdP is available for IAM Identity Center integration.  </li>
+<li>All testing uses non-production data.</li>
+</ul>
+<h2 id="7-out-of-scope">7. Out-of-Scope</h2>
+<ul>
+<li>Application refactoring  </li>
+<li>On-premise network changes  </li>
+<li>Ongoing managed services beyond 30 days post-go-live</li>
+</ul>
+<h2 id="8-acceptance-criteria">8. Acceptance Criteria</h2>
+<ul>
+<li>All guardrails in “Mandatory” state in Control Tower  </li>
+<li>At least one workload account created via factory and passing security checks  </li>
+<li>Sign-off on final documentation pack</li>
+</ul>
+<h2 id="9-pricing-and-payment">9. Pricing and Payment</h2>
+<p>Time-and-materials, invoiced bi-weekly. Detailed rate card provided separately.</p>
+<h2 id="10-change-management">10. Change Management</h2>
+<p>Material changes to scope, timeline, or cost will be handled through a mutually approved change order.</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js"></script>
+        <script src="../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
