@@ -55,6 +55,8 @@ nav:
       - Third-Party Procurement: third-party-procurement.md
       - Vendor Matrix: vendor-matrix.md
       - Account Ownership Transfer: account-ownership-transfer.md
+      - Hybrid Cloud Governance: hybrid-cloud-governance.md
+      - Cost Allocation & Accountability: cost-allocation.md
   - SOW Examples:
       - Multi-Account SOW: sow-multi-account-strategy.md
       - GitOps SOW: gitops-sow.md
