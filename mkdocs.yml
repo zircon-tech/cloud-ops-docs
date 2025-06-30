@@ -54,6 +54,7 @@ nav:
       - Controls Matrix: control-matrix.md
       - Third-Party Procurement: third-party-procurement.md
       - Vendor Matrix: vendor-matrix.md
+      - Account Ownership Transfer: account-ownership-transfer.md
   - SOW Examples:
       - Multi-Account SOW: sow-multi-account-strategy.md
       - GitOps SOW: gitops-sow.md
