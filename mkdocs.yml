@@ -1,7 +1,7 @@
 site_name: ZirconTech Cloud Operations on AWS
 site_description: 'Enterprise AWS cloud operations methodologies and SOW examples'
 site_author: 'ZirconTech'
-site_url: https://zircontech.github.io/cloud-ops-docs/
+site_url: https://zircon-tech.github.io/cloud-ops-docs/
 
 theme:
   name: material
