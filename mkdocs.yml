@@ -45,6 +45,7 @@ markdown_extensions:
 
 nav:
   - Home: index.md
+
   - Methodology:
       - Multi-Account Strategy: multi-account-methodology.md
       - Account Lifecycle: account-lifecycle.md
@@ -57,10 +58,24 @@ nav:
       - Account Ownership Transfer: account-ownership-transfer.md
       - Hybrid Cloud Governance: hybrid-cloud-governance.md
       - Cost Allocation & Accountability: cost-allocation.md
+      - Planning & Forecasting: planning-forecasting.md
+      - Cost Reporting & Visualization: cost-reporting-visualization.md
+      - Resource Optimization: cost-resource-optimization.md
+      - Purchase-Option Optimization: cost-purchase-optimization.md
+      - Financial Operations: financial-operations.md
+      - Monitoring & Observability: monitoring-observability-baseline.md
+      - Dashboards & Alerts: signal-analytics-visualization.md
+
   - SOW Examples:
       - Multi-Account SOW: sow-multi-account-strategy.md
       - GitOps SOW: gitops-sow.md
 
+  - Deliverables:
+      - Forecast & TCO Workbook: forecast-tco-workbook.md
+      - QuickSight Dashboard Samples: quicksight-dashboard-sample.md
+      - RI / SP Coverage Plan: ri-sp-coverage-plan.md
+      - Runbook – Forecast Drivers: runbook-update-forecast-drivers.md
+      - Runbook – Dashboard Edit Workflow: runbook-dash-edit.md
 extra:
   social:
     - icon: fontawesome/brands/aws
