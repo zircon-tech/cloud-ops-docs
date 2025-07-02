@@ -1,13 +1,13 @@
 ---
-id: COCFM-006
-title: "Financial Operations"
+id: COCFM-002
+title: "Planning and Forecasting"
 ---
 
-# Financial Operations
+# Planning and Forecasting
 
 ## Purpose
 
-Modern financial operations transforms cost management from reactive reporting to proactive optimization. Our methodology establishes visibility, accountability, and continuous optimization processes that align cloud spending with business value.
+Modern planning and forecasting transforms cost management from reactive reporting to proactive optimization. Our methodology establishes visibility, accountability, and continuous optimization processes that align cloud spending with business value.
 
 ## Methodology & Process
 
@@ -40,11 +40,11 @@ Modern financial operations transforms cost management from reactive reporting t
 | **Third-Party** | — | CloudZero (Advanced cost allocation), Apptio Cloudability (FinOps platform), Harness CCM (Cost optimization) |
 
 
-## 1. Financial Operations Components and Capabilities
+## 1. Planning and Forecasting Components and Capabilities
 
 ### Core Components
 
-- **Primary Services**: Main AWS services used for financial operations implementation
+- **Primary Services**: Main AWS services used for planning and forecasting implementation
 - **Supporting Services**: Additional AWS services for enhanced functionality
 - **Third-party Integrations**: External tools and platforms supported
 - **Custom Components**: Developed solutions for specific requirements
@@ -62,7 +62,7 @@ Modern financial operations transforms cost management from reactive reporting t
 The solution follows AWS Well-Architected principles with emphasis on finops best practices and operational excellence.
 
 
-## 2. Financial Operations Methodology and Process
+## 2. Planning and Forecasting Methodology and Process
 
 ### Discovery Phase
 
@@ -107,7 +107,7 @@ The solution follows AWS Well-Architected principles with emphasis on finops bes
 
 ## Deliverables
 
-1. **Financial Operations Methodology Document** (this document)
+1. **Planning and Forecasting Methodology Document** (this document)
 2. **Implementation Runbook** (see Implementation Artifacts section)
 3. **Infrastructure as Code** templates (see Implementation Artifacts section)
 4. **Configuration Standards** and baseline policies (see Implementation Artifacts section)

@@ -7,77 +7,123 @@ theme:
   name: material
   palette:
     # Palette toggle for light mode
-    - scheme: default
-      primary: blue grey
-      accent: blue
-      toggle:
-        icon: material/brightness-7 
-        name: Switch to dark mode
+  - scheme: default
+    primary: blue grey
+    accent: blue
+    toggle:
+      icon: material/brightness-7
+      name: Switch to dark mode
     # Palette toggle for dark mode
-    - scheme: slate
-      primary: blue grey
-      accent: blue
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
+  - scheme: slate
+    primary: blue grey
+    accent: blue
+    toggle:
+      icon: material/brightness-4
+      name: Switch to light mode
   features:
-    - navigation.tabs
-    - navigation.sections
-    - navigation.expand
-    - navigation.top
-    - search.highlight
-    - search.share
-    - content.code.copy
+  - navigation.tabs
+  - navigation.sections
+  - navigation.expand
+  - navigation.top
+  - search.highlight
+  - search.share
+  - content.code.copy
 
 
 
 markdown_extensions:
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - attr_list
-  - md_in_html
+- admonition
+- pymdownx.details
+- pymdownx.superfences
+- pymdownx.tabbed:
+    alternate_style: true
+- pymdownx.emoji:
+    emoji_index: !!python/name:material.extensions.emoji.twemoji
+    emoji_generator: !!python/name:material.extensions.emoji.to_svg
+- attr_list
+- md_in_html
 
 nav:
-  - Home: index.md
+- Home: index.md
 
-  - Methodology:
-      - Multi-Account Strategy: multi-account-methodology.md
-      - Account Lifecycle: account-lifecycle.md
-      - GitOps Methodology: gitops-methodology.md
-      - Tagging Strategy: tagging-strategy.md
-      - Controls Framework: preventive-detective-controls.md
-      - Controls Matrix: control-matrix.md
-      - Third-Party Procurement: third-party-procurement.md
-      - Vendor Matrix: vendor-matrix.md
-      - Account Ownership Transfer: account-ownership-transfer.md
-      - Hybrid Cloud Governance: hybrid-cloud-governance.md
-      - Cost Allocation & Accountability: cost-allocation.md
-      - Planning & Forecasting: planning-forecasting.md
-      - Cost Reporting & Visualization: cost-reporting-visualization.md
-      - Resource Optimization: cost-resource-optimization.md
-      - Purchase-Option Optimization: cost-purchase-optimization.md
-      - Financial Operations: financial-operations.md
-      - Monitoring & Observability: monitoring-observability-baseline.md
-      - Dashboards & Alerts: signal-analytics-visualization.md
+- Methodology:
+  - Multi-Account Strategy: multi-account-methodology.md
+  - Account Lifecycle: account-lifecycle.md
+  - GitOps Methodology: gitops-methodology.md
+  - Tagging Strategy: tagging-strategy.md
+  - Controls Framework: preventive-detective-controls.md
+  - Controls Matrix: control-matrix.md
+  - Third-Party Procurement: third-party-procurement.md
+  - Vendor Matrix: vendor-matrix.md
+  - Account Ownership Transfer: account-ownership-transfer.md
+  - Hybrid Cloud Governance: hybrid-cloud-governance.md
+  - Cost Allocation & Accountability: cost-allocation.md
+  - Planning & Forecasting: planning-forecasting.md
+  - Cost Reporting & Visualization: cost-reporting-visualization.md
+  - Resource Optimization: cost-resource-optimization.md
+  - Purchase-Option Optimization: cost-purchase-optimization.md
+  - Financial Operations: financial-operations.md
+  - Monitoring & Observability: monitoring-observability-baseline.md
+  - Dashboards & Alerts: signal-analytics-visualization.md
+  - Observability – Modern Apps: observability-modern-apps.md
+  - Security Observability & Auto-Remediation: security-observability.md
+  - Synthetic Monitoring: synthetic-monitoring.md
+  - Compliance and Auditing Overview: compliance-and-auditing-overview.md
+  - Define multi account strategy for the organization: define-multi-account-strategy-for-the-organization.md
+  - Identify, quantify, and manage risks relating to technology and business needs: identify-quantify-and-manage-risks-relating-to-tec.md
+  - Creating cleanroom environment for forensic analysis: creating-cleanroom-environment-for-forensic-analys.md
+  - Data classification and protection: data-classification-and-protection.md
+  - Automate controls deployment and manage them using code: automate-controls-deployment-and-manage-them-using.md
+  - Gather and organize the documentary evidence to support audit assessments: gather-and-organize-the-documentary-evidence-to-su.md
+  - Operations Management Baseline: operations-management-baseline.md
+  - Manage configuration items lifecycle for AWS resources: manage-configuration-items-lifecycle-for-aws-resou.md
+  - Automate controls deployment and manage them using code: automate-controls-deployment-and-manage-them-using.md
+  - Distribute and apply patch updates to infrastructure components: distribute-and-apply-patch-updates-to-infrastructu.md
+  - Identify, remediate and report security vulnerabilities: identify-remediate-and-report-security-vulnerabili.md
+  - Access compute instances in the cloud from a central location: access-compute-instances-in-the-cloud-from-a-centr.md
+  - ITSM Integration: itsm-integration.md
+  - Detect and auto-remediate incidents in real time using event triggers: detect-and-auto-remediate-incidents-in-real-time-u.md
+  - AIOps: aiops.md
+  - Centralized Change Management: centralized-change-management.md
+  - Customer Presentation: customer-presentation.md
+  - Maintaining AWS Expertise: maintaining-aws-expertise.md
+  - AWS Partner Solution Selling: aws-partner-solution-selling.md
+  - AWS Sales Engagement: aws-sales-engagement.md
+  - Training for Internal Personnel: training-for-internal-personnel.md
+  - Expected Outcomes: expected-outcomes.md
+  - Scope: scope.md
+  - Statement of Work: statement-of-work.md
+  - Project Manager: project-manager.md
+  - Change Management: change-management.md
+  - Customer Acceptance for Projects: customer-acceptance-for-projects.md
+  - Customer Satisfaction Aligned to Project Milestones: customer-satisfaction-aligned-to-project-milestone.md
+  - Cost Allocation Measurement and Accountability: cost-allocation-measurement-and-accountability.md
+  - Define Account life cycle process: define-account-life-cycle-process.md
+  - GitOps deployment for infrastructure: gitops-deployment-for-infrastructure.md
+  - Implement and enforce tagging strategy to support business needs: implement-and-enforce-tagging-strategy-to-support.md
+  - Effective usage of preventive and detective controls: effective-usage-of-preventive-and-detective-contro.md
+  - Third party products and procurement process: third-party-products-and-procurement-process.md
+  - AWS Account Ownership transfer: aws-account-ownership-transfer.md
+  - Planning and Forecasting: planning-and-forecasting.md
+  - Cost Reporting and Visualization: cost-reporting-and-visualization.md
+  - Optimize Cloud Costs Through Resource Optimization: optimize-cloud-costs-through-resource-optimization.md
+  - Optimize Cloud Costs Through Purchase Option Optimization: optimize-cloud-costs-through-purchase-option-optim.md
+  - Monitoring and Observability Baseline: monitoring-and-observability-baseline.md
+  - Signal Analytics and Visualization: signal-analytics-and-visualization.md
+  - Observability for Modern Application Architectures: observability-for-modern-application-architectures.md
+  - Application Performance and UX related metrics: application-performance-and-ux-related-metrics.md
+- SOW Examples:
+  - Multi-Account SOW: sow-multi-account-strategy.md
+  - GitOps SOW: gitops-sow.md
 
-  - SOW Examples:
-      - Multi-Account SOW: sow-multi-account-strategy.md
-      - GitOps SOW: gitops-sow.md
-
-  - Deliverables:
-      - Forecast & TCO Workbook: forecast-tco-workbook.md
-      - QuickSight Dashboard Samples: quicksight-dashboard-sample.md
-      - RI / SP Coverage Plan: ri-sp-coverage-plan.md
-      - Runbook – Forecast Drivers: runbook-update-forecast-drivers.md
-      - Runbook – Dashboard Edit Workflow: runbook-dash-edit.md
+- Deliverables:
+  - Forecast & TCO Workbook: forecast-tco-workbook.md
+  - QuickSight Dashboard Samples: quicksight-dashboard-sample.md
+  - RI / SP Coverage Plan: ri-sp-coverage-plan.md
+  - Runbook – Forecast Drivers: runbook-update-forecast-drivers.md
+  - Runbook – Dashboard Edit Workflow: runbook-dash-edit.md
 extra:
   social:
-    - icon: fontawesome/brands/aws
-      link: https://aws.amazon.com
-      name: AWS
+  - icon: fontawesome/brands/aws
+    link: https://aws.amazon.com
+    name: AWS
