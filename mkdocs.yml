@@ -138,4 +138,4 @@ plugins:
   - search
 
 # Disable sitemap generation to prevent search engines from discovering pages
-use_directory_urls: false
+# use_directory_urls: false  # Commented out to restore normal pretty URLs
