@@ -33,16 +33,20 @@ ZirconTech has established customer acceptance processes for AWS Cloud Operation
 | **Maintenance Procedures** | 1.5 hours | Routine tasks, backup procedures, updates | Hands-on practice, checklist review |
 
 **Training Deliverables:**
+
 - Recorded training sessions for reference
 - Hands-on lab exercises and scenarios
 - Operations checklists and quick reference guides
 - Knowledge transfer validation quiz
+
+*Note: Training durations and specific content are examples. Actual training schedules, timelines, and detailed requirements are specified in the Work Order and ICCA documentation for each project.*
 
 ### 2. Technical Documentation Package
 
 **Customer Handover Documentation**
 
 **Documentation Components:**
+
 - **Architecture Diagrams:** Visual representation of deployed AWS infrastructure
 - **Operational Runbooks:** Step-by-step procedures for common tasks
 - **Configuration Standards:** Baseline policies and configuration templates
@@ -50,6 +54,7 @@ ZirconTech has established customer acceptance processes for AWS Cloud Operation
 - **Emergency Procedures:** Incident response and escalation protocols
 
 **Format and Structure:**
+
 - All documentation provided in searchable digital format
 - Version-controlled with clear revision history
 - Organized by functional area and complexity level
@@ -87,12 +92,14 @@ ZirconTech has established customer acceptance processes for AWS Cloud Operation
 ZirconTech provides comprehensive knowledge transfer and training services to ensure smooth operational handover and customer team readiness.
 
 **Training Components:**
+
 - **Technical Documentation:** Complete technical documentation and runbooks
 - **Operations Team Training:** Best practices workshops and hands-on training
 - **Knowledge Transfer Sessions:** Formal sessions with customer technical teams
 - **Ongoing Support Procedures:** Establishment of post-go-live support processes
 
 **Acceptance Criteria for Knowledge Transfer:**
+
 - All training materials delivered and reviewed
 - Customer operations team demonstrates competency in required tasks
 - Knowledge transfer session completed with formal sign-off
@@ -107,6 +114,8 @@ ZirconTech provides comprehensive knowledge transfer and training services to en
 | **Knowledge Transfer** | Training Materials | Operations team training content | Training completion certificates | Week 14 |
 | **Go-Live** | Operational Handover | Production environment handover | Customer operations team ready | Week 15 |
 
+*Note: Timeline examples shown above. Actual project timelines, deliverables, and acceptance criteria are detailed in the specific Work Order and ICCA documentation for each engagement.*
+
 ### Customer Team Requirements
 
 **Customer Responsibilities During Handover:**
@@ -118,21 +127,26 @@ ZirconTech provides comprehensive knowledge transfer and training services to en
 | **Business Analyst** | User acceptance testing, business validation | 5-10 hours/week |
 
 **Customer Acceptance Responsibilities:**
+
 - Participate in all scheduled training sessions
 - Complete knowledge transfer validation activities
 - Provide feedback on documentation and procedures
 - Execute formal acceptance testing procedures
 - Sign off on milestone deliverables and final acceptance
 
+*Note: Customer team availability requirements are examples. Actual resource requirements and responsibilities are specified in the Work Order and ICCA documentation for each project.*
+
 ### Warranty and Support Terms
 
 **30-Day Warranty Period:**
+
 - Defect resolution at no additional cost
 - Support for issues related to delivered solution
 - Documentation updates and corrections
 - Additional training if gaps identified
 
 **Post-Go-Live Support:**
+
 - Transition to operational support model
 - Knowledge transfer validation period
 - Performance monitoring and optimization
