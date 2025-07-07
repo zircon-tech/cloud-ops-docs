@@ -2,6 +2,27 @@
 requirements.csv
 requirements.csv.backup*
 scripts/sync_requirements.py
+scripts/enhance_csv_responses.py
+
+# Only allow .md files in docs/ directory and mkdocs.yml - ignore everything else
+# MkDocs dependencies (but keep mkdocs.yml)
+requirements.txt
+
+# Generated site content
+site/
+
+# Scripts directory
+scripts/
+
+# CSV files anywhere
+*.csv
+*.CSV
+
+# Python scripts anywhere (except in allowed directories)
+*.py
+
+# Other project directories that aren't documentation
+suku/
 
 # Python
 __pycache__/
@@ -35,7 +56,22 @@ ENV/
 .idea/
 *.swp
 *.swo
+.cursor/
 
 # OS
 .DS_Store
-Thumbs.db 
+Thumbs.db
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# Backup files
+*.bak
+*.backup
+
+# Configuration files that shouldn't be shared
+config.json
+*.config
+.env 

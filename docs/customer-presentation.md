@@ -3,199 +3,239 @@ id: POV-001
 title: "Customer Presentation"
 ---
 
-# Customer Presentation
+# ZirconTech - AWS Cloud Operations Capabilities
 
-## Purpose
+## Company Overview
 
-Our customer presentation methodology provides enterprise-grade processes and tooling that scale with your organization's AWS adoption.
+### Who We Are
+ZirconTech brings **more than 8 years of delivery experience** across web, mobile, blockchain, and cloud technologies as an **AWS Select Partner**. Our multidisciplinary team has successfully completed **100+ projects** for clients across **America and Europe**.
 
-## Methodology & Process
+### Company History
+Founded in **2016** when CEO Andrés Zunino joined forces with blockchain expert Alejandro Narancio to launch ZirconTech. The company was established to help enterprises adopt blockchain, cloud, and AI technologies at scale, with a focus on AWS-native solutions.
 
-### Discovery and Assessment
+### Global Presence
+**Headquarters**: Montevideo, Uruguay  
+**Service Regions**: North America, South America, and Europe  
+**Delivery Model**: Remote-first with near-shore time-zone overlap for American clients
 
-We begin with comprehensive discovery to understand your current environment, identify requirements, and establish success criteria that align with business objectives.
+### Team Profile
+- **50+ Technology Professionals**
+- **AWS-Certified Solutions Architects and Engineers**
+- **Multidisciplinary Expertise**: Cloud, Blockchain, AI/ML, DevOps
+- **Industry Experience**: Financial Services, Healthcare, Real Estate, Web3
 
-### Design and Implementation
+## Our Management Team
 
-Our implementation approach prioritizes automation, consistency, and maintainability, using infrastructure-as-code and proven architectural patterns.
+### Andrés Zunino – Chief Executive Officer
+Civil Engineer with Business Administration background and proven experience in sales and operations of technology companies. Previously ran multi-country operations at **Ericsson** before turning to tech entrepreneurship. Member of the **Forbes Technology Council**, writing on digital transformation and data security.
 
-### Monitoring and Optimization
+### Martín Machin – Managing Partner
+Mentor, investor, and advisor to high-growth tech companies. As Managing Partner at Pyxis, transformed the firm into Uruguay's fastest-growing IT provider. Founded and led **Tata Consultancy Services' Global Delivery Center** in Montevideo, with previous leadership roles at **IBM** and major financial institutions.
 
-Continuous monitoring ensures implementations remain effective over time, with regular reviews and optimization recommendations.
+### Williams Olivera – Chief Technology Officer
+Senior software and solutions architect driving ZirconTech's **AWS-first technology strategy**. Early advocate of cloud-native architectures, leading adoption of AWS services for scalable, secure deployments. Computer Science engineer with extensive experience in AWS Well-Architected frameworks.
 
+### Marcelo Acosta – Chief Operating Officer
+Directs sales, delivery and operations, embedding **AWS Well-Architected and cost-optimization practices** across all client projects. Previously scaled Chilean fintech Pago Fácil as Sales Director and CISO. Holds MBA from Edinburgh Business School with AWS, machine-learning, and blockchain credentials.
 
+### Alejandro Narancio – Board Member & Advisor
+Recognized thought leader in blockchain and decentralised infrastructure. Co-Founder & CEO of Infuy, RSK ambassador and RIF product owner. Nearly a decade with **Tata Consultancy Services** delivering mission-critical solutions for U.S. financial-services clients.
 
-## Technology Stack
+## Customer Profile
 
-| Layer | AWS Services | Alternative Options |
-|-------|--------------|--------------------|
-| **Core** | Amazon CloudWatch, AWS CloudFormation, AWS IAM, Amazon VPC | |
-| **Third-Party** | — | Third-party tools (As required) |
+### Client Demographics
+- **100+ Completed Projects**
+- **Client Regions**: North America (60%), South America (30%), Europe (10%)
+- **Company Sizes**: Startups to Fortune 500 enterprises
+- **Industries**: Financial Services, Web3/Blockchain, Real Estate, Healthcare, SaaS
 
+### Industry Expertise
+- **Financial Services**: Payment platforms, custody solutions, compliance frameworks
+- **Web3/Blockchain**: Token platforms, creator economies, real estate tokenization
+- **Healthcare**: HIPAA-compliant platforms, secure data processing
+- **SaaS Platforms**: Multi-tenant architectures, scalable APIs
 
-## 1. Business Development Presentation
+## AWS Cloud Operations Practice Overview
 
-### Executive Overview Presentation
+### Core Capabilities
 
-#### Company Introduction (3 minutes)
-- **Company Mission**: Accelerating digital transformation through cloud-native solutions
-- **AWS Partnership**: Advanced Consulting Partner with deep technical expertise
-- **Industry Focus**: Enterprise customers across financial services, healthcare, and manufacturing
-- **Track Record**: 500+ successful AWS implementations, 99% customer satisfaction
+#### 1. AWS-Native Architecture Design
+- **Serverless-First Approach**: Lambda, API Gateway, EventBridge for event-driven architectures
+- **Container Orchestration**: ECS/Fargate, AppRunner for scalable microservices
+- **Multi-Account Strategy**: AWS Organizations, Control Tower, Service Control Policies
 
-#### Service Portfolio (5 minutes)
-- **Cloud Foundation Services**: Landing zone design, multi-account strategy, security baseline
-- **Migration and Modernization**: Application migration, containerization, serverless adoption
-- **Data and Analytics**: Data lake implementation, ML/AI solutions, business intelligence
-- **DevOps and Automation**: CI/CD pipelines, infrastructure as code, monitoring and observability
+#### 2. Cost Optimization Excellence
+- **FinOps Implementation**: Tag-based budgets, consolidated billing, Cost Categories
+- **Resource Optimization**: Right-sizing, Reserved Instances, Savings Plans
+- **Cost Visibility**: QuickSight dashboards using CUR + Athena for detailed analysis
 
-#### Unique Value Proposition (4 minutes)
-- **Proven Methodology**: Battle-tested frameworks based on AWS Well-Architected principles
-- **Certified Expertise**: Team of AWS-certified solutions architects and engineers
-- **Industry Knowledge**: Deep understanding of regulatory requirements and business needs
-- **Partnership Approach**: Collaborative engagement model with knowledge transfer focus
+#### 3. Security & Compliance
+- **Preventive Controls**: SCPs, IAM roles, KMS encryption, Secrets Manager
+- **Detective Controls**: GuardDuty, AWS Config Rules, Security Hub
+- **Compliance Frameworks**: SOC-2, HIPAA, financial services regulations
 
-#### Customer Success Stories (2 minutes)
-- **Financial Services**: Multi-account governance implementation reducing compliance audit time by 60%
-- **Healthcare**: HIPAA-compliant data platform processing 10TB daily with 99.99% uptime
-- **Manufacturing**: IoT analytics platform reducing operational costs by 25% through predictive maintenance
+#### 4. Observability & Monitoring
+- **Full-Stack Monitoring**: CloudWatch, X-Ray, custom metrics and dashboards
+- **Alerting & Automation**: CloudWatch Alarms, Lambda-based auto-remediation
+- **Performance Optimization**: Service-level KPIs, latency tracking
 
-#### Engagement Model (1 minute)
-- **Discovery Phase**: Comprehensive assessment of current state and requirements
-- **Design Phase**: Target state architecture and implementation roadmap
-- **Implementation Phase**: Phased deployment with regular milestone reviews
-- **Optimization Phase**: Ongoing support and continuous improvement
+#### 5. Infrastructure as Code
+- **Multi-Framework Expertise**: Terraform, CloudFormation, Serverless Framework
+- **CI/CD Pipelines**: GitHub Actions, CodePipeline, automated deployments
+- **Environment Management**: Dev, staging, prod separation with automated promotion
 
-### Key Differentiators
+## AWS-Specific Differentiators
 
-#### Technical Excellence
-- **AWS Competencies**: Validated expertise in key technical domains
-- **Best Practices**: Implementation of AWS Well-Architected framework
-- **Innovation**: Early adoption of new AWS services and capabilities
-- **Quality Assurance**: Rigorous testing and validation processes
+### What Makes Our AWS Practice Unique
 
-#### Business Focus
-- **ROI Driven**: Clear business case and value realization metrics
-- **Risk Mitigation**: Proven risk management and issue resolution processes
-- **Stakeholder Management**: Executive and technical stakeholder engagement
-- **Change Management**: Organizational change and adoption support
+#### 1. AWS Well-Architected Framework Integration
+**Unique Capability**: Every project includes formal Well-Architected reviews across all five pillars (Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization). We don't just implement AWS services – we architect solutions that follow AWS best practices from day one.
 
-### Next Steps
+#### 2. Advanced Cost Engineering
+**AWS-Only Advantage**: Deep expertise in AWS billing complexities, using native tools like Cost Explorer, Budgets, and Cost Categories combined with custom QuickSight dashboards. Our FinOps approach leverages AWS-specific features that can't be replicated on other cloud platforms.
 
-#### Immediate Actions
-1. **Technical Deep Dive**: Detailed discussion of requirements and solution approach
-2. **Reference Calls**: Conversations with similar customers about their experience
-3. **Proposal Development**: Customized solution proposal with timeline and pricing
-4. **Pilot Project**: Small-scale implementation to demonstrate value and approach
+#### 3. Multi-Account Governance at Scale
+**AWS Organizations Mastery**: Proven expertise in designing and implementing enterprise-grade multi-account strategies using AWS Organizations, Control Tower, and Service Control Policies. This level of account governance and automation is uniquely possible on AWS.
 
-#### Success Metrics
-- **Technical Metrics**: Performance, availability, security, compliance scores
-- **Business Metrics**: Cost reduction, time to market, operational efficiency
-- **Adoption Metrics**: User adoption, training completion, knowledge transfer success
-- **Satisfaction Metrics**: Stakeholder feedback, NPS scores, reference willingness
+#### 4. Event-Driven Architecture Excellence
+**AWS Native Integration**: Expertise in building complex event-driven systems using EventBridge, SQS, SNS, and Lambda that leverage AWS's native event routing capabilities for scalable, loosely-coupled architectures.
 
+### Why Choose Our AWS Practice
 
+#### 1. Clear and Continuous Communication
+- **Real-time Integration**: Slack/Teams integration with 30-minute response SLA
+- **Business Hours Availability**: Aligned time zones for American clients
+- **Weekly Demos**: Regular stakeholder alignment sessions
+- **Escalation Path**: Two-hour escalation for critical issues
 
-## Implementation Phases
+#### 2. Control of Project Deliverables
+- **Real-time Visibility**: Shared Jira boards and transparent metrics
+- **Agile Ceremonies**: Sprint planning, daily standups, retrospectives
+- **Near-shore Advantage**: Time-zone overlap for real-time collaboration
+- **Budget Transparency**: Detailed burn-down tracking and risk management
 
-| Phase | Duration | Key Activities | Deliverables |
-|-------|----------|----------------|--------------|
-| 1. Discovery | 1-2 weeks | Requirements gathering, current state assessment | Discovery document, requirements matrix |
-| 2. Design | 2-3 weeks | Architecture design, tool selection, process definition | Design document, implementation plan |
-| 3. Implementation | 3-6 weeks | Deployment, configuration, testing, validation | Working solution, documentation |
-| 4. Knowledge Transfer | 1 week | Training, handover, ongoing support planning | Training materials, runbooks |
+#### 3. On-time Delivery
+- **Focused Discovery**: Scope locking and talent matching
+- **Continuous Integration**: Automated quality gates and testing
+- **AWS Well-Architected Reviews**: Early issue detection and resolution
+- **Proven Track Record**: Consistent on-time or early delivery
 
-## Deliverables
+#### 4. Low-risk Engagement
+- **IP Protection**: 100% intellectual property assignment to clients
+- **SOC-2 Ready Processes**: Enterprise-grade security and compliance
+- **Transparent Pricing**: Clear cost tracking and change control
+- **Data Security**: End-to-end data protection protocols
 
-1. **Customer Presentation Methodology Document** (this document)
-2. **Implementation Runbook** (see Implementation Artifacts section)
-3. **Infrastructure as Code** templates (see Implementation Artifacts section)
-4. **Configuration Standards** and baseline policies (see Implementation Artifacts section)
-5. **Knowledge Transfer Session** recording and materials
+## Notable AWS Projects
 
-## Implementation Artifacts
+### 1. SUKU – Web3 Infrastructure Platform
 
+**Overview**: Suite of Web3 tools and APIs connecting traditional users to blockchain capabilities, including Twitter minting bot and SUKU Pay API for stablecoin payments.
 
-## Implementation Runbook
+**AWS Architecture Highlights**:
+- **Serverless-First**: AWS Lambda and API Gateway for scalability and event-driven operation
+- **Multi-Account Setup**: AWS Organizations separating dev/staging/prod environments
+- **Data Layer**: Amazon RDS (PostgreSQL) + MongoDB Atlas via VPC peering
+- **Security**: Secrets Manager and SSM Parameter Store for secure configuration
+- **Observability**: CloudWatch, X-Ray tracing, custom dashboards by service
+- **Cost Controls**: Tag-based budgets, QuickSight dashboards using CUR+Athena
 
-### Prerequisites
-- AWS CLI configured with appropriate permissions
-- Terraform/CloudFormation deployment tools
-- Access to target AWS accounts
+**Operational Excellence**:
+- **IaC**: Serverless Framework with staged deployments
+- **CI/CD**: GitHub Actions for automated testing and deployment
+- **Security**: GuardDuty, AWS Config Rules, Service Control Policies
+- **FinOps**: Regular Lambda cost-per-function and RDS throughput reviews
 
-### Step 1: Assessment and Planning
-1. Review current environment architecture
-2. Identify compliance requirements and constraints  
-3. Create implementation timeline and resource allocation
-4. Validate prerequisite services and permissions
+### 2. MITH – Social + Blockchain Creator Platform
 
-### Step 2: Foundation Setup
-1. Deploy base infrastructure components
-2. Configure monitoring and logging
-3. Implement security baselines
-4. Test connectivity and access
+**Overview**: Creator-first social platform enabling content posting, community participation, and live interactions with blockchain-based reward traceability.
 
-### Step 3: Customer Presentation Implementation
-1. Deploy core customer presentation components
-2. Configure automation and workflows
-3. Implement monitoring and alerting
-4. Validate functionality and performance
+**AWS Architecture Highlights**:
+- **Containerized Microservices**: Amazon AppRunner for scalable service deployment
+- **Frontend**: AWS Amplify for web application hosting and deployment
+- **Event-Driven**: EventBridge and Kinesis Video Streams for notifications and streaming
+- **Database**: DynamoDB for high-performance user activity tracking, RDS for metadata
+- **Authentication**: AWS Cognito with IAM federation for secure access
+- **Monitoring**: CloudWatch + X-Ray for performance and latency tracking
 
-### Step 4: Testing and Validation
-1. Execute comprehensive test scenarios
-2. Validate security and compliance controls
-3. Performance testing and optimization
-4. Document configuration and operational procedures
+**Operational Excellence**:
+- **IaC**: Terraform including full ECS cluster provisioning
+- **KPIs**: Content delivery latency, video uptime, transaction success rates
+- **Security**: WAF, Security Hub with auto-remediation of critical findings
+- **Cost Management**: Team-based tagging (infra, content, payments) with Cost Categories
 
-### Step 5: Go-Live and Handover
-1. Production deployment coordination
-2. User training and documentation handover
-3. Establish ongoing support procedures
-4. Schedule periodic review and optimization
+### 3. RedSwan – Real Estate Tokenization Platform
 
+**Overview**: Blockchain-based investment platform for real estate tokenization, facilitating investor onboarding, broker management, and smart contract operations.
 
+**AWS Architecture Highlights**:
+- **Compute Evolution**: EC2/Elastic Beanstalk transitioning to Lambda-based services
+- **Integration**: Secure APIs with Fireblocks and on-chain custody solutions
+- **Data Storage**: Amazon RDS (MySQL) primary data, S3 for contracts and compliance PDFs
+- **Security**: IAM roles and AWS KMS for wallet API key management
+- **Compliance**: AWS Config enforcing encryption, MFA, and tagging requirements
 
-## Configuration Standards
+**Operational Excellence**:
+- **TCO Optimization**: Assessment showing ~60% cost reduction potential with Lambda migration
+- **Environment Management**: Control Tower for sandbox environments with budget alerts
+- **Observability**: End-to-end asset onboarding time, token issuance events, broker activity dashboards
+- **Governance**: Central logging via CloudTrail across all accounts
 
-### Baseline Security Policies
+### 4. Repose – Funeral Planning Platform
 
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "EnforceCustomerPresentationSecurity",
-      "Effect": "Deny", 
-      "Action": "*",
-      "Resource": "*",
-      "Condition": {
-        "Bool": {
-          "aws:SecureTransport": "false"
-        }
-      }
-    }
-  ]
-}
-```
+**Overview**: SaaS platform helping funeral homes and customers organize services, compare plans, access providers via map-based search, and manage logistics digitally.
 
-### Tagging Standards
+**AWS Architecture Highlights**:
+- **Multi-Account Setup**: AWS Organizations with environment separation
+- **Container Orchestration**: ECS with Fargate for scalable microservices
+- **Database**: RDS (PostgreSQL) for transactional data
+- **API Management**: API Gateway for public endpoints
+- **Global Distribution**: Route 53 + CloudFront across U.S. regions
+- **Workflow Orchestration**: Step Functions for service booking and payment workflows
 
-```yaml
-required_tags:
-  - CostCenter: "String identifying cost allocation"
-  - Project: "Project or application identifier"
-  - Environment: "prod|staging|dev|test"
-  - Owner: "Team or individual responsible"
-  - DataClassification: "public|internal|confidential|restricted"
+**Operational Excellence**:
+- **CI/CD**: CodePipeline and CodeBuild with blue/green deployments
+- **Governance**: SCPs, AWS Config, Trusted Advisor integration
+- **Well-Architected**: Continuous improvement based on framework reviews
+- **FinOps**: Chargeback by product team, cost forecasting, automated tagging enforcement
+- **Monitoring**: Custom metrics including booking conversion rates
 
-enforcement:
-  method: "Service Control Policy + AWS Config Rules"
-  frequency: "Real-time prevention + daily compliance scan"
-```
+## Engagement Model
 
-## References
+### Discovery Phase
+- **Current State Assessment**: Architecture review, requirements gathering
+- **Stakeholder Alignment**: Success criteria definition and KPI establishment
+- **Risk Assessment**: Technical and business risk identification
+- **Timeline Planning**: Phased delivery approach with milestone definition
 
+### Design Phase
+- **Target State Architecture**: AWS Well-Architected framework application
+- **Solution Design**: Service selection and integration planning
+- **Implementation Roadmap**: Detailed project plan with dependencies
+- **Cost Optimization**: TCO analysis and optimization recommendations
 
----
+### Implementation Phase
+- **Phased Deployment**: Iterative delivery with regular milestone reviews
+- **Quality Assurance**: Automated testing and validation at each phase
+- **Monitoring Setup**: Observability and alerting configuration
+- **Security Implementation**: Preventive and detective controls deployment
 
-*Last updated: 02 Jul 2025*
+### Optimization Phase
+- **Performance Tuning**: Continuous monitoring and optimization
+- **Cost Management**: Ongoing FinOps practices and cost optimization
+- **Knowledge Transfer**: Team training and documentation handover
+- **Ongoing Support**: Maintenance and enhancement planning
+
+## Next Steps
+
+### Technical Deep Dive
+Schedule detailed discussion of your specific requirements and our recommended solution approach.
+
+### Reference Conversations
+Connect with similar customers to discuss their experience with ZirconTech's AWS Cloud Operations practice.
+
+### Pilot Project
+Consider a small-scale implementation to demonstrate our value proposition and delivery approach.
+
+### Proposal Development
+Receive a customized solution proposal with detailed timeline, team composition, and transparent pricing.
