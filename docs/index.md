@@ -1,3 +1,6 @@
+!!! warning "INTERNAL DOCUMENTATION"
+    This documentation is for internal ZirconTech use only and contains proprietary methodologies and customer information. Access is restricted to authorized personnel only.
+
 # Welcome to ZirconTech Cloud Operations
 
 **Empowering enterprise AWS transformations through proven methodologies and best practices.**

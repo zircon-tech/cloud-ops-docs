@@ -1,7 +1,7 @@
 site_name: ZirconTech Cloud Operations on AWS
-site_description: 'Enterprise AWS cloud operations methodologies and SOW examples'
+site_description: 'Internal documentation - Not for public access'
 site_author: 'ZirconTech'
-site_url: https://zircon-tech.github.io/cloud-ops-docs/
+# site_url: https://zircon-tech.github.io/cloud-ops-docs/  # Commented out to reduce discoverability
 
 theme:
   name: material
@@ -127,3 +127,15 @@ extra:
   - icon: fontawesome/brands/aws
     link: https://aws.amazon.com
     name: AWS
+  # Meta tags to prevent search engine indexing
+  meta:
+    robots: 'noindex, nofollow, noarchive, nosnippet, noimageindex'
+    googlebot: 'noindex, nofollow, noarchive, nosnippet, noimageindex'
+    bingbot: 'noindex, nofollow, noarchive, nosnippet, noimageindex'
+
+# Keep basic search functionality but discourage external indexing
+plugins:
+  - search
+
+# Disable sitemap generation to prevent search engines from discovering pages
+use_directory_urls: false
