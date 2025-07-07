@@ -5,163 +5,140 @@ title: "AWS Sales Engagement"
 
 # AWS Sales Engagement
 
-## Purpose
+## Overview
 
-Our aws sales engagement methodology provides enterprise-grade processes and tooling that scale with your organization's AWS adoption.
+ZirconTech's AWS sales engagement process defines how and when we collaborate with AWS sellers and Solutions Architects on opportunities, utilizing the AWS Opportunity Management tool in AWS Partner Central for sales qualified opportunities.
 
-## Methodology & Process
+## Sales Qualification Criteria (BANTC)
 
-### Discovery and Assessment
+Before engaging AWS resources, opportunities must be sales qualified with all required fields completed:
 
-We begin with comprehensive discovery to understand your current environment, identify requirements, and establish success criteria that align with business objectives.
+- **Budget**: Confirmed budget range and decision-making process
+- **Authority**: Identified decision-makers and approval workflow  
+- **Need**: Validated business need and technical requirements
+- **Timeline**: Defined project timeline and key milestones
+- **Competition**: Competitive landscape and positioning strategy
 
-### Design and Implementation
+## AWS Seller Engagement Process
 
-Our implementation approach prioritizes automation, consistency, and maintainability, using infrastructure-as-code and proven architectural patterns.
+### When We Engage AWS Sellers
 
-### Monitoring and Optimization
+#### Immediate Engagement Triggers
+- **Large Opportunities**: Deals exceeding enterprise-level annual commitments
+- **Strategic Accounts**: Enterprise companies or key industry targets
+- **Multi-Service Requirements**: Complex solutions requiring multiple AWS service portfolios
+- **Competitive Situations**: Active competition requiring AWS positioning support
 
-Continuous monitoring ensures implementations remain effective over time, with regular reviews and optimization recommendations.
+#### Timeline-Based Engagement
+- **Early Stage**: During initial discovery when technical architecture is being defined
+- **Proof of Concept Phase**: When AWS credits or sandbox environments are needed
+- **Proposal Development**: For pricing optimization and AWS program alignment
+- **Contract Negotiation**: For Enterprise Discount Programs or strategic pricing
 
+### How We Engage AWS Sellers
 
+#### Initial Contact Method
+1. **Direct Outreach**: Contact assigned AWS Account Manager or Demand Generation Rep
+2. **Opportunity Registration**: Submit opportunity in AWS Partner Central Opportunity Management tool
+3. **Context Sharing**: Provide BANTC qualification details and technical requirements
+4. **Collaboration Request**: Request specific support needed (pricing, positioning, resources)
 
-## Technology Stack
+#### Ongoing Collaboration
+- **Weekly Sync Calls**: Regular check-ins on opportunity progression
+- **Joint Customer Meetings**: Coordinated presentations and discovery sessions  
+- **Strategic Planning**: Quarterly account planning and opportunity pipeline reviews
+- **Deal Support**: AWS seller involvement in proposal development and contract negotiations
 
-| Layer | AWS Services | Alternative Options |
-|-------|--------------|--------------------|
-| **Core** | Amazon CloudWatch, AWS CloudFormation, AWS IAM, Amazon VPC | |
-| **Third-Party** | — | Third-party tools (As required) |
+## AWS Solutions Architect Engagement Process
 
+### When We Engage AWS Solutions Architects
 
-## 1. * A verbal description for how and when they engage AWS sellers or AWS Solutions Architects on an opportunity or in the form of a demonstration of the AWS Opportunity Management tool in AWS Partner Central with sales qualified opportunities submitted (sales qualified = budget, authority, need, timeline, and competition fields completed).
+#### Technical Engagement Triggers
+- **Architecture Design**: Complex multi-tier or hybrid cloud architectures
+- **Well-Architected Reviews**: Formal architecture validation and optimization
+- **Proof of Concept**: Technical validation requiring AWS expertise
+- **Migration Planning**: Application modernization or cloud migration projects
 
-### Overview
+#### Customer-Driven Requests
+- **Technical Deep Dives**: Customer requests for AWS architectural guidance
+- **Performance Optimization**: Existing workload optimization and cost reduction
+- **Compliance Requirements**: Regulatory or security compliance validation
+- **Innovation Workshops**: Exploration of emerging AWS services and capabilities
 
-Our aws sales engagement approach addresses this requirement through systematic implementation of AWS best practices and proven methodologies.
+### How We Engage AWS Solutions Architects
 
-### Implementation Details
+#### Engagement Process
+1. **Technical Brief**: Share current state architecture and requirements with AWS Solutions Architect
+2. **Joint Discovery**: Include Solutions Architect in customer technical discovery sessions
+3. **Architecture Collaboration**: Co-develop solution architecture and implementation approach
+4. **Customer Presentation**: Joint presentation of recommended architecture and approach
 
-The solution incorporates industry-standard practices for point_of_view with specific focus on:
+#### Deliverable Coordination
+- **Architecture Documents**: Collaborative development of solution designs
+- **Technical Proposals**: Joint authoring of technical sections in customer proposals
+- **Proof of Concept Planning**: Coordinated PoC definition and success criteria
+- **Implementation Support**: Ongoing architectural guidance during project delivery
 
-- **Automation**: Reducing manual effort through infrastructure as code
-- **Security**: Built-in security controls and compliance frameworks
-- **Scalability**: Elastic architecture that grows with business needs
-- **Monitoring**: Comprehensive observability and alerting
-- **Documentation**: Clear procedures and operational runbooks
+## AWS Partner Central Opportunity Management
 
-### Key Components
+### Opportunity Registration Process
 
-- **AWS Native Services**: Leveraging managed services for reliability and scale
-- **Custom Integration**: Tailored solutions for specific business requirements
-- **Best Practices**: Implementation following AWS Well-Architected principles
-- **Knowledge Transfer**: Comprehensive training and documentation
+#### Required Information Submission
+When registering opportunities in AWS Partner Central, we complete all mandatory fields:
 
-### Expected Outcomes
+1. **Customer Information**
+   - Company name, industry, and size
+   - Primary contacts and decision-makers
+   - Current AWS usage and maturity level
 
-The implementation delivers measurable improvements in operational efficiency, security posture, and business agility while reducing overall operational costs.
+2. **Opportunity Details**
+   - Project description and technical requirements
+   - Estimated AWS consumption and timeline
+   - Competitive landscape and positioning
 
+3. **BANTC Qualification**
+   - **Budget**: Validated budget range and funding source
+   - **Authority**: Confirmed decision-makers and approval process
+   - **Need**: Business drivers and technical requirements
+   - **Timeline**: Project milestones and go-live dates
+   - **Competition**: Identified competitors and differentiation strategy
 
+#### Opportunity Tracking and Updates
+- **Status Updates**: Weekly updates on opportunity progression through sales stages
+- **Milestone Reporting**: Key meeting outcomes, proposal submissions, and customer feedback
+- **Competitive Intelligence**: Updates on competitive positioning and win/loss factors
+- **Forecasting**: Probability assessments and revised timeline projections
 
-## Implementation Phases
+### Collaboration Workflow
 
-| Phase | Duration | Key Activities | Deliverables |
-|-------|----------|----------------|--------------|
-| 1. Discovery | 1-2 weeks | Requirements gathering, current state assessment | Discovery document, requirements matrix |
-| 2. Design | 2-3 weeks | Architecture design, tool selection, process definition | Design document, implementation plan |
-| 3. Implementation | 3-6 weeks | Deployment, configuration, testing, validation | Working solution, documentation |
-| 4. Knowledge Transfer | 1 week | Training, handover, ongoing support planning | Training materials, runbooks |
+#### Internal Process
+1. **Opportunity Identification**: ZirconTech SDR identifies and qualifies opportunity
+2. **BANTC Completion**: Full qualification of Budget, Authority, Need, Timeline, Competition
+3. **AWS Registration**: Submit qualified opportunity in AWS Partner Central
+4. **Resource Request**: Identify specific AWS seller and Solutions Architect support needed
+5. **Joint Planning**: Coordinate approach and resource allocation with AWS team
 
-## Deliverables
+#### Customer Engagement
+1. **Discovery Collaboration**: Joint customer meetings with AWS Solutions Architect
+2. **Solution Development**: Collaborative architecture design and proposal development
+3. **Presentation Coordination**: Joint customer presentations and technical deep dives
+4. **Proposal Support**: AWS seller involvement in pricing and contract negotiations
+5. **Implementation Planning**: Coordinated project kick-off and delivery approach
 
-1. **AWS Sales Engagement Methodology Document** (this document)
-2. **Implementation Runbook** (see Implementation Artifacts section)
-3. **Infrastructure as Code** templates (see Implementation Artifacts section)
-4. **Configuration Standards** and baseline policies (see Implementation Artifacts section)
-5. **Knowledge Transfer Session** recording and materials
+### Success Metrics and Tracking
 
-## Implementation Artifacts
+#### Opportunity Management KPIs
+- **Registration Timeline**: Opportunities registered promptly after BANTC completion
+- **AWS Response Time**: Rapid AWS resource assignment and response
+- **Joint Activity Rate**: High percentage of registered opportunities include joint customer activities
+- **Win Rate**: Improved win rate on opportunities with active AWS collaboration
 
-
-## Implementation Runbook
-
-### Prerequisites
-- AWS CLI configured with appropriate permissions
-- Terraform/CloudFormation deployment tools
-- Access to target AWS accounts
-
-### Step 1: Assessment and Planning
-1. Review current environment architecture
-2. Identify compliance requirements and constraints  
-3. Create implementation timeline and resource allocation
-4. Validate prerequisite services and permissions
-
-### Step 2: Foundation Setup
-1. Deploy base infrastructure components
-2. Configure monitoring and logging
-3. Implement security baselines
-4. Test connectivity and access
-
-### Step 3: AWS Sales Engagement Implementation
-1. Deploy core aws sales engagement components
-2. Configure automation and workflows
-3. Implement monitoring and alerting
-4. Validate functionality and performance
-
-### Step 4: Testing and Validation
-1. Execute comprehensive test scenarios
-2. Validate security and compliance controls
-3. Performance testing and optimization
-4. Document configuration and operational procedures
-
-### Step 5: Go-Live and Handover
-1. Production deployment coordination
-2. User training and documentation handover
-3. Establish ongoing support procedures
-4. Schedule periodic review and optimization
-
-
-
-## Configuration Standards
-
-### Baseline Security Policies
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "EnforceAWSSalesEngagementSecurity",
-      "Effect": "Deny", 
-      "Action": "*",
-      "Resource": "*",
-      "Condition": {
-        "Bool": {
-          "aws:SecureTransport": "false"
-        }
-      }
-    }
-  ]
-}
-```
-
-### Tagging Standards
-
-```yaml
-required_tags:
-  - CostCenter: "String identifying cost allocation"
-  - Project: "Project or application identifier"
-  - Environment: "prod|staging|dev|test"
-  - Owner: "Team or individual responsible"
-  - DataClassification: "public|internal|confidential|restricted"
-
-enforcement:
-  method: "Service Control Policy + AWS Config Rules"
-  frequency: "Real-time prevention + daily compliance scan"
-```
-
-## References
-
+#### Collaboration Effectiveness
+- **Customer Satisfaction**: Post-engagement feedback on AWS team involvement
+- **Technical Quality**: Solutions Architect assessment of architecture quality
+- **Sales Velocity**: Reduced sales cycle time with AWS collaboration
+- **Deal Size**: Average deal size increase with AWS seller involvement
 
 ---
 
-*Last updated: 02 Jul 2025*
+*Last updated: December 2024*
