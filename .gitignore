@@ -8,6 +8,9 @@ scripts/enhance_csv_responses.py
 # MkDocs dependencies (but keep mkdocs.yml)
 requirements.txt
 
+# Temporary docs that should not be synced
+docs/temp/
+
 # Generated site content
 site/
 
