@@ -48,16 +48,16 @@ ZirconTech assigns dedicated Project Managers to each AWS Cloud Operations proje
 
 | Project Code | Project Type | PM Assigned | Assignment Date | Project Duration | Status |
 |--------------|--------------|-------------|----------------|------------------|--------|
-| **PROJ-001** | Web3 Infrastructure Platform | M. Acosta | 2023-Q1 | 8 months | Completed |
-| **PROJ-002** | Social + Blockchain Creator Platform | M. Acosta | 2023-Q2 | 6 months | Completed |
-| **PROJ-003** | Real Estate Tokenization Platform | M. Acosta | 2023-Q3 | 10 months | Completed |
-| **PROJ-004** | Funeral Planning SaaS Platform | M. Acosta | 2024-Q1 | 7 months | Completed |
+| **PROJ-001** | Web3 Infrastructure Platform | Lead PM | 2023-Q1 | 8 months | Completed |
+| **PROJ-002** | Social + Blockchain Creator Platform | Lead PM | 2023-Q2 | 6 months | Completed |
+| **PROJ-003** | Real Estate Tokenization Platform | Lead PM | 2023-Q3 | 10 months | Completed |
+| **PROJ-004** | Funeral Planning SaaS Platform | Lead PM | 2024-Q1 | 7 months | Completed |
 
 ### Project Manager Profile
 
-**Marcelo Acosta - Chief Operating Officer & Lead Project Manager**
-- **Background**: MBA from Edinburgh Business School, AWS certifications, 15+ years in technology delivery
-- **Experience**: Previously scaled Chilean fintech Pago Fácil as Sales Director and CISO
+**Lead Project Manager**
+- **Background**: MBA-level education, AWS certifications, 15+ years in technology delivery
+- **Experience**: Previously scaled fintech operations in executive roles
 - **AWS Expertise**: AWS Well-Architected Framework, cost optimization, security compliance
 - **Project Management**: Agile methodologies, stakeholder management, risk mitigation
 
