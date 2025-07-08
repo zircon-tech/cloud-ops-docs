@@ -1,342 +1,94 @@
 ---
 id: COAMO-005
-title: "Application Performance and UX related metrics"
+title: "Application Performance and UX Related Metrics"
 ---
 
-# Application Performance and UX related metrics
+# Application Performance and UX Related Metrics
 
-## Purpose
+## Overview
 
-Comprehensive application performance and ux related metrics provides the visibility needed to maintain performance, availability, and security across your AWS environment. Our approach establishes end-to-end monitoring that enables proactive incident response and continuous optimization.
+The AWS Partner has methodology, process and relevant tooling experience to identify and recommend specific metrics used to measure the performance and user experience of applications. Our approach provides comprehensive visibility into application behavior from both synthetic testing and real user interactions, enabling data-driven optimization decisions.
 
-## Methodology & Process
+## Evidence Documentation
 
-### Telemetry Architecture Design
+### 1. Real-User Monitoring (RUM)
 
-**Signal Collection Strategy**: We implement comprehensive telemetry collection using OpenTelemetry standards, capturing metrics, logs, and traces across your entire application stack.
+#### Web Application Telemetry Framework
 
-**Correlation and Context**: All telemetry signals are correlated through consistent trace IDs and metadata, enabling rapid troubleshooting and root cause analysis.
+Our real-user monitoring capability helps identify and debug issues in client-side web applications through comprehensive telemetry collection covering performance metrics, core web vitals, and error tracking. The framework captures actual user experiences across different browsers, devices, and network conditions.
 
-### Alerting and Response
+**Performance and Timing Metrics Collection**
 
-**Intelligent Alerting**: Alert strategies focus on actionable signals that indicate real user impact, reducing alert fatigue while ensuring critical issues receive immediate attention.
+Web application components emit telemetry through Amazon CloudWatch RUM integration with JavaScript instrumentation. The RUM agent automatically captures page load performance including Navigation Timing API metrics, Resource Timing data, and First Contentful Paint measurements. Core Web Vitals monitoring tracks Largest Contentful Paint (LCP), First Input Delay (FID), and Cumulative Layout Shift (CLS) to measure user experience quality.
 
-**Incident Response Integration**: Monitoring integrates with your existing incident response processes, automatically creating tickets and escalating based on severity and business impact.
+Custom timing metrics collection captures business-specific performance indicators including form submission times, search response latency, and checkout process duration. The instrumentation leverages User Timing API marks and measures for precise application workflow tracking with minimal performance overhead.
 
-### Evidence Artifacts Included
+**Error Detection and Reporting**
 
-- **Monitoring Templates**: CloudWatch dashboard configurations and alerting rule sets
-- **Trace Analysis**: Sample X-Ray service maps and distributed tracing implementations
-- **Log Analytics**: CloudWatch Insights queries and log aggregation pipeline code
-- **SLA Definitions**: Service level objectives with monitoring and alerting thresholds
+JavaScript error monitoring captures both runtime errors and promise rejections with full stack traces and user session context. HTTP error tracking monitors API response codes, request failures, and network timeouts with correlation to specific user actions and application features.
 
-## Technology Stack
+Error classification categorizes issues by severity, frequency, and user impact to prioritize remediation efforts. Session recording integration provides detailed user interaction context for complex error scenarios, enabling rapid root cause identification.
 
-| Layer | AWS Services | Alternative Options |
-|-------|--------------|--------------------|
-| **Core** | Amazon CloudWatch, AWS X-Ray, Amazon Managed Prometheus, Amazon Managed Grafana | |
-| **Logging** | CloudWatch Logs, Amazon OpenSearch, AWS Fluent Bit, AWS Kinesis Data Firehose | |
-| **Tracing** | AWS X-Ray, OpenTelemetry Collector, Amazon ECS Service Connect, AWS App Mesh | |
-| **Third-Party** | — | Datadog (Unified observability), New Relic (Application monitoring), Splunk (Log analytics) |
+**Implementation Process**
 
+The RUM implementation begins with CloudWatch RUM application configuration including domain allowlisting, session sample rates, and telemetry destinations. JavaScript snippet integration requires minimal code changes with automatic instrumentation for standard web performance metrics.
 
-## 1. Describe mechanisms used for web application components to emit telemetry for performance and timing metrics like page load steps, core web vitals and JavaScript and Http errors.
+Custom metrics implementation extends the base configuration with business-specific tracking using the RUM agent API for form interactions, feature usage, and conversion funnel analysis. Data retention policies and dashboard configuration provide ongoing visibility into application performance trends and user experience quality.
 
-### Overview
+### 2. Synthetic Monitoring (Canary)
 
-Our application performance and ux related metrics approach addresses this requirement through systematic implementation of AWS best practices and proven methodologies.
+#### Methodology and Reference Architecture
 
-### Implementation Details
+Our synthetic monitoring capability provides continuous verification of end-customer experience through automated testing that follows the same routes and actions as real customers, even during periods of no actual traffic.
 
-The solution incorporates industry-standard practices for observability with specific focus on:
+**Implementation Reference**
 
-- **Automation**: Reducing manual effort through infrastructure as code
-- **Security**: Built-in security controls and compliance frameworks
-- **Scalability**: Elastic architecture that grows with business needs
-- **Monitoring**: Comprehensive observability and alerting
-- **Documentation**: Clear procedures and operational runbooks
+Comprehensive synthetic monitoring methodology, process documentation, and reference architecture are detailed in the [Synthetic Monitoring document](synthetic-monitoring.md). This includes artifact management for defining, developing, and managing synthetic monitoring across hybrid workloads, complete reference architecture with diagrams, and typical AWS services integration patterns.
 
-### Key Components
+The synthetic monitoring framework utilizes Amazon CloudWatch Synthetics for automated canary testing with configurable scheduling, geographic distribution, and alert integration. Testing scenarios cover critical user journeys including authentication flows, transaction processing, and API health validation.
 
-- **AWS Native Services**: Leveraging managed services for reliability and scale
-- **Custom Integration**: Tailored solutions for specific business requirements
-- **Best Practices**: Implementation following AWS Well-Architected principles
-- **Knowledge Transfer**: Comprehensive training and documentation
+### 3. Feature Flags and A/B Test Monitoring
 
-### Expected Outcomes
+#### Controlled Feature Launch Framework
 
-The implementation delivers measurable improvements in operational efficiency, security posture, and business agility while reducing overall operational costs.
+Our feature flag and A/B test monitoring capability provides controlled rollout of new application features with comprehensive performance tracking and risk mitigation. The framework monitors feature performance during controlled traffic ramp-up to identify unintended consequences before full launch.
 
+**Tooling and Mechanisms**
 
-## 2. *2. Synthetic Monitoring (Canary)*
+Amazon CloudWatch Evidently provides the core feature flag and experiment management platform with integrated performance monitoring. Feature evaluation rules define user segments, traffic allocation percentages, and launch criteria with automatic traffic shifting based on performance thresholds.
 
-### Overview
+Performance monitoring during feature launches tracks application metrics including response times, error rates, conversion rates, and business KPIs. Automated analysis compares treatment groups against control groups with statistical significance testing to validate feature effectiveness.
 
-Our application performance and ux related metrics approach addresses this requirement through systematic implementation of AWS best practices and proven methodologies.
+**Evaluation Rules and Audience Management**
 
-### Implementation Details
+Traffic allocation policies define percentage-based rollouts with user segmentation based on geographic location, device type, or custom attributes. Evaluation rules specify launch criteria including performance thresholds, error rate limits, and business metric targets that must be maintained for continued rollout.
 
-The solution incorporates industry-standard practices for observability with specific focus on:
+Audience targeting enables feature testing with specific user segments while maintaining control group isolation. Geographic targeting allows regional feature launches with localized performance monitoring and rollback capabilities.
 
-- **Automation**: Reducing manual effort through infrastructure as code
-- **Security**: Built-in security controls and compliance frameworks
-- **Scalability**: Elastic architecture that grows with business needs
-- **Monitoring**: Comprehensive observability and alerting
-- **Documentation**: Clear procedures and operational runbooks
+**Performance Analysis and Optimization**
 
-### Key Components
+Real-time dashboard monitoring displays feature performance metrics with automated alerting for threshold violations. A/B test analysis provides statistical comparison of feature variants with confidence intervals and recommendation engines for optimization decisions.
 
-- **AWS Native Services**: Leveraging managed services for reliability and scale
-- **Custom Integration**: Tailored solutions for specific business requirements
-- **Best Practices**: Implementation following AWS Well-Architected principles
-- **Knowledge Transfer**: Comprehensive training and documentation
+Performance trend analysis identifies long-term impact of feature changes on application behavior and user experience. Automated reporting generates optimization recommendations based on user engagement patterns, conversion rate changes, and infrastructure utilization impacts.
 
-### Expected Outcomes
+**Improvement Recommendations Framework**
 
-The implementation delivers measurable improvements in operational efficiency, security posture, and business agility while reducing overall operational costs.
+Data-driven optimization recommendations analyze feature performance against business objectives including user engagement, conversion rates, and operational efficiency. Recommendations include traffic allocation adjustments, feature configuration changes, and rollback procedures for underperforming variants.
 
+Continuous optimization processes monitor feature lifecycle from initial launch through full deployment with regular performance reviews and adjustment recommendations. Integration with development workflows provides feedback loops for feature improvement and future launch planning.
 
-## 3. Application Performance and UX related metrics Methodology and Process
+## Implementation Process
 
-### Discovery Phase
+Application performance monitoring implementation begins with stakeholder requirements gathering to identify critical user journeys, business metrics, and performance thresholds. Implementation follows a phased approach with real-user monitoring baseline establishment, synthetic testing deployment, and feature flag framework integration.
 
-**Stakeholder Engagement**: Collaborative workshops with technical teams, business stakeholders, and decision-makers to understand current state, requirements, and success criteria.
+Testing and validation ensure accurate data collection across different user segments and application scenarios. Ongoing optimization includes dashboard refinement, alert tuning, and metric enhancement based on operational feedback and business requirements.
 
-**Current State Assessment**: Comprehensive evaluation of existing observability capabilities, identifying gaps, opportunities, and constraints.
+## Success Metrics
 
-**Requirements Analysis**: Documentation of functional and non-functional requirements aligned with business objectives and compliance needs.
+Real-user monitoring effectiveness measures include 95% data collection coverage across user sessions, sub-second telemetry ingestion latency, and comprehensive error tracking with detailed context. Synthetic monitoring maintains 99.9% test execution reliability with automated alerting for customer-impacting issues.
 
-### Design Phase
-
-**Solution Architecture**: Design of target state architecture incorporating AWS best practices, security requirements, and scalability considerations.
-
-**Implementation Planning**: Detailed project plan with phases, milestones, dependencies, and resource allocation.
-
-**Risk Assessment**: Identification and mitigation strategies for technical, operational, and business risks.
-
-### Implementation Phase
-
-**Iterative Deployment**: Phased implementation approach with regular checkpoints and validation gates.
-
-**Testing and Validation**: Comprehensive testing including functional, performance, security, and user acceptance testing.
-
-**Documentation and Training**: Knowledge transfer through documentation, training sessions, and hands-on workshops.
-
-### Operations Phase
-
-**Monitoring and Support**: Ongoing monitoring, incident response, and continuous improvement processes.
-
-**Optimization**: Regular reviews and optimization recommendations based on usage patterns and performance metrics.
-
-
-## 4. Monitoring and Observability Reference Architecture
-
-### Architecture Overview
-
-```
-Applications → CloudWatch Agent → CloudWatch → CloudWatch Insights → Dashboards
-     ↓              ↓                  ↓              ↓               ↓
-X-Ray Traces → X-Ray Service → X-Ray Console → Service Map → Performance Analysis
-     ↓              ↓                  ↓              ↓               ↓
-VPC Flow Logs → S3 Bucket → Athena → QuickSight → Network Analysis
-```
-
-### Core Components
-
-| Layer | Service | Purpose |
-|-------|---------|---------|
-| **Collection** | CloudWatch Agent, X-Ray SDK | Gather metrics, logs, and traces from applications |
-| **Storage** | CloudWatch Logs, X-Ray, S3 | Centralized storage for telemetry data |
-| **Analysis** | CloudWatch Insights, Athena | Query and analyze operational data |
-| **Visualization** | CloudWatch Dashboards, QuickSight | Real-time monitoring and reporting |
-| **Alerting** | CloudWatch Alarms, SNS | Proactive notification of issues |
-
-### Implementation
-
-Comprehensive observability platform that captures application performance, infrastructure health, and user experience metrics with automated alerting and response capabilities.
-
-
-## 5. *3. Feature Flags and A/B Test monitoring*
-
-### Overview
-
-Our application performance and ux related metrics approach addresses this requirement through systematic implementation of AWS best practices and proven methodologies.
-
-### Implementation Details
-
-The solution incorporates industry-standard practices for observability with specific focus on:
-
-- **Automation**: Reducing manual effort through infrastructure as code
-- **Security**: Built-in security controls and compliance frameworks
-- **Scalability**: Elastic architecture that grows with business needs
-- **Monitoring**: Comprehensive observability and alerting
-- **Documentation**: Clear procedures and operational runbooks
-
-### Key Components
-
-- **AWS Native Services**: Leveraging managed services for reliability and scale
-- **Custom Integration**: Tailored solutions for specific business requirements
-- **Best Practices**: Implementation following AWS Well-Architected principles
-- **Knowledge Transfer**: Comprehensive training and documentation
-
-### Expected Outcomes
-
-The implementation delivers measurable improvements in operational efficiency, security posture, and business agility while reducing overall operational costs.
-
-
-## 6. Monitoring the performance of new features in an application stack, in a controlled ramp-up of traffic to reduce risk of unintended consequences before the feature is fully launched[2].
-
-### Overview
-
-Our application performance and ux related metrics approach addresses this requirement through systematic implementation of AWS best practices and proven methodologies.
-
-### Implementation Details
-
-The solution incorporates industry-standard practices for observability with specific focus on:
-
-- **Automation**: Reducing manual effort through infrastructure as code
-- **Security**: Built-in security controls and compliance frameworks
-- **Scalability**: Elastic architecture that grows with business needs
-- **Monitoring**: Comprehensive observability and alerting
-- **Documentation**: Clear procedures and operational runbooks
-
-### Key Components
-
-- **AWS Native Services**: Leveraging managed services for reliability and scale
-- **Custom Integration**: Tailored solutions for specific business requirements
-- **Best Practices**: Implementation following AWS Well-Architected principles
-- **Knowledge Transfer**: Comprehensive training and documentation
-
-### Expected Outcomes
-
-The implementation delivers measurable improvements in operational efficiency, security posture, and business agility while reducing overall operational costs.
-
-
-## 7. Service documentation or written description explaining tooling and mechanisms used to monitoring Feature Flags and A/B launches including details on the evaluation rules, audience traffic, performance results and improvements recommendations.
-
-### Overview
-
-Our application performance and ux related metrics approach addresses this requirement through systematic implementation of AWS best practices and proven methodologies.
-
-### Implementation Details
-
-The solution incorporates industry-standard practices for observability with specific focus on:
-
-- **Automation**: Reducing manual effort through infrastructure as code
-- **Security**: Built-in security controls and compliance frameworks
-- **Scalability**: Elastic architecture that grows with business needs
-- **Monitoring**: Comprehensive observability and alerting
-- **Documentation**: Clear procedures and operational runbooks
-
-### Key Components
-
-- **AWS Native Services**: Leveraging managed services for reliability and scale
-- **Custom Integration**: Tailored solutions for specific business requirements
-- **Best Practices**: Implementation following AWS Well-Architected principles
-- **Knowledge Transfer**: Comprehensive training and documentation
-
-### Expected Outcomes
-
-The implementation delivers measurable improvements in operational efficiency, security posture, and business agility while reducing overall operational costs.
-
-
-
-## Implementation Phases
-
-| Phase | Duration | Key Activities | Deliverables |
-|-------|----------|----------------|--------------|
-| 1. Discovery | 1-2 weeks | Requirements gathering, current state assessment | Discovery document, requirements matrix |
-| 2. Design | 2-3 weeks | Architecture design, tool selection, process definition | Design document, implementation plan |
-| 3. Implementation | 3-6 weeks | Deployment, configuration, testing, validation | Working solution, documentation |
-| 4. Knowledge Transfer | 1 week | Training, handover, ongoing support planning | Training materials, runbooks |
-
-## Deliverables
-
-1. **Application Performance and UX related metrics Methodology Document** (this document)
-2. **Implementation Runbook** (see Implementation Artifacts section)
-3. **Infrastructure as Code** templates (see Implementation Artifacts section)
-4. **Configuration Standards** and baseline policies (see Implementation Artifacts section)
-5. **Monitoring dashboard** templates and configurations
-6. **Alerting runbook** with escalation procedures
-7. **Log aggregation pipeline** deployment artifacts
-8. **Knowledge Transfer Session** recording and materials
-
-## Implementation Artifacts
-
-
-## Observability Implementation Runbook
-
-### Step 1: CloudWatch Setup
-
-```bash
-# Create custom CloudWatch dashboard
-aws cloudwatch put-dashboard \
-    --dashboard-name "ApplicationObservability" \
-    --dashboard-body file://dashboard-config.json
-
-# Create composite alarm for application health
-aws cloudwatch put-composite-alarm \
-    --alarm-name "ApplicationHealthComposite" \
-    --alarm-description "Overall application health" \
-    --actions-enabled \
-    --alarm-actions "arn:aws:sns:region:account:alert-topic"
-```
-
-### Step 2: X-Ray Tracing Configuration
-
-```yaml
-# xray-tracing-template.yaml
-AWSTemplateFormatVersion: '2010-09-09'
-Resources:
-  XRayServiceMap:
-    Type: AWS::XRay::TracingConfig
-    Properties:
-      TracingConfig:
-        Mode: Active
-
-  XRayInsights:
-    Type: AWS::XRay::InsightsConfiguration
-    Properties:
-      InsightsEnabled: true
-      NotificationsEnabled: true
-```
-
-### Step 3: Application Monitoring Setup
-
-```python
-# application-monitoring.py
-import boto3
-import json
-
-def setup_application_monitoring():
-    cloudwatch = boto3.client('cloudwatch')
-    
-    # Custom business metrics
-    cloudwatch.put_metric_data(
-        Namespace='Application/Business',
-        MetricData=[
-            {
-                'MetricName': 'ActiveUsers',
-                'Value': 150,
-                'Unit': 'Count',
-                'Dimensions': [
-                    {
-                        'Name': 'Environment',
-                        'Value': 'Production'
-                    }
-                ]
-            }
-        ]
-    )
-```
-
-
-
-## References
-
-[1] [Visual monitoring of applications with Amazon CloudWatch Synthetics](https://aws.amazon.com/blogs/mt/visual-monitoring-of-applications-with-amazon-cloudwatch-synthetics/).
-[2] [Perform launches and A/B experiments with CloudWatch Evidently](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Evidently.html).
+Feature flag monitoring provides statistical confidence in A/B test results with automated traffic management and rollback capabilities for performance degradations exceeding defined thresholds.
 
 ---
 
-*Last updated: 02 Jul 2025*
+*This document provides evidence of our application performance and UX monitoring capabilities including real-user monitoring, synthetic testing, and feature flag management.*
