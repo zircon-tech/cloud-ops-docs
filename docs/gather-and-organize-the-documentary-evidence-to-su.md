@@ -1,203 +1,190 @@
 ---
 id: COCCA-006
-title: "Gather and organize the documentary evidence to support audit assessments"
+title: "Gather and Organize Documentary Evidence to Support Audit Assessments"
 ---
 
-# Gather and organize the documentary evidence to support audit assessments
+# Gather and Organize Documentary Evidence to Support Audit Assessments
 
-## Purpose
+## Overview
 
-Systematic gather and organize the documentary evidence to support audit assessments ensures your AWS environment meets regulatory requirements while supporting business agility. Our methodology implements comprehensive controls and audit trails that demonstrate compliance across multiple frameworks.
+The AWS Partner has methodology, process and relevant tooling experience to enable customers to adhere to major compliance controls such as FedRAMP, FIPS 140-2, FISMA, GDPR, HIPAA/HITECH, ISO27001, ITAR, NIST 800-171, PCI-DSS, and SOC1/2, with mechanisms to implement continuous monitoring to identify and remediate non-compliances.
 
-## Methodology & Process
+## Evidence Documentation
 
-### Discovery and Assessment
+### 1. Compliance Mechanisms and Audit Support
 
-We begin with comprehensive discovery to understand your current environment, identify requirements, and establish success criteria that align with business objectives.
+#### Automated Evidence Collection
 
-### Design and Implementation
+We implement automated evidence collection using AWS Config for configuration compliance, CloudTrail for API activity logging, and AWS Security Hub for security finding aggregation. Our evidence collection methodology includes continuous monitoring, automated documentation generation, and centralized evidence repositories.
 
-Our implementation approach prioritizes automation, consistency, and maintainability, using infrastructure-as-code and proven architectural patterns.
+Evidence collection includes configuration snapshots, policy compliance reports, access logs, and security assessment results. We implement automated evidence validation, timestamping, and integrity verification to ensure audit trail reliability and regulatory compliance.
 
-### Monitoring and Optimization
+#### Documentation Management Framework
 
-Continuous monitoring ensures implementations remain effective over time, with regular reviews and optimization recommendations.
+We deliver documentation management using AWS Systems Manager Documents for policy documentation, S3 buckets for evidence storage with versioning, and AWS CloudFormation templates for infrastructure documentation. Our framework includes automated policy generation, compliance reporting, and audit trail maintenance.
 
+Documentation organization includes policy libraries, control implementation guides, evidence inventories, and compliance dashboards. We implement automated report generation, exception tracking, and remediation documentation to support internal and external audit requirements.
 
+#### Continuous Monitoring and Remediation
 
-## Technology Stack
+We implement continuous monitoring using AWS Config rules for compliance validation, CloudWatch for real-time monitoring, and AWS Lambda for automated remediation. Our monitoring approach includes real-time compliance checking, automated alerting, and remediation workflow execution.
 
-| Layer | AWS Services | Alternative Options |
-|-------|--------------|--------------------|
-| **Core** | Amazon CloudWatch, AWS CloudFormation, AWS IAM, Amazon VPC | |
-| **Third-Party** | — | Third-party tools (As required) |
+Monitoring capabilities include policy violation detection, configuration drift identification, and security finding correlation. We deliver automated remediation workflows, exception handling, and compliance reporting to maintain continuous compliance posture.
 
+### 2. Supported Compliance Standards
 
+#### NIST 800-171 (Controlled Unclassified Information)
 
-## Implementation Phases
+We implement NIST 800-171 compliance through access control mechanisms, audit logging, configuration management, and security monitoring. Our approach includes multi-factor authentication, encryption implementation, and continuous monitoring for federal contractor requirements.
 
-| Phase | Duration | Key Activities | Deliverables |
-|-------|----------|----------------|--------------|
-| 1. Discovery | 1-2 weeks | Requirements gathering, current state assessment | Discovery document, requirements matrix |
-| 2. Design | 2-3 weeks | Architecture design, tool selection, process definition | Design document, implementation plan |
-| 3. Implementation | 3-6 weeks | Deployment, configuration, testing, validation | Working solution, documentation |
-| 4. Knowledge Transfer | 1 week | Training, handover, ongoing support planning | Training materials, runbooks |
+**Implementation Coverage:**
+- Access Control (AC): IAM policies, MFA enforcement, least privilege access
+- Audit and Accountability (AU): CloudTrail logging, log retention, security monitoring
+- Configuration Management (CM): AWS Config, Systems Manager, change control
+- Identification and Authentication (IA): IAM, Active Directory integration, MFA
+- System and Communications Protection (SC): Encryption, network segmentation, TLS
 
-## Deliverables
+**Exceptions:**
+- Physical security controls (PE) require customer facility implementation
+- Personnel security (PS) requires customer HR process implementation
 
-1. **Gather and organize the documentary evidence to support audit assessments Methodology Document** (this document)
-2. **Implementation Runbook** (see Implementation Artifacts section)
-3. **Infrastructure as Code** templates (see Implementation Artifacts section)
-4. **Configuration Standards** and baseline policies (see Implementation Artifacts section)
-5. **Knowledge Transfer Session** recording and materials
+#### SOC 2 Type II (Service Organization Control)
 
-## Implementation Artifacts
+We implement SOC 2 Type II compliance through security monitoring, availability controls, processing integrity, and confidentiality measures. Our approach includes continuous monitoring, incident response, and operational effectiveness validation.
 
+**Implementation Coverage:**
+- Security: AWS Security Hub, GuardDuty, access controls, vulnerability management
+- Availability: Multi-AZ deployment, auto-scaling, disaster recovery, monitoring
+- Processing Integrity: Data validation, error handling, monitoring, logging
+- Confidentiality: Encryption, access controls, data classification, secure transmission
 
-## Compliance Implementation Runbook
+**Exceptions:**
+- Privacy controls require customer data handling policy implementation
+- Certain operational controls require customer business process alignment
 
-### Step 1: Risk Assessment Framework
+### 3. AWS Services and Custom Configuration Rules
 
-```yaml
-# risk-assessment-template.yaml
-risk_assessment:
-  methodology: "NIST RMF"
-  categories:
-    - operational: "Infrastructure availability and reliability risks"
-    - security: "Data breach and unauthorized access risks"  
-    - compliance: "Regulatory non-compliance risks"
-    - business: "Reputation and market response risks"
-  
-  assessment_matrix:
-    impact_levels: ["Low", "Medium", "High", "Critical"]
-    probability_levels: ["Rare", "Unlikely", "Possible", "Likely"]
-    risk_scores:
-      critical_likely: 20
-      high_likely: 16
-      medium_possible: 9
-```
+#### AWS Config Implementation
 
-### Step 2: Audit Trail Configuration
+**Core AWS Config Rules:**
+- `required-tags`: Ensures mandatory tags are present on resources
+- `encrypted-volumes`: Validates EBS volumes are encrypted
+- `s3-bucket-public-access-prohibited`: Prevents public S3 bucket access
+- `root-access-key-check`: Monitors root account access key usage
+- `mfa-enabled-for-iam-console-access`: Validates MFA for console access
 
-```bash
-# Enable comprehensive audit logging
-aws cloudtrail create-trail \
-    --name compliance-audit-trail \
-    --s3-bucket-name compliance-audit-logs \
-    --include-global-service-events \
-    --is-multi-region-trail \
-    --enable-log-file-validation
-
-# Configure AWS Config for compliance monitoring
-aws configservice put-configuration-recorder \
-    --configuration-recorder name=compliance-recorder \
-    --recording-group allSupported=true,includeGlobalResourceTypes=true
-```
-
-### Step 3: Data Classification Implementation
+**Custom Configuration Rules Examples:**
 
 ```python
-# data-classification-scanner.py
-import boto3
-import json
-
-def classify_s3_data():
-    s3 = boto3.client('s3')
-    macie = boto3.client('macie2')
+# Custom rule: Ensure RDS instances use approved instance types
+def lambda_handler(event, context):
+    config = boto3.client('config')
+    rds = boto3.client('rds')
     
-    # Enable Macie for data discovery
-    response = macie.enable_macie()
+    # Approved instance types list
+    approved_types = ['db.t3.micro', 'db.t3.small', 'db.r5.large']
     
-    # Create classification job
-    job_response = macie.create_classification_job(
-        jobType='ONE_TIME',
-        name='data-classification-scan',
-        s3JobDefinition={
-            'bucketDefinitions': [
-                {
-                    'accountId': '123456789012',
-                    'buckets': ['sensitive-data-bucket']
-                }
-            ]
-        }
-    )
+    # Get RDS instances
+    instances = rds.describe_db_instances()
     
-    return job_response['jobId']
+    for instance in instances['DBInstances']:
+        compliance_type = 'COMPLIANT' if instance['DBInstanceClass'] in approved_types else 'NON_COMPLIANT'
+        
+        config.put_evaluations(
+            Evaluations=[{
+                'ComplianceResourceType': 'AWS::RDS::DBInstance',
+                'ComplianceResourceId': instance['DBInstanceIdentifier'],
+                'ComplianceType': compliance_type,
+                'OrderingTimestamp': datetime.utcnow()
+            }],
+            ResultToken=event['resultToken']
+        )
 ```
 
-
-## Compliance Procedures and Checklists
-
-### Incident Response Playbook
-
-```markdown
-## Security Incident Response Plan
-
-### Phase 1: Detection and Analysis (0-30 minutes)
-1. **Incident Identification**
-   - [ ] Alert received via CloudWatch/Security Hub
-   - [ ] Initial triage and severity assessment
-   - [ ] Incident commander assignment
-
-2. **Evidence Preservation**
-   - [ ] Create EBS snapshots of affected instances
-   - [ ] Capture VPC Flow Logs for investigation period
-   - [ ] Export relevant CloudTrail logs to secure S3 bucket
-
-### Phase 2: Containment (30-60 minutes)  
-1. **Immediate Containment**
-   - [ ] Isolate affected systems using Security Groups
-   - [ ] Revoke compromised IAM credentials
-   - [ ] Block malicious IP addresses via NACL
-
-2. **Forensic Environment Setup**
-   - [ ] Launch isolated forensic VPC
-   - [ ] Deploy analysis tools (SANS SIFT, Volatility)
-   - [ ] Mount evidence snapshots to forensic instances
-
-### Phase 3: Investigation (1-24 hours)
-1. **Evidence Analysis**
-   - [ ] Memory dump analysis for malware/artifacts
-   - [ ] Log correlation across CloudTrail, VPC Flow Logs, application logs
-   - [ ] Timeline reconstruction of attacker activities
-
-2. **Impact Assessment**
-   - [ ] Determine scope of data exposure
-   - [ ] Identify compromised systems and accounts
-   - [ ] Assess regulatory notification requirements
+```python
+# Custom rule: Validate security group ingress rules
+def lambda_handler(event, context):
+    ec2 = boto3.client('ec2')
+    config = boto3.client('config')
+    
+    # Get security groups
+    security_groups = ec2.describe_security_groups()
+    
+    for sg in security_groups['SecurityGroups']:
+        compliant = True
+        
+        for rule in sg['IpPermissions']:
+            # Check for unrestricted access (0.0.0.0/0)
+            for ip_range in rule.get('IpRanges', []):
+                if ip_range.get('CidrIp') == '0.0.0.0/0':
+                    compliant = False
+                    break
+        
+        compliance_type = 'COMPLIANT' if compliant else 'NON_COMPLIANT'
+        
+        config.put_evaluations(
+            Evaluations=[{
+                'ComplianceResourceType': 'AWS::EC2::SecurityGroup',
+                'ComplianceResourceId': sg['GroupId'],
+                'ComplianceType': compliance_type,
+                'OrderingTimestamp': datetime.utcnow()
+            }],
+            ResultToken=event['resultToken']
+        )
 ```
 
-### Data Protection Standards
+#### Additional AWS Services
 
-```yaml
-# data-protection-policy.yaml
-data_classification:
-  public:
-    description: "Information intended for public disclosure"
-    controls: ["basic access logging"]
-    
-  internal:
-    description: "Internal business information"
-    controls: ["encryption in transit", "access logging", "data loss prevention"]
-    
-  confidential:
-    description: "Sensitive business information"
-    controls: ["encryption at rest and in transit", "MFA access", "audit logging", "DLP"]
-    
-  restricted:
-    description: "Highly sensitive regulated data"
-    controls: ["HSM encryption", "dedicated infrastructure", "continuous monitoring", "data residency"]
+**AWS CloudTrail:**
+- API activity logging for audit trails
+- Log file validation and integrity checking
+- Multi-region trail configuration
+- Integration with CloudWatch Logs for real-time monitoring
 
-tokenization_standards:
-  pii_fields: ["ssn", "credit_card", "email", "phone"]
-  method: "format_preserving_encryption"
-  key_management: "AWS KMS with customer managed keys"
-  retention_policy: "7 years for audit, immediate deletion post-retention"
-```
+**AWS Security Hub:**
+- Centralized security finding aggregation
+- Compliance standard integration (CIS, PCI DSS, AWS Foundational Security Standard)
+- Custom insight creation for compliance reporting
+- Integration with AWS Config for compliance dashboard
 
-## References
+**AWS Systems Manager:**
+- Patch compliance monitoring and reporting
+- Configuration compliance validation
+- Document-based policy management
+- Automation for remediation workflows
 
+#### Third-Party Solution Integration
+
+**Splunk Enterprise Security:**
+- Log aggregation and correlation for compliance reporting
+- Custom dashboards for regulatory compliance monitoring
+- Automated alert generation for policy violations
+- Integration with AWS services for comprehensive visibility
+
+**Rapid7 InsightVM:**
+- Vulnerability assessment and management
+- Compliance reporting for security standards
+- Risk-based prioritization for remediation
+- Integration with AWS Security Hub for finding correlation
+
+**Qualys VMDR:**
+- Continuous vulnerability management
+- Compliance scanning and reporting
+- Asset inventory and classification
+- Integration with AWS Config for compliance validation
+
+## Implementation Approach
+
+Implementation begins with compliance framework selection, followed by evidence collection system deployment and continuous monitoring establishment. Our approach includes policy documentation, control implementation, and audit preparation to ensure regulatory compliance.
+
+Service delivery includes compliance assessment, evidence collection automation, and audit support documentation. We implement continuous monitoring, automated reporting, and remediation workflows to maintain ongoing compliance posture.
+
+## Success Metrics
+
+Compliance effectiveness includes audit trail completeness at 100%, evidence collection automation above 95%, and compliance reporting accuracy above 98%. Audit support metrics include evidence retrieval time under 24 hours and compliance dashboard availability above 99.9%.
+
+Operational metrics include automated remediation success rate above 90%, compliance drift detection within 15 minutes, and audit preparation time reduction by 70%. Success measurement ensures sustained compliance while supporting business objectives.
 
 ---
 
-*Last updated: 02 Jul 2025*
+*This document provides evidence of our documentary evidence gathering and organization capabilities including compliance mechanisms, specific compliance standards support, and AWS services with custom configuration rules for audit assessments.*
