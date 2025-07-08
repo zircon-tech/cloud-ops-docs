@@ -65,6 +65,7 @@ nav:
   - Financial Operations: financial-operations.md
   - Monitoring & Observability: monitoring-observability-baseline.md
   - Hybrid Cloud Environment Observability: hybrid-cloud-environment-observability.md
+  - Hybrid Cloud Environment Operations: hybrid-cloud-environment-operations.md
   - Dashboards & Alerts: signal-analytics-visualization.md
   - Observability – Modern Apps: observability-modern-apps.md
   - Security Observability & Auto-Remediation: security-observability.md
