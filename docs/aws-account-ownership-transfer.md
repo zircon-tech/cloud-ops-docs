@@ -18,6 +18,7 @@ Our approach addresses the complex technical, legal, and operational challenges 
 ### Triggering Events
 
 Account ownership transfers typically occur during:
+
 - **Corporate mergers or acquisitions** where target accounts move under new parent organization
 - **Divestitures or spin-offs** where subset of accounts leave the existing AWS Organization  
 - **Changes to contractual obligations** including Enterprise Discount Program or Marketplace agreements
