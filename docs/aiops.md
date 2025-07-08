@@ -5,344 +5,118 @@ title: "AIOps"
 
 # AIOps
 
-## Purpose
-
-Mature aiops enables reliable, scalable management of your AWS environment. Our approach establishes automated processes and standardized procedures that reduce operational overhead while improving service reliability.
-
-## Methodology & Process
-
-### Discovery and Assessment
-
-We begin with comprehensive discovery to understand your current environment, identify requirements, and establish success criteria that align with business objectives.
-
-### Design and Implementation
-
-Our implementation approach prioritizes automation, consistency, and maintainability, using infrastructure-as-code and proven architectural patterns.
-
-### Monitoring and Optimization
-
-Continuous monitoring ensures implementations remain effective over time, with regular reviews and optimization recommendations.
-
-
-
-## Technology Stack
-
-| Layer | AWS Services | Alternative Options |
-|-------|--------------|--------------------|
-| **Core** | Amazon CloudWatch, AWS CloudFormation, AWS IAM, Amazon VPC | |
-| **Third-Party** | — | Third-party tools (As required) |
-
-
-## 1. ML-Based Anomaly Detection Reference Architecture
+## 1. Reference Architecture for ML-Based Anomaly Detection and Remediation
 
 ### Architecture Overview
 
 ```
-CloudWatch Metrics → Kinesis Data Streams → SageMaker Endpoint → EventBridge → Lambda → Auto-Remediation
-                                                    ↓
-                                            SNS Notifications
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│   Data Sources  │    │   ML Processing │    │   Response/     │
+│                 │    │                 │    │   Remediation   │
+├─────────────────┤    ├─────────────────┤    ├─────────────────┤
+│ CloudWatch      │    │ CloudWatch      │    │ EventBridge     │
+│ Metrics         │───▶│ Anomaly         │───▶│ Rules           │
+│                 │    │ Detection       │    │                 │
+│ X-Ray Traces    │    │                 │    │ Lambda          │
+│                 │    │ Amazon          │    │ Functions       │
+│ VPC Flow Logs   │    │ DevOps Guru     │    │                 │
+│                 │    │                 │    │ Systems Manager │
+│ CloudTrail      │    │ SageMaker       │    │ Automation      │
+│ Logs            │    │ Endpoints       │    │                 │
+│                 │    │                 │    │ SNS             │
+│ Application     │    │ Kinesis Data    │    │ Notifications   │
+│ Logs            │    │ Analytics       │    │                 │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
 ```
 
 ### Core Components
 
-| Component | AWS Service | Purpose |
-|-----------|-------------|---------|
-| **Data Ingestion** | Amazon Kinesis Data Streams | Real-time metric collection from CloudWatch |
-| **ML Processing** | Amazon SageMaker | Anomaly detection using Random Cut Forest algorithm |
-| **Event Processing** | Amazon EventBridge | Route anomaly alerts to remediation workflows |
-| **Automation** | AWS Lambda | Execute automated remediation scripts |
-| **Notifications** | Amazon SNS | Alert operations teams of anomalies |
+**Data Ingestion Layer**
+- Amazon CloudWatch for metrics aggregation from AWS resources
+- AWS X-Ray for distributed tracing and service map analysis
+- Amazon VPC Flow Logs for network traffic pattern analysis
+- AWS CloudTrail for API call monitoring and security event tracking
+- Amazon Kinesis Data Streams for real-time data ingestion
 
-### Implementation Details
+**ML Processing Layer**
+- Amazon CloudWatch Anomaly Detection for time-series anomaly detection using built-in algorithms
+- Amazon DevOps Guru for application performance anomaly detection using ML models
+- Amazon SageMaker for custom ML model deployment and inference
+- Amazon Kinesis Data Analytics for real-time stream processing and anomaly detection
 
-The ML-based anomaly detection system uses SageMaker's Random Cut Forest algorithm to identify patterns in infrastructure metrics and automatically trigger remediation workflows when anomalies are detected.
+**Response and Remediation Layer**
+- Amazon EventBridge for event routing and workflow orchestration
+- AWS Lambda for automated response execution
+- AWS Systems Manager Automation for remediation runbooks
+- Amazon SNS for alerting and notification distribution
 
+### AWS Services and Integration
 
-## 2. ML Models and Use Cases
+**Core ML Services**
+- Amazon CloudWatch Anomaly Detection provides built-in anomaly detection for time-series metrics
+- Amazon DevOps Guru offers ML-powered insights for application performance anomalies
+- Amazon SageMaker enables custom ML model deployment for specialized anomaly detection requirements
 
-### Use Case 1: Infrastructure Anomaly Detection
+**Supporting Services**
+- Amazon Kinesis Data Analytics for real-time anomaly detection on streaming data
+- AWS Lambda for event-driven anomaly response automation
+- Amazon EventBridge for decoupled event processing and workflow orchestration
 
-**ML Model**: Random Cut Forest (Amazon SageMaker built-in algorithm)
-- **Purpose**: Detect unusual patterns in infrastructure metrics
-- **Features**: CPU utilization, memory usage, network I/O, disk I/O
-- **Training Data**: 30 days of historical metrics
-- **Anomaly Threshold**: 95th percentile
+## 2. Use Cases and ML Models
 
-### Use Case 2: Application Performance Anomaly Detection
+### Infrastructure Monitoring
+**ML Approach**: Time-series anomaly detection using statistical methods and seasonal trend analysis
+**Implementation**: Amazon CloudWatch Anomaly Detection for CPU, memory, disk, and network metrics
+**Capabilities**: We can implement threshold-based and pattern-based anomaly detection for infrastructure metrics
 
-**ML Model**: DeepAR (Time Series Forecasting)
-- **Purpose**: Predict expected application response times and detect deviations
-- **Features**: Response time, request count, error rate
-- **Forecast Horizon**: 1 hour ahead
+### Application Performance Monitoring
+**ML Approach**: Performance baseline establishment and deviation detection
+**Implementation**: Amazon DevOps Guru for application-specific performance anomaly detection
+**Capabilities**: We can implement response time, throughput, and error rate anomaly detection for applications
 
-### Use Case 3: Security Event Anomaly Detection
+### Security Event Analysis
+**ML Approach**: Behavioral analysis and pattern recognition for security events
+**Implementation**: Amazon GuardDuty integration with custom SageMaker models for advanced threat detection
+**Capabilities**: We can implement anomaly detection for authentication patterns, network traffic, and resource access behaviors
 
-**ML Model**: IP Insights (Amazon SageMaker built-in algorithm)
-- **Purpose**: Detect unusual IP access patterns and potential security threats
-- **Features**: Source IP, user ID, access time, resource accessed
-- **Training Data**: 90 days of CloudTrail logs
+### Cost Optimization
+**ML Approach**: Usage pattern analysis and cost anomaly detection
+**Implementation**: AWS Cost Anomaly Detection for spending pattern analysis
+**Capabilities**: We can implement cost spike detection and resource utilization anomaly identification
 
+### Log Analysis and Monitoring
+**ML Approach**: Log pattern recognition and anomaly detection in textual data
+**Implementation**: Amazon OpenSearch Service with anomaly detection plugins
+**Capabilities**: We can implement error pattern detection, log volume anomaly detection, and custom log analysis
 
 ## 3. Automated Remediation Runbooks
 
-### Runbook 1: High CPU Utilization Remediation
+### Infrastructure Remediation
+**AWS Systems Manager Automation** provides the framework for automated remediation workflows. We can implement runbooks that:
+- Automatically scale resources based on performance anomalies
+- Restart services when application health anomalies are detected
+- Modify security groups in response to security event anomalies
+- Execute predefined remediation workflows through Systems Manager Run Command
 
-**Trigger**: CPU utilization > 80% for 5 minutes
-**Actions**:
-1. Scale up instance type for utilization > 90%
-2. Terminate high-CPU processes for utilization 80-90%
-3. Log remediation actions to CloudWatch
+### Application Remediation
+**AWS Lambda Functions** serve as the execution engine for application-specific remediation. We can implement:
+- Application service restart procedures
+- Database connection pool resets
+- Cache clearing operations
+- Circuit breaker pattern implementations for downstream service issues
 
-### Runbook 2: Memory Leak Detection and Remediation
+### Security Remediation
+**Security Response Automation** using AWS services can be implemented to:
+- Automatically isolate compromised instances using security group modifications
+- Disable compromised user accounts through IAM policy changes
+- Trigger AWS Inspector assessments for security anomalies
+- Execute incident response workflows through AWS Step Functions
 
-**Trigger**: Memory utilization > 85% with increasing trend
-**Actions**:
-1. Generate memory usage report
-2. Trigger garbage collection for Java applications
-3. Clear system caches
-4. Restart services if necessary
+### Integration and Orchestration
+**Remediation Workflow Orchestration** using AWS Step Functions enables:
+- Multi-step remediation workflows with decision points
+- Rollback capabilities for failed remediation attempts
+- Human approval gates for high-risk remediation actions
+- Integration with external ITSM systems for ticket creation and tracking
 
-### Runbook 3: Disk Space Anomaly Remediation
-
-**Trigger**: Disk usage > 85%
-**Actions**:
-1. Extend EBS volume for usage > 95%
-2. Clean temporary files and logs
-3. Rotate and compress log files
-
-
-
-## Implementation Phases
-
-| Phase | Duration | Key Activities | Deliverables |
-|-------|----------|----------------|--------------|
-| 1. Discovery | 1-2 weeks | Requirements gathering, current state assessment | Discovery document, requirements matrix |
-| 2. Design | 2-3 weeks | Architecture design, tool selection, process definition | Design document, implementation plan |
-| 3. Implementation | 3-6 weeks | Deployment, configuration, testing, validation | Working solution, documentation |
-| 4. Knowledge Transfer | 1 week | Training, handover, ongoing support planning | Training materials, runbooks |
-
-## Deliverables
-
-1. **AIOps Methodology Document** (this document)
-2. **Implementation Runbook** (see Implementation Artifacts section)
-3. **Infrastructure as Code** templates (see Implementation Artifacts section)
-4. **Configuration Standards** and baseline policies (see Implementation Artifacts section)
-5. **Knowledge Transfer Session** recording and materials
-
-## Implementation Artifacts
-
-
-## Operations Management Implementation Runbook
-
-### Step 1: Infrastructure Deployment Strategy
-
-```yaml
-# deployment-pipeline.yaml
-name: Infrastructure Deployment Pipeline
-on:
-  push:
-    branches: [main]
-    paths: ['infrastructure/**']
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: arn:aws:iam::ACCOUNT:role/GitHubActionsRole
-          
-      - name: Terraform Plan
-        run: |
-          cd infrastructure/
-          terraform init
-          terraform plan -out=tfplan
-          
-      - name: Terraform Apply
-        if: github.ref == 'refs/heads/main'
-        run: |
-          terraform apply tfplan
-```
-
-### Step 2: Change Management Process
-
-```bash
-#!/bin/bash
-# change-management-workflow.sh
-
-# 1. Create change request
-aws ssm create-ops-item \
-    --title "Infrastructure Change Request" \
-    --description "Deploy new application version" \
-    --priority 3 \
-    --source "ChangeManagement" \
-    --operational-data '{
-        "ChangeType": {"Value": "Standard"},
-        "Environment": {"Value": "Production"},
-        "RiskLevel": {"Value": "Medium"}
-    }'
-
-# 2. Immutable infrastructure deployment
-aws imagebuilder start-image-pipeline-execution \
-    --image-pipeline-arn "arn:aws:imagebuilder:region:account:image-pipeline/golden-ami"
-
-# 3. Blue-green deployment
-aws elbv2 modify-target-group \
-    --target-group-arn "arn:aws:elasticloadbalancing:region:account:targetgroup/blue-targets" \
-    --health-check-path "/health"
-```
-
-### Step 3: Patch Management Automation
-
-```python
-# patch-management.py
-import boto3
-from datetime import datetime, timedelta
-
-def create_patch_baseline():
-    ssm = boto3.client('ssm')
-    
-    # Create custom patch baseline
-    response = ssm.create_patch_baseline(
-        Name='Production-Patch-Baseline',
-        OperatingSystem='AMAZON_LINUX_2',
-        ApprovalRules={
-            'PatchRules': [
-                {
-                    'PatchFilterGroup': {
-                        'PatchFilters': [
-                            {
-                                'Key': 'CLASSIFICATION',
-                                'Values': ['Security', 'Critical']
-                            }
-                        ]
-                    },
-                    'ApproveAfterDays': 0,
-                    'ComplianceLevel': 'CRITICAL'
-                },
-                {
-                    'PatchFilterGroup': {
-                        'PatchFilters': [
-                            {
-                                'Key': 'CLASSIFICATION', 
-                                'Values': ['Important', 'Recommended']
-                            }
-                        ]
-                    },
-                    'ApproveAfterDays': 7,
-                    'ComplianceLevel': 'HIGH'
-                }
-            ]
-        }
-    )
-    
-    return response['BaselineId']
-
-def schedule_patch_deployment():
-    ssm = boto3.client('ssm')
-    
-    # Schedule maintenance window for patching
-    response = ssm.create_maintenance_window(
-        Name='Production-Patch-Window',
-        Description='Automated patching for production systems',
-        Schedule='cron(0 2 ? * SUN *)',  # Every Sunday at 2 AM
-        Duration=4,  # 4-hour window
-        Cutoff=1,    # Stop 1 hour before end
-        AllowUnassociatedTargets=False
-    )
-    
-    return response['WindowId']
-```
-
-
-## Operations Automation Scripts
-
-### Vulnerability Scanning and Remediation
-
-```python
-# vulnerability-management.py
-import boto3
-import json
-
-def scan_and_remediate():
-    inspector = boto3.client('inspector2')
-    ssm = boto3.client('ssm')
-    
-    # Get vulnerability findings
-    findings = inspector.list_findings(
-        filterCriteria={
-            'severity': ['HIGH', 'CRITICAL'],
-            'findingStatus': ['ACTIVE']
-        }
-    )
-    
-    for finding in findings['findings']:
-        if finding['type'] == 'PACKAGE_VULNERABILITY':
-            # Automated remediation for package vulnerabilities
-            instance_id = finding['resources'][0]['id']
-            
-            # Execute remediation script
-            response = ssm.send_command(
-                InstanceIds=[instance_id],
-                DocumentName='AWS-RunShellScript',
-                Parameters={
-                    'commands': [
-                        'sudo yum update -y',
-                        'sudo systemctl restart application'
-                    ]
-                }
-            )
-
-### ITSM Integration
-
-```python
-# itsm-integration.py
-import boto3
-import requests
-import json
-
-def create_service_now_incident(alarm_data):
-    # ServiceNow API integration
-    url = 'https://company.service-now.com/api/now/table/incident'
-    headers = {
-        'Content-Type': 'application/json',
-        'Authorization': 'Basic ' + base64_encoded_credentials
-    }
-    
-    incident_data = {
-        'short_description': f"AWS CloudWatch Alarm: {alarm_data['AlarmName']}",
-        'description': alarm_data['NewStateReason'],
-        'urgency': '2',  # High
-        'impact': '2',   # Medium 
-        'category': 'Cloud Infrastructure',
-        'subcategory': 'Monitoring Alert'
-    }
-    
-    response = requests.post(url, headers=headers, data=json.dumps(incident_data))
-    return response.json()
-
-def lambda_handler(event, context):
-    # Process CloudWatch alarm via SNS
-    alarm_data = json.loads(event['Records'][0]['Sns']['Message'])
-    
-    if alarm_data['NewStateValue'] == 'ALARM':
-        incident = create_service_now_incident(alarm_data)
-        print(f"Created ServiceNow incident: {incident['result']['number']}")
-        
-        # Update alarm description with incident number
-        cloudwatch = boto3.client('cloudwatch')
-        cloudwatch.put_metric_alarm(
-            AlarmName=alarm_data['AlarmName'],
-            AlarmDescription=f"ServiceNow: {incident['result']['number']}"
-        )
-```
-
-## References
-
-
----
-
-*Last updated: 02 Jul 2025*
+The remediation approach prioritizes automated response for well-defined anomaly patterns while maintaining human oversight for complex or high-risk scenarios through configurable approval workflows.
