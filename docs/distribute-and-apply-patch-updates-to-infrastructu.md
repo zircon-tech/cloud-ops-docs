@@ -19,7 +19,7 @@ The image pipeline includes automated testing before image approval and multi-re
 
 **Vulnerability Scanning Tools We Can Implement:**
 
-For operating system vulnerabilities, we can implement Amazon Inspector and Qualys VMDR to scan for package vulnerabilities. Container image scanning can be performed using Amazon ECR Image Scanning and Twistlock for container vulnerabilities. Application-level vulnerabilities can be detected using OWASP ZAP and Veracode. Configuration compliance validation can be implemented through AWS Config and Chef InSpec. Network service vulnerabilities can be identified using Nessus and OpenVAS.
+For operating system vulnerabilities, we can implement Amazon Inspector to scan for package vulnerabilities. Container image scanning can be performed using Amazon ECR Image Scanning. Application-level vulnerabilities can be detected using OWASP ZAP. Configuration compliance validation can be implemented through AWS Config. Network service vulnerabilities can be identified using Nessus.
 
 **Scanning Integration Approach:**
 We can implement pre-build scanning to scan base images before customization, post-build scanning to scan golden images after hardening, runtime scanning for continuous scanning of deployed instances, and compliance scanning for CIS benchmark and regulatory compliance checks.
@@ -28,7 +28,7 @@ We can implement pre-build scanning to scan base images before customization, po
 
 **Automated Patching Tools We Can Implement:**
 
-For operating systems, we can implement AWS Systems Manager Patch Manager for OS-level patch management. Application components can be patched using AWS CodeDeploy and Ansible for application deployment and updates. Container images can be updated through AWS CodeBuild and Jenkins for container image rebuilding. Database systems can be patched using AWS RDS automated patching for database engine updates. Networking equipment can be updated through AWS Config remediation for network configuration updates.
+For operating systems, we can implement AWS Systems Manager Patch Manager for OS-level patch management. Application components can be patched using AWS CodeDeploy for application deployment and updates. Container images can be updated through AWS CodeBuild for container image rebuilding. Database systems can be patched using AWS RDS automated patching for database engine updates. Networking equipment can be updated through AWS Config remediation for network configuration updates.
 
 **Patching Methodologies:**
 We can implement immutable infrastructure approaches to replace entire instances with updated images, in-place patching to apply patches to running instances using Systems Manager, blue-green deployment to deploy patched images alongside current versions, and canary deployment for gradual rollout of patched images.
@@ -37,7 +37,7 @@ We can implement immutable infrastructure approaches to replace entire instances
 
 **Components We Can Patch:**
 
-EC2 Instances can be patched using Systems Manager Patch Manager and golden AMI replacement through AWS Systems Manager and Image Builder. ECS Containers can be updated through container image rebuilding and redeployment using AWS CodeBuild, ECR, and ECS. RDS Databases can be patched through automated maintenance windows using AWS RDS automated patching. Lambda Functions can be updated through runtime updates and code deployment using AWS CodeDeploy and SAM. EKS Clusters can be updated through cluster version updates and node group replacement using AWS EKS and kubectl. Application Load Balancers, API Gateway, and CloudFront receive automatic AWS service updates through AWS managed updates.
+EC2 Instances can be patched using Systems Manager Patch Manager and golden AMI replacement through AWS Systems Manager and Image Builder. ECS Containers can be updated through container image rebuilding and redeployment using AWS CodeBuild, ECR, and ECS. RDS Databases can be patched through automated maintenance windows using AWS RDS automated patching. Lambda Functions can be updated through runtime updates and code deployment using AWS CodeDeploy. EKS Clusters can be updated through cluster version updates and node group replacement using AWS EKS. Application Load Balancers, API Gateway, and CloudFront receive automatic AWS service updates through AWS managed updates.
 
 #### Tools and Technologies
 
@@ -45,10 +45,10 @@ EC2 Instances can be patched using Systems Manager Patch Manager and golden AMI 
 We can implement AWS Image Builder for automated image creation and testing, AWS Systems Manager for patch management and compliance, AWS Inspector for security assessment and vulnerability scanning, AWS Config for configuration compliance monitoring, AWS CodeBuild for automated build and testing, and AWS CodeDeploy for application deployment automation.
 
 **Third-Party Tools We Can Integrate:**
-We have experience integrating vulnerability scanners including Qualys, Rapid7, and Tenable. Configuration management can be implemented using Ansible, Chef, and Puppet. Container security can be enhanced using Twistlock and Aqua Security. Compliance tools including Chef InSpec and OpenSCAP can be integrated for compliance validation.
+We have experience integrating vulnerability scanners, configuration management tools, container security solutions, and compliance validation tools as needed.
 
 **Automation Frameworks:**
-We can implement infrastructure as code using Terraform and CloudFormation, CI/CD pipelines using Jenkins, GitLab CI, and GitHub Actions, and orchestration using AWS Step Functions and Ansible Tower.
+We can implement infrastructure as code using Terraform and CloudFormation, CI/CD pipelines, and orchestration using AWS Step Functions.
 
 #### Exemptions and Special Considerations
 
