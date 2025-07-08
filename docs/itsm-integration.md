@@ -5,328 +5,50 @@ title: "ITSM Integration"
 
 # ITSM Integration
 
-## Purpose
+## Evidence Documentation
 
-Mature itsm integration enables reliable, scalable management of your AWS environment. Our approach establishes automated processes and standardized procedures that reduce operational overhead while improving service reliability.
+### 1. Methodology and Processes for ITSM Use-Cases
 
-## Methodology & Process
+#### Self-Service and ITSM Workflow-Based Provisioning
 
-### Discovery and Assessment
+We can implement self-service provisioning through AWS Service Catalog integrated with ITSM platforms to enable users to request AWS resources through familiar ITSM workflows. Our methodology includes creating service catalog portfolios with pre-approved AWS resource templates, integrating approval workflows with existing ITSM systems, and automating resource provisioning upon ITSM approval.
 
-We begin with comprehensive discovery to understand your current environment, identify requirements, and establish success criteria that align with business objectives.
+The provisioning process can include ITSM ticket creation for resource requests, automated approval routing based on cost and risk thresholds, resource provisioning through AWS Service Catalog upon approval, and automatic ticket updates with resource details and access information.
 
-### Design and Implementation
+#### AWS Resource Visibility, Tracking, and Control
 
-Our implementation approach prioritizes automation, consistency, and maintainability, using infrastructure-as-code and proven architectural patterns.
+We can implement federated visibility by integrating AWS Config and AWS Systems Manager with ITSM configuration management databases (CMDB) to maintain synchronized records of AWS resources. Our methodology includes automated discovery and registration of AWS resources in ITSM CMDBs, real-time synchronization of resource state changes, and integration of AWS resource lifecycle events with ITSM workflows.
 
-### Monitoring and Optimization
+Resource tracking can include automated CMDB updates when AWS resources are created, modified, or terminated, integration with AWS CloudTrail for change auditing, and correlation of AWS resources with business services in ITSM platforms.
 
-Continuous monitoring ensures implementations remain effective over time, with regular reviews and optimization recommendations.
+#### Cloud Operational Issue Detection and Resolution
 
+We can implement incident and change management integration by connecting AWS monitoring services with ITSM platforms to automate issue detection and response workflows. Our methodology includes automated incident creation from AWS CloudWatch alarms, integration of AWS security findings with ITSM incident management, and automated change request generation for remediation activities.
 
+The issue resolution process can include automatic incident creation from AWS service disruptions, escalation workflows based on service impact and urgency, automated correlation of AWS metrics with business service availability, and integration of AWS automation with ITSM change management for remediation approval and execution.
 
-## Technology Stack
+### 2. ITSM Integrations Supported
 
-| Layer | AWS Services | Alternative Options |
-|-------|--------------|--------------------|
-| **Core** | Amazon CloudWatch, AWS CloudFormation, AWS IAM, Amazon VPC | |
-| **Third-Party** | — | Third-party tools (As required) |
+#### AWS Service Management Connectors
 
+We can implement AWS Service Management Connector for ServiceNow which provides native integration for incident management, change management, and configuration management. The connector enables automatic synchronization of AWS Config data with ServiceNow CMDB, automated incident creation from AWS CloudWatch alarms, and integration of AWS resource provisioning with ServiceNow service catalog.
 
-## 1. ITSM Integration Methodology and Process
+We can implement AWS Service Management Connector for Jira Service Management which provides integration for incident tracking, change management, and asset management. The connector enables automated ticket creation from AWS monitoring events and integration of AWS resource requests with Jira workflows.
 
-### Discovery Phase
+#### Third-Party ITSM Connectors
 
-**Stakeholder Engagement**: Collaborative workshops with technical teams, business stakeholders, and decision-makers to understand current state, requirements, and success criteria.
+We can integrate with ServiceNow through native AWS connectors and custom API integrations for comprehensive ITSM workflow automation including incident, problem, change, and configuration management. We can integrate with Jira and Jira Service Management through API-based connectors for issue tracking, workflow automation, and asset management.
 
-**Current State Assessment**: Comprehensive evaluation of existing operations capabilities, identifying gaps, opportunities, and constraints.
+We can integrate with BMC Remedy through web services API integration for incident, problem, and change management workflows. We can integrate with PagerDuty through native AWS integration for incident routing, escalation, and on-call management using CloudWatch Events and webhooks.
 
-**Requirements Analysis**: Documentation of functional and non-functional requirements aligned with business objectives and compliance needs.
+#### Custom-Built ITSM Integrations
 
-### Design Phase
+We can develop custom integrations using AWS Lambda functions and API Gateway to connect AWS services with ITSM platforms that don't have native connectors. These custom integrations can include REST API connections for data synchronization, webhook implementations for real-time event processing, and batch processing for bulk data updates.
 
-**Solution Architecture**: Design of target state architecture incorporating AWS best practices, security requirements, and scalability considerations.
+Custom integration capabilities include developing Lambda-based connectors for proprietary ITSM systems, creating API Gateway endpoints for bidirectional data exchange, implementing EventBridge rules for real-time event routing, and building Step Functions workflows for complex ITSM process automation.
 
-**Implementation Planning**: Detailed project plan with phases, milestones, dependencies, and resource allocation.
-
-**Risk Assessment**: Identification and mitigation strategies for technical, operational, and business risks.
-
-### Implementation Phase
-
-**Iterative Deployment**: Phased implementation approach with regular checkpoints and validation gates.
-
-**Testing and Validation**: Comprehensive testing including functional, performance, security, and user acceptance testing.
-
-**Documentation and Training**: Knowledge transfer through documentation, training sessions, and hands-on workshops.
-
-### Operations Phase
-
-**Monitoring and Support**: Ongoing monitoring, incident response, and continuous improvement processes.
-
-**Optimization**: Regular reviews and optimization recommendations based on usage patterns and performance metrics.
-
-
-## 2. Integration Capabilities and Connectors
-
-### ITSM Platform Integrations
-
-| Platform | Integration Type | Capabilities | Implementation |
-|----------|------------------|--------------|----------------|
-| **ServiceNow** | Native AWS connector | Incident, change, config management | AWS Service Management Connector |
-| **Jira Service Desk** | API integration | Incident tracking, workflow automation | Custom Lambda connectors |
-| **Remedy** | Web services API | Incident, problem, change management | REST API integration |
-| **PagerDuty** | Native integration | Incident routing, escalation, on-call | CloudWatch Events, webhooks |
-
-### Monitoring Platform Integrations
-
-| Platform | Integration Type | Capabilities | Implementation |
-|----------|------------------|--------------|----------------|
-| **Splunk** | AWS Add-ons | Log aggregation, analytics, dashboards | Kinesis Data Firehose |
-| **Datadog** | Native AWS integration | Infrastructure monitoring, APM | CloudWatch metrics streaming |
-| **New Relic** | AWS partnership | Full-stack observability | X-Ray integration, custom metrics |
-| **Prometheus** | Amazon Managed Service | Metrics collection, alerting | EKS integration, Grafana dashboards |
-
-### Security Platform Integrations
-
-| Platform | Integration Type | Capabilities | Implementation |
-|----------|------------------|--------------|----------------|
-| **Splunk SIEM** | Universal forwarder | Security event correlation | CloudTrail, VPC Flow Logs |
-| **QRadar** | DSM support | Log parsing, rule correlation | Custom log forwarding |
-| **Sentinel** | Native connectors | Security analytics, automation | Azure-AWS cross-cloud |
-
-
-
-## Implementation Phases
-
-| Phase | Duration | Key Activities | Deliverables |
-|-------|----------|----------------|--------------|
-| 1. Discovery | 1-2 weeks | Requirements gathering, current state assessment | Discovery document, requirements matrix |
-| 2. Design | 2-3 weeks | Architecture design, tool selection, process definition | Design document, implementation plan |
-| 3. Implementation | 3-6 weeks | Deployment, configuration, testing, validation | Working solution, documentation |
-| 4. Knowledge Transfer | 1 week | Training, handover, ongoing support planning | Training materials, runbooks |
-
-## Deliverables
-
-1. **ITSM Integration Methodology Document** (this document)
-2. **Implementation Runbook** (see Implementation Artifacts section)
-3. **Infrastructure as Code** templates (see Implementation Artifacts section)
-4. **Configuration Standards** and baseline policies (see Implementation Artifacts section)
-5. **Knowledge Transfer Session** recording and materials
-
-## Implementation Artifacts
-
-
-## Operations Management Implementation Runbook
-
-### Step 1: Infrastructure Deployment Strategy
-
-```yaml
-# deployment-pipeline.yaml
-name: Infrastructure Deployment Pipeline
-on:
-  push:
-    branches: [main]
-    paths: ['infrastructure/**']
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: arn:aws:iam::ACCOUNT:role/GitHubActionsRole
-          
-      - name: Terraform Plan
-        run: |
-          cd infrastructure/
-          terraform init
-          terraform plan -out=tfplan
-          
-      - name: Terraform Apply
-        if: github.ref == 'refs/heads/main'
-        run: |
-          terraform apply tfplan
-```
-
-### Step 2: Change Management Process
-
-```bash
-#!/bin/bash
-# change-management-workflow.sh
-
-# 1. Create change request
-aws ssm create-ops-item \
-    --title "Infrastructure Change Request" \
-    --description "Deploy new application version" \
-    --priority 3 \
-    --source "ChangeManagement" \
-    --operational-data '{
-        "ChangeType": {"Value": "Standard"},
-        "Environment": {"Value": "Production"},
-        "RiskLevel": {"Value": "Medium"}
-    }'
-
-# 2. Immutable infrastructure deployment
-aws imagebuilder start-image-pipeline-execution \
-    --image-pipeline-arn "arn:aws:imagebuilder:region:account:image-pipeline/golden-ami"
-
-# 3. Blue-green deployment
-aws elbv2 modify-target-group \
-    --target-group-arn "arn:aws:elasticloadbalancing:region:account:targetgroup/blue-targets" \
-    --health-check-path "/health"
-```
-
-### Step 3: Patch Management Automation
-
-```python
-# patch-management.py
-import boto3
-from datetime import datetime, timedelta
-
-def create_patch_baseline():
-    ssm = boto3.client('ssm')
-    
-    # Create custom patch baseline
-    response = ssm.create_patch_baseline(
-        Name='Production-Patch-Baseline',
-        OperatingSystem='AMAZON_LINUX_2',
-        ApprovalRules={
-            'PatchRules': [
-                {
-                    'PatchFilterGroup': {
-                        'PatchFilters': [
-                            {
-                                'Key': 'CLASSIFICATION',
-                                'Values': ['Security', 'Critical']
-                            }
-                        ]
-                    },
-                    'ApproveAfterDays': 0,
-                    'ComplianceLevel': 'CRITICAL'
-                },
-                {
-                    'PatchFilterGroup': {
-                        'PatchFilters': [
-                            {
-                                'Key': 'CLASSIFICATION', 
-                                'Values': ['Important', 'Recommended']
-                            }
-                        ]
-                    },
-                    'ApproveAfterDays': 7,
-                    'ComplianceLevel': 'HIGH'
-                }
-            ]
-        }
-    )
-    
-    return response['BaselineId']
-
-def schedule_patch_deployment():
-    ssm = boto3.client('ssm')
-    
-    # Schedule maintenance window for patching
-    response = ssm.create_maintenance_window(
-        Name='Production-Patch-Window',
-        Description='Automated patching for production systems',
-        Schedule='cron(0 2 ? * SUN *)',  # Every Sunday at 2 AM
-        Duration=4,  # 4-hour window
-        Cutoff=1,    # Stop 1 hour before end
-        AllowUnassociatedTargets=False
-    )
-    
-    return response['WindowId']
-```
-
-
-## Operations Automation Scripts
-
-### Vulnerability Scanning and Remediation
-
-```python
-# vulnerability-management.py
-import boto3
-import json
-
-def scan_and_remediate():
-    inspector = boto3.client('inspector2')
-    ssm = boto3.client('ssm')
-    
-    # Get vulnerability findings
-    findings = inspector.list_findings(
-        filterCriteria={
-            'severity': ['HIGH', 'CRITICAL'],
-            'findingStatus': ['ACTIVE']
-        }
-    )
-    
-    for finding in findings['findings']:
-        if finding['type'] == 'PACKAGE_VULNERABILITY':
-            # Automated remediation for package vulnerabilities
-            instance_id = finding['resources'][0]['id']
-            
-            # Execute remediation script
-            response = ssm.send_command(
-                InstanceIds=[instance_id],
-                DocumentName='AWS-RunShellScript',
-                Parameters={
-                    'commands': [
-                        'sudo yum update -y',
-                        'sudo systemctl restart application'
-                    ]
-                }
-            )
-
-### ITSM Integration
-
-```python
-# itsm-integration.py
-import boto3
-import requests
-import json
-
-def create_service_now_incident(alarm_data):
-    # ServiceNow API integration
-    url = 'https://company.service-now.com/api/now/table/incident'
-    headers = {
-        'Content-Type': 'application/json',
-        'Authorization': 'Basic ' + base64_encoded_credentials
-    }
-    
-    incident_data = {
-        'short_description': f"AWS CloudWatch Alarm: {alarm_data['AlarmName']}",
-        'description': alarm_data['NewStateReason'],
-        'urgency': '2',  # High
-        'impact': '2',   # Medium 
-        'category': 'Cloud Infrastructure',
-        'subcategory': 'Monitoring Alert'
-    }
-    
-    response = requests.post(url, headers=headers, data=json.dumps(incident_data))
-    return response.json()
-
-def lambda_handler(event, context):
-    # Process CloudWatch alarm via SNS
-    alarm_data = json.loads(event['Records'][0]['Sns']['Message'])
-    
-    if alarm_data['NewStateValue'] == 'ALARM':
-        incident = create_service_now_incident(alarm_data)
-        print(f"Created ServiceNow incident: {incident['result']['number']}")
-        
-        # Update alarm description with incident number
-        cloudwatch = boto3.client('cloudwatch')
-        cloudwatch.put_metric_alarm(
-            AlarmName=alarm_data['AlarmName'],
-            AlarmDescription=f"ServiceNow: {incident['result']['number']}"
-        )
-```
-
-## References
-
+We can implement custom integrations with monitoring platforms by developing connectors for log aggregation and analytics systems, creating custom metrics and dashboards for ITSM platforms, and implementing automated correlation between AWS metrics and ITSM incidents.
 
 ---
 
-*Last updated: 02 Jul 2025*
+*This document provides evidence of our capability to deliver comprehensive ITSM integration methodologies and support for various ITSM platforms using AWS native connectors, third-party solutions, and custom-built integrations.*
