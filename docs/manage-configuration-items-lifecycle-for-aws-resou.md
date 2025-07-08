@@ -94,19 +94,22 @@ Integration implementation utilizes AWS Systems Manager Change Calendar for main
 #### Environment-Based CI Prioritization
 
 **Production Environment CIs:**
-- **Criticality Level**: High - All compute, storage, network, and database resources tracked
+- **Criticality Level**: High
+  - All compute, storage, network, and database resources tracked
 - **Change Control**: Mandatory ticketing integration with approval workflows
 - **Monitoring**: Real-time synchronization with CMDB (within 5 minutes)
 - **Relationship Mapping**: Complete dependency tracking between all resources
 
 **Staging Environment CIs:**
-- **Criticality Level**: Medium - Core infrastructure and application resources tracked
+- **Criticality Level**: Medium
+  - Core infrastructure and application resources tracked
 - **Change Control**: Automated ticketing for major changes, manual for minor changes
 - **Monitoring**: Hourly synchronization with CMDB
 - **Relationship Mapping**: Application-tier dependency tracking
 
 **Development/Test Environment CIs:**
-- **Criticality Level**: Low - Infrastructure backbone and shared resources tracked
+- **Criticality Level**: Low
+  - Infrastructure backbone and shared resources tracked
 - **Change Control**: Notification-only for tracking purposes
 - **Monitoring**: Daily synchronization with CMDB
 - **Relationship Mapping**: Basic resource grouping and ownership tracking
