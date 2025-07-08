@@ -5,250 +5,371 @@ title: "Signal Analytics and Visualization"
 
 # Signal Analytics and Visualization
 
-## Purpose
+## Overview
 
-Comprehensive signal analytics and visualization provides the visibility needed to maintain performance, availability, and security across your AWS environment. Our approach establishes end-to-end monitoring that enables proactive incident response and continuous optimization.
+The AWS Partner has methodology, process and relevant tooling experience to:
 
-## Methodology & Process
+* Analyze, visualize signals and manage resulting alerts.
+* Analyze including signal correlation, interactive search in log data, SQL query functionality, statistical analysis and time-series top contributors.
+* Visualization including live dashboards, trend analysis and end to end service mapping distributed systems.
+* Alerts managed based on metric monitoring and customer defined usage thresholds and service quotas.
 
-### Telemetry Architecture Design
+## Evidence Documentation
 
-**Signal Collection Strategy**: We implement comprehensive telemetry collection using OpenTelemetry standards, capturing metrics, logs, and traces across your entire application stack.
+### 1. Standard Processes for Creating Visualization Dashboards
 
-**Correlation and Context**: All telemetry signals are correlated through consistent trace IDs and metadata, enabling rapid troubleshooting and root cause analysis.
+#### Dashboard Creation Methodology
 
-### Alerting and Response
+**Signal Collection and Preparation**
 
-**Intelligent Alerting**: Alert strategies focus on actionable signals that indicate real user impact, reducing alert fatigue while ensuring critical issues receive immediate attention.
+1. **Signal Identification**: Define key signals across application, infrastructure, and business layers
+2. **Data Source Integration**: Connect multiple data sources (CloudWatch, X-Ray, OpenSearch, custom metrics)
+3. **Signal Correlation**: Establish relationships between related signals using trace IDs and metadata
+4. **Data Normalization**: Standardize signal formats and units for consistent visualization
 
-**Incident Response Integration**: Monitoring integrates with your existing incident response processes, automatically creating tickets and escalating based on severity and business impact.
+**Dashboard Design Process**
 
-### Evidence Artifacts Included
+1. **Requirements Gathering**
+   - Stakeholder workshops to identify key metrics and visualization needs
+   - Define audience-specific dashboard requirements (executives, operations, developers)
+   - Establish refresh rates and real-time vs. historical data requirements
 
-- **Monitoring Templates**: CloudWatch dashboard configurations and alerting rule sets
-- **Trace Analysis**: Sample X-Ray service maps and distributed tracing implementations
-- **Log Analytics**: CloudWatch Insights queries and log aggregation pipeline code
-- **SLA Definitions**: Service level objectives with monitoring and alerting thresholds
+2. **Template Development**
+   - Create reusable dashboard templates for common use cases
+   - Define standard widget types and configurations
+   - Establish consistent color schemes and layout patterns
 
-## Technology Stack
+3. **Implementation Standards**
+   - Use Infrastructure as Code (CloudFormation/CDK) for dashboard deployment
+   - Version control dashboard configurations in Git
+   - Implement automated testing for dashboard functionality
 
-| Layer | AWS Services | Alternative Options |
-|-------|--------------|--------------------|
-| **Core** | Amazon CloudWatch, AWS X-Ray, Amazon Managed Prometheus, Amazon Managed Grafana | |
-| **Logging** | CloudWatch Logs, Amazon OpenSearch, AWS Fluent Bit, AWS Kinesis Data Firehose | |
-| **Tracing** | AWS X-Ray, OpenTelemetry Collector, Amazon ECS Service Connect, AWS App Mesh | |
-| **Third-Party** | — | Datadog (Unified observability), New Relic (Application monitoring), Splunk (Log analytics) |
+**Analytics Capabilities**
 
+**Signal Correlation Analysis**
 
-## 1. Signal Analytics and Visualization Methodology and Process
+- **Cross-service correlation**: Link application performance metrics with infrastructure health
+- **Temporal correlation**: Identify patterns across time-based signals
+- **Causal analysis**: Determine root cause relationships between signals
+- **Anomaly detection**: Statistical analysis to identify unusual patterns
 
-### Discovery Phase
+**Interactive Search and Query**
 
-**Stakeholder Engagement**: Collaborative workshops with technical teams, business stakeholders, and decision-makers to understand current state, requirements, and success criteria.
+- **CloudWatch Insights**: SQL-like queries for log analysis and pattern detection
+- **OpenSearch Dashboards**: Interactive search across structured and unstructured data
+- **Custom query builders**: User-friendly interfaces for complex data exploration
+- **Saved searches**: Reusable query templates for common investigations
 
-**Current State Assessment**: Comprehensive evaluation of existing observability capabilities, identifying gaps, opportunities, and constraints.
+**Statistical Analysis and Time-Series**
 
-**Requirements Analysis**: Documentation of functional and non-functional requirements aligned with business objectives and compliance needs.
+- **Top contributors analysis**: Identify highest impact metrics and dimensions
+- **Trend analysis**: Statistical trend detection and forecasting
+- **Performance benchmarking**: Historical comparison and performance baselines
+- **Capacity planning**: Predictive analysis for resource requirements
 
-### Design Phase
+#### Alert Management Process
 
-**Solution Architecture**: Design of target state architecture incorporating AWS best practices, security requirements, and scalability considerations.
+**Threshold Configuration**
 
-**Implementation Planning**: Detailed project plan with phases, milestones, dependencies, and resource allocation.
+1. **Baseline Establishment**: Statistical analysis to determine normal operating ranges
+2. **Dynamic Thresholds**: Machine learning-based anomaly detection for adaptive alerting
+3. **Service Quota Monitoring**: Proactive alerts before reaching AWS service limits
+4. **Custom Business Metrics**: Customer-defined KPIs with business-specific thresholds
 
-**Risk Assessment**: Identification and mitigation strategies for technical, operational, and business risks.
+**Alert Lifecycle Management**
 
-### Implementation Phase
+- **Alert creation**: Automated alert generation based on predefined conditions
+- **Escalation procedures**: Tiered notification system based on severity and duration
+- **Alert correlation**: Group related alerts to reduce noise and improve response
+- **Resolution tracking**: Automated closure and post-incident analysis
 
-**Iterative Deployment**: Phased implementation approach with regular checkpoints and validation gates.
+### 2. Reference Dashboards and Examples
 
-**Testing and Validation**: Comprehensive testing including functional, performance, security, and user acceptance testing.
+#### Executive Business Dashboard
 
-**Documentation and Training**: Knowledge transfer through documentation, training sessions, and hands-on workshops.
+**Purpose**: High-level business metrics and operational health overview
 
-### Operations Phase
+**Key Signals Collected**
 
-**Monitoring and Support**: Ongoing monitoring, incident response, and continuous improvement processes.
+- **Business KPIs**: Revenue per hour, active users, transaction volumes
+- **Service health**: Overall availability, error rates, customer satisfaction scores
+- **Cost metrics**: Daily spend, cost per transaction, budget variance
+- **Security posture**: Security events, compliance status, vulnerability counts
 
-**Optimization**: Regular reviews and optimization recommendations based on usage patterns and performance metrics.
+**Visualization Components**
 
+- **Executive Summary Cards**: Key metrics with trend indicators and targets
+- **Revenue Trend Line**: Time-series analysis of business performance
+- **Service Health Heatmap**: Visual representation of service availability
+- **Geographic Distribution**: User activity and performance by region
 
-## 2. Description, example of reference dashboards showcasing signals collected, customer KPIs tracked, trend reports and insights derived.
+**Insights Derived**
 
-### Overview
+- Business impact correlation with technical performance
+- Cost optimization opportunities and trending
+- Regional performance variations and optimization needs
+- Security incident impact on business operations
 
-Our signal analytics and visualization approach addresses this requirement through systematic implementation of AWS best practices and proven methodologies.
+#### Operations Dashboard
 
-### Implementation Details
+**Purpose**: Real-time operational monitoring and incident response
 
-The solution incorporates industry-standard practices for observability with specific focus on:
+**Key Signals Collected**
 
-- **Automation**: Reducing manual effort through infrastructure as code
-- **Security**: Built-in security controls and compliance frameworks
-- **Scalability**: Elastic architecture that grows with business needs
-- **Monitoring**: Comprehensive observability and alerting
-- **Documentation**: Clear procedures and operational runbooks
+- **Infrastructure metrics**: CPU, memory, disk utilization across services
+- **Application performance**: Response times, error rates, throughput
+- **Network health**: Latency, packet loss, bandwidth utilization
+- **Database performance**: Query performance, connection pools, deadlocks
 
-### Key Components
+**Visualization Components**
 
-- **AWS Native Services**: Leveraging managed services for reliability and scale
-- **Custom Integration**: Tailored solutions for specific business requirements
-- **Best Practices**: Implementation following AWS Well-Architected principles
-- **Knowledge Transfer**: Comprehensive training and documentation
+- **Service Map**: End-to-end distributed system visualization with health status
+- **Real-time Metrics**: Live updating gauges and charts for critical indicators
+- **Alert Summary**: Active alerts with severity and ownership information
+- **Incident Timeline**: Historical view of incidents and resolution patterns
 
-### Expected Outcomes
+**Insights Derived**
 
-The implementation delivers measurable improvements in operational efficiency, security posture, and business agility while reducing overall operational costs.
+- Performance bottlenecks and capacity constraints
+- Service dependency impact analysis
+- Incident correlation and pattern recognition
+- Resource optimization recommendations
 
+#### Developer Performance Dashboard
 
-## 3. Control Implementation Examples
+**Purpose**: Application-specific metrics for development teams
 
-### Example 1: S3 Bucket Encryption Control
+**Key Signals Collected**
 
-**Control Type**: Preventive
-**Implementation**: Service Control Policy (SCP)
+- **Application metrics**: Feature usage, API performance, error patterns
+- **Deployment health**: Build success rates, deployment frequency, rollback frequency
+- **Code quality metrics**: Test coverage, code complexity, technical debt
+- **User experience**: Page load times, user session duration, conversion rates
+
+**Visualization Components**
+
+- **Feature Adoption Funnel**: User interaction patterns and conversion analysis
+- **API Performance Matrix**: Response time and error rate breakdown by endpoint
+- **Deployment Pipeline Status**: Build and deployment success tracking
+- **Error Analysis**: Error frequency and impact assessment
+
+**Insights Derived**
+
+- Feature performance and adoption patterns
+- API optimization opportunities
+- Development velocity and quality trends
+- User experience impact assessment
+
+#### Security Operations Dashboard
+
+**Purpose**: Security monitoring and threat detection
+
+**Key Signals Collected**
+
+- **Security events**: Login attempts, access patterns, privilege escalations
+- **Vulnerability metrics**: Security findings, patch status, compliance posture
+- **Network security**: Intrusion attempts, blocked connections, traffic analysis
+- **Compliance status**: Policy violations, audit findings, remediation progress
+
+**Visualization Components**
+
+- **Threat Intelligence Feed**: Real-time security event correlation
+- **Compliance Scorecard**: Policy adherence and violation trends
+- **Geographic Threat Map**: Attack sources and patterns by location
+- **Incident Response Timeline**: Security incident lifecycle tracking
+
+**Insights Derived**
+
+- Threat pattern recognition and attack vector analysis
+- Compliance gap identification and remediation priority
+- Security posture improvement recommendations
+- Incident response effectiveness metrics
+
+### 3. Dashboard Security Access Control Policies
+
+#### Role-Based Access Control (RBAC)
+
+**Executive Access Profile**
 
 ```json
 {
   "Version": "2012-10-17",
   "Statement": [
     {
-      "Sid": "DenyUnencryptedS3Objects",
-      "Effect": "Deny",
-      "Action": "s3:PutObject",
-      "Resource": "*",
-      "Condition": {
-        "StringNotEquals": {
-          "s3:x-amz-server-side-encryption": ["AES256", "aws:kms"]
-        }
-      }
+      "Effect": "Allow",
+      "Action": [
+        "cloudwatch:GetDashboard",
+        "cloudwatch:ListDashboards"
+      ],
+      "Resource": "arn:aws:cloudwatch:*:*:dashboard/Executive-*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "quicksight:GetDashboard",
+        "quicksight:ListDashboards"
+      ],
+      "Resource": "arn:aws:quicksight:*:*:dashboard/business-*"
     }
   ]
 }
 ```
 
-**Deployment**: Applied via AWS Organizations to all accounts
-**Lifecycle Management**: Version-controlled in Git, deployed via CI/CD pipeline
+**Operations Team Access Profile**
 
-### Example 2: CloudTrail Monitoring Control
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "cloudwatch:*",
+        "xray:GetServiceMap",
+        "xray:GetTraceGraph",
+        "logs:StartQuery",
+        "logs:StopQuery",
+        "logs:GetQueryResults"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect": "Deny",
+      "Action": [
+        "cloudwatch:DeleteDashboard",
+        "cloudwatch:PutDashboard"
+      ],
+      "Resource": "arn:aws:cloudwatch:*:*:dashboard/Executive-*"
+    }
+  ]
+}
+```
 
-**Control Type**: Detective
-**Implementation**: AWS Config Rule
+**Developer Access Profile**
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "cloudwatch:GetDashboard",
+        "cloudwatch:ListDashboards",
+        "xray:GetServiceMap",
+        "xray:GetTraceGraph",
+        "logs:StartQuery",
+        "logs:GetQueryResults"
+      ],
+      "Resource": [
+        "arn:aws:cloudwatch:*:*:dashboard/Dev-*",
+        "arn:aws:xray:*:*:*"
+      ]
+    }
+  ]
+}
+```
+
+#### Multi-Account Access Control
+
+**Cross-Account Dashboard Sharing**
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "AWS": "arn:aws:iam::CENTRAL-ACCOUNT:role/DashboardViewerRole"
+      },
+      "Action": [
+        "cloudwatch:GetMetricStatistics",
+        "cloudwatch:ListMetrics"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+```
+
+#### Data Classification and Protection
+
+**Sensitive Data Access Control**
+
+- **PII Protection**: Restrict access to dashboards containing personally identifiable information
+- **Financial Data**: Separate permissions for revenue and cost-related visualizations
+- **Security Data**: Limited access to security events and incident response dashboards
+- **Compliance Data**: Audit trail protection and read-only access controls
+
+**Implementation Example**
 
 ```yaml
-CloudTrailMonitoringRule:
-  Type: AWS::Config::ConfigRule
+# CloudFormation template for dashboard access control
+DashboardAccessPolicy:
+  Type: AWS::IAM::Policy
   Properties:
-    ConfigRuleName: cloudtrail-enabled-check
-    Source:
-      Owner: AWS
-      SourceIdentifier: CLOUD_TRAIL_ENABLED
-    Scope:
-      ComplianceResourceTypes:
-        - AWS::CloudTrail::Trail
+    PolicyName: DashboardAccessControl
+    PolicyDocument:
+      Version: '2012-10-17'
+      Statement:
+        - Effect: Allow
+          Action:
+            - cloudwatch:GetDashboard
+          Resource: !Sub 'arn:aws:cloudwatch:${AWS::Region}:${AWS::AccountId}:dashboard/${DashboardName}'
+          Condition:
+            StringEquals:
+              'aws:RequestedRegion': !Ref AWS::Region
+            IpAddress:
+              'aws:SourceIp': 
+                - '10.0.0.0/8'
+                - '172.16.0.0/12'
 ```
 
-**Deployment**: Deployed via CloudFormation StackSets
-**Lifecycle Management**: Automated remediation via Lambda when non-compliant
+## Related Documentation
 
+- [Monitoring and Observability Baseline](monitoring-and-observability-baseline.md)
+- [Security Observability](security-observability.md)
+- [Cost Reporting and Visualization](cost-reporting-visualization.md)
 
+## Implementation Approach
 
-## Implementation Phases
+### Phase 1: Signal Analysis Setup (1-2 weeks)
 
-| Phase | Duration | Key Activities | Deliverables |
-|-------|----------|----------------|--------------|
-| 1. Discovery | 1-2 weeks | Requirements gathering, current state assessment | Discovery document, requirements matrix |
-| 2. Design | 2-3 weeks | Architecture design, tool selection, process definition | Design document, implementation plan |
-| 3. Implementation | 3-6 weeks | Deployment, configuration, testing, validation | Working solution, documentation |
-| 4. Knowledge Transfer | 1 week | Training, handover, ongoing support planning | Training materials, runbooks |
+- Signal correlation framework implementation
+- Interactive search capability deployment
+- Statistical analysis tools configuration
+- Time-series analysis platform setup
 
-## Deliverables
+### Phase 2: Dashboard Development (2-3 weeks)
 
-1. **Signal Analytics and Visualization Methodology Document** (this document)
-2. **Implementation Runbook** (see Implementation Artifacts section)
-3. **Infrastructure as Code** templates (see Implementation Artifacts section)
-4. **Configuration Standards** and baseline policies (see Implementation Artifacts section)
-5. **Monitoring dashboard** templates and configurations
-6. **Alerting runbook** with escalation procedures
-7. **Log aggregation pipeline** deployment artifacts
-8. **Knowledge Transfer Session** recording and materials
+- Reference dashboard template creation
+- Custom visualization development
+- Live dashboard deployment
+- Trend analysis implementation
 
-## Implementation Artifacts
+### Phase 3: Alert Management (1-2 weeks)
 
+- Threshold configuration and testing
+- Alert correlation rules implementation
+- Escalation procedure automation
+- Service quota monitoring setup
 
-## Observability Implementation Runbook
+### Phase 4: Security and Access Control (1 week)
 
-### Step 1: CloudWatch Setup
+- RBAC policy implementation
+- Multi-account access configuration
+- Data classification and protection
+- Audit trail and compliance setup
 
-```bash
-# Create custom CloudWatch dashboard
-aws cloudwatch put-dashboard \
-    --dashboard-name "ApplicationObservability" \
-    --dashboard-body file://dashboard-config.json
+## Success Metrics
 
-# Create composite alarm for application health
-aws cloudwatch put-composite-alarm \
-    --alarm-name "ApplicationHealthComposite" \
-    --alarm-description "Overall application health" \
-    --actions-enabled \
-    --alarm-actions "arn:aws:sns:region:account:alert-topic"
-```
-
-### Step 2: X-Ray Tracing Configuration
-
-```yaml
-# xray-tracing-template.yaml
-AWSTemplateFormatVersion: '2010-09-09'
-Resources:
-  XRayServiceMap:
-    Type: AWS::XRay::TracingConfig
-    Properties:
-      TracingConfig:
-        Mode: Active
-
-  XRayInsights:
-    Type: AWS::XRay::InsightsConfiguration
-    Properties:
-      InsightsEnabled: true
-      NotificationsEnabled: true
-```
-
-### Step 3: Application Monitoring Setup
-
-```python
-# application-monitoring.py
-import boto3
-import json
-
-def setup_application_monitoring():
-    cloudwatch = boto3.client('cloudwatch')
-    
-    # Custom business metrics
-    cloudwatch.put_metric_data(
-        Namespace='Application/Business',
-        MetricData=[
-            {
-                'MetricName': 'ActiveUsers',
-                'Value': 150,
-                'Unit': 'Count',
-                'Dimensions': [
-                    {
-                        'Name': 'Environment',
-                        'Value': 'Production'
-                    }
-                ]
-            }
-        ]
-    )
-```
-
-
-
-## References
-
-- [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)
-- [AWS X-Ray Developer Guide](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html)
+- **Dashboard Adoption**: > 90% of teams using standardized dashboards
+- **Alert Accuracy**: > 95% actionable alerts with < 5% false positives
+- **Mean Time to Insight**: < 2 minutes for common troubleshooting scenarios
+- **Security Compliance**: 100% adherence to access control policies
+- **User Satisfaction**: > 85% satisfaction score in dashboard usability surveys
 
 ---
 
-*Last updated: 02 Jul 2025*
+*This document provides evidence of our signal analytics and visualization capabilities in compliance with AWS Partner requirements.*
