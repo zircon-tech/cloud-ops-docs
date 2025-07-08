@@ -19,10 +19,10 @@ Provide a controlled, auditable process for transferring ownership of one or mor
 | **Executive Sponsor**      | Final business approval; signs amended agreements                         | CIO / CFO                        |
 | **Legal / Procurement**    | Review & execute Enterprise Agreement, EDP, Marketplace Private Offers    | Legal Counsel / Procurement Lead |
 | **Finance / Billing Owner**| Update payer account, tax settings, invoices                              | Finance Manager                  |
-| **Security Lead**          | Validate guardrails, SCPs, logging before & after transfer                | SecOps Engineer                  |
+| **Security Lead**          | Validate guardrails, SCPs, logging before & after transfer                | Security Operations Engineer     |
 | **AWS Root Account Owner** | Change root email, MFA, and contact info                                  | IT Director or Delegate          |
-| **AWS Partner (ZirconTech)**| Coordinate timeline, automate Control Tower/OUs, liaise with AWS Support | Engagement Manager               |
-| **AWS Account Manager**    | Process new agreements, Enterprise Support mapping                        | AWS CAM                           |
+| **AWS Partner Team**       | Coordinate timeline, automate Control Tower/OUs, liaise with AWS Support  | Partner Engagement Manager      |
+| **AWS Account Manager**    | Process new agreements, Enterprise Support mapping                        | AWS Customer Account Manager     |
 
 ---
 
@@ -51,26 +51,26 @@ Provide a controlled, auditable process for transferring ownership of one or mor
    * Close out invoices on the old payer.
 
 6. **Post-Transfer Audit**  
-   * Run automation script `account-baseline-check` (Control Tower + AWS Config) to validate:  
+   * Run validation scripts (Control Tower + AWS Config) to validate:  
      - Guardrails enabled  
      - S3 log buckets mapped  
      - Cost-allocation tags inherited  
    * Security & Finance produce sign-off report.
 
-7. **Runbook Completion**  
-   * ZirconTech archives ticket, attaches audit report, and schedules 30-day health check.
+7. **Process Completion**  
+   * Archive documentation, attach audit report, and schedule 30-day health check.
 
 ---
 
 ## 5 · Automation & Tooling
 
-| Task                           | Tool / Script                                 |
-|--------------------------------|-----------------------------------------------|
-| Inventory export               | `aws organizations list-accounts` + CSV       |
-| Root-credential rotation       | AWS CLI + IAM Identity Center                  |
-| OU move & guardrail attach     | Control Tower **Lifecycle** API                |
-| Baseline compliance check      | ZirconTech script `account-baseline-check`     |
-| Billing re-mapping             | AWS Billing Console API / Cost Explorer        |
+| Task                           | Tool / Service                                        |
+|--------------------------------|-------------------------------------------------------|
+| Inventory export               | `aws organizations list-accounts` + CSV export       |
+| Root-credential rotation       | AWS CLI + IAM Identity Center                         |
+| OU move & guardrail attach     | Control Tower Lifecycle API                          |
+| Baseline compliance check      | Custom automation scripts + AWS Config               |
+| Billing re-mapping             | AWS Billing Console API / Cost Explorer              |
 
 ---
 
@@ -80,8 +80,8 @@ Provide a controlled, auditable process for transferring ownership of one or mor
 2. **Signed agreement** or amendment (EDP / EA)  
 3. **Technical runbook** with CLI commands and rollback steps  
 4. **Post-transfer audit report** (PDF)  
-5. **30-day health-check notes**
+5. **30-day health-check documentation**
 
 ---
 
-_Last updated: 30 Jun 2025_
+*This methodology provides a structured approach to AWS account ownership transfer while ensuring compliance and operational continuity.*
