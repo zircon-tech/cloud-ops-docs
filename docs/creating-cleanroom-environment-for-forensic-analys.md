@@ -1,259 +1,303 @@
 ---
 id: COCCA-003
-title: "Creating cleanroom environment for forensic analysis"
+title: "Creating Cleanroom Environment for Forensic Analysis"
 ---
 
-# Creating cleanroom environment for forensic analysis
+# Creating Cleanroom Environment for Forensic Analysis
 
-## Purpose
+## Overview
 
-Systematic creating cleanroom environment for forensic analysis ensures your AWS environment meets regulatory requirements while supporting business agility. Our methodology implements comprehensive controls and audit trails that demonstrate compliance across multiple frameworks.
+The AWS Partner has methodology, process and relevant tooling experience to enable customers to quickly react to identified security breaches including defining and implementing containment processes and procedures, establishing standard pre-configured forensic environments to analyze logs and tracing data, and determining compromises with evidential data support.
 
-## Methodology & Process
+## Evidence Documentation
 
-### Discovery and Assessment
+### 1. Methodologies for Creating Forensic Investigation Cleanrooms
 
-We begin with comprehensive discovery to understand your current environment, identify requirements, and establish success criteria that align with business objectives.
+#### Forensic Cleanroom Architecture
 
-### Design and Implementation
+**Isolated Forensic Environment Design**
 
-Our implementation approach prioritizes automation, consistency, and maintainability, using infrastructure-as-code and proven architectural patterns.
+Forensic cleanroom methodology establishes completely isolated AWS environments designed specifically for security breach investigation and evidence analysis. The cleanroom architecture ensures forensic integrity through network isolation, controlled access, and comprehensive audit trails that maintain chain of custody for digital evidence.
 
-### Monitoring and Optimization
+Infrastructure design utilizes dedicated AWS accounts within AWS Organizations to ensure complete separation from production environments. VPC isolation includes custom route tables, network ACLs, and security groups configured to prevent any communication with production systems while enabling controlled internet access for forensic tool updates and threat intelligence feeds.
 
-Continuous monitoring ensures implementations remain effective over time, with regular reviews and optimization recommendations.
+**Evidence Preservation Framework**
 
+Evidence collection methodology ensures forensic integrity through automated snapshot creation, memory dump capture, and log preservation with cryptographic checksums. EBS snapshot procedures include metadata capture, encryption verification, and timestamp documentation to maintain legal admissibility of digital evidence.
 
+Memory acquisition utilizes EC2 instance hibernation and custom AMI creation to preserve volatile memory state. Network traffic capture employs VPC Flow Logs, CloudTrail API logs, and application-level logging to reconstruct attack timelines and identify compromise indicators.
 
-## Technology Stack
+**Forensic Tool Deployment**
 
-| Layer | AWS Services | Alternative Options |
-|-------|--------------|--------------------|
-| **Core** | Amazon CloudWatch, AWS CloudFormation, AWS IAM, Amazon VPC | |
-| **Third-Party** | — | Third-party tools (As required) |
+Standard forensic toolkit deployment includes automated installation of industry-standard investigation tools through Systems Manager Automation documents. Tool suite includes SANS SIFT Workstation, Volatility Framework, Autopsy Digital Forensics Platform, and Wireshark for comprehensive evidence analysis.
 
+Custom forensic AMIs maintain pre-configured investigation environments with validated tool chains, ensuring rapid deployment during incident response. AMI management includes regular updates, security patching, and tool version control to maintain forensic capability readiness.
 
-## 1. Description of methodologies used to create clean-rooms for forensic investigation.
+#### Cleanroom Infrastructure Components
 
-### Overview
+**Core AWS Services for Forensic Analysis**
 
-Our creating cleanroom environment for forensic analysis approach addresses this requirement through systematic implementation of AWS best practices and proven methodologies.
+| Service | Forensic Function | Configuration |
+|---------|------------------|---------------|
+| **Dedicated AWS Account** | Complete isolation from production | Separate billing, IAM policies, network boundaries |
+| **Forensic VPC** | Isolated network environment | No internet gateway, controlled NAT gateway, custom routing |
+| **EC2 Forensic Instances** | Analysis workstations | Custom AMIs with forensic tools, isolated subnets |
+| **EBS Encrypted Volumes** | Evidence storage | Customer-managed KMS keys, snapshot preservation |
+| **S3 Forensic Buckets** | Log and evidence repository | Object lock enabled, access logging, encryption |
+| **CloudTrail Forensic Trail** | Audit trail for investigation | Dedicated trail, tamper detection, encrypted logs |
+| **Systems Manager** | Secure remote access | Session Manager for shell access, no SSH keys required |
+| **AWS Secrets Manager** | Credential management | Forensic tool licenses, API keys, secure storage |
 
-### Implementation Details
+**Network Isolation and Security Controls**
 
-The solution incorporates industry-standard practices for compliance with specific focus on:
+Forensic network architecture implements complete isolation through dedicated VPC with no direct internet connectivity. Controlled internet access utilizes NAT gateway in separate subnet with egress-only rules for forensic tool updates and threat intelligence feeds.
 
-- **Automation**: Reducing manual effort through infrastructure as code
-- **Security**: Built-in security controls and compliance frameworks
-- **Scalability**: Elastic architecture that grows with business needs
-- **Monitoring**: Comprehensive observability and alerting
-- **Documentation**: Clear procedures and operational runbooks
+Access controls implement least-privilege principles with dedicated IAM roles for forensic investigators. Multi-factor authentication requirements and session recording ensure accountability and audit compliance. Network monitoring through VPC Flow Logs provides visibility into all forensic environment activity.
 
-### Key Components
+**Evidence Chain of Custody**
 
-- **AWS Native Services**: Leveraging managed services for reliability and scale
-- **Custom Integration**: Tailored solutions for specific business requirements
-- **Best Practices**: Implementation following AWS Well-Architected principles
-- **Knowledge Transfer**: Comprehensive training and documentation
+Digital evidence handling procedures maintain chain of custody through automated metadata collection, cryptographic hashing, and timestamping. Evidence transfer protocols ensure secure movement of snapshots, memory dumps, and log files into forensic environment with integrity verification.
 
-### Expected Outcomes
+Documentation procedures include incident timeline creation, evidence inventory management, and investigation notes with tamper-evident storage. Integration with legal case management systems ensures proper evidence handling for potential litigation support.
 
-The implementation delivers measurable improvements in operational efficiency, security posture, and business agility while reducing overall operational costs.
+#### Automated Cleanroom Deployment
 
+**Infrastructure as Code Templates**
 
-## 2. Examples of playbooks used to react to a suspected security breach event, and conduct the investigation.
+Forensic cleanroom deployment utilizes AWS CloudFormation templates for consistent and rapid environment provisioning. Templates include network isolation configuration, security controls implementation, and forensic tool deployment automation.
 
-### Overview
+Deployment automation includes parameter customization for case-specific requirements, automated testing of forensic tool functionality, and verification of network isolation effectiveness. Template versioning ensures consistent deployment across multiple investigation scenarios.
 
-Our creating cleanroom environment for forensic analysis approach addresses this requirement through systematic implementation of AWS best practices and proven methodologies.
+**Rapid Response Procedures**
 
-### Implementation Details
+Automated deployment procedures enable forensic environment setup within 30 minutes of incident declaration. Automated workflows include evidence preservation, cleanroom provisioning, and forensic tool configuration with minimal manual intervention.
 
-The solution incorporates industry-standard practices for compliance with specific focus on:
+Integration with incident response procedures triggers automated cleanroom deployment based on incident severity and investigation requirements. Deployment monitoring ensures successful provisioning and validates forensic environment readiness.
 
-- **Automation**: Reducing manual effort through infrastructure as code
-- **Security**: Built-in security controls and compliance frameworks
-- **Scalability**: Elastic architecture that grows with business needs
-- **Monitoring**: Comprehensive observability and alerting
-- **Documentation**: Clear procedures and operational runbooks
+### 2. Security Breach Investigation Playbooks
 
-### Key Components
+#### Comprehensive Incident Response Playbook
 
-- **AWS Native Services**: Leveraging managed services for reliability and scale
-- **Custom Integration**: Tailored solutions for specific business requirements
-- **Best Practices**: Implementation following AWS Well-Architected principles
-- **Knowledge Transfer**: Comprehensive training and documentation
+**Phase 1: Initial Detection and Containment (0-1 hour)**
 
-### Expected Outcomes
+```
+SECURITY BREACH RESPONSE PLAYBOOK
 
-The implementation delivers measurable improvements in operational efficiency, security posture, and business agility while reducing overall operational costs.
+=== IMMEDIATE RESPONSE (0-15 minutes) ===
 
+□ Incident Declaration
+  - Receive security alert via CloudWatch/Security Hub/GuardDuty
+  - Assess initial severity: Critical/High/Medium/Low
+  - Activate incident response team and assign incident commander
+  - Document incident start time and initial observations
 
+□ Evidence Preservation
+  - Create EBS snapshots of all affected instances
+    Command: aws ec2 create-snapshot --volume-id vol-xxxxx --description "Forensic-$(date)"
+  - Enable VPC Flow Logs for investigation timeframe
+    Command: aws ec2 create-flow-logs --resource-type VPC --resource-ids vpc-xxxxx
+  - Export CloudTrail logs for last 30 days to secure S3 bucket
+  - Capture memory dumps if instances are still running
 
-## Implementation Phases
+□ Initial Containment
+  - Isolate affected systems by modifying security groups
+    Command: aws ec2 modify-security-group-rules --group-id sg-xxxxx --security-group-rules '{ingress/egress rules}'
+  - Revoke compromised IAM user access keys and sessions
+    Command: aws iam delete-access-key --access-key-id AKIAXXXXX --user-name compromised-user
+  - Block suspicious IP addresses using NACLs
+  - Preserve system state before any remediation actions
 
-| Phase | Duration | Key Activities | Deliverables |
-|-------|----------|----------------|--------------|
-| 1. Discovery | 1-2 weeks | Requirements gathering, current state assessment | Discovery document, requirements matrix |
-| 2. Design | 2-3 weeks | Architecture design, tool selection, process definition | Design document, implementation plan |
-| 3. Implementation | 3-6 weeks | Deployment, configuration, testing, validation | Working solution, documentation |
-| 4. Knowledge Transfer | 1 week | Training, handover, ongoing support planning | Training materials, runbooks |
+=== FORENSIC SETUP (15-45 minutes) ===
 
-## Deliverables
+□ Cleanroom Environment Deployment
+  - Deploy forensic investigation VPC using CloudFormation template
+    Command: aws cloudformation create-stack --stack-name forensic-investigation-{incident-id}
+  - Launch forensic analysis instances with SIFT toolkit
+  - Configure secure access through Systems Manager Session Manager
+  - Verify network isolation and evidence transfer capabilities
 
-1. **Creating cleanroom environment for forensic analysis Methodology Document** (this document)
-2. **Implementation Runbook** (see Implementation Artifacts section)
-3. **Infrastructure as Code** templates (see Implementation Artifacts section)
-4. **Configuration Standards** and baseline policies (see Implementation Artifacts section)
-5. **Knowledge Transfer Session** recording and materials
+□ Evidence Collection and Transfer
+  - Transfer EBS snapshots to forensic environment
+    Command: aws ec2 copy-snapshot --source-snapshot-id snap-xxxxx --destination-region us-east-1
+  - Mount evidence volumes as read-only to forensic instances
+  - Create forensic working copies for analysis
+  - Validate evidence integrity using cryptographic checksums
 
-## Implementation Artifacts
-
-
-## Compliance Implementation Runbook
-
-### Step 1: Risk Assessment Framework
-
-```yaml
-# risk-assessment-template.yaml
-risk_assessment:
-  methodology: "NIST RMF"
-  categories:
-    - operational: "Infrastructure availability and reliability risks"
-    - security: "Data breach and unauthorized access risks"  
-    - compliance: "Regulatory non-compliance risks"
-    - business: "Reputation and market response risks"
-  
-  assessment_matrix:
-    impact_levels: ["Low", "Medium", "High", "Critical"]
-    probability_levels: ["Rare", "Unlikely", "Possible", "Likely"]
-    risk_scores:
-      critical_likely: 20
-      high_likely: 16
-      medium_possible: 9
+□ Investigation Team Activation
+  - Notify designated forensic investigators and legal team
+  - Provide secure access credentials to forensic environment
+  - Establish communication channels for investigation updates
+  - Brief team on incident details and investigation scope
 ```
 
-### Step 2: Audit Trail Configuration
+**Phase 2: Deep Investigation and Analysis (1-24 hours)**
 
-```bash
-# Enable comprehensive audit logging
-aws cloudtrail create-trail \
-    --name compliance-audit-trail \
-    --s3-bucket-name compliance-audit-logs \
-    --include-global-service-events \
-    --is-multi-region-trail \
-    --enable-log-file-validation
+```
+=== EVIDENCE ANALYSIS (1-8 hours) ===
 
-# Configure AWS Config for compliance monitoring
-aws configservice put-configuration-recorder \
-    --configuration-recorder name=compliance-recorder \
-    --recording-group allSupported=true,includeGlobalResourceTypes=true
+□ Memory and Disk Analysis
+  - Analyze memory dumps using Volatility framework
+    Command: volatility -f memory.dmp --profile=Win10x64 pslist
+  - Perform timeline analysis of file system changes
+    Command: fls -r -m / /dev/evidence_disk > timeline.csv
+  - Search for indicators of compromise (IOCs)
+  - Extract and analyze malware samples if present
+
+□ Log Correlation and Analysis
+  - Analyze CloudTrail logs for unauthorized API calls
+    Query: SELECT eventTime, sourceIPAddress, eventName, userIdentity FROM cloudtrail_logs WHERE eventTime > 'incident_start_time'
+  - Correlate VPC Flow Logs with suspicious network activity
+  - Review application logs for attack patterns
+  - Construct timeline of attacker activities
+
+□ Network Traffic Analysis
+  - Analyze VPC Flow Logs for data exfiltration patterns
+  - Identify command and control communications
+  - Map network connections and lateral movement
+  - Determine if sensitive data was accessed or transferred
+
+=== IMPACT ASSESSMENT (4-12 hours) ===
+
+□ Data Exposure Assessment
+  - Identify compromised systems and their data classifications
+  - Determine scope of potential data breach
+  - Assess customer data exposure and regulatory implications
+  - Document evidence of data access or exfiltration
+
+□ System Compromise Analysis
+  - Map extent of attacker access across infrastructure
+  - Identify compromised user accounts and permissions
+  - Assess potential for ongoing access or backdoors
+  - Determine attack vectors and entry points
+
+□ Business Impact Evaluation
+  - Calculate financial impact of incident
+  - Assess operational disruption and recovery requirements
+  - Evaluate reputation and customer trust implications
+  - Determine regulatory notification requirements
 ```
 
-### Step 3: Data Classification Implementation
+**Phase 3: Recovery and Remediation (8-72 hours)**
 
-```python
-# data-classification-scanner.py
-import boto3
-import json
+```
+=== THREAT ELIMINATION (8-24 hours) ===
 
-def classify_s3_data():
-    s3 = boto3.client('s3')
-    macie = boto3.client('macie2')
-    
-    # Enable Macie for data discovery
-    response = macie.enable_macie()
-    
-    # Create classification job
-    job_response = macie.create_classification_job(
-        jobType='ONE_TIME',
-        name='data-classification-scan',
-        s3JobDefinition={
-            'bucketDefinitions': [
-                {
-                    'accountId': '123456789012',
-                    'buckets': ['sensitive-data-bucket']
-                }
-            ]
-        }
-    )
-    
-    return job_response['jobId']
+□ Malware Eradication
+  - Remove identified malware and backdoors
+  - Rebuild compromised systems from clean backups
+  - Update security controls to prevent re-infection
+  - Validate system integrity after remediation
+
+□ Access Control Restoration
+  - Reset all potentially compromised credentials
+  - Implement additional authentication controls
+  - Review and update IAM policies and permissions
+  - Ensure no unauthorized access remains
+
+□ Security Enhancement
+  - Patch vulnerabilities exploited in the attack
+  - Implement additional monitoring and detection controls
+  - Update security configurations based on lessons learned
+  - Strengthen network segmentation and access controls
+
+=== RECOVERY VALIDATION (12-48 hours) ===
+
+□ System Restoration
+  - Restore systems from verified clean backups
+  - Validate system functionality and performance
+  - Confirm data integrity and availability
+  - Test business process continuity
+
+□ Security Verification
+  - Conduct vulnerability scanning on restored systems
+  - Validate security control effectiveness
+  - Test incident detection and response capabilities
+  - Confirm no residual threats remain
+
+□ Monitoring Enhancement
+  - Implement enhanced monitoring for similar attack patterns
+  - Update security baselines and alert thresholds
+  - Deploy additional threat detection capabilities
+  - Establish ongoing threat hunting procedures
 ```
 
+**Phase 4: Post-Incident Activities (24-168 hours)**
 
-## Compliance Procedures and Checklists
+```
+=== DOCUMENTATION AND REPORTING (24-72 hours) ===
 
-### Incident Response Playbook
+□ Incident Documentation
+  - Complete forensic investigation report with findings
+  - Document attack timeline and techniques used
+  - Provide evidence inventory and chain of custody records
+  - Prepare executive summary with business impact assessment
 
-```markdown
-## Security Incident Response Plan
+□ Regulatory and Legal Compliance
+  - File required breach notifications with regulators
+  - Coordinate with legal team on potential litigation
+  - Prepare customer communications regarding incident
+  - Ensure compliance with industry-specific requirements
 
-### Phase 1: Detection and Analysis (0-30 minutes)
-1. **Incident Identification**
-   - [ ] Alert received via CloudWatch/Security Hub
-   - [ ] Initial triage and severity assessment
-   - [ ] Incident commander assignment
+□ Lessons Learned Analysis
+  - Conduct post-incident review meeting
+  - Identify security control gaps and improvements
+  - Update incident response procedures based on experience
+  - Develop action plan for security enhancements
 
-2. **Evidence Preservation**
-   - [ ] Create EBS snapshots of affected instances
-   - [ ] Capture VPC Flow Logs for investigation period
-   - [ ] Export relevant CloudTrail logs to secure S3 bucket
+=== LONG-TERM IMPROVEMENTS (72-168 hours) ===
 
-### Phase 2: Containment (30-60 minutes)  
-1. **Immediate Containment**
-   - [ ] Isolate affected systems using Security Groups
-   - [ ] Revoke compromised IAM credentials
-   - [ ] Block malicious IP addresses via NACL
+□ Security Program Enhancement
+  - Implement identified security control improvements
+  - Update security policies and procedures
+  - Enhance staff training and awareness programs
+  - Strengthen vendor and third-party security requirements
 
-2. **Forensic Environment Setup**
-   - [ ] Launch isolated forensic VPC
-   - [ ] Deploy analysis tools (SANS SIFT, Volatility)
-   - [ ] Mount evidence snapshots to forensic instances
+□ Monitoring and Detection Improvements
+  - Deploy enhanced security monitoring capabilities
+  - Update threat detection rules and signatures
+  - Implement behavioral analytics and anomaly detection
+  - Strengthen integration with threat intelligence feeds
 
-### Phase 3: Investigation (1-24 hours)
-1. **Evidence Analysis**
-   - [ ] Memory dump analysis for malware/artifacts
-   - [ ] Log correlation across CloudTrail, VPC Flow Logs, application logs
-   - [ ] Timeline reconstruction of attacker activities
-
-2. **Impact Assessment**
-   - [ ] Determine scope of data exposure
-   - [ ] Identify compromised systems and accounts
-   - [ ] Assess regulatory notification requirements
+□ Recovery and Continuity Improvements
+  - Test and validate backup and recovery procedures
+  - Update business continuity and disaster recovery plans
+  - Enhance incident response team capabilities
+  - Implement additional redundancy and resilience measures
 ```
 
-### Data Protection Standards
+#### Specialized Investigation Procedures
 
-```yaml
-# data-protection-policy.yaml
-data_classification:
-  public:
-    description: "Information intended for public disclosure"
-    controls: ["basic access logging"]
-    
-  internal:
-    description: "Internal business information"
-    controls: ["encryption in transit", "access logging", "data loss prevention"]
-    
-  confidential:
-    description: "Sensitive business information"
-    controls: ["encryption at rest and in transit", "MFA access", "audit logging", "DLP"]
-    
-  restricted:
-    description: "Highly sensitive regulated data"
-    controls: ["HSM encryption", "dedicated infrastructure", "continuous monitoring", "data residency"]
+**Malware Analysis Playbook**
 
-tokenization_standards:
-  pii_fields: ["ssn", "credit_card", "email", "phone"]
-  method: "format_preserving_encryption"
-  key_management: "AWS KMS with customer managed keys"
-  retention_policy: "7 years for audit, immediate deletion post-retention"
-```
+1. **Sample Isolation**: Secure malware samples in isolated analysis environment with network monitoring
+2. **Static Analysis**: File header analysis, strings extraction, and signature identification
+3. **Dynamic Analysis**: Sandbox execution with behavior monitoring and network traffic capture
+4. **Indicator Extraction**: Extract IOCs for threat hunting across enterprise environment
 
-## References
+**Data Exfiltration Investigation**
 
+1. **Traffic Analysis**: Analyze network flows for unusual data transfer patterns
+2. **Access Log Review**: Correlate data access with user activities and time patterns
+3. **Content Analysis**: Examine accessed files and databases for sensitive information
+4. **Attribution Analysis**: Link data access to specific user accounts and systems
+
+**Insider Threat Investigation**
+
+1. **User Behavior Analysis**: Compare current activities with historical user behavior patterns
+2. **Access Pattern Review**: Analyze unusual system access and privilege escalation attempts
+3. **Data Access Correlation**: Map data access to business justification and normal job functions
+4. **Communication Analysis**: Review email and communication patterns for indicators
+
+## Implementation Approach
+
+Forensic cleanroom implementation begins with forensic environment design and automated deployment template creation. Evidence handling procedures development includes chain of custody protocols, integrity verification methods, and legal admissibility requirements.
+
+Investigation team training ensures proper forensic procedures, tool utilization, and evidence handling compliance. Regular testing validates deployment automation, forensic tool functionality, and investigation procedure effectiveness.
+
+## Success Metrics
+
+Forensic capability effectiveness measures include cleanroom deployment time under 30 minutes, evidence preservation integrity at 100%, and investigation timeline reconstruction within 4 hours of incident start. Legal admissibility maintains evidence chain of custody compliance and forensic best practices adherence.
 
 ---
 
-*Last updated: 02 Jul 2025*
+*This document provides evidence of our forensic cleanroom methodology and security breach investigation capabilities including containment processes, evidence analysis procedures, and comprehensive investigation playbooks.*
