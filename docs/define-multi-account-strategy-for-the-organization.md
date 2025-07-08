@@ -3,272 +3,94 @@ id: COBL-001
 title: "Define multi account strategy for the organization"
 ---
 
-# Define multi account strategy for the organization
+# Define Multi-Account Strategy for the Organization
 
-## Purpose
+## Overview
 
-Establishing a robust define multi account strategy for the organization is fundamental to enterprise AWS success. Our methodology provides a structured approach that transforms ad-hoc cloud usage into a governed, scalable environment that supports innovation while maintaining security and compliance standards.
+Establishing a comprehensive multi-account strategy is fundamental to enterprise AWS success. This capability enables organizations to implement security boundaries, operational controls, and cost management frameworks that scale effectively across business units and environments.
 
-## Methodology & Process
+ZirconTech provides proven methodologies and automation frameworks that transform ad-hoc AWS usage into governed, scalable environments supporting innovation while maintaining security and compliance standards.
 
-### Discovery Phase
+## Our Approach
 
-Our discovery process begins with collaborative workshops that bring together key stakeholders—architects, security teams, and business leaders—to understand your current state and future objectives.
+### Comprehensive Methodology
 
-**Current State Assessment**: We catalog existing AWS resources, identify compliance requirements, and map organizational structures that influence technical decisions. This assessment reveals patterns in resource usage and highlights opportunities for consolidation or enhanced security.
+Our multi-account strategy implementation follows battle-tested principles refined through hundreds of enterprise engagements. The methodology encompasses discovery, design, implementation, and ongoing governance phases that ensure sustainable long-term success.
 
-**Requirements Gathering**: Understanding your specific needs for scalability, compliance, and operational processes helps us design solutions that align with business objectives rather than imposing generic patterns.
+**For detailed methodology, implementation phases, and design principles**: See [Multi-Account Strategy Methodology](multi-account-methodology.md)
 
-### Design and Planning
+### Key Capabilities
 
-**Architecture Design**: Based on discovery findings, we create detailed architectural patterns that balance security, operational efficiency, and long-term maintainability. These designs prioritize practical implementation over theoretical perfection.
+- **AWS Organizations and Control Tower Implementation**: Automated landing zone deployment with mandatory guardrails
+- **Account Factory Automation**: Streamlined account provisioning using AWS Control Tower Account Factory or Account Factory for Terraform (AFT)
+- **Service Control Policy (SCP) Framework**: Preventive controls enforcing security and compliance requirements
+- **Organizational Unit (OU) Design**: Shallow hierarchy optimized for operational efficiency
+- **Identity Integration**: AWS IAM Identity Center integration with existing identity providers
 
-**Implementation Roadmap**: We develop phased implementation plans that minimize risk while delivering incremental value. Each phase includes clear success criteria and rollback procedures.
+### Technology Foundation
 
-### Implementation and Validation
+| Component | Primary Services | Purpose |
+|-----------|-----------------|---------|
+| **Foundation** | AWS Organizations, AWS Control Tower | Core multi-account framework and guardrails |
+| **Automation** | Account Factory, AFT, AWS Lambda | Automated account provisioning and configuration |
+| **Security** | Service Control Policies, AWS Config, AWS CloudTrail | Preventive and detective controls |
+| **Identity** | AWS IAM Identity Center, AWS Directory Service | Centralized identity and access management |
+| **Monitoring** | AWS CloudWatch, AWS Security Hub, AWS GuardDuty | Continuous monitoring and compliance |
 
-**Automated Deployment**: All configurations are deployed through infrastructure-as-code pipelines that ensure consistency and enable reliable rollback. Manual configuration steps are eliminated to prevent drift and human error.
+## Implementation Approach
 
-**Continuous Monitoring**: Implementation includes comprehensive monitoring and alerting that provide early warning of configuration drift or compliance violations.
-
-### Evidence Artifacts Included
-
-**Discovery Worksheets**: Multi-account strategy assessment templates and completed examples
-**Architecture Diagrams**: Reference landing zone designs with OU structures and account hierarchies  
-**Automation Scripts**: Account Factory deployment code and Control Tower setup automation
-**Process Runbooks**: Step-by-step procedures for account provisioning and governance
-
-## Technology Stack
-
-| Layer | AWS Services | Alternative Options |
-|-------|--------------|--------------------|
-| **Core** | AWS Organizations, AWS Control Tower, AWS IAM Identity Center, AWS CloudFormation | |
-| **Security** | AWS Config, AWS CloudTrail, AWS GuardDuty, Amazon VPC | |
-| **Automation** | AWS CodePipeline, AWS CodeCommit, AWS Lambda, Amazon EventBridge | |
-| **Third-Party** | — | Terraform (Infrastructure as Code), GitLab CI (Pipeline automation), Azure AD (Identity federation) |
-
-
-## 1. Define multi account strategy for the organization Methodology and Process
-
-### Discovery Phase
-
-**Stakeholder Engagement**: Collaborative workshops with technical teams, business stakeholders, and decision-makers to understand current state, requirements, and success criteria.
-
-**Current State Assessment**: Comprehensive evaluation of existing baseline capabilities, identifying gaps, opportunities, and constraints.
-
-**Requirements Analysis**: Documentation of functional and non-functional requirements aligned with business objectives and compliance needs.
-
-### Design Phase
-
-**Solution Architecture**: Design of target state architecture incorporating AWS best practices, security requirements, and scalability considerations.
-
-**Implementation Planning**: Detailed project plan with phases, milestones, dependencies, and resource allocation.
-
-**Risk Assessment**: Identification and mitigation strategies for technical, operational, and business risks.
-
-### Implementation Phase
-
-**Iterative Deployment**: Phased implementation approach with regular checkpoints and validation gates.
-
-**Testing and Validation**: Comprehensive testing including functional, performance, security, and user acceptance testing.
-
-**Documentation and Training**: Knowledge transfer through documentation, training sessions, and hands-on workshops.
-
-### Operations Phase
-
-**Monitoring and Support**: Ongoing monitoring, incident response, and continuous improvement processes.
-
-**Optimization**: Regular reviews and optimization recommendations based on usage patterns and performance metrics.
-
-
-## 2. Statement of Work: Define multi account strategy for the organization Implementation
-
-### Project Overview
-
-**Objective**: Implement comprehensive define multi account strategy for the organization solution using AWS native services and industry best practices.
-
-**Scope**: End-to-end baseline implementation including design, deployment, testing, and knowledge transfer.
-
-**Duration**: 8-12 weeks depending on complexity and requirements
-
-### Deliverables
-
-#### Phase 1: Discovery and Design (2-3 weeks)
-- Current state assessment and gap analysis
+### Discovery and Design
+- Current state assessment and organizational mapping
+- Requirements gathering and compliance analysis  
 - Target state architecture design
-- Implementation roadmap and project plan
-- Risk assessment and mitigation strategies
+- Implementation roadmap development
 
-#### Phase 2: Implementation (4-6 weeks)
-- Infrastructure deployment and configuration
-- Service integration and testing
-- Security implementation and validation
-- Performance optimization and tuning
+### Deployment and Integration
+- AWS Control Tower landing zone deployment
+- Account Factory configuration and testing
+- Service Control Policy implementation
+- Identity provider integration
 
-#### Phase 3: Testing and Validation (1-2 weeks)
-- Functional and integration testing
-- Performance and security testing
-- User acceptance testing
-- Documentation review and finalization
-
-#### Phase 4: Knowledge Transfer (1 week)
-- Technical documentation handover
-- Training sessions for operations teams
-- Runbook development and review
-- Go-live support and transition
-
-### Success Criteria
-
-- **Functionality**: All requirements implemented and validated
-- **Performance**: Meets or exceeds performance benchmarks
-- **Security**: Passes security review and compliance audit
-- **Operations**: Teams trained and ready for production support
-
-### Assumptions and Dependencies
-
-- Customer provides necessary access and resources
-- Existing infrastructure meets minimum requirements
-- Stakeholders available for requirements gathering and validation
-- Change management processes followed for production deployment
-
-
-
-## Implementation Phases
-
-| Phase | Duration | Key Activities | Deliverables |
-|-------|----------|----------------|--------------|
-| 1. Discovery | 1-2 weeks | Requirements gathering, current state assessment | Discovery document, requirements matrix |
-| 2. Design | 2-3 weeks | Architecture design, tool selection, process definition | Design document, implementation plan |
-| 3. Implementation | 3-6 weeks | Deployment, configuration, testing, validation | Working solution, documentation |
-| 4. Knowledge Transfer | 1 week | Training, handover, ongoing support planning | Training materials, runbooks |
+### Validation and Handover
+- Security and compliance testing
+- Operational runbook development
+- Knowledge transfer and training
+- Ongoing governance framework establishment
 
 ## Deliverables
 
-1. **Define multi account strategy for the organization Methodology Document** (this document)
-2. **Implementation Runbook** (see Implementation Artifacts section)
-3. **Infrastructure as Code** templates (see Implementation Artifacts section)
-4. **Configuration Standards** and baseline policies (see Implementation Artifacts section)
-5. **Multi-Account Landing Zone** deployment artifacts
-6. **Account vending pipeline** code and documentation
-7. **Organizational Unit (OU) structure** diagram and rationale
-8. **Knowledge Transfer Session** recording and materials
+### Technical Artifacts
+- **Configured AWS Control Tower Landing Zone**: Production-ready multi-account foundation
+- **Account Factory Pipeline**: Automated account provisioning with baseline configurations
+- **Service Control Policy Library**: Comprehensive set of preventive controls
+- **Organizational Unit Structure**: Optimized hierarchy with clear governance boundaries
 
-## Implementation Artifacts
+### Documentation and Training
+- **Architecture Documentation**: Detailed design rationale and implementation guide
+- **Operational Runbooks**: Step-by-step procedures for account management and governance
+- **Knowledge Transfer Sessions**: Hands-on training for operations teams
+- **Governance Framework**: Ongoing management and optimization processes
 
+## Engagement Details
 
-## Implementation Runbook
+**For comprehensive project scope, timeline, and deliverables**: See [Multi-Account Strategy SOW](sow-multi-account-strategy.md)
 
-### Step 1: AWS Organizations Setup
+### Project Structure
+- **Duration**: 4-week implementation timeline
+- **Phases**: Discovery, Design, Build, Validate, Knowledge Transfer
+- **Team**: Project manager, landing zone engineer, security lead
+- **Deliverables**: Configured landing zone, automation pipeline, documentation package
 
-```bash
-# Enable AWS Organizations
-aws organizations create-organization --feature-set ALL
+### Success Criteria
+- All Control Tower guardrails in "Mandatory" state
+- Successful account creation via Account Factory
+- Security validation and compliance sign-off
+- Operations team trained and ready for production support
 
-# Create Organizational Units
-aws organizations create-organizational-unit \
-    --parent-id r-exampleid \
-    --name "Production"
+## Getting Started
 
-aws organizations create-organizational-unit \
-    --parent-id r-exampleid \
-    --name "Non-Production"
-```
-
-### Step 2: Control Tower Deployment
-
-```bash
-# Deploy Control Tower Landing Zone
-aws controltower create-landing-zone \
-    --version 3.0 \
-    --manifest file://landing-zone-manifest.json
-```
-
-### Step 3: Account Factory Configuration
-
-```yaml
-# account-factory-template.yaml
-AWSTemplateFormatVersion: '2010-09-09'
-Description: 'Account Factory Template for Standard AWS Account'
-
-Parameters:
-  AccountName:
-    Type: String
-    Description: Name of the AWS Account
-  AccountEmail:
-    Type: String
-    Description: Email address for the AWS Account
-
-Resources:
-  ManagedAccount:
-    Type: AWS::ControlTower::ManagedAccount
-    Properties:
-      AccountName: !Ref AccountName
-      AccountEmail: !Ref AccountEmail
-      OrganizationalUnitName: Production
-```
-
-
-## Service Control Policy Templates
-
-### Preventive Control: Deny Public S3 Buckets
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "DenyPublicS3Buckets",
-      "Effect": "Deny",
-      "Action": [
-        "s3:PutBucketAcl",
-        "s3:PutBucketPolicy",
-        "s3:PutBucketPublicAccessBlock"
-      ],
-      "Resource": "*",
-      "Condition": {
-        "Bool": {
-          "s3:PublicReadAccess": "true"
-        }
-      }
-    }
-  ]
-}
-```
-
-### Required MFA Policy
-
-```json
-{
-  "Version": "2012-10-17", 
-  "Statement": [
-    {
-      "Sid": "DenyAllExceptListedIfNoMFA",
-      "Effect": "Deny",
-      "NotAction": [
-        "iam:CreateVirtualMFADevice",
-        "iam:EnableMFADevice",
-        "iam:GetUser",
-        "iam:ListMFADevices",
-        "iam:ListVirtualMFADevices",
-        "iam:ResyncMFADevice",
-        "sts:GetSessionToken"
-      ],
-      "Resource": "*",
-      "Condition": {
-        "BoolIfExists": {
-          "aws:MultiFactorAuthPresent": "false"
-        }
-      }
-    }
-  ]
-}
-```
-
-## References
-
-[1] [Design principles for your multi-account strategy](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/design-principles-for-your-multi-account-strategy.html)
-[2] [Organizing Your AWS Environment Using Multiple Accounts](https://docs.aws.amazon.com/whitepapers/latest/organizing-your-aws-environment/organizing-your-aws-environment.html)
+Contact ZirconTech to begin your multi-account strategy implementation. Our proven methodology and automation frameworks ensure rapid deployment while establishing sustainable governance practices that scale with your organization.
 
 ---
 
-*Last updated: 02 Jul 2025*
+*This document provides an overview of ZirconTech's multi-account strategy capabilities. For detailed implementation methodology, see our [Multi-Account Strategy Methodology](multi-account-methodology.md). For project-specific engagement details, see our [Multi-Account Strategy SOW](sow-multi-account-strategy.md).*
