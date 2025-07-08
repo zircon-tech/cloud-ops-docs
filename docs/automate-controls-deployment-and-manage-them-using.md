@@ -9,23 +9,23 @@ title: "Automate Controls Deployment and Management Using Code"
 
 ### 1. Controls Implementation and Central Management Through Code
 
-We implement centralized control management through AWS CloudFormation templates, AWS CDK constructs, and Terraform modules that codify compliance requirements as executable infrastructure definitions. All controls are version-controlled in Git repositories with automated CI/CD pipelines for deployment and testing.
+We have methodology and experience to implement centralized control management through AWS CloudFormation templates, AWS CDK constructs, and Terraform modules that codify compliance requirements as executable infrastructure definitions. Controls can be version-controlled in Git repositories with automated CI/CD pipelines for deployment and testing.
 
-Our control deployment utilizes AWS CodePipeline with integrated compliance validation stages, AWS Config rule deployment, and Service Control Policy management through AWS Organizations. We implement policy-as-code workflows that ensure consistent application of compliance controls across all AWS accounts and regions.
+Our approach includes control deployment using AWS CodePipeline with integrated compliance validation stages, AWS Config rule deployment, and Service Control Policy management through AWS Organizations. We can implement policy-as-code workflows that ensure consistent application of compliance controls across all AWS accounts and regions.
 
-**Code Repository Structure:**
-- Control definitions stored in version-controlled repositories
+**Code Repository Structure (Our Approach):**
+- Control definitions can be stored in version-controlled repositories
 - Automated testing frameworks for control validation
 - Deployment orchestration through AWS CodePipeline
 - Integration with AWS Config, Security Hub, and Organizations
 
-**Central Management Implementation:**
-- AWS Config rules deployed as infrastructure code
-- Service Control Policies managed through AWS Organizations
-- IAM policies distributed centrally with automated updates
-- Compliance validation integrated into deployment workflows
+**Central Management Implementation (Our Methodology):**
+- AWS Config rules can be deployed as infrastructure code
+- Service Control Policies can be managed through AWS Organizations
+- IAM policies can be distributed centrally with automated updates
+- Compliance validation can be integrated into deployment workflows
 
-### 2. Proactive, Preventive, and Detective Controls Supported
+### 2. Proactive, Preventive, and Detective Controls We Can Implement
 
 #### Proactive Controls (Pre-Provisioning Validation)
 
@@ -72,7 +72,7 @@ Our control deployment utilizes AWS CodePipeline with integrated compliance vali
 | **Access Review Automation** | IAM access analyzer, permissions boundary monitoring | CIS, SOC 2, internal governance |
 | **Vulnerability Assessment** | Inspector integration, patch compliance | CIS, NIST, ISO 27001 |
 
-### 3. Self-Service Compliant Configurations
+### 3. Self-Service Compliant Configurations We Can Provide
 
 #### Compute Service Configurations
 
@@ -116,4 +116,4 @@ Our control deployment utilizes AWS CodePipeline with integrated compliance vali
 
 ---
 
-*This document provides evidence of automated controls deployment and management capabilities including centralized code-based control management, comprehensive proactive/preventive/detective controls catalog, and self-service compliant configuration offerings.*
+*This document provides evidence of our capability to deliver automated controls deployment and management including centralized code-based control management, comprehensive proactive/preventive/detective controls implementation, and self-service compliant configuration offerings.*
