@@ -11,7 +11,7 @@ Give customers full visibility into AWS spend—down to individual workloads and
 |-----------------------------|---------------------------|
 | **Filter / group costs by org, account, resource, tag, category, region** | • Enable AWS Cost Explorer + **Cost Categories**  <br>• Enforce standardized **tagging strategy** (`CostCenter`, `Project`, `Team`)  <br>• Publish curated Athena views (`vw_ce_daily`, `vw_ce_monthly`) |
 | **Create unit economics** | • Join Cost & Usage Report (CUR) with business KPIs (e.g., requests, MAU) in Athena  <br>• QuickSight dashboards show cost per 1 k API calls, per customer, per feature  |
-| **Allocate shared-service costs** | • Define **allocation rules** in Cost Categories (“Shared-Infra”, “LogArchive”)  <br>• Pro-rate via Athena query or FinOps tool (CloudZero / Cloudability)  |
+| **Allocate shared-service costs** | • Define **allocation rules** in Cost Categories (“Shared-Infra”, “LogArchive”)  <br>• Pro-rate via Athena query or third-party FinOps tools  |
 | **Granular CUR / usage reporting** | • CUR delivered to S3 daily with resource IDs  <br>• Glue crawler → Athena tables → QuickSight / Tableau exports  |
 
 ---
@@ -46,7 +46,7 @@ Business KPIs (S3 / RDS) ──────────┘
 ### 3.4 Shared-Cost Allocation
 * **Rule 1 – % Split**: `TransitGateway` cost split 40 % Prod, 60 % Non-Prod  
 * **Rule 2 – Tag Inherit**: `SharedServices` account charges distributed by `CostCenter` tag weights  
-* **Rule 3 – Fixed Fee**: Security tooling charged flat USD 3 k/month to “Security & Compliance” cost center
+* **Rule 3 – Fixed Fee**: Security tooling charged at flat monthly rate to “Security & Compliance” cost center
 
 Rules implemented in Athena or FinOps SaaS; validation report generated monthly.
 
@@ -67,9 +67,9 @@ Rules implemented in Athena or FinOps SaaS; validation report generated monthly.
 | **Cost ingestion** | Cost & Usage Report (CUR) | N/A |
 | **Data lake / query** | S3 + Glue + Athena | Databricks, Snowflake |
 | **Dashboards** | AWS QuickSight | Tableau, Power BI |
-| **FinOps SaaS** | — | CloudZero, Apptio Cloudability |
-| **Tag enforcement** | Tag Policies, SCPs | Terraform pre-commit hooks |
-| **Anomaly detection** | Cost Anomaly Detection, Budgets alerts | Harness Cloud Cost Management |
+| **FinOps SaaS** | — | Third-party FinOps platforms |
+| **Tag enforcement** | Tag Policies, SCPs | Infrastructure as Code validation hooks |
+| **Anomaly detection** | Cost Anomaly Detection, Budgets alerts | Third-party cost management tools |
 
 ---
 
