@@ -25,10 +25,10 @@ Comprehensive observability for modern application architectures provides the vi
 
 ### Evidence Artifacts Included
 
-**Monitoring Templates**: CloudWatch dashboard configurations and alerting rule sets
-**Trace Analysis**: Sample X-Ray service maps and distributed tracing implementations
-**Log Analytics**: CloudWatch Insights queries and log aggregation pipeline code
-**SLA Definitions**: Service level objectives with monitoring and alerting thresholds
+- **Monitoring Templates**: CloudWatch dashboard configurations and alerting rule sets
+- **Trace Analysis**: Sample X-Ray service maps and distributed tracing implementations  
+- **Log Analytics**: CloudWatch Insights queries and log aggregation pipeline code
+- **SLA Definitions**: Service level objectives with monitoring and alerting thresholds
 
 ## Technology Stack
 
