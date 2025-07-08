@@ -65,29 +65,29 @@ title: "AIOps"
 ## 2. Use Cases and ML Models
 
 ### Infrastructure Monitoring
-**ML Approach**: Time-series anomaly detection using statistical methods and seasonal trend analysis
-**Implementation**: Amazon CloudWatch Anomaly Detection for CPU, memory, disk, and network metrics
-**Capabilities**: We can implement threshold-based and pattern-based anomaly detection for infrastructure metrics
+- **ML Approach**: Time-series anomaly detection using statistical methods and seasonal trend analysis
+- **Implementation**: Amazon CloudWatch Anomaly Detection for CPU, memory, disk, and network metrics
+- **Capabilities**: We can implement threshold-based and pattern-based anomaly detection for infrastructure metrics
 
 ### Application Performance Monitoring
-**ML Approach**: Performance baseline establishment and deviation detection
-**Implementation**: Amazon DevOps Guru for application-specific performance anomaly detection
-**Capabilities**: We can implement response time, throughput, and error rate anomaly detection for applications
+- **ML Approach**: Performance baseline establishment and deviation detection
+- **Implementation**: Amazon DevOps Guru for application-specific performance anomaly detection
+- **Capabilities**: We can implement response time, throughput, and error rate anomaly detection for applications
 
 ### Security Event Analysis
-**ML Approach**: Behavioral analysis and pattern recognition for security events
-**Implementation**: Amazon GuardDuty integration with custom SageMaker models for advanced threat detection
-**Capabilities**: We can implement anomaly detection for authentication patterns, network traffic, and resource access behaviors
+- **ML Approach**: Behavioral analysis and pattern recognition for security events
+- **Implementation**: Amazon GuardDuty integration with custom SageMaker models for advanced threat detection
+- **Capabilities**: We can implement anomaly detection for authentication patterns, network traffic, and resource access behaviors
 
 ### Cost Optimization
-**ML Approach**: Usage pattern analysis and cost anomaly detection
-**Implementation**: AWS Cost Anomaly Detection for spending pattern analysis
-**Capabilities**: We can implement cost spike detection and resource utilization anomaly identification
+- **ML Approach**: Usage pattern analysis and cost anomaly detection
+- **Implementation**: AWS Cost Anomaly Detection for spending pattern analysis
+- **Capabilities**: We can implement cost spike detection and resource utilization anomaly identification
 
 ### Log Analysis and Monitoring
-**ML Approach**: Log pattern recognition and anomaly detection in textual data
-**Implementation**: Amazon OpenSearch Service with anomaly detection plugins
-**Capabilities**: We can implement error pattern detection, log volume anomaly detection, and custom log analysis
+- **ML Approach**: Log pattern recognition and anomaly detection in textual data
+- **Implementation**: Amazon OpenSearch Service with anomaly detection plugins
+- **Capabilities**: We can implement error pattern detection, log volume anomaly detection, and custom log analysis
 
 ## 3. Automated Remediation Runbooks
 
