@@ -3,239 +3,168 @@ id: COCG-001
 title: "Effective usage of preventive and detective controls"
 ---
 
-# Effective usage of preventive and detective controls
+# Effective Usage of Preventive and Detective Controls
 
-## Purpose
+## Overview
 
-Effective effective usage of preventive and detective controls requires systematic processes and automated controls that scale with your organization. Our approach implements preventive and detective controls that enforce compliance while enabling developer productivity.
+Implementing effective preventive and detective controls is essential for maintaining security, compliance, and operational excellence across AWS environments. ZirconTech provides comprehensive methodologies that establish automated, scalable control frameworks aligned with industry standards including CIS, NIST, PCI DSS, and HIPAA.
 
-## Methodology & Process
+Our approach implements policy-as-code practices that treat security controls with the same rigor as application development, enabling consistent enforcement while maintaining developer productivity and business agility.
 
-### Policy Development Methodology
+## Comprehensive Controls Framework
 
-**Compliance Mapping**: We begin by mapping your specific compliance requirements to AWS controls, creating a comprehensive matrix that links regulatory requirements to technical implementations.
+**For detailed methodology, control implementations, and compliance mappings**: See [ZirconTech Preventive & Detective Controls Framework](preventive-detective-controls.md)
 
-**Control Design**: Each control is designed with both preventive and detective capabilities, using AWS-native services like Service Control Policies, AWS Config, and AWS Control Tower guardrails.
+**For complete control catalog and framework mappings**: See [Control–Framework Cross Reference](control-matrix.md)
 
-**Risk-Based Prioritization**: Controls are prioritized based on risk impact and implementation complexity, ensuring high-value protections are deployed first.
+### Methodology for Control Derivation
 
-### Automated Enforcement
+Our systematic approach ensures controls align with business requirements and compliance mandates:
 
-**Policy as Code**: All governance policies are defined in version-controlled code, enabling rigorous testing and change management processes that treat security controls with the same discipline as application code.
+- **Compliance Mapping**: Map customer requirements to specific control objectives with framework references
+- **Control Type Decision**: Determine preventive vs. detective approach based on risk impact and feasibility
+- **Tool Selection**: Prioritize AWS-native solutions (Control Tower, SCPs, Config Rules, GuardDuty)
+- **Design and Review**: Create JSON/YAML artifacts with peer review through Git workflows
+- **Automated Deployment**: Pipeline-driven deployment to target OUs and accounts
+- **Continuous Improvement**: Monthly effectiveness reviews and drift detection
 
-**Continuous Compliance**: Automated monitoring detects policy violations in real-time, with automatic remediation for low-risk violations and immediate alerting for high-risk scenarios.
+### Control Implementation Examples
 
-### Evidence Artifacts Included
+#### Example 1: S3 Bucket Encryption (Preventive)
+**Objective**: Enforce CIS 2.1 "Ensure S3 buckets require encryption at rest"  
+**Implementation**: AWS Control Tower preventive guardrail  
 
-**Control Catalog**: Comprehensive library of preventive and detective controls with compliance mappings
-**Policy Templates**: Service Control Policies (SCPs) and Config rules in JSON/YAML format
-**Compliance Reports**: Sample control effectiveness reports and drift detection outputs
-**Implementation Guides**: Step-by-step deployment procedures for each control type
+```bash
+# Deploy via Control Tower API
+aws controltower enable-control \
+   --control-identifier "arn:aws:controltower:us-east-1::control/AWS-GR_ENCRYPTED_BUCKET_BLOCK_UNENCRYPTED_OBJECT_UPLOADS" \
+   --target-identifier "arn:aws:organizations::123456789012:ou/o-root/ou-Prod"
+```
 
-## Technology Stack
+**Lifecycle Management**:
+- Version-controlled guardrail configurations in Git with semantic versioning
+- Monthly Terraform/CloudFormation drift detection with automated remediation
+- Exception handling via change advisory process with time-bound approvals
 
-| Layer | AWS Services | Alternative Options |
-|-------|--------------|--------------------|
-| **Core** | AWS Control Tower, AWS Organizations, AWS Config, Service Control Policies | |
-| **Compliance** | AWS Security Hub, AWS Audit Manager, AWS CloudFormation Guard, AWS Systems Manager | |
-| **Monitoring** | Amazon CloudWatch, AWS CloudTrail Lake, Amazon GuardDuty, AWS Well-Architected Tool | |
-| **Third-Party** | — | Terraform Sentinel (Policy as Code), Prisma Cloud (Compliance monitoring), Lacework (Cloud security) |
+#### Example 2: Public AMI Detection (Detective)
+**Objective**: Address NIST 800-53 SC-7 "Boundary Protection"  
+**Implementation**: AWS Config Rule + EventBridge + Lambda remediation
 
+```hcl
+resource "aws_config_config_rule" "ami_public_check" {
+  name = "ami-public-detect"
+  source {
+    owner             = "AWS"
+    source_identifier = "AMI_PUBLIC_CHECK"
+  }
+  input_parameters = jsonencode({
+    WhitelistAccountIds = "123456789012"
+  })
+}
 
-## 1. Effective usage of preventive and detective controls Methodology and Process
-
-### Discovery Phase
-
-**Stakeholder Engagement**: Collaborative workshops with technical teams, business stakeholders, and decision-makers to understand current state, requirements, and success criteria.
-
-**Current State Assessment**: Comprehensive evaluation of existing governance capabilities, identifying gaps, opportunities, and constraints.
-
-**Requirements Analysis**: Documentation of functional and non-functional requirements aligned with business objectives and compliance needs.
-
-### Design Phase
-
-**Solution Architecture**: Design of target state architecture incorporating AWS best practices, security requirements, and scalability considerations.
-
-**Implementation Planning**: Detailed project plan with phases, milestones, dependencies, and resource allocation.
-
-**Risk Assessment**: Identification and mitigation strategies for technical, operational, and business risks.
-
-### Implementation Phase
-
-**Iterative Deployment**: Phased implementation approach with regular checkpoints and validation gates.
-
-**Testing and Validation**: Comprehensive testing including functional, performance, security, and user acceptance testing.
-
-**Documentation and Training**: Knowledge transfer through documentation, training sessions, and hands-on workshops.
-
-### Operations Phase
-
-**Monitoring and Support**: Ongoing monitoring, incident response, and continuous improvement processes.
-
-**Optimization**: Regular reviews and optimization recommendations based on usage patterns and performance metrics.
-
-
-## 2. Control Implementation Examples
-
-### Example 1: S3 Bucket Encryption Control
-
-**Control Type**: Preventive
-**Implementation**: Service Control Policy (SCP)
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "DenyUnencryptedS3Objects",
-      "Effect": "Deny",
-      "Action": "s3:PutObject",
-      "Resource": "*",
-      "Condition": {
-        "StringNotEquals": {
-          "s3:x-amz-server-side-encryption": ["AES256", "aws:kms"]
-        }
-      }
-    }
-  ]
+resource "aws_config_remediation_configuration" "ami_auto_fix" {
+  config_rule_name = aws_config_config_rule.ami_public_check.name
+  target_id        = aws_lambda_function.ami_remediate.arn
+  target_type      = "LAMBDA"
+  automatic        = true
 }
 ```
 
-**Deployment**: Applied via AWS Organizations to all accounts
-**Lifecycle Management**: Version-controlled in Git, deployed via CI/CD pipeline
+**Lifecycle Management**:
+- Lambda remediation code with comprehensive unit testing
+- Weekly compliance dashboard review with 95%+ auto-remediation success rate KPI
+- Service Control Policy backup enforcement for API-level protection
 
-### Example 2: CloudTrail Monitoring Control
+### Technology Foundation
 
-**Control Type**: Detective
-**Implementation**: AWS Config Rule
+| Component | Primary Services | Purpose |
+|-----------|-----------------|---------|
+| **Preventive Controls** | AWS Control Tower, Service Control Policies | Block non-compliant actions before execution |
+| **Detective Controls** | AWS Config, AWS Config Rules | Monitor and detect compliance violations |
+| **Compliance Standards** | AWS Security Hub, Conformance Packs | CIS, NIST, PCI DSS, HIPAA framework support |
+| **Automation** | AWS Lambda, Amazon EventBridge | Automated remediation and notifications |
+| **Monitoring** | Amazon CloudWatch, AWS Systems Manager | Continuous compliance monitoring |
 
-```yaml
-CloudTrailMonitoringRule:
-  Type: AWS::Config::ConfigRule
-  Properties:
-    ConfigRuleName: cloudtrail-enabled-check
-    Source:
-      Owner: AWS
-      SourceIdentifier: CLOUD_TRAIL_ENABLED
-    Scope:
-      ComplianceResourceTypes:
-        - AWS::CloudTrail::Trail
-```
+## Controls Catalog and Compliance Support
 
-**Deployment**: Deployed via CloudFormation StackSets
-**Lifecycle Management**: Automated remediation via Lambda when non-compliant
+### Preventive Controls Library
 
-
-## 3. Controls Catalog and Compliance Framework Support
-
-### Preventive Controls
-
-| Control ID | Description | Implementation | Compliance Framework |
+| Control ID | Description | Implementation | Compliance Frameworks |
 |------------|-------------|----------------|---------------------|
-| **PC-001** | Prevent public S3 bucket access | Service Control Policy | CIS, NIST, SOC 2 |
-| **PC-002** | Enforce MFA for privileged access | IAM policies, Conditional access | CIS, PCI DSS, ISO 27001 |
-| **PC-003** | Restrict instance types | Service Control Policy | CIS, NIST |
-| **PC-004** | Enforce encryption at rest | KMS policies, S3 bucket policies | PCI DSS, HIPAA, SOX |
-| **PC-005** | Network access restrictions | Security Groups, NACLs | CIS, NIST, ISO 27001 |
+| **CT-EncryptS3** | All S3 buckets encrypted at rest | Control Tower guardrail | CIS 2.1, NIST SC-28, PCI 3.4 |
+| **SCP-DenyPublicS3** | Block public S3 bucket creation | Service Control Policy | CIS 2.1, NIST SC-7 |
+| **SCP-RequireMFA** | Require MFA for privileged access | Service Control Policy | CIS 1.6, NIST IA-2 |
+| **SCP-DenyOpenSG** | Block security groups with 0.0.0.0/0 | Service Control Policy | CIS 4.1, PCI 1.2 |
 
-### Detective Controls
+### Detective Controls Library
 
-| Control ID | Description | Implementation | Compliance Framework |
+| Control ID | Description | Implementation | Compliance Frameworks |
 |------------|-------------|----------------|---------------------|
-| **DC-001** | Monitor root account usage | CloudTrail, CloudWatch alarms | CIS, NIST, SOC 2 |
-| **DC-002** | Detect privilege escalation | AWS Config rules, GuardDuty | CIS, NIST, ISO 27001 |
-| **DC-003** | Monitor data access patterns | CloudTrail, VPC Flow Logs | PCI DSS, HIPAA, SOX |
-| **DC-004** | Configuration drift detection | AWS Config, Systems Manager | CIS, NIST, SOC 2 |
-| **DC-005** | Security finding aggregation | Security Hub, Inspector | CIS, NIST, ISO 27001 |
+| **Config-IAMKeyRotation** | Verify IAM keys rotated within 90 days | AWS Config managed rule | CIS 1.4, NIST IA-5 |
+| **Config-RootMFAEnabled** | Alert if root account lacks MFA | AWS Config managed rule | CIS 1.6, NIST IA-2 |
+| **Config-EBSEncrypted** | Ensure EBS snapshots encrypted | AWS Config managed rule | CIS 2.7, NIST SC-13 |
+| **Config-SGOpenSSH** | Detect SGs open to 0.0.0.0/0 on port 22 | AWS Config custom rule | CIS 4.1, NIST SC-7 |
 
 ### Supported Compliance Frameworks
 
-- **CIS Controls**: AWS Foundations Benchmark v1.4
-- **NIST Cybersecurity Framework**: Core functions implementation
-- **PCI DSS**: Level 1 merchant compliance
-- **SOC 2 Type II**: Trust services criteria
-- **ISO 27001**: Information security management
-- **HIPAA**: Healthcare information protection
-- **SOX**: Financial reporting controls
+- **CIS Controls**: AWS Foundations Benchmark v1.4 with 28+ control mappings
+- **NIST Cybersecurity Framework**: Core functions across all categories  
+- **PCI DSS**: Level 1 merchant compliance requirements
+- **SOC 2 Type II**: Trust services criteria implementation
+- **ISO 27001**: Information security management controls
+- **HIPAA**: Healthcare information protection safeguards
 
+## Implementation Approach
 
+### Discovery and Assessment
+- Current state evaluation of existing controls and compliance gaps
+- Stakeholder workshops to understand business requirements and risk tolerance
+- Compliance framework mapping to technical control implementations
+- Risk-based prioritization of high-impact controls
 
-## Implementation Phases
+### Control Deployment
+- AWS Control Tower guardrail enablement across organizational units
+- Service Control Policy development and testing in non-production environments
+- AWS Config Rules deployment via CloudFormation StackSets
+- Security Hub standards subscription for automated compliance monitoring
 
-| Phase | Duration | Key Activities | Deliverables |
-|-------|----------|----------------|--------------|
-| 1. Discovery | 1-2 weeks | Requirements gathering, current state assessment | Discovery document, requirements matrix |
-| 2. Design | 2-3 weeks | Architecture design, tool selection, process definition | Design document, implementation plan |
-| 3. Implementation | 3-6 weeks | Deployment, configuration, testing, validation | Working solution, documentation |
-| 4. Knowledge Transfer | 1 week | Training, handover, ongoing support planning | Training materials, runbooks |
+### Governance and Operations
+- Policy-as-code implementation with version control and peer review
+- Automated compliance reporting and drift detection
+- Exception management processes with time-bound approvals
+- Continuous improvement through monthly effectiveness reviews
 
-## Deliverables
+## Deliverables and Evidence Artifacts
 
-1. **Effective usage of preventive and detective controls Methodology Document** (this document)
-2. **Implementation Runbook** (see Implementation Artifacts section)
-3. **Infrastructure as Code** templates (see Implementation Artifacts section)
-4. **Configuration Standards** and baseline policies (see Implementation Artifacts section)
-5. **Control catalog** with compliance framework mapping
-6. **Policy enforcement pipeline** code and configurations
-7. **Compliance dashboard** templates and reports
-8. **Knowledge Transfer Session** recording and materials
+### Control Framework Artifacts
+- **Control Catalog**: Comprehensive library with compliance framework mappings
+- **Policy Templates**: JSON/YAML artifacts for SCPs, Config Rules, and Control Tower guardrails
+- **Compliance Matrix**: Detailed mapping of controls to CIS, NIST, PCI, HIPAA requirements
+- **Implementation Guides**: Step-by-step deployment procedures for each control type
 
-## Implementation Artifacts
+### Automation and Integration
+- **CI/CD Pipeline**: Automated control deployment with testing and validation
+- **Monitoring Dashboards**: Security Hub and CloudWatch dashboards for compliance visibility
+- **Remediation Functions**: Lambda-based automatic remediation for detective controls
+- **Compliance Reports**: Automated reporting with control effectiveness metrics
 
+### Process Documentation
+- **Control Derivation Methodology**: Framework for mapping requirements to technical controls
+- **Exception Management Process**: Documented procedures for temporary control overrides
+- **Lifecycle Management**: Version control, deployment, and maintenance procedures
+- **Audit Evidence**: Quarterly compliance assessment reports with remediation tracking
 
-## Governance Controls Implementation Runbook
+## Success Criteria
 
-### Step 1: Deploy AWS Config Rules
+- **95%+ Compliance**: Continuous Config rule compliance across all monitored controls
+- **Automated Enforcement**: Zero-touch policy enforcement through preventive controls
+- **Complete Coverage**: All critical compliance requirements mapped to technical controls
+- **Operational Excellence**: Monthly control effectiveness reviews with continuous improvement
 
-```bash
-# Enable AWS Config
-aws configservice put-configuration-recorder \
-    --configuration-recorder name=default,roleARN=arn:aws:iam::ACCOUNT:role/aws-service-role/config.amazonaws.com/AWSServiceRoleForConfig
+## Getting Started
 
-# Deploy required S3 bucket encryption rule
-aws configservice put-config-rule \
-    --config-rule '{
-        "ConfigRuleName": "s3-bucket-ssl-requests-only",
-        "Source": {
-            "Owner": "AWS",
-            "SourceIdentifier": "S3_BUCKET_SSL_REQUESTS_ONLY"
-        }
-    }'
-```
-
-### Step 2: Security Hub Controls
-
-```yaml
-# security-hub-standards.yaml
-AWSTemplateFormatVersion: '2010-09-09'
-Resources:
-  SecurityHub:
-    Type: AWS::SecurityHub::Hub
-    Properties:
-      Tags:
-        - Key: Purpose
-          Value: CentralSecurityFindings
-
-  CISStandard:
-    Type: AWS::SecurityHub::StandardsSubscription
-    Properties:
-      StandardsArn: !Sub 'arn:aws:securityhub:${AWS::Region}:${AWS::AccountId}:standard/cis-aws-foundations-benchmark/v/1.2.0'
-    DependsOn: SecurityHub
-
-  PCIStandard:
-    Type: AWS::SecurityHub::StandardsSubscription  
-    Properties:
-      StandardsArn: !Sub 'arn:aws:securityhub:${AWS::Region}:${AWS::AccountId}:standard/pci-dss/v/3.2.1'
-    DependsOn: SecurityHub
-```
-
-
-
-## References
-
-- [AWS Security Best Practices](https://docs.aws.amazon.com/security/)
-- [AWS Compliance Resources](https://aws.amazon.com/compliance/resources/)
+Contact ZirconTech to implement comprehensive preventive and detective controls. Our proven methodology and automation frameworks ensure consistent, compliant security posture that scales with your organization while maintaining operational efficiency.
 
 ---
 
-*Last updated: 02 Jul 2025*
+*This document provides an overview of ZirconTech's preventive and detective controls capabilities. For detailed methodology and technical implementations, see our [ZirconTech Preventive & Detective Controls Framework](preventive-detective-controls.md). For complete control mappings, see our [Control–Framework Cross Reference](control-matrix.md).*
