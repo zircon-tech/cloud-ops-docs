@@ -3,220 +3,110 @@ id: COBL-002
 title: "Define Account life cycle process"
 ---
 
-# Define Account life cycle process
+# Define Account Life Cycle Process
 
-## Purpose
+## Overview
 
-Establishing a robust define account life cycle process is fundamental to enterprise AWS success. Our methodology provides a structured approach that transforms ad-hoc cloud usage into a governed, scalable environment that supports innovation while maintaining security and compliance standards.
+Managing AWS account lifecycles effectively requires systematic processes, automation frameworks, and clear governance controls that scale across enterprise environments. ZirconTech provides comprehensive methodologies that automate account creation, suspension, and deletion while ensuring compliance and operational consistency.
 
-## Methodology & Process
+Our approach leverages AWS Control Tower Account Factory and custom automation to deliver repeatable, auditable account lifecycle management that reduces operational overhead and maintains security standards throughout each account's journey.
 
-### Discovery Phase
+## Comprehensive Account Lifecycle Framework
 
-Our discovery process begins with collaborative workshops that bring together key stakeholders—architects, security teams, and business leaders—to understand your current state and future objectives.
+**For detailed methodology, automation workflows, and implementation procedures**: See [AWS Account Lifecycle Methodology](account-lifecycle.md)
 
-**Current State Assessment**: We catalog existing AWS resources, identify compliance requirements, and map organizational structures that influence technical decisions. This assessment reveals patterns in resource usage and highlights opportunities for consolidation or enhanced security.
+### Lifecycle Stages
 
-**Requirements Gathering**: Understanding your specific needs for scalability, compliance, and operational processes helps us design solutions that align with business objectives rather than imposing generic patterns.
+Our methodology covers the complete account journey through five distinct stages:
 
-### Design and Planning
+- **Request**: Business justification and approval workflow
+- **Create**: Automated provisioning with baseline configurations  
+- **Operate**: Normal operations with continuous governance
+- **Suspend**: Temporary activity restriction with security controls
+- **Delete**: Secure closure with compliance evidence retention
 
-**Architecture Design**: Based on discovery findings, we create detailed architectural patterns that balance security, operational efficiency, and long-term maintainability. These designs prioritize practical implementation over theoretical perfection.
+### Automation Capabilities
 
-**Implementation Roadmap**: We develop phased implementation plans that minimize risk while delivering incremental value. Each phase includes clear success criteria and rollback procedures.
+#### Account Factory Integration
+- **AWS Control Tower Account Factory**: Native AWS automation for standardized account provisioning
+- **Account Factory for Terraform (AFT)**: Infrastructure-as-code approach with enhanced customization
+- **Custom Lambda Hooks**: Additional configurations during account creation lifecycle events
 
-### Implementation and Validation
-
-**Automated Deployment**: All configurations are deployed through infrastructure-as-code pipelines that ensure consistency and enable reliable rollback. Manual configuration steps are eliminated to prevent drift and human error.
-
-**Continuous Monitoring**: Implementation includes comprehensive monitoring and alerting that provide early warning of configuration drift or compliance violations.
-
-### Evidence Artifacts Included
-
-**Discovery Worksheets**: Multi-account strategy assessment templates and completed examples
-**Architecture Diagrams**: Reference landing zone designs with OU structures and account hierarchies  
-**Automation Scripts**: Account Factory deployment code and Control Tower setup automation
-**Process Runbooks**: Step-by-step procedures for account provisioning and governance
-
-## Technology Stack
-
-| Layer | AWS Services | Alternative Options |
-|-------|--------------|--------------------|
-| **Core** | AWS Organizations, AWS Control Tower, AWS IAM Identity Center, AWS CloudFormation | |
-| **Security** | AWS Config, AWS CloudTrail, AWS GuardDuty, Amazon VPC | |
-| **Automation** | AWS CodePipeline, AWS CodeCommit, AWS Lambda, Amazon EventBridge | |
-| **Third-Party** | — | Terraform (Infrastructure as Code), GitLab CI (Pipeline automation), Azure AD (Identity federation) |
-
-
-## 1. Define Account life cycle process Methodology and Process
-
-### Discovery Phase
-
-**Stakeholder Engagement**: Collaborative workshops with technical teams, business stakeholders, and decision-makers to understand current state, requirements, and success criteria.
-
-**Current State Assessment**: Comprehensive evaluation of existing baseline capabilities, identifying gaps, opportunities, and constraints.
-
-**Requirements Analysis**: Documentation of functional and non-functional requirements aligned with business objectives and compliance needs.
-
-### Design Phase
-
-**Solution Architecture**: Design of target state architecture incorporating AWS best practices, security requirements, and scalability considerations.
-
-**Implementation Planning**: Detailed project plan with phases, milestones, dependencies, and resource allocation.
-
-**Risk Assessment**: Identification and mitigation strategies for technical, operational, and business risks.
-
-### Implementation Phase
-
-**Iterative Deployment**: Phased implementation approach with regular checkpoints and validation gates.
-
-**Testing and Validation**: Comprehensive testing including functional, performance, security, and user acceptance testing.
-
-**Documentation and Training**: Knowledge transfer through documentation, training sessions, and hands-on workshops.
-
-### Operations Phase
-
-**Monitoring and Support**: Ongoing monitoring, incident response, and continuous improvement processes.
-
-**Optimization**: Regular reviews and optimization recommendations based on usage patterns and performance metrics.
-
-
-
-## Implementation Phases
-
-| Phase | Duration | Key Activities | Deliverables |
-|-------|----------|----------------|--------------|
-| 1. Discovery | 1-2 weeks | Requirements gathering, current state assessment | Discovery document, requirements matrix |
-| 2. Design | 2-3 weeks | Architecture design, tool selection, process definition | Design document, implementation plan |
-| 3. Implementation | 3-6 weeks | Deployment, configuration, testing, validation | Working solution, documentation |
-| 4. Knowledge Transfer | 1 week | Training, handover, ongoing support planning | Training materials, runbooks |
-
-## Deliverables
-
-1. **Define Account life cycle process Methodology Document** (this document)
-2. **Implementation Runbook** (see Implementation Artifacts section)
-3. **Infrastructure as Code** templates (see Implementation Artifacts section)
-4. **Configuration Standards** and baseline policies (see Implementation Artifacts section)
-5. **Multi-Account Landing Zone** deployment artifacts
-6. **Account vending pipeline** code and documentation
-7. **Organizational Unit (OU) structure** diagram and rationale
-8. **Knowledge Transfer Session** recording and materials
-
-## Implementation Artifacts
-
-
-## Implementation Runbook
-
-### Step 1: AWS Organizations Setup
-
+#### Automated Configuration Management
 ```bash
-# Enable AWS Organizations
-aws organizations create-organization --feature-set ALL
-
-# Create Organizational Units
-aws organizations create-organizational-unit \
-    --parent-id r-exampleid \
-    --name "Production"
-
-aws organizations create-organizational-unit \
-    --parent-id r-exampleid \
-    --name "Non-Production"
+# Example post-creation automation
+create-iam-role --role-name "ZirconTechOps"
+enable-security-hub --standards "CIS-1.5" 
+tag-resource --resource-id <accountId> --tags "CostCenter=1234"
 ```
 
-### Step 2: Control Tower Deployment
+#### Additional IAM Roles
+Automatically created during account provisioning:
+- **ZirconTechOps**: Break-glass administrative support
+- **SecurityAudit**: Read-only security reviews and compliance
+- **FinOpsReadOnly**: Cost monitoring and financial operations
 
-```bash
-# Deploy Control Tower Landing Zone
-aws controltower create-landing-zone \
-    --version 3.0 \
-    --manifest file://landing-zone-manifest.json
-```
+### Technology Foundation
 
-### Step 3: Account Factory Configuration
+| Component | Primary Services | Purpose |
+|-----------|-----------------|---------|
+| **Provisioning** | AWS Control Tower Account Factory, AFT | Automated account creation with baselines |
+| **Governance** | AWS Organizations, Service Control Policies | Lifecycle state management and controls |
+| **Identity** | AWS IAM Identity Center | Centralized access management and suspension |
+| **Monitoring** | AWS CloudTrail, AWS Config, AWS CloudWatch | Audit trails and compliance tracking |
+| **Automation** | AWS Lambda, Amazon EventBridge | Lifecycle event processing and notifications |
 
-```yaml
-# account-factory-template.yaml
-AWSTemplateFormatVersion: '2010-09-09'
-Description: 'Account Factory Template for Standard AWS Account'
+## Implementation Approach
 
-Parameters:
-  AccountName:
-    Type: String
-    Description: Name of the AWS Account
-  AccountEmail:
-    Type: String
-    Description: Email address for the AWS Account
+### Discovery and Design
+- Current account inventory and governance assessment
+- Business requirements for account classification and approval workflows
+- Integration planning with existing ITSM and identity systems
+- Compliance and retention requirement analysis
 
-Resources:
-  ManagedAccount:
-    Type: AWS::ControlTower::ManagedAccount
-    Properties:
-      AccountName: !Ref AccountName
-      AccountEmail: !Ref AccountEmail
-      OrganizationalUnitName: Production
-```
+### Automation Deployment
+- AWS Control Tower Account Factory configuration
+- Custom IAM role templates and baseline policies
+- Lifecycle event automation (Lambda functions, EventBridge rules)
+- Integration with ticketing systems and approval workflows
 
+### Process Integration
+- Account request and approval workflow implementation
+- Suspension and deletion procedures with security controls
+- Drift detection and compliance monitoring setup
+- Knowledge transfer and operational training
 
-## Service Control Policy Templates
+## Deliverables and Evidence Artifacts
 
-### Preventive Control: Deny Public S3 Buckets
+### Process Documentation
+- **Account Lifecycle Runbooks**: Step-by-step procedures for each lifecycle stage
+- **Workflow Diagrams**: Visual representation of request-to-closure processes
+- **Compliance Procedures**: Evidence collection and retention protocols
+- **Escalation Procedures**: Break-glass access and emergency protocols
 
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Sid": "DenyPublicS3Buckets",
-      "Effect": "Deny",
-      "Action": [
-        "s3:PutBucketAcl",
-        "s3:PutBucketPolicy",
-        "s3:PutBucketPublicAccessBlock"
-      ],
-      "Resource": "*",
-      "Condition": {
-        "Bool": {
-          "s3:PublicReadAccess": "true"
-        }
-      }
-    }
-  ]
-}
-```
+### Automation Artifacts
+- **Account Factory Templates**: CloudFormation/Terraform configurations
+- **IAM Role Definitions**: JSON templates for standard account roles
+- **Lambda Functions**: Custom automation for lifecycle events
+- **Integration Code**: ITSM and identity provider connections
 
-### Required MFA Policy
+### Governance Framework
+- **Approval Workflows**: Documented business justification and sign-off processes
+- **Suspension Criteria**: Clear triggers and procedures for account restriction
+- **Deletion Policies**: Compliance-driven closure and evidence retention
+- **Review Cadence**: Monthly drift detection, quarterly lifecycle reviews
 
-```json
-{
-  "Version": "2012-10-17", 
-  "Statement": [
-    {
-      "Sid": "DenyAllExceptListedIfNoMFA",
-      "Effect": "Deny",
-      "NotAction": [
-        "iam:CreateVirtualMFADevice",
-        "iam:EnableMFADevice",
-        "iam:GetUser",
-        "iam:ListMFADevices",
-        "iam:ListVirtualMFADevices",
-        "iam:ResyncMFADevice",
-        "sts:GetSessionToken"
-      ],
-      "Resource": "*",
-      "Condition": {
-        "BoolIfExists": {
-          "aws:MultiFactorAuthPresent": "false"
-        }
-      }
-    }
-  ]
-}
-```
+## Success Criteria
 
-## References
+- **Automated Account Creation**: Zero-touch provisioning through Account Factory
+- **Consistent Baseline Configuration**: All accounts created with standard IAM roles and policies
+- **Compliance Evidence**: Complete audit trail for account lifecycle events
+- **Operational Efficiency**: Reduced manual effort and improved time-to-provision
 
-[1] [Lifecycle Events in AWS Control Tower](https://docs.aws.amazon.com/controltower/latest/userguide/lifecycle-events.html)
+## Getting Started
+
+Contact ZirconTech to implement comprehensive account lifecycle management. Our proven automation frameworks and governance processes ensure consistent, compliant account management that scales with your organization's growth.
 
 ---
 
-*Last updated: 02 Jul 2025*
+*This document provides an overview of ZirconTech's account lifecycle capabilities. For detailed implementation methodology, automation workflows, and technical procedures, see our [AWS Account Lifecycle Methodology](account-lifecycle.md).*
