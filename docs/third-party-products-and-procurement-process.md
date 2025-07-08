@@ -3,177 +3,137 @@ id: COCG-002
 title: "Third party products and procurement process"
 ---
 
-# Third party products and procurement process
+# Third Party Products and Procurement Process
 
-## Purpose
+## Overview
 
-Effective third party products and procurement process requires systematic processes and automated controls that scale with your organization. Our approach implements preventive and detective controls that enforce compliance while enabling developer productivity.
+Identifying, procuring, and managing third-party tools requires systematic processes that balance business needs with compliance, security, and cost optimization. ZirconTech provides comprehensive methodologies that streamline vendor evaluation, automate procurement through AWS Marketplace and customer procurement systems, and establish ongoing license management.
 
-## Methodology & Process
+Our approach transforms ad-hoc tool acquisition into a governed process that leverages AWS-native procurement channels while integrating seamlessly with existing customer procurement workflows and financial systems.
 
-### Policy Development Methodology
+## Comprehensive Third-Party Tool Management Framework
 
-**Compliance Mapping**: We begin by mapping your specific compliance requirements to AWS controls, creating a comprehensive matrix that links regulatory requirements to technical implementations.
+**For detailed methodology and complete procurement workflows**: See [Third-Party Tooling & Procurement Process](third-party-procurement.md)
 
-**Control Design**: Each control is designed with both preventive and detective capabilities, using AWS-native services like Service Control Policies, AWS Config, and AWS Control Tower guardrails.
+**For vendor evaluation and comparison matrix**: See [Vendor Capability Matrix](vendor-matrix.md)
 
-**Risk-Based Prioritization**: Controls are prioritized based on risk impact and implementation complexity, ensuring high-value protections are deployed first.
+### Methodology for Identifying Third-Party Tools
 
-### Automated Enforcement
+Our systematic 6-step approach ensures optimal tool selection aligned with business requirements and compliance standards:
 
-**Policy as Code**: All governance policies are defined in version-controlled code, enabling rigorous testing and change management processes that treat security controls with the same discipline as application code.
+1. **Requirement Capture**: Stakeholder workshops across security, finance, DevOps, and data teams to define capability needs
+2. **Vendor Shortlisting**: Score vendors on security posture, AWS native integration, pricing model, and support SLAs
+3. **Proof of Value**: 14-day sandbox testing using AWS Marketplace free trials or SaaS test tenants
+4. **Risk & Compliance Review**: Vendor security questionnaires, SOC 2/ISO 27001 validation, data residency verification
+5. **Procurement Path Decision**: Determine optimal channel (Private Offer, CPPO, EDP credits, direct PO, reseller)
+6. **Final Selection**: Steering committee approval with documented business justification
 
-**Continuous Compliance**: Automated monitoring detects policy violations in real-time, with automatic remediation for low-risk violations and immediate alerting for high-risk scenarios.
+### Procurement and Deployment Tactics
 
-### Evidence Artifacts Included
+#### AWS Marketplace Integration
 
-**Control Catalog**: Comprehensive library of preventive and detective controls with compliance mappings
-**Policy Templates**: Service Control Policies (SCPs) and Config rules in JSON/YAML format
-**Compliance Reports**: Sample control effectiveness reports and drift detection outputs
-**Implementation Guides**: Step-by-step deployment procedures for each control type
+| Procurement Method | Description | Benefits | Integration |
+|-------------------|-------------|----------|-------------|
+| **Private Offers** | Custom terms negotiated directly with vendors | Discounted pricing, flexible payment schedules | Consolidated billing, EDP credit application |
+| **CPPO (Consulting Partner Private Offer)** | ZirconTech resells with bundled services | Single invoice for software + implementation | Service delivery tracked through AWS billing |
+| **Standard Marketplace** | Direct SaaS subscriptions and AMIs | Quick deployment, standard terms | Automatic billing integration |
 
-## Technology Stack
+#### Deployment Automation
 
-| Layer | AWS Services | Alternative Options |
-|-------|--------------|--------------------|
-| **Core** | AWS Control Tower, AWS Organizations, AWS Config, Service Control Policies | |
-| **Compliance** | AWS Security Hub, AWS Audit Manager, AWS CloudFormation Guard, AWS Systems Manager | |
-| **Monitoring** | Amazon CloudWatch, AWS CloudTrail Lake, Amazon GuardDuty, AWS Well-Architected Tool | |
-| **Third-Party** | — | Terraform Sentinel (Policy as Code), Prisma Cloud (Compliance monitoring), Lacework (Cloud security) |
+| Technology | Implementation Method | Purpose |
+|------------|----------------------|---------|
+| **Service Catalog** | Published portfolios with IAM permissions | Governed self-service tool deployment |
+| **Terraform Registry** | Version-pinned modules in private registry | Infrastructure-as-code repeatability |
+| **Container Images** | Private ECR mirroring from Docker Hub | Supply chain security and availability |
+| **License Management** | AWS Secrets Manager with rotation | Secure license key distribution |
 
+### Customer Procurement System Integration
 
-## 1. Third party products and procurement process Methodology and Process
+#### Enterprise System Connectors
 
-### Discovery Phase
+| ERP System | Integration Pattern | Workflow Automation |
+|------------|-------------------|-------------------|
+| **SAP Ariba** | Slack `/procure` command → Lambda → Ariba API | PO number auto-tagged on AWS orders |
+| **Coupa** | Private Offer SKU mapped to catalog items | Auto-sync orders via SNS + Lambda |
+| **ServiceNow** | Catalog item "Request Third-Party Tool" | Terraform Cloud API triggered post-approval |
 
-**Stakeholder Engagement**: Collaborative workshops with technical teams, business stakeholders, and decision-makers to understand current state, requirements, and success criteria.
+#### Financial Integration
 
-**Current State Assessment**: Comprehensive evaluation of existing governance capabilities, identifying gaps, opportunities, and constraints.
+- **Budget Mapping**: Cost center tags applied automatically via Control Tower lifecycle hooks
+- **Invoice Reconciliation**: AWS Marketplace invoices attached to customer ERP records
+- **Anomaly Detection**: Budget alerts based on vendor tags trigger FinOps review
+- **Renewal Management**: 60-day SNS reminder → Jira ticket → approval workflow
 
-**Requirements Analysis**: Documentation of functional and non-functional requirements aligned with business objectives and compliance needs.
+### License Management and Compliance
 
-### Design Phase
+#### Automated License Tracking
 
-**Solution Architecture**: Design of target state architecture incorporating AWS best practices, security requirements, and scalability considerations.
+| Component | Tool | Purpose |
+|-----------|------|---------|
+| **BYOL Entitlements** | AWS License Manager | Track Windows, SQL Server, commercial AMI licenses |
+| **Resource Tagging** | Control Tower + Config Rules | Inherit `LicenseId`, `Vendor`, `RenewalDate` tags |
+| **Usage Monitoring** | Cost Explorer + Budget Alerts | Detect cost anomalies by vendor tag |
+| **Compliance Scanning** | AWS Config Rules | Flag untagged instances requiring licenses |
 
-**Implementation Planning**: Detailed project plan with phases, milestones, dependencies, and resource allocation.
+#### Lifecycle Management Process
 
-**Risk Assessment**: Identification and mitigation strategies for technical, operational, and business risks.
+1. **License Deployment**: Secrets Manager stores license keys with IAM-based access control
+2. **Usage Tracking**: Config rules ensure proper tagging for license attribution
+3. **Renewal Workflow**: Automated 60-day reminder → steering committee approval → renewal or termination
+4. **End-of-Life Cleanup**: Service Catalog de-provision + License Manager decrement + CMDB retirement
 
-### Implementation Phase
+## Technology Foundation
 
-**Iterative Deployment**: Phased implementation approach with regular checkpoints and validation gates.
+| Component | Primary Services | Purpose |
+|-----------|-----------------|---------|
+| **Marketplace Integration** | AWS Marketplace, Private Offers, CPPO | Streamlined procurement with consolidated billing |
+| **Deployment Automation** | AWS Service Catalog, Terraform Cloud | Governed self-service deployment |
+| **License Management** | AWS License Manager, AWS Secrets Manager | Secure license storage and compliance tracking |
+| **Financial Integration** | AWS Cost Explorer, Amazon EventBridge | ERP integration and cost management |
+| **Governance** | AWS Control Tower, Service Control Policies | Automated compliance and tag enforcement |
 
-**Testing and Validation**: Comprehensive testing including functional, performance, security, and user acceptance testing.
+## Example Procurement Workflow
 
-**Documentation and Training**: Knowledge transfer through documentation, training sessions, and hands-on workshops.
+### Scenario: Security CSPM Tool Procurement
 
-### Operations Phase
+1. **Vendor Evaluation**: Lacework vs. Wiz scored in vendor matrix → Wiz selected based on AWS native integration
+2. **Private Offer**: Vendor drafts custom terms (12-month SaaS, prepaid, 18% discount)
+3. **ERP Integration**: Slack `/procure` command creates SAP Ariba requisition PR-2025-047
+4. **Approval & Purchase**: Finance approves → AWS Marketplace offer accepted with auto-applied cost center tags
+5. **Deployment**: Terraform module `modules/wiz-agent` deployed via CodePipeline (non-prod → prod)
+6. **License Management**: License keys retrieved via License Manager, 11-month renewal reminder scheduled
 
-**Monitoring and Support**: Ongoing monitoring, incident response, and continuous improvement processes.
+## Deliverables and Evidence Artifacts
 
-**Optimization**: Regular reviews and optimization recommendations based on usage patterns and performance metrics.
+### Vendor Evaluation Artifacts
+- **Vendor Capability Matrix**: Comprehensive scoring across security, AWS integration, pricing, support
+- **Proof of Value Reports**: 14-day sandbox testing results with performance metrics
+- **Risk Assessment Documentation**: Security questionnaires, compliance certification verification
+- **Business Case Templates**: ROI analysis and justification documentation
 
+### Procurement Integration
+- **ERP Connector Code**: Lambda functions for SAP Ariba, Coupa, ServiceNow integration
+- **Service Catalog Portfolios**: Pre-configured deployment templates with IAM permissions
+- **Terraform Modules**: Version-controlled infrastructure-as-code for tool deployment
+- **Financial Dashboard**: QuickSight cost tracking by vendor with budget alerts
 
-## 2. Third party products and procurement process Components and Capabilities
+### License Management
+- **License Tracking Dashboard**: AWS License Manager integration with renewal calendars
+- **Compliance Reports**: Monthly license usage and tagging compliance verification
+- **Renewal Runbooks**: Automated workflow templates for license renewals
+- **Contract Management**: Centralized repository of vendor agreements and terms
 
-### Core Components
+## Success Criteria
 
-- **Primary Services**: Main AWS services used for third party products and procurement process implementation
-- **Supporting Services**: Additional AWS services for enhanced functionality
-- **Third-party Integrations**: External tools and platforms supported
-- **Custom Components**: Developed solutions for specific requirements
+- **90%+ Marketplace Adoption**: Leverage AWS Marketplace for eligible tool purchases
+- **Automated Compliance**: Config rule compliance >95% for license tagging requirements
+- **ERP Integration**: Seamless purchase requisition flow with customer procurement systems
+- **Cost Optimization**: Negotiated Private Offer discounts averaging 15-25% off list price
 
-### Key Capabilities
+## Getting Started
 
-- **Automation**: Streamlined processes and workflows
-- **Monitoring**: Comprehensive visibility and alerting
-- **Security**: Built-in security controls and compliance
-- **Scalability**: Elastic resource allocation and performance
-- **Integration**: Seamless connectivity with existing systems
-
-### Implementation Approach
-
-The solution follows AWS Well-Architected principles with emphasis on governance best practices and operational excellence.
-
-
-
-## Implementation Phases
-
-| Phase | Duration | Key Activities | Deliverables |
-|-------|----------|----------------|--------------|
-| 1. Discovery | 1-2 weeks | Requirements gathering, current state assessment | Discovery document, requirements matrix |
-| 2. Design | 2-3 weeks | Architecture design, tool selection, process definition | Design document, implementation plan |
-| 3. Implementation | 3-6 weeks | Deployment, configuration, testing, validation | Working solution, documentation |
-| 4. Knowledge Transfer | 1 week | Training, handover, ongoing support planning | Training materials, runbooks |
-
-## Deliverables
-
-1. **Third party products and procurement process Methodology Document** (this document)
-2. **Implementation Runbook** (see Implementation Artifacts section)
-3. **Infrastructure as Code** templates (see Implementation Artifacts section)
-4. **Configuration Standards** and baseline policies (see Implementation Artifacts section)
-5. **Control catalog** with compliance framework mapping
-6. **Policy enforcement pipeline** code and configurations
-7. **Compliance dashboard** templates and reports
-8. **Knowledge Transfer Session** recording and materials
-
-## Implementation Artifacts
-
-
-## Governance Controls Implementation Runbook
-
-### Step 1: Deploy AWS Config Rules
-
-```bash
-# Enable AWS Config
-aws configservice put-configuration-recorder \
-    --configuration-recorder name=default,roleARN=arn:aws:iam::ACCOUNT:role/aws-service-role/config.amazonaws.com/AWSServiceRoleForConfig
-
-# Deploy required S3 bucket encryption rule
-aws configservice put-config-rule \
-    --config-rule '{
-        "ConfigRuleName": "s3-bucket-ssl-requests-only",
-        "Source": {
-            "Owner": "AWS",
-            "SourceIdentifier": "S3_BUCKET_SSL_REQUESTS_ONLY"
-        }
-    }'
-```
-
-### Step 2: Security Hub Controls
-
-```yaml
-# security-hub-standards.yaml
-AWSTemplateFormatVersion: '2010-09-09'
-Resources:
-  SecurityHub:
-    Type: AWS::SecurityHub::Hub
-    Properties:
-      Tags:
-        - Key: Purpose
-          Value: CentralSecurityFindings
-
-  CISStandard:
-    Type: AWS::SecurityHub::StandardsSubscription
-    Properties:
-      StandardsArn: !Sub 'arn:aws:securityhub:${AWS::Region}:${AWS::AccountId}:standard/cis-aws-foundations-benchmark/v/1.2.0'
-    DependsOn: SecurityHub
-
-  PCIStandard:
-    Type: AWS::SecurityHub::StandardsSubscription  
-    Properties:
-      StandardsArn: !Sub 'arn:aws:securityhub:${AWS::Region}:${AWS::AccountId}:standard/pci-dss/v/3.2.1'
-    DependsOn: SecurityHub
-```
-
-
-
-## References
-
-- [AWS Security Best Practices](https://docs.aws.amazon.com/security/)
-- [AWS Compliance Resources](https://aws.amazon.com/compliance/resources/)
+Contact ZirconTech to implement comprehensive third-party tool management. Our proven methodologies and automation frameworks ensure optimal vendor selection, streamlined procurement, and ongoing license management that scales with your organization.
 
 ---
 
-*Last updated: 02 Jul 2025*
+*This document provides an overview of ZirconTech's third-party procurement capabilities. For detailed methodology and technical workflows, see our [Third-Party Tooling & Procurement Process](third-party-procurement.md). For vendor evaluation details, see our [Vendor Capability Matrix](vendor-matrix.md).*
