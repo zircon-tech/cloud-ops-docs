@@ -1,353 +1,156 @@
 ---
 id: COCOM-002
-title: "Manage configuration items lifecycle for AWS resources"
+title: "Manage Configuration Items Lifecycle for AWS Resources"
 ---
 
-# Manage configuration items lifecycle for AWS resources
+# Manage Configuration Items Lifecycle for AWS Resources
 
-## Purpose
+## Overview
 
-Mature manage configuration items lifecycle for aws resources enables reliable, scalable management of your AWS environment. Our approach establishes automated processes and standardized procedures that reduce operational overhead while improving service reliability.
+The AWS Partner has methodology, process and relevant tooling experience to enable customers to identify applicable CIs to track, plan and implement CMDB solutions, and incorporate ticketing tools to drive changes through controlled processes.
 
-## Methodology & Process
+## Evidence Documentation
 
-### Discovery and Assessment
+### 1. Service Offering for CMDB Configuration
 
-We begin with comprehensive discovery to understand your current environment, identify requirements, and establish success criteria that align with business objectives.
+#### CMDB Implementation Services
 
-### Design and Implementation
+We implement CMDB solutions using AWS Config as the foundational service for configuration item discovery and tracking. Our methodology includes integration with existing CMDB systems like ServiceNow, BMC Remedy, or implementation of new CMDB solutions based on customer requirements.
 
-Our implementation approach prioritizes automation, consistency, and maintainability, using infrastructure-as-code and proven architectural patterns.
+Our approach includes automated CI discovery using AWS Systems Manager Inventory, AWS Config resource tracking, and AWS CloudFormation stack analysis. We establish data synchronization processes between AWS services and CMDB systems using AWS Lambda functions and API integrations.
 
-### Monitoring and Optimization
+#### CMDB Evolution Services
 
-Continuous monitoring ensures implementations remain effective over time, with regular reviews and optimization recommendations.
+We assess existing CMDB capabilities and design integration patterns to incorporate cloud configuration items. Our methodology includes data mapping between AWS resource attributes and CMDB CI classes, establishing automated synchronization workflows, and implementing change tracking processes.
 
+Integration approach includes RESTful API connections, event-driven updates using CloudWatch Events, and batch synchronization processes. We establish CI relationships mapping between AWS resources and existing infrastructure components in customer CMDB systems.
 
+#### Ticketing Integration Services
 
-## Technology Stack
+We integrate AWS change processes with existing ticketing systems including ServiceNow, Jira, BMC Remedy, and other ITSM platforms. Our methodology includes automated ticket creation for infrastructure changes, approval workflows for critical resources, and automated status updates.
 
-| Layer | AWS Services | Alternative Options |
-|-------|--------------|--------------------|
-| **Core** | Amazon CloudWatch, AWS CloudFormation, AWS IAM, Amazon VPC | |
-| **Third-Party** | — | Third-party tools (As required) |
+Integration implementation utilizes AWS Systems Manager Change Calendar for maintenance windows, automated ticket creation via API calls from CloudWatch alarms, and bidirectional synchronization between AWS automation and ticketing systems.
 
+### 2. Resource Tracking Classification
 
-## 1. Description of service offering allowing CMDB configuration.
+#### Tracked Resources
 
-### Overview
+**Compute Resources:**
+- EC2 Instances (all states)
+- Auto Scaling Groups
+- ECS Clusters and Services
+- EKS Clusters
+- Lambda Functions
+- Elastic Beanstalk Applications
 
-Our manage configuration items lifecycle for aws resources approach addresses this requirement through systematic implementation of AWS best practices and proven methodologies.
+**Storage Resources:**
+- EBS Volumes
+- S3 Buckets (with policies and configurations)
+- EFS File Systems
+- FSx File Systems
 
-### Implementation Details
+**Network Resources:**
+- VPCs
+- Subnets
+- Security Groups
+- Network ACLs
+- Load Balancers (ALB, NLB, CLB)
+- NAT Gateways
 
-The solution incorporates industry-standard practices for operations with specific focus on:
+**Database Resources:**
+- RDS Instances
+- DynamoDB Tables
+- ElastiCache Clusters
+- Redshift Clusters
 
-- **Automation**: Reducing manual effort through infrastructure as code
-- **Security**: Built-in security controls and compliance frameworks
-- **Scalability**: Elastic architecture that grows with business needs
-- **Monitoring**: Comprehensive observability and alerting
-- **Documentation**: Clear procedures and operational runbooks
+**Security and Identity Resources:**
+- IAM Roles, Users, Policies
+- KMS Keys
+- Secrets Manager Secrets
+- ACM Certificates
 
-### Key Components
+#### Non-Tracked Resources
 
-- **AWS Native Services**: Leveraging managed services for reliability and scale
-- **Custom Integration**: Tailored solutions for specific business requirements
-- **Best Practices**: Implementation following AWS Well-Architected principles
-- **Knowledge Transfer**: Comprehensive training and documentation
+**Transient Resources:**
+- CloudWatch Logs (individual log entries)
+- Temporary EC2 Spot Instances (under 1 hour lifecycle)
+- Lambda execution environments
+- Auto Scaling temporary instances during scaling events
 
-### Expected Outcomes
+**Automatically Managed Resources:**
+- Default VPC components (unless customized)
+- AWS service-linked roles
+- Default security groups (unless modified)
+- Automatic EBS snapshots created by AWS services
 
-The implementation delivers measurable improvements in operational efficiency, security posture, and business agility while reducing overall operational costs.
+**Low-Value Resources:**
+- Individual CloudWatch metrics
+- Route 53 health check details
+- CloudFront edge locations
+- S3 individual object metadata (unless business critical)
 
+### 3. CI Recommendation Methodology
 
-## 2. Manage configuration items lifecycle for AWS resources Components and Capabilities
+#### Environment-Based CI Prioritization
 
-### Core Components
+**Production Environment CIs:**
+- **Criticality Level**: High - All compute, storage, network, and database resources tracked
+- **Change Control**: Mandatory ticketing integration with approval workflows
+- **Monitoring**: Real-time synchronization with CMDB (within 5 minutes)
+- **Relationship Mapping**: Complete dependency tracking between all resources
 
-- **Primary Services**: Main AWS services used for manage configuration items lifecycle for aws resources implementation
-- **Supporting Services**: Additional AWS services for enhanced functionality
-- **Third-party Integrations**: External tools and platforms supported
-- **Custom Components**: Developed solutions for specific requirements
-
-### Key Capabilities
-
-- **Automation**: Streamlined processes and workflows
-- **Monitoring**: Comprehensive visibility and alerting
-- **Security**: Built-in security controls and compliance
-- **Scalability**: Elastic resource allocation and performance
-- **Integration**: Seamless connectivity with existing systems
-
-### Implementation Approach
-
-The solution follows AWS Well-Architected principles with emphasis on operations best practices and operational excellence.
-
-
-## 3. Manage configuration items lifecycle for AWS resources Methodology and Process
-
-### Discovery Phase
-
-**Stakeholder Engagement**: Collaborative workshops with technical teams, business stakeholders, and decision-makers to understand current state, requirements, and success criteria.
-
-**Current State Assessment**: Comprehensive evaluation of existing operations capabilities, identifying gaps, opportunities, and constraints.
-
-**Requirements Analysis**: Documentation of functional and non-functional requirements aligned with business objectives and compliance needs.
-
-### Design Phase
-
-**Solution Architecture**: Design of target state architecture incorporating AWS best practices, security requirements, and scalability considerations.
-
-**Implementation Planning**: Detailed project plan with phases, milestones, dependencies, and resource allocation.
-
-**Risk Assessment**: Identification and mitigation strategies for technical, operational, and business risks.
-
-### Implementation Phase
-
-**Iterative Deployment**: Phased implementation approach with regular checkpoints and validation gates.
-
-**Testing and Validation**: Comprehensive testing including functional, performance, security, and user acceptance testing.
-
-**Documentation and Training**: Knowledge transfer through documentation, training sessions, and hands-on workshops.
-
-### Operations Phase
-
-**Monitoring and Support**: Ongoing monitoring, incident response, and continuous improvement processes.
-
-**Optimization**: Regular reviews and optimization recommendations based on usage patterns and performance metrics.
-
-
-
-## Implementation Phases
-
-| Phase | Duration | Key Activities | Deliverables |
-|-------|----------|----------------|--------------|
-| 1. Discovery | 1-2 weeks | Requirements gathering, current state assessment | Discovery document, requirements matrix |
-| 2. Design | 2-3 weeks | Architecture design, tool selection, process definition | Design document, implementation plan |
-| 3. Implementation | 3-6 weeks | Deployment, configuration, testing, validation | Working solution, documentation |
-| 4. Knowledge Transfer | 1 week | Training, handover, ongoing support planning | Training materials, runbooks |
-
-## Deliverables
-
-1. **Manage configuration items lifecycle for AWS resources Methodology Document** (this document)
-2. **Implementation Runbook** (see Implementation Artifacts section)
-3. **Infrastructure as Code** templates (see Implementation Artifacts section)
-4. **Configuration Standards** and baseline policies (see Implementation Artifacts section)
-5. **Knowledge Transfer Session** recording and materials
-
-## Implementation Artifacts
-
-
-## Operations Management Implementation Runbook
-
-### Step 1: Infrastructure Deployment Strategy
-
-```yaml
-# deployment-pipeline.yaml
-name: Infrastructure Deployment Pipeline
-on:
-  push:
-    branches: [main]
-    paths: ['infrastructure/**']
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: arn:aws:iam::ACCOUNT:role/GitHubActionsRole
-          
-      - name: Terraform Plan
-        run: |
-          cd infrastructure/
-          terraform init
-          terraform plan -out=tfplan
-          
-      - name: Terraform Apply
-        if: github.ref == 'refs/heads/main'
-        run: |
-          terraform apply tfplan
-```
-
-### Step 2: Change Management Process
-
-```bash
-#!/bin/bash
-# change-management-workflow.sh
-
-# 1. Create change request
-aws ssm create-ops-item \
-    --title "Infrastructure Change Request" \
-    --description "Deploy new application version" \
-    --priority 3 \
-    --source "ChangeManagement" \
-    --operational-data '{
-        "ChangeType": {"Value": "Standard"},
-        "Environment": {"Value": "Production"},
-        "RiskLevel": {"Value": "Medium"}
-    }'
-
-# 2. Immutable infrastructure deployment
-aws imagebuilder start-image-pipeline-execution \
-    --image-pipeline-arn "arn:aws:imagebuilder:region:account:image-pipeline/golden-ami"
-
-# 3. Blue-green deployment
-aws elbv2 modify-target-group \
-    --target-group-arn "arn:aws:elasticloadbalancing:region:account:targetgroup/blue-targets" \
-    --health-check-path "/health"
-```
-
-### Step 3: Patch Management Automation
-
-```python
-# patch-management.py
-import boto3
-from datetime import datetime, timedelta
-
-def create_patch_baseline():
-    ssm = boto3.client('ssm')
-    
-    # Create custom patch baseline
-    response = ssm.create_patch_baseline(
-        Name='Production-Patch-Baseline',
-        OperatingSystem='AMAZON_LINUX_2',
-        ApprovalRules={
-            'PatchRules': [
-                {
-                    'PatchFilterGroup': {
-                        'PatchFilters': [
-                            {
-                                'Key': 'CLASSIFICATION',
-                                'Values': ['Security', 'Critical']
-                            }
-                        ]
-                    },
-                    'ApproveAfterDays': 0,
-                    'ComplianceLevel': 'CRITICAL'
-                },
-                {
-                    'PatchFilterGroup': {
-                        'PatchFilters': [
-                            {
-                                'Key': 'CLASSIFICATION', 
-                                'Values': ['Important', 'Recommended']
-                            }
-                        ]
-                    },
-                    'ApproveAfterDays': 7,
-                    'ComplianceLevel': 'HIGH'
-                }
-            ]
-        }
-    )
-    
-    return response['BaselineId']
-
-def schedule_patch_deployment():
-    ssm = boto3.client('ssm')
-    
-    # Schedule maintenance window for patching
-    response = ssm.create_maintenance_window(
-        Name='Production-Patch-Window',
-        Description='Automated patching for production systems',
-        Schedule='cron(0 2 ? * SUN *)',  # Every Sunday at 2 AM
-        Duration=4,  # 4-hour window
-        Cutoff=1,    # Stop 1 hour before end
-        AllowUnassociatedTargets=False
-    )
-    
-    return response['WindowId']
-```
-
-
-## Operations Automation Scripts
-
-### Vulnerability Scanning and Remediation
-
-```python
-# vulnerability-management.py
-import boto3
-import json
-
-def scan_and_remediate():
-    inspector = boto3.client('inspector2')
-    ssm = boto3.client('ssm')
-    
-    # Get vulnerability findings
-    findings = inspector.list_findings(
-        filterCriteria={
-            'severity': ['HIGH', 'CRITICAL'],
-            'findingStatus': ['ACTIVE']
-        }
-    )
-    
-    for finding in findings['findings']:
-        if finding['type'] == 'PACKAGE_VULNERABILITY':
-            # Automated remediation for package vulnerabilities
-            instance_id = finding['resources'][0]['id']
-            
-            # Execute remediation script
-            response = ssm.send_command(
-                InstanceIds=[instance_id],
-                DocumentName='AWS-RunShellScript',
-                Parameters={
-                    'commands': [
-                        'sudo yum update -y',
-                        'sudo systemctl restart application'
-                    ]
-                }
-            )
-
-### ITSM Integration
-
-```python
-# itsm-integration.py
-import boto3
-import requests
-import json
-
-def create_service_now_incident(alarm_data):
-    # ServiceNow API integration
-    url = 'https://company.service-now.com/api/now/table/incident'
-    headers = {
-        'Content-Type': 'application/json',
-        'Authorization': 'Basic ' + base64_encoded_credentials
-    }
-    
-    incident_data = {
-        'short_description': f"AWS CloudWatch Alarm: {alarm_data['AlarmName']}",
-        'description': alarm_data['NewStateReason'],
-        'urgency': '2',  # High
-        'impact': '2',   # Medium 
-        'category': 'Cloud Infrastructure',
-        'subcategory': 'Monitoring Alert'
-    }
-    
-    response = requests.post(url, headers=headers, data=json.dumps(incident_data))
-    return response.json()
-
-def lambda_handler(event, context):
-    # Process CloudWatch alarm via SNS
-    alarm_data = json.loads(event['Records'][0]['Sns']['Message'])
-    
-    if alarm_data['NewStateValue'] == 'ALARM':
-        incident = create_service_now_incident(alarm_data)
-        print(f"Created ServiceNow incident: {incident['result']['number']}")
-        
-        # Update alarm description with incident number
-        cloudwatch = boto3.client('cloudwatch')
-        cloudwatch.put_metric_alarm(
-            AlarmName=alarm_data['AlarmName'],
-            AlarmDescription=f"ServiceNow: {incident['result']['number']}"
-        )
-```
-
-## References
-
+**Staging Environment CIs:**
+- **Criticality Level**: Medium - Core infrastructure and application resources tracked
+- **Change Control**: Automated ticketing for major changes, manual for minor changes
+- **Monitoring**: Hourly synchronization with CMDB
+- **Relationship Mapping**: Application-tier dependency tracking
+
+**Development/Test Environment CIs:**
+- **Criticality Level**: Low - Infrastructure backbone and shared resources tracked
+- **Change Control**: Notification-only for tracking purposes
+- **Monitoring**: Daily synchronization with CMDB
+- **Relationship Mapping**: Basic resource grouping and ownership tracking
+
+#### CI Selection Methodology
+
+**Business Impact Assessment:**
+- Revenue impact analysis for each resource type
+- Compliance requirements evaluation (SOX, HIPAA, PCI-DSS)
+- Operational dependency mapping
+- Cost optimization tracking requirements
+
+**Technical Criticality Analysis:**
+- Single points of failure identification
+- Cross-environment dependency analysis
+- Security boundary component identification
+- Performance bottleneck resource analysis
+
+**Operational Requirements:**
+- Change frequency analysis
+- Incident correlation requirements
+- Capacity planning data needs
+- Cost allocation and chargeback requirements
+
+#### Implementation Approach
+
+**Discovery Phase:**
+1. Automated resource discovery using AWS Config and Systems Manager
+2. Business stakeholder interviews for criticality assessment
+3. Existing CMDB schema analysis and mapping
+4. Change management process evaluation
+
+**Configuration Phase:**
+1. CMDB CI class definition and attribute mapping
+2. Automated synchronization workflow implementation
+3. Change tracking and approval process integration
+4. Monitoring and alerting configuration
+
+**Validation Phase:**
+1. Data accuracy verification between AWS and CMDB
+2. Change process testing and validation
+3. Performance impact assessment
+4. User training and knowledge transfer
 
 ---
 
-*Last updated: 02 Jul 2025*
+*This document provides evidence of our configuration items lifecycle management capabilities including CMDB configuration services, resource tracking classification, and CI recommendation methodology.*
