@@ -1,0 +1,3555 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Internal documentation - Not for public access">
+      
+      
+        <meta name="author" content="ZirconTech">
+      
+      
+      
+        <link rel="prev" href="../centralized-change-management/">
+      
+      
+        <link rel="next" href="../maintaining-aws-expertise/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>Customer Presentation - ZirconTech Cloud Operations on AWS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#zircontech-aws-cloud-operations-capabilities" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="ZirconTech Cloud Operations on AWS" class="md-header__button md-logo" aria-label="ZirconTech Cloud Operations on AWS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ZirconTech Cloud Operations on AWS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Customer Presentation
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../multi-account-methodology/" class="md-tabs__link">
+          
+  
+  
+  Methodology
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../sow-multi-account-strategy/" class="md-tabs__link">
+          
+  
+  
+  SOW Examples
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../forecast-tco-workbook/" class="md-tabs__link">
+          
+  
+  
+  Deliverables
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="ZirconTech Cloud Operations on AWS" class="md-nav__button md-logo" aria-label="ZirconTech Cloud Operations on AWS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    ZirconTech Cloud Operations on AWS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Methodology
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Methodology
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multi-account-methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Multi-Account Strategy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../account-lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Account Lifecycle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitops-methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GitOps Methodology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tagging-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tagging Strategy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preventive-detective-controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Controls Framework
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../control-matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Controls Matrix
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../third-party-procurement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Third-Party Procurement
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vendor-matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vendor Matrix
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../account-ownership-transfer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Account Ownership Transfer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hybrid-cloud-governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hybrid Cloud Governance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cost-allocation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cost Allocation & Accountability
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../planning-forecasting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Planning & Forecasting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cost-reporting-visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cost Reporting & Visualization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cost-resource-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Resource Optimization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cost-purchase-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Purchase-Option Optimization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../financial-operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Financial Operations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring-observability-baseline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitoring & Observability
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hybrid-cloud-environment-observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hybrid Cloud Environment Observability
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hybrid-cloud-environment-operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hybrid Cloud Environment Operations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../signal-analytics-visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dashboards & Alerts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../observability-modern-apps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Observability – Modern Apps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Observability & Auto-Remediation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../synthetic-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Synthetic Monitoring
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compliance-and-auditing-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Compliance and Auditing Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../define-multi-account-strategy-for-the-organization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Define multi account strategy for the organization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../identify-quantify-and-manage-risks-relating-to-tec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Identify, quantify, and manage risks relating to technology and business needs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating-cleanroom-environment-for-forensic-analys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating cleanroom environment for forensic analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-classification-and-protection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data classification and protection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automate-controls-deployment-and-manage-them-using/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Automate controls deployment and manage them using code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gather-and-organize-the-documentary-evidence-to-su/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gather and organize the documentary evidence to support audit assessments
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operations-management-baseline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operations Management Baseline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manage-configuration-items-lifecycle-for-aws-resou/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Manage configuration items lifecycle for AWS resources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automate-controls-deployment-and-manage-them-using/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Automate controls deployment and manage them using code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distribute-and-apply-patch-updates-to-infrastructu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Distribute and apply patch updates to infrastructure components
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../identify-remediate-and-report-security-vulnerabili/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Identify, remediate and report security vulnerabilities
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../access-compute-instances-in-the-cloud-from-a-centr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Access compute instances in the cloud from a central location
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../itsm-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ITSM Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../detect-and-auto-remediate-incidents-in-real-time-u/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Detect and auto-remediate incidents in real time using event triggers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aiops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AIOps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../centralized-change-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Centralized Change Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Customer Presentation
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Customer Presentation
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#company-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Company Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Company Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#who-we-are" class="md-nav__link">
+    <span class="md-ellipsis">
+      Who We Are
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#company-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      Company History
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-presence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Presence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#team-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Team Profile
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#our-management-team" class="md-nav__link">
+    <span class="md-ellipsis">
+      Our Management Team
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Our Management Team">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#andres-zunino-chief-executive-officer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Andrés Zunino – Chief Executive Officer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#martin-machin-managing-partner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Martín Machin – Managing Partner
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#williams-olivera-chief-technology-officer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Williams Olivera – Chief Technology Officer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#marcelo-acosta-chief-operating-officer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Marcelo Acosta – Chief Operating Officer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alejandro-narancio-board-member-advisor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alejandro Narancio – Board Member &amp; Advisor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customer-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customer Profile
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Customer Profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#client-demographics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Client Demographics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#industry-expertise" class="md-nav__link">
+    <span class="md-ellipsis">
+      Industry Expertise
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cloud-operations-practice-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Cloud Operations Practice Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS Cloud Operations Practice Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Capabilities
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-aws-native-architecture-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. AWS-Native Architecture Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-cost-optimization-excellence" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Cost Optimization Excellence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-security-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Security &amp; Compliance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-observability-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Observability &amp; Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-infrastructure-as-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Infrastructure as Code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-specific-differentiators" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS-Specific Differentiators
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS-Specific Differentiators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-makes-our-aws-practice-unique" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Makes Our AWS Practice Unique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Makes Our AWS Practice Unique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-aws-well-architected-framework-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. AWS Well-Architected Framework Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-advanced-cost-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Advanced Cost Engineering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-multi-account-governance-at-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Multi-Account Governance at Scale
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-event-driven-architecture-excellence" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Event-Driven Architecture Excellence
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-choose-our-aws-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Choose Our AWS Practice
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Choose Our AWS Practice">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-clear-and-continuous-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Clear and Continuous Communication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-control-of-project-deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Control of Project Deliverables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-on-time-delivery" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. On-time Delivery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-low-risk-engagement" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Low-risk Engagement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notable-aws-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notable AWS Projects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Notable AWS Projects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-suku-web3-infrastructure-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. SUKU – Web3 Infrastructure Platform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-mith-social-blockchain-creator-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. MITH – Social + Blockchain Creator Platform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-redswan-real-estate-tokenization-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. RedSwan – Real Estate Tokenization Platform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-repose-funeral-planning-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Repose – Funeral Planning Platform
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#engagement-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Engagement Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Engagement Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#discovery-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discovery Phase
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Phase
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Phase
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimization-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimization Phase
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Next Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technical-deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Deep Dive
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-conversations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference Conversations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilot-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pilot Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proposal-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proposal Development
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maintaining-aws-expertise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Maintaining AWS Expertise
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws-partner-solution-selling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS Partner Solution Selling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws-sales-engagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS Sales Engagement
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training-for-internal-personnel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Training for Internal Personnel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../expected-outcomes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Expected Outcomes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scope/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scope
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../statement-of-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Statement of Work
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Change Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../customer-acceptance-for-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Customer Acceptance for Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../customer-satisfaction-aligned-to-project-milestone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Customer Satisfaction Aligned to Project Milestones
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cost-allocation-measurement-and-accountability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cost Allocation Measurement and Accountability
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../define-account-life-cycle-process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Define Account life cycle process
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitops-deployment-for-infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GitOps deployment for infrastructure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../implement-and-enforce-tagging-strategy-to-support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Implement and enforce tagging strategy to support business needs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../effective-usage-of-preventive-and-detective-contro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Effective usage of preventive and detective controls
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../third-party-products-and-procurement-process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Third party products and procurement process
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws-account-ownership-transfer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS Account Ownership transfer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../planning-and-forecasting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Planning and Forecasting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cost-reporting-and-visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cost Reporting and Visualization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimize-cloud-costs-through-resource-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Optimize Cloud Costs Through Resource Optimization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimize-cloud-costs-through-purchase-option-optim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Optimize Cloud Costs Through Purchase Option Optimization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring-and-observability-baseline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitoring and Observability Baseline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../signal-analytics-and-visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signal Analytics and Visualization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../observability-for-modern-application-architectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Observability for Modern Application Architectures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../application-performance-and-ux-related-metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Application Performance and UX related metrics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    SOW Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            SOW Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sow-multi-account-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Multi-Account SOW
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitops-sow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GitOps SOW
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Deliverables
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Deliverables
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../forecast-tco-workbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Forecast & TCO Workbook
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quicksight-dashboard-sample/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    QuickSight Dashboard Samples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ri-sp-coverage-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RI / SP Coverage Plan
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runbook-update-forecast-drivers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Runbook – Forecast Drivers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runbook-dash-edit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Runbook – Dashboard Edit Workflow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#company-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Company Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Company Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#who-we-are" class="md-nav__link">
+    <span class="md-ellipsis">
+      Who We Are
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#company-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      Company History
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#global-presence" class="md-nav__link">
+    <span class="md-ellipsis">
+      Global Presence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#team-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Team Profile
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#our-management-team" class="md-nav__link">
+    <span class="md-ellipsis">
+      Our Management Team
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Our Management Team">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#andres-zunino-chief-executive-officer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Andrés Zunino – Chief Executive Officer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#martin-machin-managing-partner" class="md-nav__link">
+    <span class="md-ellipsis">
+      Martín Machin – Managing Partner
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#williams-olivera-chief-technology-officer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Williams Olivera – Chief Technology Officer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#marcelo-acosta-chief-operating-officer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Marcelo Acosta – Chief Operating Officer
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#alejandro-narancio-board-member-advisor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Alejandro Narancio – Board Member &amp; Advisor
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customer-profile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Customer Profile
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Customer Profile">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#client-demographics" class="md-nav__link">
+    <span class="md-ellipsis">
+      Client Demographics
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#industry-expertise" class="md-nav__link">
+    <span class="md-ellipsis">
+      Industry Expertise
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-cloud-operations-practice-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Cloud Operations Practice Overview
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS Cloud Operations Practice Overview">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#core-capabilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Core Capabilities
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Core Capabilities">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-aws-native-architecture-design" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. AWS-Native Architecture Design
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-cost-optimization-excellence" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Cost Optimization Excellence
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-security-compliance" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Security &amp; Compliance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-observability-monitoring" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Observability &amp; Monitoring
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5-infrastructure-as-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Infrastructure as Code
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-specific-differentiators" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS-Specific Differentiators
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS-Specific Differentiators">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-makes-our-aws-practice-unique" class="md-nav__link">
+    <span class="md-ellipsis">
+      What Makes Our AWS Practice Unique
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What Makes Our AWS Practice Unique">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-aws-well-architected-framework-integration" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. AWS Well-Architected Framework Integration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-advanced-cost-engineering" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Advanced Cost Engineering
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-multi-account-governance-at-scale" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Multi-Account Governance at Scale
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-event-driven-architecture-excellence" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Event-Driven Architecture Excellence
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#why-choose-our-aws-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      Why Choose Our AWS Practice
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Why Choose Our AWS Practice">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-clear-and-continuous-communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Clear and Continuous Communication
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-control-of-project-deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Control of Project Deliverables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-on-time-delivery" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. On-time Delivery
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-low-risk-engagement" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Low-risk Engagement
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#notable-aws-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notable AWS Projects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Notable AWS Projects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-suku-web3-infrastructure-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. SUKU – Web3 Infrastructure Platform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-mith-social-blockchain-creator-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. MITH – Social + Blockchain Creator Platform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-redswan-real-estate-tokenization-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. RedSwan – Real Estate Tokenization Platform
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4-repose-funeral-planning-platform" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Repose – Funeral Planning Platform
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#engagement-model" class="md-nav__link">
+    <span class="md-ellipsis">
+      Engagement Model
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Engagement Model">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#discovery-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Discovery Phase
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#design-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Design Phase
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#implementation-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Implementation Phase
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#optimization-phase" class="md-nav__link">
+    <span class="md-ellipsis">
+      Optimization Phase
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Next Steps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Next Steps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#technical-deep-dive" class="md-nav__link">
+    <span class="md-ellipsis">
+      Technical Deep Dive
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reference-conversations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reference Conversations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pilot-project" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pilot Project
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proposal-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      Proposal Development
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="zircontech-aws-cloud-operations-capabilities">ZirconTech - AWS Cloud Operations Capabilities</h1>
+<h2 id="company-overview">Company Overview</h2>
+<h3 id="who-we-are">Who We Are</h3>
+<p>ZirconTech brings <strong>more than 8 years of delivery experience</strong> across web, mobile, blockchain, and cloud technologies as an <strong>AWS Select Partner</strong>. Our multidisciplinary team has successfully completed <strong>100+ projects</strong> for clients across <strong>America and Europe</strong>.</p>
+<h3 id="company-history">Company History</h3>
+<p>Founded in <strong>2016</strong> when CEO Andrés Zunino joined forces with blockchain expert Alejandro Narancio to launch ZirconTech. The company was established to help enterprises adopt blockchain, cloud, and AI technologies at scale, with a focus on AWS-native solutions.</p>
+<h3 id="global-presence">Global Presence</h3>
+<p><strong>Headquarters</strong>: Montevideo, Uruguay<br />
+<strong>Service Regions</strong>: North America, South America, and Europe<br />
+<strong>Delivery Model</strong>: Remote-first with near-shore time-zone overlap for American clients</p>
+<h3 id="team-profile">Team Profile</h3>
+<ul>
+<li><strong>50+ Technology Professionals</strong></li>
+<li><strong>AWS-Certified Solutions Architects and Engineers</strong></li>
+<li><strong>Multidisciplinary Expertise</strong>: Cloud, Blockchain, AI/ML, DevOps</li>
+<li><strong>Industry Experience</strong>: Financial Services, Healthcare, Real Estate, Web3</li>
+</ul>
+<h2 id="our-management-team">Our Management Team</h2>
+<h3 id="andres-zunino-chief-executive-officer">Andrés Zunino – Chief Executive Officer</h3>
+<p>Civil Engineer with Business Administration background and proven experience in sales and operations of technology companies. Previously ran multi-country operations at <strong>Ericsson</strong> before turning to tech entrepreneurship. Member of the <strong>Forbes Technology Council</strong>, writing on digital transformation and data security.</p>
+<h3 id="martin-machin-managing-partner">Martín Machin – Managing Partner</h3>
+<p>Mentor, investor, and advisor to high-growth tech companies. As Managing Partner at Pyxis, transformed the firm into Uruguay's fastest-growing IT provider. Founded and led <strong>Tata Consultancy Services' Global Delivery Center</strong> in Montevideo, with previous leadership roles at <strong>IBM</strong> and major financial institutions.</p>
+<h3 id="williams-olivera-chief-technology-officer">Williams Olivera – Chief Technology Officer</h3>
+<p>Senior software and solutions architect driving ZirconTech's <strong>AWS-first technology strategy</strong>. Early advocate of cloud-native architectures, leading adoption of AWS services for scalable, secure deployments. Computer Science engineer with extensive experience in AWS Well-Architected frameworks.</p>
+<h3 id="marcelo-acosta-chief-operating-officer">Marcelo Acosta – Chief Operating Officer</h3>
+<p>Directs sales, delivery and operations, embedding <strong>AWS Well-Architected and cost-optimization practices</strong> across all client projects. Previously scaled Chilean fintech Pago Fácil as Sales Director and CISO. Holds MBA from Edinburgh Business School with AWS, machine-learning, and blockchain credentials.</p>
+<h3 id="alejandro-narancio-board-member-advisor">Alejandro Narancio – Board Member &amp; Advisor</h3>
+<p>Recognized thought leader in blockchain and decentralised infrastructure. Co-Founder &amp; CEO of Infuy, RSK ambassador and RIF product owner. Nearly a decade with <strong>Tata Consultancy Services</strong> delivering mission-critical solutions for U.S. financial-services clients.</p>
+<h2 id="customer-profile">Customer Profile</h2>
+<h3 id="client-demographics">Client Demographics</h3>
+<ul>
+<li><strong>100+ Completed Projects</strong></li>
+<li><strong>Client Regions</strong>: North America (60%), South America (30%), Europe (10%)</li>
+<li><strong>Company Sizes</strong>: Startups to Fortune 500 enterprises</li>
+<li><strong>Industries</strong>: Financial Services, Web3/Blockchain, Real Estate, Healthcare, SaaS</li>
+</ul>
+<h3 id="industry-expertise">Industry Expertise</h3>
+<ul>
+<li><strong>Financial Services</strong>: Payment platforms, custody solutions, compliance frameworks</li>
+<li><strong>Web3/Blockchain</strong>: Token platforms, creator economies, real estate tokenization</li>
+<li><strong>Healthcare</strong>: HIPAA-compliant platforms, secure data processing</li>
+<li><strong>SaaS Platforms</strong>: Multi-tenant architectures, scalable APIs</li>
+</ul>
+<h2 id="aws-cloud-operations-practice-overview">AWS Cloud Operations Practice Overview</h2>
+<h3 id="core-capabilities">Core Capabilities</h3>
+<h4 id="1-aws-native-architecture-design">1. AWS-Native Architecture Design</h4>
+<ul>
+<li><strong>Serverless-First Approach</strong>: Lambda, API Gateway, EventBridge for event-driven architectures</li>
+<li><strong>Container Orchestration</strong>: ECS/Fargate, AppRunner for scalable microservices</li>
+<li><strong>Multi-Account Strategy</strong>: AWS Organizations, Control Tower, Service Control Policies</li>
+</ul>
+<h4 id="2-cost-optimization-excellence">2. Cost Optimization Excellence</h4>
+<ul>
+<li><strong>FinOps Implementation</strong>: Tag-based budgets, consolidated billing, Cost Categories</li>
+<li><strong>Resource Optimization</strong>: Right-sizing, Reserved Instances, Savings Plans</li>
+<li><strong>Cost Visibility</strong>: QuickSight dashboards using CUR + Athena for detailed analysis</li>
+</ul>
+<h4 id="3-security-compliance">3. Security &amp; Compliance</h4>
+<ul>
+<li><strong>Preventive Controls</strong>: SCPs, IAM roles, KMS encryption, Secrets Manager</li>
+<li><strong>Detective Controls</strong>: GuardDuty, AWS Config Rules, Security Hub</li>
+<li><strong>Compliance Frameworks</strong>: SOC-2, HIPAA, financial services regulations</li>
+</ul>
+<h4 id="4-observability-monitoring">4. Observability &amp; Monitoring</h4>
+<ul>
+<li><strong>Full-Stack Monitoring</strong>: CloudWatch, X-Ray, custom metrics and dashboards</li>
+<li><strong>Alerting &amp; Automation</strong>: CloudWatch Alarms, Lambda-based auto-remediation</li>
+<li><strong>Performance Optimization</strong>: Service-level KPIs, latency tracking</li>
+</ul>
+<h4 id="5-infrastructure-as-code">5. Infrastructure as Code</h4>
+<ul>
+<li><strong>Multi-Framework Expertise</strong>: Terraform, CloudFormation, Serverless Framework</li>
+<li><strong>CI/CD Pipelines</strong>: GitHub Actions, CodePipeline, automated deployments</li>
+<li><strong>Environment Management</strong>: Dev, staging, prod separation with automated promotion</li>
+</ul>
+<h2 id="aws-specific-differentiators">AWS-Specific Differentiators</h2>
+<h3 id="what-makes-our-aws-practice-unique">What Makes Our AWS Practice Unique</h3>
+<h4 id="1-aws-well-architected-framework-integration">1. AWS Well-Architected Framework Integration</h4>
+<p><strong>Unique Capability</strong>: Every project includes formal Well-Architected reviews across all five pillars (Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization). We don't just implement AWS services – we architect solutions that follow AWS best practices from day one.</p>
+<h4 id="2-advanced-cost-engineering">2. Advanced Cost Engineering</h4>
+<p><strong>AWS-Only Advantage</strong>: Deep expertise in AWS billing complexities, using native tools like Cost Explorer, Budgets, and Cost Categories combined with custom QuickSight dashboards. Our FinOps approach leverages AWS-specific features that can't be replicated on other cloud platforms.</p>
+<h4 id="3-multi-account-governance-at-scale">3. Multi-Account Governance at Scale</h4>
+<p><strong>AWS Organizations Mastery</strong>: Proven expertise in designing and implementing enterprise-grade multi-account strategies using AWS Organizations, Control Tower, and Service Control Policies. This level of account governance and automation is uniquely possible on AWS.</p>
+<h4 id="4-event-driven-architecture-excellence">4. Event-Driven Architecture Excellence</h4>
+<p><strong>AWS Native Integration</strong>: Expertise in building complex event-driven systems using EventBridge, SQS, SNS, and Lambda that leverage AWS's native event routing capabilities for scalable, loosely-coupled architectures.</p>
+<h3 id="why-choose-our-aws-practice">Why Choose Our AWS Practice</h3>
+<h4 id="1-clear-and-continuous-communication">1. Clear and Continuous Communication</h4>
+<ul>
+<li><strong>Real-time Integration</strong>: Slack/Teams integration with 30-minute response SLA</li>
+<li><strong>Business Hours Availability</strong>: Aligned time zones for American clients</li>
+<li><strong>Weekly Demos</strong>: Regular stakeholder alignment sessions</li>
+<li><strong>Escalation Path</strong>: Two-hour escalation for critical issues</li>
+</ul>
+<h4 id="2-control-of-project-deliverables">2. Control of Project Deliverables</h4>
+<ul>
+<li><strong>Real-time Visibility</strong>: Shared Jira boards and transparent metrics</li>
+<li><strong>Agile Ceremonies</strong>: Sprint planning, daily standups, retrospectives</li>
+<li><strong>Near-shore Advantage</strong>: Time-zone overlap for real-time collaboration</li>
+<li><strong>Budget Transparency</strong>: Detailed burn-down tracking and risk management</li>
+</ul>
+<h4 id="3-on-time-delivery">3. On-time Delivery</h4>
+<ul>
+<li><strong>Focused Discovery</strong>: Scope locking and talent matching</li>
+<li><strong>Continuous Integration</strong>: Automated quality gates and testing</li>
+<li><strong>AWS Well-Architected Reviews</strong>: Early issue detection and resolution</li>
+<li><strong>Proven Track Record</strong>: Consistent on-time or early delivery</li>
+</ul>
+<h4 id="4-low-risk-engagement">4. Low-risk Engagement</h4>
+<ul>
+<li><strong>IP Protection</strong>: 100% intellectual property assignment to clients</li>
+<li><strong>SOC-2 Ready Processes</strong>: Enterprise-grade security and compliance</li>
+<li><strong>Transparent Pricing</strong>: Clear cost tracking and change control</li>
+<li><strong>Data Security</strong>: End-to-end data protection protocols</li>
+</ul>
+<h2 id="notable-aws-projects">Notable AWS Projects</h2>
+<h3 id="1-suku-web3-infrastructure-platform">1. SUKU – Web3 Infrastructure Platform</h3>
+<p><strong>Overview</strong>: Suite of Web3 tools and APIs connecting traditional users to blockchain capabilities, including Twitter minting bot and SUKU Pay API for stablecoin payments.</p>
+<p><strong>AWS Architecture Highlights</strong>:
+- <strong>Serverless-First</strong>: AWS Lambda and API Gateway for scalability and event-driven operation
+- <strong>Multi-Account Setup</strong>: AWS Organizations separating dev/staging/prod environments
+- <strong>Data Layer</strong>: Amazon RDS (PostgreSQL) + MongoDB Atlas via VPC peering
+- <strong>Security</strong>: Secrets Manager and SSM Parameter Store for secure configuration
+- <strong>Observability</strong>: CloudWatch, X-Ray tracing, custom dashboards by service
+- <strong>Cost Controls</strong>: Tag-based budgets, QuickSight dashboards using CUR+Athena</p>
+<p><strong>Operational Excellence</strong>:
+- <strong>IaC</strong>: Serverless Framework with staged deployments
+- <strong>CI/CD</strong>: GitHub Actions for automated testing and deployment
+- <strong>Security</strong>: GuardDuty, AWS Config Rules, Service Control Policies
+- <strong>FinOps</strong>: Regular Lambda cost-per-function and RDS throughput reviews</p>
+<h3 id="2-mith-social-blockchain-creator-platform">2. MITH – Social + Blockchain Creator Platform</h3>
+<p><strong>Overview</strong>: Creator-first social platform enabling content posting, community participation, and live interactions with blockchain-based reward traceability.</p>
+<p><strong>AWS Architecture Highlights</strong>:
+- <strong>Containerized Microservices</strong>: Amazon AppRunner for scalable service deployment
+- <strong>Frontend</strong>: AWS Amplify for web application hosting and deployment
+- <strong>Event-Driven</strong>: EventBridge and Kinesis Video Streams for notifications and streaming
+- <strong>Database</strong>: DynamoDB for high-performance user activity tracking, RDS for metadata
+- <strong>Authentication</strong>: AWS Cognito with IAM federation for secure access
+- <strong>Monitoring</strong>: CloudWatch + X-Ray for performance and latency tracking</p>
+<p><strong>Operational Excellence</strong>:
+- <strong>IaC</strong>: Terraform including full ECS cluster provisioning
+- <strong>KPIs</strong>: Content delivery latency, video uptime, transaction success rates
+- <strong>Security</strong>: WAF, Security Hub with auto-remediation of critical findings
+- <strong>Cost Management</strong>: Team-based tagging (infra, content, payments) with Cost Categories</p>
+<h3 id="3-redswan-real-estate-tokenization-platform">3. RedSwan – Real Estate Tokenization Platform</h3>
+<p><strong>Overview</strong>: Blockchain-based investment platform for real estate tokenization, facilitating investor onboarding, broker management, and smart contract operations.</p>
+<p><strong>AWS Architecture Highlights</strong>:
+- <strong>Compute Evolution</strong>: EC2/Elastic Beanstalk transitioning to Lambda-based services
+- <strong>Integration</strong>: Secure APIs with Fireblocks and on-chain custody solutions
+- <strong>Data Storage</strong>: Amazon RDS (MySQL) primary data, S3 for contracts and compliance PDFs
+- <strong>Security</strong>: IAM roles and AWS KMS for wallet API key management
+- <strong>Compliance</strong>: AWS Config enforcing encryption, MFA, and tagging requirements</p>
+<p><strong>Operational Excellence</strong>:
+- <strong>TCO Optimization</strong>: Assessment showing ~60% cost reduction potential with Lambda migration
+- <strong>Environment Management</strong>: Control Tower for sandbox environments with budget alerts
+- <strong>Observability</strong>: End-to-end asset onboarding time, token issuance events, broker activity dashboards
+- <strong>Governance</strong>: Central logging via CloudTrail across all accounts</p>
+<h3 id="4-repose-funeral-planning-platform">4. Repose – Funeral Planning Platform</h3>
+<p><strong>Overview</strong>: SaaS platform helping funeral homes and customers organize services, compare plans, access providers via map-based search, and manage logistics digitally.</p>
+<p><strong>AWS Architecture Highlights</strong>:
+- <strong>Multi-Account Setup</strong>: AWS Organizations with environment separation
+- <strong>Container Orchestration</strong>: ECS with Fargate for scalable microservices
+- <strong>Database</strong>: RDS (PostgreSQL) for transactional data
+- <strong>API Management</strong>: API Gateway for public endpoints
+- <strong>Global Distribution</strong>: Route 53 + CloudFront across U.S. regions
+- <strong>Workflow Orchestration</strong>: Step Functions for service booking and payment workflows</p>
+<p><strong>Operational Excellence</strong>:
+- <strong>CI/CD</strong>: CodePipeline and CodeBuild with blue/green deployments
+- <strong>Governance</strong>: SCPs, AWS Config, Trusted Advisor integration
+- <strong>Well-Architected</strong>: Continuous improvement based on framework reviews
+- <strong>FinOps</strong>: Chargeback by product team, cost forecasting, automated tagging enforcement
+- <strong>Monitoring</strong>: Custom metrics including booking conversion rates</p>
+<h2 id="engagement-model">Engagement Model</h2>
+<h3 id="discovery-phase">Discovery Phase</h3>
+<ul>
+<li><strong>Current State Assessment</strong>: Architecture review, requirements gathering</li>
+<li><strong>Stakeholder Alignment</strong>: Success criteria definition and KPI establishment</li>
+<li><strong>Risk Assessment</strong>: Technical and business risk identification</li>
+<li><strong>Timeline Planning</strong>: Phased delivery approach with milestone definition</li>
+</ul>
+<h3 id="design-phase">Design Phase</h3>
+<ul>
+<li><strong>Target State Architecture</strong>: AWS Well-Architected framework application</li>
+<li><strong>Solution Design</strong>: Service selection and integration planning</li>
+<li><strong>Implementation Roadmap</strong>: Detailed project plan with dependencies</li>
+<li><strong>Cost Optimization</strong>: TCO analysis and optimization recommendations</li>
+</ul>
+<h3 id="implementation-phase">Implementation Phase</h3>
+<ul>
+<li><strong>Phased Deployment</strong>: Iterative delivery with regular milestone reviews</li>
+<li><strong>Quality Assurance</strong>: Automated testing and validation at each phase</li>
+<li><strong>Monitoring Setup</strong>: Observability and alerting configuration</li>
+<li><strong>Security Implementation</strong>: Preventive and detective controls deployment</li>
+</ul>
+<h3 id="optimization-phase">Optimization Phase</h3>
+<ul>
+<li><strong>Performance Tuning</strong>: Continuous monitoring and optimization</li>
+<li><strong>Cost Management</strong>: Ongoing FinOps practices and cost optimization</li>
+<li><strong>Knowledge Transfer</strong>: Team training and documentation handover</li>
+<li><strong>Ongoing Support</strong>: Maintenance and enhancement planning</li>
+</ul>
+<h2 id="next-steps">Next Steps</h2>
+<h3 id="technical-deep-dive">Technical Deep Dive</h3>
+<p>Schedule detailed discussion of your specific requirements and our recommended solution approach.</p>
+<h3 id="reference-conversations">Reference Conversations</h3>
+<p>Connect with similar customers to discuss their experience with ZirconTech's AWS Cloud Operations practice.</p>
+<h3 id="pilot-project">Pilot Project</h3>
+<p>Consider a small-scale implementation to demonstrate our value proposition and delivery approach.</p>
+<h3 id="proposal-development">Proposal Development</h3>
+<p>Receive a customized solution proposal with detailed timeline, team composition, and transparent pricing.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://aws.amazon.com" target="_blank" rel="noopener" title="AWS" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M180.41 203.01c-.72 22.65 10.6 32.68 10.88 39.05a8.16 8.16 0 0 1-4.1 6.27l-12.8 8.96a10.66 10.66 0 0 1-5.63 1.92c-.43-.02-8.19 1.83-20.48-25.61a78.6 78.6 0 0 1-62.61 29.45c-16.28.89-60.4-9.24-58.13-56.21-1.59-38.28 34.06-62.06 70.93-60.05 7.1.02 21.6.37 46.99 6.27v-15.62c2.69-26.46-14.7-46.99-44.81-43.91-2.4.01-19.4-.5-45.84 10.11-7.36 3.38-8.3 2.82-10.75 2.82-7.41 0-4.36-21.48-2.94-24.2 5.21-6.4 35.86-18.35 65.94-18.18a76.86 76.86 0 0 1 55.69 17.28 70.29 70.29 0 0 1 17.67 52.36zM93.99 235.4c32.43-.47 46.16-19.97 49.29-30.47 2.46-10.05 2.05-16.41 2.05-27.4-9.67-2.32-23.59-4.85-39.56-4.87-15.15-1.14-42.82 5.63-41.74 32.26-1.24 16.79 11.12 31.4 29.96 30.48m170.92 23.05c-7.86.72-11.52-4.86-12.68-10.37l-49.8-164.65c-.97-2.78-1.61-5.65-1.92-8.58a4.61 4.61 0 0 1 3.86-5.25c.24-.04-2.13 0 22.25 0 8.78-.88 11.64 6.03 12.55 10.37l35.72 140.83 33.16-140.83c.53-3.22 2.94-11.07 12.8-10.24h17.16c2.17-.18 11.11-.5 12.68 10.37l33.42 142.63L420.98 80.1c.48-2.18 2.72-11.37 12.68-10.37h19.72c.85-.13 6.15-.81 5.25 8.58-.43 1.85 3.41-10.66-52.75 169.9-1.15 5.51-4.82 11.09-12.68 10.37h-18.69c-10.94 1.15-12.51-9.66-12.68-10.75L328.67 110.7l-32.78 136.99c-.16 1.09-1.73 11.9-12.68 10.75h-18.3zm273.48 5.63c-5.88.01-33.92-.3-57.36-12.29a12.8 12.8 0 0 1-7.81-11.91v-10.75c0-8.45 6.2-6.9 8.83-5.89 10.04 4.06 16.48 7.14 28.81 9.6 36.65 7.53 52.77-2.3 56.72-4.48 13.15-7.81 14.19-25.68 5.25-34.95-10.48-8.79-15.48-9.12-53.13-21-4.64-1.29-43.7-13.61-43.79-52.36-.61-28.24 25.05-56.18 69.52-55.95 12.67-.01 46.43 4.13 55.57 15.62 1.35 2.09 2.02 4.55 1.92 7.04v10.11c0 4.44-1.62 6.66-4.87 6.66-7.71-.86-21.39-11.17-49.16-10.75-6.89-.36-39.89.91-38.41 24.97-.43 18.96 26.61 26.07 29.7 26.89 36.46 10.97 48.65 12.79 63.12 29.58 17.14 22.25 7.9 48.3 4.35 55.44-19.08 37.49-68.42 34.44-69.26 34.42m40.2 104.86c-70.03 51.72-171.69 79.25-258.49 79.25A469.13 469.13 0 0 1 2.83 327.46c-6.53-5.89-.77-13.96 7.17-9.47a637.37 637.37 0 0 0 316.88 84.12 630.2 630.2 0 0 0 241.59-49.55c11.78-5 21.77 7.8 10.12 16.38m29.19-33.29c-8.96-11.52-59.28-5.38-81.81-2.69-6.79.77-7.94-5.12-1.79-9.47 40.07-28.17 105.88-20.1 113.44-10.63 7.55 9.47-2.05 75.41-39.56 106.91-5.76 4.87-11.27 2.3-8.71-4.1 8.44-21.25 27.39-68.49 18.43-80.02"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.share", "content.code.copy"], "search": "../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+    
+  </body>
+</html>
