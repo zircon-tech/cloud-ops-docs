@@ -5,261 +5,149 @@ title: "Compliance and Auditing Overview"
 
 # Compliance and Auditing Overview
 
-## Purpose
+## Overview
 
-Systematic compliance and auditing overview ensures your AWS environment meets regulatory requirements while supporting business agility. Our methodology implements comprehensive controls and audit trails that demonstrate compliance across multiple frameworks.
+The AWS Partner has methodology, process and relevant tooling experience to perform discovery of customer's compliance requirements and current posture, identify stakeholders with clearly defined roles and responsibilities, and establish actions that need to be taken when required, along with periodic internal and external audit processes.
 
-## Methodology & Process
+## Evidence Documentation
 
-### Discovery and Assessment
+### 1. Roles and Responsibility Matrix
 
-We begin with comprehensive discovery to understand your current environment, identify requirements, and establish success criteria that align with business objectives.
+#### Compliance Framework Roles Across AWS, Partner, and Customer
 
-### Design and Implementation
+| Compliance Area | AWS Responsibility | Partner Responsibility | Customer Responsibility |
+|-----------------|-------------------|----------------------|------------------------|
+| **Infrastructure Security** | Physical security, host OS patching, hypervisor security, network infrastructure controls | Security architecture design, configuration hardening, security monitoring implementation | Security policy definition, user access management, security awareness training |
+| **Data Protection** | Encryption key management services, data center physical security, storage infrastructure security | Data encryption implementation, backup strategy design, data classification framework | Data ownership, sensitivity classification, data governance policies, retention policies |
+| **Identity & Access Management** | IAM service availability, MFA infrastructure, service authentication mechanisms | IAM architecture design, role-based access control implementation, federated identity setup | User provisioning and deprovisioning, access policy approval, regular access reviews |
+| **Compliance Monitoring** | Service-level compliance certifications (SOC, ISO, PCI), service audit evidence | Compliance monitoring tooling implementation, automated compliance reporting, gap analysis | Compliance requirement definition, internal audit coordination, regulatory communication |
+| **Incident Response** | Security incident notifications, service health dashboards, infrastructure event logs | Incident response automation, escalation procedures, forensic analysis capabilities | Incident response plan approval, business impact assessment, regulatory breach notification |
+| **Audit & Logging** | Service-level audit logs (CloudTrail), infrastructure monitoring, compliance reporting APIs | Centralized logging implementation, audit trail configuration, log analysis automation | Audit scope definition, internal audit scheduling, audit finding remediation approval |
+| **Risk Management** | Service risk assessments, vulnerability disclosures, security bulletins | Risk assessment methodology, threat modeling, vulnerability scanning implementation | Risk tolerance definition, business risk acceptance, risk treatment decisions |
+| **Change Management** | Service update notifications, maintenance schedules, backward compatibility | Change management automation, deployment pipelines, rollback procedures | Change approval workflows, business impact assessment, change scheduling |
+| **Business Continuity** | Service SLAs, disaster recovery infrastructure, regional redundancy | Backup and recovery implementation, RTO/RPO design, continuity testing procedures | Business continuity plan development, recovery prioritization, continuity testing approval |
+| **Vendor Management** | Sub-processor compliance, vendor risk assessments, third-party security validations | Vendor integration security, API security implementation, third-party monitoring | Vendor approval process, due diligence requirements, vendor performance monitoring |
 
-Our implementation approach prioritizes automation, consistency, and maintainability, using infrastructure-as-code and proven architectural patterns.
+#### Stakeholder Identification and Responsibilities
 
-### Monitoring and Optimization
+**Customer Stakeholders**
 
-Continuous monitoring ensures implementations remain effective over time, with regular reviews and optimization recommendations.
+| Role | Primary Responsibilities | Compliance Activities |
+|------|------------------------|----------------------|
+| **Chief Information Security Officer (CISO)** | Overall security strategy, risk acceptance, regulatory compliance oversight | Security policy approval, audit planning, regulatory reporting |
+| **Compliance Officer** | Regulatory requirement interpretation, audit coordination, compliance reporting | Compliance framework definition, internal audit scheduling, external audit liaison |
+| **Data Protection Officer (DPO)** | Data privacy compliance, data subject rights, privacy impact assessments | Data classification oversight, privacy audit participation, breach notification management |
+| **IT Operations Manager** | Infrastructure monitoring, incident response, change management | Operational audit preparation, control validation, continuous monitoring oversight |
+| **Business Process Owners** | Business requirement definition, process compliance, user training | Business audit participation, process control validation, training program management |
 
+**Partner Stakeholders**
 
+| Role | Primary Responsibilities | Compliance Activities |
+|------|------------------------|----------------------|
+| **Solution Architect** | Compliance architecture design, control implementation, technical recommendations | Technical audit preparation, architecture review, control design validation |
+| **Security Engineer** | Security control implementation, vulnerability management, security monitoring | Security audit participation, penetration testing, security control validation |
+| **Compliance Specialist** | Compliance framework implementation, audit support, regulatory guidance | Compliance audit leadership, gap analysis, remediation planning |
+| **Project Manager** | Timeline management, stakeholder coordination, deliverable tracking | Audit milestone planning, evidence collection coordination, compliance deliverable management |
 
-## Technology Stack
+**AWS Stakeholders**
 
-| Layer | AWS Services | Alternative Options |
-|-------|--------------|--------------------|
-| **Core** | Amazon CloudWatch, AWS CloudFormation, AWS IAM, Amazon VPC | |
-| **Third-Party** | — | Third-party tools (As required) |
+| Role | Primary Responsibilities | Compliance Activities |
+|------|------------------------|----------------------|
+| **Customer Solutions Manager** | Customer relationship management, escalation support, strategic guidance | Audit support coordination, compliance documentation provision, regulatory guidance |
+| **Technical Account Manager** | Technical guidance, service optimization, issue resolution | Technical audit evidence, service compliance validation, architecture review |
+| **Security Specialist** | Security best practices, threat intelligence, security architecture guidance | Security audit consultation, threat assessment, security control guidance |
 
+### 2. Auditing Process Description
 
-## 1. Roles and Responsibilities Matrix
+#### Comprehensive Audit Framework
 
-### AWS Responsibilities
+**Internal Audit Process**
 
-| Area | AWS Responsibility | Scope |
-|------|-------------------|-------|
-| **Infrastructure Security** | Physical security, host OS patching, network controls | Data center, hardware, AWS services |
-| **Service Availability** | Service uptime, regional redundancy, disaster recovery | AWS services and infrastructure |
-| **Compliance Certifications** | SOC, PCI, ISO certifications for AWS services | AWS global infrastructure |
+Internal audits provide ongoing validation of compliance controls and operational effectiveness. The process begins with annual audit planning based on risk assessments and regulatory requirements. Quarterly internal audits focus on high-risk areas including access management, data protection, and incident response procedures.
 
-### Partner Responsibilities
+Monthly operational audits validate control effectiveness through automated compliance monitoring and manual testing procedures. Weekly monitoring reviews ensure continuous compliance through automated alerting and dashboard monitoring of key compliance metrics.
 
-| Area | Partner Responsibility | Scope |
-|------|----------------------|-------|
-| **Solution Design** | Architecture design, service selection, best practices | Customer-specific implementation |
-| **Implementation** | Deployment, configuration, testing, validation | All solution components |
-| **Knowledge Transfer** | Documentation, training, operational procedures | Customer team enablement |
-| **Support** | Level 2/3 support, issue resolution, optimization | Ongoing operational support |
+**External Audit Process**
 
-### Customer Responsibilities
+External audits demonstrate compliance to regulatory bodies and third-party assessors. Annual external audits are scheduled based on regulatory requirements including SOC 2, ISO 27001, and industry-specific frameworks. Semi-annual readiness assessments prepare for external audits through mock assessments and gap remediation.
 
-| Area | Customer Responsibility | Scope |
-|------|------------------------|-------|
-| **Business Requirements** | Define objectives, success criteria, constraints | Project direction and priorities |
-| **Resource Allocation** | Provide subject matter experts, decision-makers | Project team participation |
-| **Operations** | Day-to-day operations, monitoring, incident response | Ongoing system management |
-| **Compliance** | Industry-specific compliance requirements | Business and regulatory compliance |
+External audit preparation includes evidence collection, stakeholder preparation, and audit scope definition. Audit execution involves auditor interviews, control testing, and evidence review. Post-audit activities include finding remediation, management response development, and continuous improvement implementation.
 
+#### Audit Stakeholders and Responsibilities
 
-## 2. Compliance and Auditing Overview Methodology and Process
+**Internal Audit Stakeholders**
 
-### Discovery Phase
+| Stakeholder | Audit Role | Frequency of Involvement |
+|-------------|------------|-------------------------|
+| **Internal Audit Team** | Audit planning, execution, reporting | Monthly operational audits, quarterly compliance audits |
+| **IT Operations Team** | Control demonstration, evidence provision, issue remediation | Weekly for operational audits, monthly for compliance audits |
+| **Security Team** | Security control validation, vulnerability assessment, incident analysis | Monthly security audits, quarterly risk assessments |
+| **Compliance Team** | Regulatory requirement validation, policy compliance, audit coordination | Quarterly compliance audits, annual regulatory reviews |
+| **Business Unit Leaders** | Business process validation, control effectiveness, business impact assessment | Semi-annual business audits, annual process reviews |
 
-**Stakeholder Engagement**: Collaborative workshops with technical teams, business stakeholders, and decision-makers to understand current state, requirements, and success criteria.
+**External Audit Stakeholders**
 
-**Current State Assessment**: Comprehensive evaluation of existing compliance capabilities, identifying gaps, opportunities, and constraints.
+| Stakeholder | Audit Role | Frequency of Involvement |
+|-------------|------------|-------------------------|
+| **External Auditors** | Independent control assessment, compliance validation, audit opinion | Annual compliance audits, semi-annual readiness assessments |
+| **Executive Leadership** | Audit oversight, strategic direction, risk acceptance | Annual audit planning, quarterly audit reviews |
+| **Legal Team** | Regulatory compliance validation, audit response, legal requirement interpretation | Annual regulatory audits, as-needed compliance reviews |
+| **Partner Compliance Team** | Technical control validation, audit support, evidence preparation | Annual partner audits, quarterly readiness assessments |
+| **AWS Compliance Team** | Service-level compliance validation, audit evidence, regulatory guidance | Annual AWS audits, semi-annual compliance reviews |
 
-**Requirements Analysis**: Documentation of functional and non-functional requirements aligned with business objectives and compliance needs.
+#### Audit Frequency and Scheduling
 
-### Design Phase
+**Continuous Monitoring (Daily)**
 
-**Solution Architecture**: Design of target state architecture incorporating AWS best practices, security requirements, and scalability considerations.
+- Automated compliance monitoring through AWS Config and CloudWatch
+- Security event monitoring and alerting
+- Access log analysis and anomaly detection
+- Data protection control validation
 
-**Implementation Planning**: Detailed project plan with phases, milestones, dependencies, and resource allocation.
+**Operational Audits (Weekly)**
 
-**Risk Assessment**: Identification and mitigation strategies for technical, operational, and business risks.
+- Change management process validation
+- Incident response procedure testing
+- Backup and recovery verification
+- User access review and validation
 
-### Implementation Phase
+**Compliance Audits (Monthly)**
 
-**Iterative Deployment**: Phased implementation approach with regular checkpoints and validation gates.
+- Policy compliance assessment
+- Control effectiveness testing
+- Risk assessment updates
+- Vendor management review
 
-**Testing and Validation**: Comprehensive testing including functional, performance, security, and user acceptance testing.
+**Comprehensive Audits (Quarterly)**
 
-**Documentation and Training**: Knowledge transfer through documentation, training sessions, and hands-on workshops.
+- Internal control assessment
+- Business process audit
+- Security posture evaluation
+- Compliance framework validation
 
-### Operations Phase
+**Regulatory Audits (Annual)**
 
-**Monitoring and Support**: Ongoing monitoring, incident response, and continuous improvement processes.
+- External audit preparation and execution
+- Regulatory compliance certification
+- Third-party security assessments
+- Compliance framework updates
 
-**Optimization**: Regular reviews and optimization recommendations based on usage patterns and performance metrics.
+#### Audit Documentation and Evidence Management
 
+Audit evidence collection includes automated control testing results, manual procedure documentation, and stakeholder interview records. Evidence management ensures proper retention, access controls, and audit trail maintenance. Audit findings tracking includes remediation planning, implementation monitoring, and effectiveness validation.
 
+Audit reporting provides executive summaries, detailed findings, and remediation recommendations. Stakeholder communication includes regular updates, milestone reporting, and completion certification. Continuous improvement incorporates audit lessons learned, process optimization, and control enhancement.
 
-## Implementation Phases
+## Implementation Approach
 
-| Phase | Duration | Key Activities | Deliverables |
-|-------|----------|----------------|--------------|
-| 1. Discovery | 1-2 weeks | Requirements gathering, current state assessment | Discovery document, requirements matrix |
-| 2. Design | 2-3 weeks | Architecture design, tool selection, process definition | Design document, implementation plan |
-| 3. Implementation | 3-6 weeks | Deployment, configuration, testing, validation | Working solution, documentation |
-| 4. Knowledge Transfer | 1 week | Training, handover, ongoing support planning | Training materials, runbooks |
+Compliance and auditing implementation begins with stakeholder identification and role definition across AWS, Partner, and Customer organizations. Audit framework establishment includes process documentation, schedule development, and stakeholder training.
 
-## Deliverables
-
-1. **Compliance and Auditing Overview Methodology Document** (this document)
-2. **Implementation Runbook** (see Implementation Artifacts section)
-3. **Infrastructure as Code** templates (see Implementation Artifacts section)
-4. **Configuration Standards** and baseline policies (see Implementation Artifacts section)
-5. **Knowledge Transfer Session** recording and materials
-
-## Implementation Artifacts
-
-
-## Compliance Implementation Runbook
-
-### Step 1: Risk Assessment Framework
-
-```yaml
-# risk-assessment-template.yaml
-risk_assessment:
-  methodology: "NIST RMF"
-  categories:
-    - operational: "Infrastructure availability and reliability risks"
-    - security: "Data breach and unauthorized access risks"  
-    - compliance: "Regulatory non-compliance risks"
-    - business: "Reputation and market response risks"
-  
-  assessment_matrix:
-    impact_levels: ["Low", "Medium", "High", "Critical"]
-    probability_levels: ["Rare", "Unlikely", "Possible", "Likely"]
-    risk_scores:
-      critical_likely: 20
-      high_likely: 16
-      medium_possible: 9
-```
-
-### Step 2: Audit Trail Configuration
-
-```bash
-# Enable comprehensive audit logging
-aws cloudtrail create-trail \
-    --name compliance-audit-trail \
-    --s3-bucket-name compliance-audit-logs \
-    --include-global-service-events \
-    --is-multi-region-trail \
-    --enable-log-file-validation
-
-# Configure AWS Config for compliance monitoring
-aws configservice put-configuration-recorder \
-    --configuration-recorder name=compliance-recorder \
-    --recording-group allSupported=true,includeGlobalResourceTypes=true
-```
-
-### Step 3: Data Classification Implementation
-
-```python
-# data-classification-scanner.py
-import boto3
-import json
-
-def classify_s3_data():
-    s3 = boto3.client('s3')
-    macie = boto3.client('macie2')
-    
-    # Enable Macie for data discovery
-    response = macie.enable_macie()
-    
-    # Create classification job
-    job_response = macie.create_classification_job(
-        jobType='ONE_TIME',
-        name='data-classification-scan',
-        s3JobDefinition={
-            'bucketDefinitions': [
-                {
-                    'accountId': '123456789012',
-                    'buckets': ['sensitive-data-bucket']
-                }
-            ]
-        }
-    )
-    
-    return job_response['jobId']
-```
-
-
-## Compliance Procedures and Checklists
-
-### Incident Response Playbook
-
-```markdown
-## Security Incident Response Plan
-
-### Phase 1: Detection and Analysis (0-30 minutes)
-1. **Incident Identification**
-   - [ ] Alert received via CloudWatch/Security Hub
-   - [ ] Initial triage and severity assessment
-   - [ ] Incident commander assignment
-
-2. **Evidence Preservation**
-   - [ ] Create EBS snapshots of affected instances
-   - [ ] Capture VPC Flow Logs for investigation period
-   - [ ] Export relevant CloudTrail logs to secure S3 bucket
-
-### Phase 2: Containment (30-60 minutes)  
-1. **Immediate Containment**
-   - [ ] Isolate affected systems using Security Groups
-   - [ ] Revoke compromised IAM credentials
-   - [ ] Block malicious IP addresses via NACL
-
-2. **Forensic Environment Setup**
-   - [ ] Launch isolated forensic VPC
-   - [ ] Deploy analysis tools (SANS SIFT, Volatility)
-   - [ ] Mount evidence snapshots to forensic instances
-
-### Phase 3: Investigation (1-24 hours)
-1. **Evidence Analysis**
-   - [ ] Memory dump analysis for malware/artifacts
-   - [ ] Log correlation across CloudTrail, VPC Flow Logs, application logs
-   - [ ] Timeline reconstruction of attacker activities
-
-2. **Impact Assessment**
-   - [ ] Determine scope of data exposure
-   - [ ] Identify compromised systems and accounts
-   - [ ] Assess regulatory notification requirements
-```
-
-### Data Protection Standards
-
-```yaml
-# data-protection-policy.yaml
-data_classification:
-  public:
-    description: "Information intended for public disclosure"
-    controls: ["basic access logging"]
-    
-  internal:
-    description: "Internal business information"
-    controls: ["encryption in transit", "access logging", "data loss prevention"]
-    
-  confidential:
-    description: "Sensitive business information"
-    controls: ["encryption at rest and in transit", "MFA access", "audit logging", "DLP"]
-    
-  restricted:
-    description: "Highly sensitive regulated data"
-    controls: ["HSM encryption", "dedicated infrastructure", "continuous monitoring", "data residency"]
-
-tokenization_standards:
-  pii_fields: ["ssn", "credit_card", "email", "phone"]
-  method: "format_preserving_encryption"
-  key_management: "AWS KMS with customer managed keys"
-  retention_policy: "7 years for audit, immediate deletion post-retention"
-```
-
-## References
+Operational procedures include audit planning, execution, and reporting processes with clear escalation paths and communication protocols. Success measurement includes audit completion rates, finding remediation timelines, and stakeholder satisfaction metrics.
 
+## Success Metrics
+
+Implementation effectiveness measures include 100% audit completion within scheduled timeframes, 95% finding remediation within agreed timelines, and comprehensive stakeholder participation. Compliance posture maintains certification requirements with zero critical findings and timely regulatory reporting.
 
 ---
 
-*Last updated: 02 Jul 2025*
+*This document provides evidence of our compliance and auditing methodology including comprehensive roles and responsibility matrix and detailed auditing process with stakeholder identification and frequency scheduling.*
