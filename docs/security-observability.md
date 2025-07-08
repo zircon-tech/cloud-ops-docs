@@ -63,6 +63,7 @@ Version-controlled runbook management ensures consistent deployment across envir
 #### Core Components and Services
 
 **Event Sources and Detection**
+
 - **CloudWatch Alarms**: Metric-based threshold monitoring for infrastructure and application performance
 - **AWS Config Rules**: Configuration compliance monitoring and drift detection
 - **Amazon GuardDuty**: Threat detection and security incident identification
@@ -70,18 +71,21 @@ Version-controlled runbook management ensures consistent deployment across envir
 - **Custom Applications**: Business-specific event generation through EventBridge integration
 
 **Event Processing and Routing**
+
 - **Amazon EventBridge**: Centralized event routing with pattern matching and filtering
 - **Amazon SNS**: Notification distribution and event fan-out capabilities
 - **Amazon SQS**: Event queuing and retry mechanisms for reliable processing
 - **AWS Lambda**: Event processing functions for custom logic and enrichment
 
 **Orchestration and Execution**
+
 - **AWS Step Functions**: Complex workflow orchestration with error handling and retries
 - **AWS Systems Manager Automation**: Infrastructure-focused remediation workflows
 - **AWS Lambda**: Custom remediation logic and integration with third-party systems
 - **Amazon CloudFormation**: Infrastructure provisioning and configuration management
 
 **Monitoring and Reporting**
+
 - **CloudWatch Dashboards**: Real-time visibility into incident detection and remediation metrics
 - **AWS X-Ray**: Distributed tracing for troubleshooting complex remediation workflows
 - **CloudWatch Logs**: Centralized logging for audit trails and troubleshooting
@@ -90,16 +94,19 @@ Version-controlled runbook management ensures consistent deployment across envir
 #### Third-Party Integration Capabilities
 
 **ITSM Integration**
+
 - **ServiceNow**: Automated ticket creation and incident management workflow integration
 - **Jira Service Management**: Issue tracking and project management integration
 - **PagerDuty**: Incident escalation and on-call notification management
 
 **Security Tools**
+
 - **Splunk**: Security information and event management with automated response
 - **CrowdStrike**: Endpoint detection and response integration
 - **Prisma Cloud**: Cloud security posture management and automated remediation
 
 **Monitoring and Analytics**
+
 - **Datadog**: Application performance monitoring with automated scaling
 - **New Relic**: Performance insights and automated optimization
 - **Grafana**: Custom dashboards and alerting for operational metrics
