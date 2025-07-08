@@ -5,226 +5,201 @@ title: "Monitoring and Observability Baseline"
 
 # Monitoring and Observability Baseline
 
-## Purpose
+## Overview
 
-Comprehensive monitoring and observability baseline provides the visibility needed to maintain performance, availability, and security across your AWS environment. Our approach establishes end-to-end monitoring that enables proactive incident response and continuous optimization.
+The AWS Partner has methodology, process and relevant tooling experience to:
 
-## Methodology & Process
+* Define, recommend, track key performance indicators (KPIs) and service levels based on customer's business and operational needs.
+* Identify, gather, analyze metrics, events, logs and traces to measure the health of the overall workload and its constituent components against identified business and operational KPIs.
+* Achieve effective telemetry including:
+  * AWS Infrastructure Control Plane (e.g., AWS CloudTrail API logs and AWS Health events and AWS Service Quotas).
+  * AWS Infrastructure Service level (AWS service metrics like CPU, Disk and Network usage in an EC2 instance).
+  * Application level (e.g. monitoring API call volume, logging HTTP status codes and errors).
 
-### Telemetry Architecture Design
+## Evidence Documentation
 
-**Signal Collection Strategy**: We implement comprehensive telemetry collection using OpenTelemetry standards, capturing metrics, logs, and traces across your entire application stack.
+### 1. Methodology and Processes for Defining Monitoring and Observability Capabilities
 
-**Correlation and Context**: All telemetry signals are correlated through consistent trace IDs and metadata, enabling rapid troubleshooting and root cause analysis.
+#### KPI Definition and Service Level Establishment Process
 
-### Alerting and Response
+**Business Alignment Workshop**
+- Conduct stakeholder interviews to understand business objectives, critical user journeys, and operational requirements
+- Map business outcomes to measurable technical indicators
+- Establish service level objectives (SLOs) based on customer experience requirements
+- Define error budgets and acceptable risk tolerances
 
-**Intelligent Alerting**: Alert strategies focus on actionable signals that indicate real user impact, reducing alert fatigue while ensuring critical issues receive immediate attention.
+**Technical KPI Framework**
+- **Business KPIs**: Revenue impact metrics, user engagement, conversion rates
+- **Operational KPIs**: Availability, latency, error rates, throughput
+- **Infrastructure KPIs**: Resource utilization, cost efficiency, security posture
+- **Application KPIs**: Feature adoption, performance metrics, user satisfaction
 
-**Incident Response Integration**: Monitoring integrates with your existing incident response processes, automatically creating tickets and escalating based on severity and business impact.
+**Service Level Management Process**
+1. **Discovery Phase**: Assess current monitoring capabilities and identify gaps
+2. **Definition Phase**: Establish SLIs (Service Level Indicators) and SLOs based on business requirements
+3. **Implementation Phase**: Deploy monitoring infrastructure and configure alerting
+4. **Optimization Phase**: Continuously refine thresholds and improve signal quality
 
-### Evidence Artifacts Included
+#### Three-Tier Telemetry Strategy
 
-- **Monitoring Templates**: CloudWatch dashboard configurations and alerting rule sets
-- **Trace Analysis**: Sample X-Ray service maps and distributed tracing implementations
-- **Log Analytics**: CloudWatch Insights queries and log aggregation pipeline code
-- **SLA Definitions**: Service level objectives with monitoring and alerting thresholds
+**AWS Infrastructure Control Plane Monitoring**
+- **AWS CloudTrail**: API call logging, governance events, and compliance auditing
+- **AWS Health Events**: Service health notifications and planned maintenance events
+- **AWS Service Quotas**: Proactive quota monitoring and automated increase requests
+- **AWS Config**: Configuration compliance and drift detection
 
-## Technology Stack
+**AWS Infrastructure Service Level Monitoring**
+- **Amazon CloudWatch**: System metrics (CPU, memory, disk, network) for EC2, RDS, ELB
+- **VPC Flow Logs**: Network traffic analysis and security monitoring
+- **AWS Systems Manager**: Patch compliance and inventory management
+- **Container Insights**: ECS/EKS cluster and task-level metrics
 
-| Layer | AWS Services | Alternative Options |
-|-------|--------------|--------------------|
-| **Core** | Amazon CloudWatch, AWS X-Ray, Amazon Managed Prometheus, Amazon Managed Grafana | |
-| **Logging** | CloudWatch Logs, Amazon OpenSearch, AWS Fluent Bit, AWS Kinesis Data Firehose | |
-| **Tracing** | AWS X-Ray, OpenTelemetry Collector, Amazon ECS Service Connect, AWS App Mesh | |
-| **Third-Party** | — | Datadog (Unified observability), New Relic (Application monitoring), Splunk (Log analytics) |
+**Application Level Monitoring**
+- **AWS X-Ray**: Distributed tracing and service dependency mapping
+- **Application Load Balancer**: HTTP status codes, request latency, and target health
+- **Custom Business Metrics**: API call volume, feature usage, and user interaction patterns
+- **Log Analytics**: Error pattern detection and business event correlation
 
+### 2. Reference Architecture for Monitoring and Observability
 
-## 1. Monitoring and Observability Baseline Methodology and Process
-
-### Discovery Phase
-
-**Stakeholder Engagement**: Collaborative workshops with technical teams, business stakeholders, and decision-makers to understand current state, requirements, and success criteria.
-
-**Current State Assessment**: Comprehensive evaluation of existing observability capabilities, identifying gaps, opportunities, and constraints.
-
-**Requirements Analysis**: Documentation of functional and non-functional requirements aligned with business objectives and compliance needs.
-
-### Design Phase
-
-**Solution Architecture**: Design of target state architecture incorporating AWS best practices, security requirements, and scalability considerations.
-
-**Implementation Planning**: Detailed project plan with phases, milestones, dependencies, and resource allocation.
-
-**Risk Assessment**: Identification and mitigation strategies for technical, operational, and business risks.
-
-### Implementation Phase
-
-**Iterative Deployment**: Phased implementation approach with regular checkpoints and validation gates.
-
-**Testing and Validation**: Comprehensive testing including functional, performance, security, and user acceptance testing.
-
-**Documentation and Training**: Knowledge transfer through documentation, training sessions, and hands-on workshops.
-
-### Operations Phase
-
-**Monitoring and Support**: Ongoing monitoring, incident response, and continuous improvement processes.
-
-**Optimization**: Regular reviews and optimization recommendations based on usage patterns and performance metrics.
-
-
-## 2. Monitoring and Observability Reference Architecture
-
-### Architecture Overview
+#### Architecture Overview
 
 ```
-Applications → CloudWatch Agent → CloudWatch → CloudWatch Insights → Dashboards
-     ↓              ↓                  ↓              ↓               ↓
-X-Ray Traces → X-Ray Service → X-Ray Console → Service Map → Performance Analysis
-     ↓              ↓                  ↓              ↓               ↓
-VPC Flow Logs → S3 Bucket → Athena → QuickSight → Network Analysis
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                           Application Tier                                      │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│  Web Apps  │  APIs  │  Microservices  │  Batch Jobs  │  Lambda Functions       │
+│     │           │           │              │               │                    │
+│     └───────────┼───────────┼──────────────┼───────────────┘                    │
+│                 │           │              │                                    │
+│            ┌────▼───────────▼──────────────▼─────────────────────────────────┐   │
+│            │              X-Ray Tracing & Custom Metrics                    │   │
+│            └────┬───────────┬──────────────┬─────────────────────────────────┘   │
+└─────────────────┼───────────┼──────────────┼─────────────────────────────────────┘
+                  │           │              │
+┌─────────────────▼───────────▼──────────────▼─────────────────────────────────────┐
+│                         Infrastructure Tier                                      │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│  EC2  │  RDS  │  ELB  │  VPC  │  Lambda  │  ECS/EKS  │  S3  │  CloudFront      │
+│   │       │       │       │        │         │          │        │            │
+│   └───────┼───────┼───────┼────────┼─────────┼──────────┼────────┘            │
+│           │       │       │        │         │          │                     │
+│      ┌────▼───────▼───────▼────────▼─────────▼──────────▼─────────────────┐    │
+│      │                    CloudWatch Metrics                              │    │
+│      └────┬───────────────────────────────────────────────────────────────┘    │
+└───────────┼───────────────────────────────────────────────────────────────────┘
+            │
+┌───────────▼───────────────────────────────────────────────────────────────────┐
+│                           Control Plane Tier                                  │
+├───────────────────────────────────────────────────────────────────────────────┤
+│  CloudTrail  │  Config  │  Health  │  Service Quotas  │  Security Hub        │
+│      │           │          │             │                    │             │
+│      └───────────┼──────────┼─────────────┼────────────────────┘             │
+│                  │          │             │                                  │
+│             ┌────▼──────────▼─────────────▼──────────────────────────────┐    │
+│             │              Control Plane Audit & Compliance             │    │
+│             └────┬─────────────────────────────────────────────────────────┘    │
+└──────────────────┼─────────────────────────────────────────────────────────────┘
+                   │
+┌──────────────────▼─────────────────────────────────────────────────────────────┐
+│                      Observability & Analytics Platform                        │
+├───────────────────────────────────────────────────────────────────────────────┤
+│  CloudWatch Logs  │  OpenSearch  │  Kinesis  │  Athena  │  QuickSight         │
+│        │               │            │           │            │                │
+│        └───────────────┼────────────┼───────────┼────────────┘                │
+│                        │            │           │                             │
+│                   ┌────▼────────────▼───────────▼──────────────────────────┐   │
+│                   │           Dashboards & Alerting                       │   │
+│                   └────┬─────────────────────────────────────────────────────┘   │
+└────────────────────────┼─────────────────────────────────────────────────────────┘
+                         │
+┌────────────────────────▼─────────────────────────────────────────────────────────┐
+│                    Incident Response & Automation                               │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│  SNS  │  Lambda  │  Systems Manager  │  EventBridge  │  ITSM Integration      │
+└─────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### Core Components
+#### Core Components and Services
 
-| Layer | Service | Purpose |
-|-------|---------|---------|
-| **Collection** | CloudWatch Agent, X-Ray SDK | Gather metrics, logs, and traces from applications |
-| **Storage** | CloudWatch Logs, X-Ray, S3 | Centralized storage for telemetry data |
-| **Analysis** | CloudWatch Insights, Athena | Query and analyze operational data |
-| **Visualization** | CloudWatch Dashboards, QuickSight | Real-time monitoring and reporting |
-| **Alerting** | CloudWatch Alarms, SNS | Proactive notification of issues |
+| Telemetry Level | AWS Services | Purpose | Custom Services/Policies |
+|-----------------|--------------|---------|-------------------------|
+| **Control Plane** | CloudTrail, Config, Health, Service Quotas | Governance, compliance, and service health | Custom CloudTrail log analysis, automated quota management |
+| **Infrastructure** | CloudWatch, VPC Flow Logs, Systems Manager | System performance and security monitoring | Custom metrics aggregation, automated remediation scripts |
+| **Application** | X-Ray, ALB logs, Custom metrics | Application performance and business KPIs | Custom business metric collection, distributed tracing correlation |
+| **Storage & Analytics** | CloudWatch Logs, OpenSearch, Kinesis, Athena | Log aggregation and analysis | Custom log parsing, correlation rules, alerting logic |
+| **Visualization** | CloudWatch Dashboards, QuickSight | Real-time monitoring and reporting | Custom dashboard templates, executive reporting |
+| **Response** | SNS, Lambda, EventBridge | Incident response and automation | Custom runbooks, automated remediation workflows |
 
-### Implementation
+#### Implementation Procedures and Runbooks
 
-Comprehensive observability platform that captures application performance, infrastructure health, and user experience metrics with automated alerting and response capabilities.
+**Standard Operating Procedures**
+- [Detect and Auto-Remediate Incidents in Real-Time](detect-and-auto-remediate-incidents-in-real-time-u.md)
+- [Security Observability](security-observability.md)
+- [Observability for Modern Applications](observability-for-modern-application-architectures.md)
+- [Signal Analytics and Visualization](signal-analytics-and-visualization.md)
 
+**Custom Services and Policies**
+- **Automated Alerting Framework**: Custom Lambda functions for intelligent alert routing based on severity and business impact
+- **Compliance Monitoring**: Automated Config rules for continuous compliance validation
+- **Cost Optimization**: Custom metrics for cost-per-transaction and resource efficiency tracking
+- **Security Incident Response**: Automated workflows for security event correlation and response
 
-## 3. procedures, runbooks, or training), and typical AWS services/3rd-party products used.
+**Training and Knowledge Transfer**
+- Monitoring best practices workshops
+- Runbook development and maintenance procedures
+- Alert fatigue reduction strategies
+- Incident response playbooks
 
-### Overview
+#### Typical AWS Services and Third-Party Products
 
-Our monitoring and observability baseline approach addresses this requirement through systematic implementation of AWS best practices and proven methodologies.
+**AWS Native Services**
+- **Core Monitoring**: Amazon CloudWatch, AWS X-Ray, AWS CloudTrail
+- **Log Management**: CloudWatch Logs, Amazon OpenSearch, AWS Kinesis Data Firehose
+- **Analytics**: Amazon Athena, Amazon QuickSight, AWS Glue
+- **Automation**: AWS Lambda, Amazon EventBridge, AWS Systems Manager
+- **Security**: AWS Security Hub, Amazon GuardDuty, AWS Config
 
-### Implementation Details
+**Third-Party Integration Options**
+- **Unified Observability**: Datadog, New Relic, Splunk
+- **Application Monitoring**: AppDynamics, Dynatrace
+- **Log Analytics**: Elastic Stack, Splunk Enterprise
+- **Incident Management**: PagerDuty, Opsgenie, ServiceNow
 
-The solution incorporates industry-standard practices for observability with specific focus on:
+## Implementation Approach
 
-- **Automation**: Reducing manual effort through infrastructure as code
-- **Security**: Built-in security controls and compliance frameworks
-- **Scalability**: Elastic architecture that grows with business needs
-- **Monitoring**: Comprehensive observability and alerting
-- **Documentation**: Clear procedures and operational runbooks
+### Phase 1: Assessment and Planning (1-2 weeks)
+- Current state monitoring assessment
+- Business KPI definition workshops
+- Gap analysis and requirements gathering
+- Architecture design and tool selection
 
-### Key Components
+### Phase 2: Infrastructure Setup (2-3 weeks)
+- Control plane monitoring implementation
+- Infrastructure service level monitoring deployment
+- Application monitoring framework setup
+- Dashboard and alerting configuration
 
-- **AWS Native Services**: Leveraging managed services for reliability and scale
-- **Custom Integration**: Tailored solutions for specific business requirements
-- **Best Practices**: Implementation following AWS Well-Architected principles
-- **Knowledge Transfer**: Comprehensive training and documentation
+### Phase 3: Application Integration (2-4 weeks)
+- Custom metrics implementation
+- Distributed tracing deployment
+- Business KPI tracking setup
+- Log correlation and analysis
 
-### Expected Outcomes
+### Phase 4: Optimization and Training (1-2 weeks)
+- Alert tuning and false positive reduction
+- Runbook development and testing
+- Team training and knowledge transfer
+- Documentation and handover
 
-The implementation delivers measurable improvements in operational efficiency, security posture, and business agility while reducing overall operational costs.
+## Success Metrics and Validation
 
-
-
-## Implementation Phases
-
-| Phase | Duration | Key Activities | Deliverables |
-|-------|----------|----------------|--------------|
-| 1. Discovery | 1-2 weeks | Requirements gathering, current state assessment | Discovery document, requirements matrix |
-| 2. Design | 2-3 weeks | Architecture design, tool selection, process definition | Design document, implementation plan |
-| 3. Implementation | 3-6 weeks | Deployment, configuration, testing, validation | Working solution, documentation |
-| 4. Knowledge Transfer | 1 week | Training, handover, ongoing support planning | Training materials, runbooks |
-
-## Deliverables
-
-1. **Monitoring and Observability Baseline Methodology Document** (this document)
-2. **Implementation Runbook** (see Implementation Artifacts section)
-3. **Infrastructure as Code** templates (see Implementation Artifacts section)
-4. **Configuration Standards** and baseline policies (see Implementation Artifacts section)
-5. **Monitoring dashboard** templates and configurations
-6. **Alerting runbook** with escalation procedures
-7. **Log aggregation pipeline** deployment artifacts
-8. **Knowledge Transfer Session** recording and materials
-
-## Implementation Artifacts
-
-
-## Observability Implementation Runbook
-
-### Step 1: CloudWatch Setup
-
-```bash
-# Create custom CloudWatch dashboard
-aws cloudwatch put-dashboard \
-    --dashboard-name "ApplicationObservability" \
-    --dashboard-body file://dashboard-config.json
-
-# Create composite alarm for application health
-aws cloudwatch put-composite-alarm \
-    --alarm-name "ApplicationHealthComposite" \
-    --alarm-description "Overall application health" \
-    --actions-enabled \
-    --alarm-actions "arn:aws:sns:region:account:alert-topic"
-```
-
-### Step 2: X-Ray Tracing Configuration
-
-```yaml
-# xray-tracing-template.yaml
-AWSTemplateFormatVersion: '2010-09-09'
-Resources:
-  XRayServiceMap:
-    Type: AWS::XRay::TracingConfig
-    Properties:
-      TracingConfig:
-        Mode: Active
-
-  XRayInsights:
-    Type: AWS::XRay::InsightsConfiguration
-    Properties:
-      InsightsEnabled: true
-      NotificationsEnabled: true
-```
-
-### Step 3: Application Monitoring Setup
-
-```python
-# application-monitoring.py
-import boto3
-import json
-
-def setup_application_monitoring():
-    cloudwatch = boto3.client('cloudwatch')
-    
-    # Custom business metrics
-    cloudwatch.put_metric_data(
-        Namespace='Application/Business',
-        MetricData=[
-            {
-                'MetricName': 'ActiveUsers',
-                'Value': 150,
-                'Unit': 'Count',
-                'Dimensions': [
-                    {
-                        'Name': 'Environment',
-                        'Value': 'Production'
-                    }
-                ]
-            }
-        ]
-    )
-```
-
-
-
-## References
-
-- [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)
-- [AWS X-Ray Developer Guide](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html)
+- **Mean Time to Detection (MTTD)**: < 5 minutes for critical issues
+- **Mean Time to Resolution (MTTR)**: < 30 minutes for P1 incidents
+- **Alert Accuracy**: > 95% actionable alerts (reduced false positives)
+- **Coverage**: 100% of critical business processes monitored
+- **Compliance**: Automated compliance validation and reporting
 
 ---
 
-*Last updated: 02 Jul 2025*
+*This document provides evidence of our monitoring and observability baseline methodology and reference architecture in compliance with AWS Partner requirements.*
