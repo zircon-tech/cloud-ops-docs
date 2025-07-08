@@ -1,203 +1,174 @@
 ---
 id: COAMO-004
-title: "Security Observability"
+title: "Detect and Auto-Remediate Incidents in Real Time"
 ---
 
-# Security Observability
+# Detect and Auto-Remediate Incidents in Real Time
 
-## Purpose
+## Overview
 
-Comprehensive security observability provides the visibility needed to maintain performance, availability, and security across your AWS environment. Our approach establishes end-to-end monitoring that enables proactive incident response and continuous optimization.
+The AWS Partner has methodology, process and relevant tooling experience to enable customers to implement automated remediation of detected events including non-compliances, exceeding usage limits, and other operational anomalies through the use of standard runbooks. Our approach provides real-time event detection with immediate automated response capabilities that minimize incident impact and reduce manual intervention requirements.
 
-## Methodology & Process
+## Evidence Documentation
 
-### Telemetry Architecture Design
+### 1. Reference Architecture for Event-Based Triggered Workflows
 
-**Signal Collection Strategy**: We implement comprehensive telemetry collection using OpenTelemetry standards, capturing metrics, logs, and traces across your entire application stack.
+#### Core Event-Driven Remediation Architecture
 
-**Correlation and Context**: All telemetry signals are correlated through consistent trace IDs and metadata, enabling rapid troubleshooting and root cause analysis.
-
-### Alerting and Response
-
-**Intelligent Alerting**: Alert strategies focus on actionable signals that indicate real user impact, reducing alert fatigue while ensuring critical issues receive immediate attention.
-
-**Incident Response Integration**: Monitoring integrates with your existing incident response processes, automatically creating tickets and escalating based on severity and business impact.
-
-### Evidence Artifacts Included
-
-- **Monitoring Templates**: CloudWatch dashboard configurations and alerting rule sets
-- **Trace Analysis**: Sample X-Ray service maps and distributed tracing implementations
-- **Log Analytics**: CloudWatch Insights queries and log aggregation pipeline code
-- **SLA Definitions**: Service level objectives with monitoring and alerting thresholds
-
-## Technology Stack
-
-| Layer | AWS Services | Alternative Options |
-|-------|--------------|--------------------|
-| **Core** | Amazon CloudWatch, AWS X-Ray, Amazon Managed Prometheus, Amazon Managed Grafana | |
-| **Logging** | CloudWatch Logs, Amazon OpenSearch, AWS Fluent Bit, AWS Kinesis Data Firehose | |
-| **Tracing** | AWS X-Ray, OpenTelemetry Collector, Amazon ECS Service Connect, AWS App Mesh | |
-| **Third-Party** | — | Datadog (Unified observability), New Relic (Application monitoring), Splunk (Log analytics) |
-
-
-## 1. Security Observability Methodology and Process
-
-### Discovery Phase
-
-**Stakeholder Engagement**: Collaborative workshops with technical teams, business stakeholders, and decision-makers to understand current state, requirements, and success criteria.
-
-**Current State Assessment**: Comprehensive evaluation of existing observability capabilities, identifying gaps, opportunities, and constraints.
-
-**Requirements Analysis**: Documentation of functional and non-functional requirements aligned with business objectives and compliance needs.
-
-### Design Phase
-
-**Solution Architecture**: Design of target state architecture incorporating AWS best practices, security requirements, and scalability considerations.
-
-**Implementation Planning**: Detailed project plan with phases, milestones, dependencies, and resource allocation.
-
-**Risk Assessment**: Identification and mitigation strategies for technical, operational, and business risks.
-
-### Implementation Phase
-
-**Iterative Deployment**: Phased implementation approach with regular checkpoints and validation gates.
-
-**Testing and Validation**: Comprehensive testing including functional, performance, security, and user acceptance testing.
-
-**Documentation and Training**: Knowledge transfer through documentation, training sessions, and hands-on workshops.
-
-### Operations Phase
-
-**Monitoring and Support**: Ongoing monitoring, incident response, and continuous improvement processes.
-
-**Optimization**: Regular reviews and optimization recommendations based on usage patterns and performance metrics.
-
-
-## 2. Mechanisms used to implement Security Observability including any SIEM integration if required.
-
-### Overview
-
-Our security observability approach addresses this requirement through systematic implementation of AWS best practices and proven methodologies.
-
-### Implementation Details
-
-The solution incorporates industry-standard practices for observability with specific focus on:
-
-- **Automation**: Reducing manual effort through infrastructure as code
-- **Security**: Built-in security controls and compliance frameworks
-- **Scalability**: Elastic architecture that grows with business needs
-- **Monitoring**: Comprehensive observability and alerting
-- **Documentation**: Clear procedures and operational runbooks
-
-### Key Components
-
-- **AWS Native Services**: Leveraging managed services for reliability and scale
-- **Custom Integration**: Tailored solutions for specific business requirements
-- **Best Practices**: Implementation following AWS Well-Architected principles
-- **Knowledge Transfer**: Comprehensive training and documentation
-
-### Expected Outcomes
-
-The implementation delivers measurable improvements in operational efficiency, security posture, and business agility while reducing overall operational costs.
-
-
-
-## Implementation Phases
-
-| Phase | Duration | Key Activities | Deliverables |
-|-------|----------|----------------|--------------|
-| 1. Discovery | 1-2 weeks | Requirements gathering, current state assessment | Discovery document, requirements matrix |
-| 2. Design | 2-3 weeks | Architecture design, tool selection, process definition | Design document, implementation plan |
-| 3. Implementation | 3-6 weeks | Deployment, configuration, testing, validation | Working solution, documentation |
-| 4. Knowledge Transfer | 1 week | Training, handover, ongoing support planning | Training materials, runbooks |
-
-## Deliverables
-
-1. **Security Observability Methodology Document** (this document)
-2. **Implementation Runbook** (see Implementation Artifacts section)
-3. **Infrastructure as Code** templates (see Implementation Artifacts section)
-4. **Configuration Standards** and baseline policies (see Implementation Artifacts section)
-5. **Monitoring dashboard** templates and configurations
-6. **Alerting runbook** with escalation procedures
-7. **Log aggregation pipeline** deployment artifacts
-8. **Knowledge Transfer Session** recording and materials
-
-## Implementation Artifacts
-
-
-## Observability Implementation Runbook
-
-### Step 1: CloudWatch Setup
-
-```bash
-# Create custom CloudWatch dashboard
-aws cloudwatch put-dashboard \
-    --dashboard-name "ApplicationObservability" \
-    --dashboard-body file://dashboard-config.json
-
-# Create composite alarm for application health
-aws cloudwatch put-composite-alarm \
-    --alarm-name "ApplicationHealthComposite" \
-    --alarm-description "Overall application health" \
-    --actions-enabled \
-    --alarm-actions "arn:aws:sns:region:account:alert-topic"
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                        Event Sources Layer                          │
+├─────────────────────────────────────────────────────────────────────┤
+│  CloudWatch  │  Config  │  GuardDuty  │  Systems Manager  │  Custom  │
+│   Alarms       Rules      Findings      Patch Manager       Apps    │
+│     │            │          │              │                  │     │
+│     └────────────┼──────────┼──────────────┼──────────────────┘     │
+│                  │          │              │                        │
+│  ┌───────────────▼──────────▼──────────────▼──────────────────────┐  │
+│  │                   Event Aggregation                           │  │
+│  └───────────────┬──────────┬──────────────┬──────────────────────┘  │
+└──────────────────┼──────────┼──────────────┼─────────────────────────┘
+                   │          │              │
+┌──────────────────▼──────────▼──────────────▼─────────────────────────┐
+│                        Event Processing Layer                        │
+├─────────────────────────────────────────────────────────────────────┤
+│  EventBridge  │  CloudWatch Events  │  SNS Topics  │  SQS Queues    │
+│       │              │                    │             │           │
+│       └──────────────┼────────────────────┼─────────────┘           │
+│                      │                    │                         │
+│  ┌───────────────────▼────────────────────▼───────────────────────┐  │
+│  │                 Event Routing & Filtering                     │  │
+│  └───────────────────┬────────────────────┬───────────────────────┘  │
+└──────────────────────┼────────────────────┼──────────────────────────┘
+                       │                    │
+┌──────────────────────▼────────────────────▼──────────────────────────┐
+│                    Remediation Orchestration                         │
+├─────────────────────────────────────────────────────────────────────┤
+│  Step Functions  │  Lambda Functions  │  Systems Manager Automation │
+│        │               │                         │                  │
+│        └───────────────┼─────────────────────────┘                  │
+│                        │                                            │
+│  ┌─────────────────────▼──────────────────────────────────────────┐  │
+│  │              Runbook Execution Engine                         │  │
+│  └─────────────────────┬──────────────────────────────────────────┘  │
+└──────────────────────────┼─────────────────────────────────────────────┘
+                           │
+┌──────────────────────────▼─────────────────────────────────────────────┐
+│                      Remediation Actions                               │
+├─────────────────────────────────────────────────────────────────────┤
+│  Resource Isolation  │  Auto Scaling  │  Policy Updates  │  Patching │
+│  Security Groups     │  Capacity Mgmt │  Configuration   │  Updates  │
+└─────────────────────────────────────────────────────────────────────┘
 ```
 
-### Step 2: X-Ray Tracing Configuration
+#### Event Detection and Classification
 
-```yaml
-# xray-tracing-template.yaml
-AWSTemplateFormatVersion: '2010-09-09'
-Resources:
-  XRayServiceMap:
-    Type: AWS::XRay::TracingConfig
-    Properties:
-      TracingConfig:
-        Mode: Active
+Our event detection framework monitors multiple AWS services and custom applications for operational anomalies, compliance violations, and performance degradations. CloudWatch alarms trigger on metric thresholds including CPU utilization, error rates, and custom business metrics, while AWS Config rules detect configuration drift and compliance violations in real-time.
 
-  XRayInsights:
-    Type: AWS::XRay::InsightsConfiguration
-    Properties:
-      InsightsEnabled: true
-      NotificationsEnabled: true
-```
+Amazon GuardDuty findings automatically initiate security incident response workflows, and AWS Systems Manager Patch Manager events trigger compliance remediation. Custom application events integrate through Amazon EventBridge to enable business-specific incident detection and response capabilities.
 
-### Step 3: Application Monitoring Setup
+Event classification categorizes incidents by severity, impact scope, and remediation complexity to route events to appropriate automated response workflows. The classification system considers business criticality, regulatory requirements, and operational impact to prioritize remediation efforts and escalation procedures.
 
-```python
-# application-monitoring.py
-import boto3
-import json
+#### Automated Runbook Framework
 
-def setup_application_monitoring():
-    cloudwatch = boto3.client('cloudwatch')
-    
-    # Custom business metrics
-    cloudwatch.put_metric_data(
-        Namespace='Application/Business',
-        MetricData=[
-            {
-                'MetricName': 'ActiveUsers',
-                'Value': 150,
-                'Unit': 'Count',
-                'Dimensions': [
-                    {
-                        'Name': 'Environment',
-                        'Value': 'Production'
-                    }
-                ]
-            }
-        ]
-    )
-```
+Standard runbooks define step-by-step remediation procedures for common operational scenarios including security incidents, capacity management, compliance violations, and performance degradations. Each runbook specifies trigger conditions, execution parameters, rollback procedures, and success criteria for automated validation.
 
+Runbooks utilize AWS Systems Manager Automation documents for infrastructure remediation, AWS Lambda functions for custom business logic, and AWS Step Functions for complex multi-step workflows. The framework supports parameterized runbooks that adapt to specific incident contexts while maintaining consistent execution patterns and audit trails.
 
+Version-controlled runbook management ensures consistent deployment across environments with automated testing and validation of remediation procedures. Runbook execution includes detailed logging, progress tracking, and automatic rollback capabilities for failed remediation attempts.
 
-## References
+#### Core Components and Services
 
-- [Amazon CloudWatch User Guide](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html)
-- [AWS X-Ray Developer Guide](https://docs.aws.amazon.com/xray/latest/devguide/aws-xray.html)
+**Event Sources and Detection**
+- **CloudWatch Alarms**: Metric-based threshold monitoring for infrastructure and application performance
+- **AWS Config Rules**: Configuration compliance monitoring and drift detection
+- **Amazon GuardDuty**: Threat detection and security incident identification
+- **AWS Systems Manager**: Patch management, inventory tracking, and compliance monitoring
+- **Custom Applications**: Business-specific event generation through EventBridge integration
+
+**Event Processing and Routing**
+- **Amazon EventBridge**: Centralized event routing with pattern matching and filtering
+- **Amazon SNS**: Notification distribution and event fan-out capabilities
+- **Amazon SQS**: Event queuing and retry mechanisms for reliable processing
+- **AWS Lambda**: Event processing functions for custom logic and enrichment
+
+**Orchestration and Execution**
+- **AWS Step Functions**: Complex workflow orchestration with error handling and retries
+- **AWS Systems Manager Automation**: Infrastructure-focused remediation workflows
+- **AWS Lambda**: Custom remediation logic and integration with third-party systems
+- **Amazon CloudFormation**: Infrastructure provisioning and configuration management
+
+**Monitoring and Reporting**
+- **CloudWatch Dashboards**: Real-time visibility into incident detection and remediation metrics
+- **AWS X-Ray**: Distributed tracing for troubleshooting complex remediation workflows
+- **CloudWatch Logs**: Centralized logging for audit trails and troubleshooting
+- **Amazon QuickSight**: Analytics and reporting for incident trends and remediation effectiveness
+
+#### Third-Party Integration Capabilities
+
+**ITSM Integration**
+- **ServiceNow**: Automated ticket creation and incident management workflow integration
+- **Jira Service Management**: Issue tracking and project management integration
+- **PagerDuty**: Incident escalation and on-call notification management
+
+**Security Tools**
+- **Splunk**: Security information and event management with automated response
+- **CrowdStrike**: Endpoint detection and response integration
+- **Prisma Cloud**: Cloud security posture management and automated remediation
+
+**Monitoring and Analytics**
+- **Datadog**: Application performance monitoring with automated scaling
+- **New Relic**: Performance insights and automated optimization
+- **Grafana**: Custom dashboards and alerting for operational metrics
+
+### Runbook Implementation Examples
+
+#### Security Incident Response Runbook
+
+**Trigger**: Amazon GuardDuty high-severity finding detected
+**Automated Actions**:
+1. Isolate affected EC2 instance by modifying security groups
+2. Capture memory dump and disk snapshots for forensic analysis
+3. Notify security team through SNS and PagerDuty integration
+4. Create incident ticket in ServiceNow with detailed finding information
+5. Initiate threat hunting workflow using AWS Lambda functions
+
+**Implementation**: AWS Step Functions orchestrates the workflow with AWS Systems Manager Automation documents handling infrastructure changes and Lambda functions managing custom logic and notifications.
+
+#### Compliance Remediation Runbook
+
+**Trigger**: AWS Config rule violation for unencrypted S3 bucket
+**Automated Actions**:
+1. Enable default encryption on the non-compliant S3 bucket
+2. Update bucket policy to deny unencrypted object uploads
+3. Scan existing objects and encrypt unencrypted content
+4. Generate compliance report and update tracking dashboard
+5. Notify compliance team of remediation completion
+
+**Implementation**: Systems Manager Automation document executes S3 API calls with Lambda functions handling policy updates and reporting workflows.
+
+#### Performance Scaling Runbook
+
+**Trigger**: CloudWatch alarm for high CPU utilization exceeding 80% for 5 minutes
+**Automated Actions**:
+1. Trigger Auto Scaling Group scaling policy to add capacity
+2. Monitor application performance metrics during scale-out
+3. Validate successful scaling through health checks
+4. Update monitoring thresholds based on new capacity
+5. Generate capacity planning report for future optimization
+
+**Implementation**: CloudWatch alarm triggers EventBridge rule that executes Step Functions workflow coordinating Auto Scaling actions with monitoring validation.
+
+## Implementation Process
+
+Automated remediation implementation begins with comprehensive runbook development and testing in non-production environments. Event source configuration establishes monitoring across all critical systems with appropriate threshold tuning to minimize false positives while ensuring comprehensive coverage.
+
+Workflow deployment utilizes Infrastructure as Code principles with CloudFormation templates defining event processing pipelines and remediation workflows. Continuous testing validates runbook effectiveness with regular disaster recovery exercises and simulated incident scenarios.
+
+## Success Metrics
+
+Automated remediation effectiveness measures include mean time to remediation under 5 minutes for critical incidents, 95% automation rate for standard operational events, and 99% runbook execution success rate. System reliability maintains 99.9% availability for event processing pipelines with comprehensive audit trails for all automated actions and remediation outcomes.
 
 ---
 
-*Last updated: 02 Jul 2025*
+*This document provides evidence of our automated incident detection and remediation capabilities using event-triggered workflows and standard runbooks.*
