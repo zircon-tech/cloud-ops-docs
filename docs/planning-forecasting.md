@@ -12,11 +12,11 @@ Give customers repeatable tools and models to forecast AWS spend, quantify busin
 | **Inventory-based TCO analysis** | • Import on-prem CMDB or RVTools export into **Migration Evaluator**  <br>• Model lift-and-shift vs. right-sized / modernized workloads |
 | **Value quantification pre- vs. post-migration** | • Baseline on-prem OpEx/CapEx, support contracts, licensing  <br>• Post-migration KPI dashboard tracks agility gains, MTTR, release cadence |
 | **Optimized pricing models (RI/SP, EDP)** | • Run **AWS Pricing Calculator** scenarios for On-Demand, Savings Plans, PPAs  <br>• Build blended plan recommending mix of Compute SP + EC2 RI + Spot |
-| **Bottom-up forecasts for net-new workloads** | • Terraform module outputs resource counts → Lambda pushes to **Athena forecast table**  <br>• QuickSight “Build-out vs. Budget” dashboard auto-refreshes daily |
+| **Bottom-up forecasts for net-new workloads** | • Terraform module outputs resource counts → Lambda pushes to **Athena forecast table**  <br>• QuickSight "Build-out vs. Budget" dashboard auto-refreshes daily |
 | **Demand-driver forecasting (unit economics)** | • Join CUR with business KPIs (MAU, GB stored) to create regression model $/unit  <br>• Use driver projections from product roadmap CSV |
 | **Value realization beyond cost savings** | • KPI set: revenue-per-developer, release frequency, customer churn, outage minutes  <br>• Tag resources to features → correlate spend to revenue lines |
 | **Predictive month/quarter/year estimates** | • Athena query feeds **Amazon Forecast** (Prophet algorithm) for 12-mo projection  <br>• Budget alerts compare actual vs. forecast with ±5 % tolerance |
-| **TTM trend analysis** | • Glue crawler partitions CUR → Athena view `vw_ttm_costs`  <br>• QuickSight visual “Rolling 12-Month Spend & YoY Δ” |
+| **TTM trend analysis** | • Glue crawler partitions CUR → Athena view `vw_ttm_costs`  <br>• QuickSight visual "Rolling 12-Month Spend & YoY Δ" |
 
 ---
 
@@ -41,7 +41,7 @@ Give customers repeatable tools and models to forecast AWS spend, quantify busin
 * EDP / Private Offer negotiations launched if commit tier exceeded.
 
 ### Phase 4 – Validation & Continuous Improvement  
-* Post-migration “Day 30 / Day 90” checkpoint compares actual vs. forecast.  
+* Post-migration "Day 30 / Day 90" checkpoint compares actual vs. forecast.  
 * Quarterly slice: update driver assumptions, refresh regression model.  
 * Annual refresh: re-assess RI/SP coverage, capacity reservations.
 
@@ -49,13 +49,13 @@ Give customers repeatable tools and models to forecast AWS spend, quantify busin
 
 ## 4 · Tooling Stack
 
-| Layer | Default AWS | Optional 3rd-Party |
+| Layer | Default AWS | Optional Third-Party |
 |-------|-------------|--------------------|
-| Workload discovery | Migration Evaluator, AWS Application Migration Service | Flexera |
-| Cost modeling | AWS Pricing Calculator, Cost Explorer | Apptio Cloudability, CloudZero |
-| Forecasting engine | Amazon Forecast, Athena ML | Snowflake + Sigma |
+| Workload discovery | Migration Evaluator, AWS Application Migration Service | Third-party discovery tools |
+| Cost modeling | AWS Pricing Calculator, Cost Explorer | Third-party FinOps platforms |
+| Forecasting engine | Amazon Forecast, Athena ML | Third-party analytics platforms |
 | Dashboards | QuickSight | Power BI, Tableau |
-| Budget guardrails | AWS Budgets, Cost Anomaly Detection | Harness CCM |
+| Budget guardrails | AWS Budgets, Cost Anomaly Detection | Third-party cost management tools |
 
 ---
 
@@ -80,4 +80,4 @@ Give customers repeatable tools and models to forecast AWS spend, quantify busin
 
 ---
 
-_Last updated: 30 Jun 2025_
+_This methodology provides a comprehensive approach to AWS planning and forecasting while ensuring accuracy and business value alignment._
