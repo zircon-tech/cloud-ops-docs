@@ -68,48 +68,23 @@ Version-controlled runbook management ensures consistent deployment across envir
 - **AWS Config Rules**: Configuration compliance monitoring and drift detection
 - **Amazon GuardDuty**: Threat detection and security incident identification
 - **AWS Systems Manager**: Patch management, inventory tracking, and compliance monitoring
-- **Custom Applications**: Business-specific event generation through EventBridge integration
 
 **Event Processing and Routing**
 
 - **Amazon EventBridge**: Centralized event routing with pattern matching and filtering
 - **Amazon SNS**: Notification distribution and event fan-out capabilities
-- **Amazon SQS**: Event queuing and retry mechanisms for reliable processing
 - **AWS Lambda**: Event processing functions for custom logic and enrichment
 
 **Orchestration and Execution**
 
 - **AWS Step Functions**: Complex workflow orchestration with error handling and retries
 - **AWS Systems Manager Automation**: Infrastructure-focused remediation workflows
-- **AWS Lambda**: Custom remediation logic and integration with third-party systems
 - **Amazon CloudFormation**: Infrastructure provisioning and configuration management
 
 **Monitoring and Reporting**
 
 - **CloudWatch Dashboards**: Real-time visibility into incident detection and remediation metrics
-- **AWS X-Ray**: Distributed tracing for troubleshooting complex remediation workflows
 - **CloudWatch Logs**: Centralized logging for audit trails and troubleshooting
-- **Amazon QuickSight**: Analytics and reporting for incident trends and remediation effectiveness
-
-#### Third-Party Integration Capabilities
-
-**ITSM Integration**
-
-- **ServiceNow**: Automated ticket creation and incident management workflow integration
-- **Jira Service Management**: Issue tracking and project management integration
-- **PagerDuty**: Incident escalation and on-call notification management
-
-**Security Tools**
-
-- **Splunk**: Security information and event management with automated response
-- **CrowdStrike**: Endpoint detection and response integration
-- **Prisma Cloud**: Cloud security posture management and automated remediation
-
-**Monitoring and Analytics**
-
-- **Datadog**: Application performance monitoring with automated scaling
-- **New Relic**: Performance insights and automated optimization
-- **Grafana**: Custom dashboards and alerting for operational metrics
 
 ### Runbook Implementation Examples
 
@@ -119,8 +94,8 @@ Version-controlled runbook management ensures consistent deployment across envir
 **Automated Actions**:
 1. Isolate affected EC2 instance by modifying security groups
 2. Capture memory dump and disk snapshots for forensic analysis
-3. Notify security team through SNS and PagerDuty integration
-4. Create incident ticket in ServiceNow with detailed finding information
+3. Notify security team through SNS notifications
+4. Generate incident report with detailed finding information
 5. Initiate threat hunting workflow using AWS Lambda functions
 
 **Implementation**: AWS Step Functions orchestrates the workflow with AWS Systems Manager Automation documents handling infrastructure changes and Lambda functions managing custom logic and notifications.
@@ -132,8 +107,8 @@ Version-controlled runbook management ensures consistent deployment across envir
 1. Enable default encryption on the non-compliant S3 bucket
 2. Update bucket policy to deny unencrypted object uploads
 3. Scan existing objects and encrypt unencrypted content
-4. Generate compliance report and update tracking dashboard
-5. Notify compliance team of remediation completion
+4. Generate compliance report and update CloudWatch dashboard
+5. Notify compliance team through SNS of remediation completion
 
 **Implementation**: Systems Manager Automation document executes S3 API calls with Lambda functions handling policy updates and reporting workflows.
 
