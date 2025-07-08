@@ -5,245 +5,74 @@ title: "Cost Reporting and Visualization"
 
 # Cost Reporting and Visualization
 
-## Purpose
+## Overview
 
-Modern cost reporting and visualization transforms cost management from reactive reporting to proactive optimization. Our methodology establishes visibility, accountability, and continuous optimization processes that align cloud spending with business value.
+ZirconTech enables comprehensive cost reporting and visualization capabilities that transform AWS spending data into actionable business intelligence. Our methodology establishes complete visibility from single accounts to consolidated multi-account organizations through automated data processing, enforced tagging strategies, and real-time dashboard visualization.
 
-## Methodology & Process
+## Core Capabilities
 
-### Cost Visibility Foundation
+### Cost Measurement and Monitoring Strategy
 
-**Data Pipeline Architecture**: We establish comprehensive cost data pipelines using AWS Cost and Usage Reports (CUR), enabling granular analysis down to individual resources and time periods.
+Our approach centers on AWS Cost and Usage Reports delivered hourly to S3 with complete resource-level granularity. Automated Glue crawlers create Athena external tables enabling SQL-based analysis across all linked accounts within an AWS Organization. This foundation supports both reactive cost analysis and proactive optimization through anomaly detection and budget alerting.
 
-**Tagging Strategy Implementation**: Consistent resource tagging enables accurate cost allocation across business units, projects, and environments. We implement automated tag enforcement through Service Control Policies.
+### Account Structure Alignment
 
-### Optimization Methodology
+Cost allocation models align directly with organizational account structures using AWS Cost Categories and enforced tagging schemas. The LinkedAccountId column in CUR data enables seamless transitions from single account deployments to complex multi-account organizations without architectural changes. Monthly showback reports provide business units with detailed cost attribution and accountability metrics.
 
-**Continuous Monitoring**: Automated cost monitoring identifies spending anomalies and optimization opportunities in real-time, enabling proactive cost management rather than reactive reporting.
+### Business-Relevant Tagging Schema
 
-**Unit Economics Analysis**: We establish cost-per-unit metrics that tie cloud spending to business outcomes, enabling data-driven decisions about resource allocation and optimization priorities.
+Mandatory tags including CostCenter, Project, and Environment are enforced through Tag Policies and Service Control Policies. A tag enrichment Lambda function automatically corrects missing tags at resource creation, while nightly Config rules audit compliance across the organization. This automation ensures consistent tag purity required for accurate cost allocation and showback reporting.
 
-### Evidence Artifacts Included
+## Technology Implementation
 
-**Cost Analysis Reports**: Sample cost allocation reports and unit economics dashboards
-**Tagging Dictionaries**: Complete tag taxonomy with enforcement policies and validation rules
-**Optimization Playbooks**: Right-sizing recommendations and reserved instance planning worksheets
-**Budget Templates**: Cost anomaly detection rules and automated alerting configurations
+### Data Pipeline Architecture
 
-## Technology Stack
+Cost and Usage Report data flows from S3 through Glue crawlers into partitioned Athena tables. Custom views including `vw_daily_cost` and `vw_ttm_cost` provide curated data access for business analysis. QuickSight dashboards connect directly to these views, enabling self-service cost analysis and executive reporting without manual data processing.
 
-| Layer | AWS Services | Alternative Options |
-|-------|--------------|--------------------|
-| **Core** | AWS Cost Explorer, AWS Budgets, Cost and Usage Report (CUR), AWS Cost Anomaly Detection | |
-| **Analysis** | Amazon Athena, AWS Glue, Amazon QuickSight, AWS Cost Categories | |
-| **Optimization** | AWS Compute Optimizer, AWS Trusted Advisor, Savings Plans, Reserved Instances | |
-| **Third-Party** | — | CloudZero (Advanced cost allocation), Apptio Cloudability (FinOps platform), Harness CCM (Cost optimization) |
+### Visualization and Reporting
 
+Executive dashboards provide month-to-date spend tracking with variance analysis and forecasting. Cost center chargeback reports generate monthly CSV exports for finance systems integration. Unit economics dashboards join cost data with business KPIs to create metrics such as cost per 1,000 API calls or cost per customer transaction.
 
-## 1. Cost Reporting and Visualization Components and Capabilities
+### Automation and Accountability
 
-### Core Components
+Daily cost ingestion occurs automatically through Lambda functions processing CUR files. Weekly variance reviews identify spending anomalies exceeding 5% variance, triggering automated ticket creation for investigation. Monthly chargeback processes generate business unit invoicing data through Athena query automation.
 
-- **Primary Services**: Main AWS services used for cost reporting and visualization implementation
-- **Supporting Services**: Additional AWS services for enhanced functionality
-- **Third-party Integrations**: External tools and platforms supported
-- **Custom Components**: Developed solutions for specific requirements
+## Methodology and Process
 
-### Key Capabilities
+### Discovery and Requirements Analysis
+Stakeholder workshops with finance, DevOps, and business teams identify current cost allocation processes, shared service inventory, and business metric requirements for unit economics development.
 
-- **Automation**: Streamlined processes and workflows
-- **Monitoring**: Comprehensive visibility and alerting
-- **Security**: Built-in security controls and compliance
-- **Scalability**: Elastic resource allocation and performance
-- **Integration**: Seamless connectivity with existing systems
+### Foundation Implementation
+Cost Explorer and CUR activation with hourly granularity provides the data foundation. Tag Policy implementation enforces standardized resource attribution. Cost Categories creation enables automated business logic for cost grouping and allocation rules.
 
-### Implementation Approach
+### Dashboard Development
+QuickSight dashboard creation includes executive summary views, business unit chargeback reports, and unit economics tracking. Athena view development provides curated data access optimized for common analysis patterns and automated reporting workflows.
 
-The solution follows AWS Well-Architected principles with emphasis on finops best practices and operational excellence.
+### Operations and Continuous Improvement
+Ongoing monitoring through cost anomaly detection and budget alerting ensures proactive cost management. Quarterly reviews of allocation rules and tag compliance drive continuous optimization of cost attribution accuracy and stakeholder adoption.
 
+## Deliverables and Evidence
 
-## 2. Cost Reporting and Visualization Methodology and Process
+### Technical Artifacts
+- QuickSight dashboard templates with data source configurations
+- Athena view DDL statements for cost analysis and reporting
+- Tag enforcement Lambda function code and deployment automation
+- Cost Category rule configurations for automated allocation logic
 
-### Discovery Phase
+### Process Documentation
+- Cost allocation methodology and shared service distribution rules
+- Monthly chargeback runbook with automation procedures
+- Tag dictionary and enforcement policies
+- Executive reporting templates and stakeholder communication workflows
 
-**Stakeholder Engagement**: Collaborative workshops with technical teams, business stakeholders, and decision-makers to understand current state, requirements, and success criteria.
+### Integration Examples
+- API integration patterns for business KPI data sources
+- Finance system export formats and scheduling automation
+- Anomaly detection rule configurations and alerting workflows
+- Budget management and approval process templates
 
-**Current State Assessment**: Comprehensive evaluation of existing finops capabilities, identifying gaps, opportunities, and constraints.
-
-**Requirements Analysis**: Documentation of functional and non-functional requirements aligned with business objectives and compliance needs.
-
-### Design Phase
-
-**Solution Architecture**: Design of target state architecture incorporating AWS best practices, security requirements, and scalability considerations.
-
-**Implementation Planning**: Detailed project plan with phases, milestones, dependencies, and resource allocation.
-
-**Risk Assessment**: Identification and mitigation strategies for technical, operational, and business risks.
-
-### Implementation Phase
-
-**Iterative Deployment**: Phased implementation approach with regular checkpoints and validation gates.
-
-**Testing and Validation**: Comprehensive testing including functional, performance, security, and user acceptance testing.
-
-**Documentation and Training**: Knowledge transfer through documentation, training sessions, and hands-on workshops.
-
-### Operations Phase
-
-**Monitoring and Support**: Ongoing monitoring, incident response, and continuous improvement processes.
-
-**Optimization**: Regular reviews and optimization recommendations based on usage patterns and performance metrics.
-
-
-
-## Implementation Phases
-
-| Phase | Duration | Key Activities | Deliverables |
-|-------|----------|----------------|--------------|
-| 1. Discovery | 1-2 weeks | Requirements gathering, current state assessment | Discovery document, requirements matrix |
-| 2. Design | 2-3 weeks | Architecture design, tool selection, process definition | Design document, implementation plan |
-| 3. Implementation | 3-6 weeks | Deployment, configuration, testing, validation | Working solution, documentation |
-| 4. Knowledge Transfer | 1 week | Training, handover, ongoing support planning | Training materials, runbooks |
-
-## Deliverables
-
-1. **Cost Reporting and Visualization Methodology Document** (this document)
-2. **Implementation Runbook** (see Implementation Artifacts section)
-3. **Infrastructure as Code** templates (see Implementation Artifacts section)
-4. **Configuration Standards** and baseline policies (see Implementation Artifacts section)
-5. **Cost allocation model** and tagging dictionary
-6. **Cost optimization dashboard** templates
-7. **Budget and alerting** configuration templates
-8. **Knowledge Transfer Session** recording and materials
-
-## Implementation Artifacts
-
-
-## FinOps Implementation Runbook
-
-### Step 1: Enable Cost and Usage Reports (CUR)
-
-```bash
-# Create S3 bucket for CUR data
-aws s3 mb s3://your-org-cur-data-bucket
-
-# Create CUR configuration
-aws cur put-report-definition \
-    --report-definition '{
-        "ReportName": "daily-cost-usage-report",
-        "TimeUnit": "DAILY",
-        "Format": "textORcsv",
-        "Compression": "GZIP",
-        "AdditionalSchemaElements": ["RESOURCES"],
-        "S3Bucket": "your-org-cur-data-bucket",
-        "S3Prefix": "cur-data/",
-        "S3Region": "us-east-1",
-        "AdditionalArtifacts": ["REDSHIFT", "ATHENA"]
-    }'
-```
-
-### Step 2: Create Cost Allocation Tags
-
-```yaml
-# cost-allocation-tags.yaml
-AWSTemplateFormatVersion: '2010-09-09'
-Description: 'Standard Cost Allocation Tags'
-
-Resources:
-  CostCenterTagPolicy:
-    Type: AWS::Organizations::Policy
-    Properties:
-      Name: CostAllocationTagPolicy
-      Description: Enforces standard cost allocation tags
-      Type: TAG_POLICY
-      Content:
-        tags:
-          CostCenter:
-            tag_key: CostCenter
-            enforced_for:
-              - "all"
-          Project:
-            tag_key: Project
-            enforced_for:
-              - "all"
-          Environment:
-            tag_key: Environment
-            enforced_for:
-              - "all"
-```
-
-### Step 3: Budget Configuration Template
-
-```json
-{
-  "BudgetName": "monthly-account-budget",
-  "BudgetLimit": {
-    "Amount": "1000",
-    "Unit": "USD"
-  },
-  "TimeUnit": "MONTHLY",
-  "TimePeriod": {
-    "Start": "2024-01-01T00:00:00Z"
-  },
-  "BudgetType": "COST",
-  "CostFilters": {
-    "TagKey": ["Environment"],
-    "TagValue": ["Production"]
-  },
-  "NotificationsWithSubscribers": [
-    {
-      "Notification": {
-        "NotificationType": "ACTUAL",
-        "ComparisonOperator": "GREATER_THAN",
-        "Threshold": 80
-      },
-      "Subscribers": [
-        {
-          "SubscriptionType": "EMAIL",
-          "Address": "finops@company.com"
-        }
-      ]
-    }
-  ]
-}
-```
-
-
-## Cost Dashboard Configuration
-
-### QuickSight Dashboard Template
-
-```sql
--- Daily cost by service view for Athena
-CREATE VIEW daily_cost_by_service AS
-SELECT 
-    line_item_usage_start_date as usage_date,
-    product_product_name as service_name,
-    line_item_usage_account_id as account_id,
-    SUM(line_item_blended_cost) as daily_cost
-FROM "cost_and_usage_report"
-WHERE line_item_usage_start_date >= current_date - interval '30' day
-GROUP BY 1, 2, 3
-ORDER BY usage_date DESC, daily_cost DESC;
-
--- Unit economics calculation
-CREATE VIEW unit_economics AS
-SELECT 
-    usage_date,
-    account_id,
-    daily_cost,
-    -- Add your business metrics here
-    daily_cost / NULLIF(api_calls, 0) as cost_per_api_call,
-    daily_cost / NULLIF(active_users, 0) as cost_per_user
-FROM daily_cost_by_service d
-LEFT JOIN business_metrics b ON d.usage_date = b.date;
-```
-
-## References
-
-- [AWS Cost Management User Guide](https://docs.aws.amazon.com/cost-management/latest/userguide/what-is-costmanagement.html)
-- [AWS Cost Optimization Pillar](https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html)
+For detailed cost allocation methodology and shared service distribution rules, see [Cost Allocation, Measurement & Accountability](cost-allocation.md).
 
 ---
 
-*Last updated: 02 Jul 2025*
+*This document provides methodology and evidence for AWS Partner cost reporting and visualization capabilities.* 
