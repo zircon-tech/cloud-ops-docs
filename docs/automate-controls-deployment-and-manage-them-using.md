@@ -15,21 +15,21 @@ The AWS Partner has methodology, process and relevant tooling experience to enab
 
 #### Infrastructure as Code Framework
 
-Our methodology implements centralized control management through AWS CloudFormation templates, AWS CDK constructs, and Terraform modules that codify compliance requirements as executable infrastructure definitions. Control implementation utilizes GitOps workflows where all compliance controls are versioned, reviewed, and deployed through automated CI/CD pipelines.
+Our methodology enables centralized control management through AWS CloudFormation templates, AWS CDK constructs, and Terraform modules that codify compliance requirements as executable infrastructure definitions. We implement GitOps workflows where all compliance controls are versioned, reviewed, and deployed through automated CI/CD pipelines.
 
-Central management architecture includes control definition repositories, automated testing frameworks, and deployment orchestration that ensures consistent application of compliance controls across all AWS accounts and regions. Policy-as-code implementation enables standardized control deployment while maintaining flexibility for environment-specific requirements.
+Our approach includes control definition repositories, automated testing frameworks, and deployment orchestration that ensures consistent application of compliance controls across all AWS accounts and regions. We deliver policy-as-code implementation that enables standardized control deployment while maintaining flexibility for environment-specific requirements.
 
 #### Automated Control Deployment Pipeline
 
-Control deployment utilizes AWS CodePipeline with integrated compliance validation stages that execute pre-deployment testing, resource provisioning with embedded controls, and post-deployment verification. Pipeline stages include infrastructure scanning, compliance validation, and automated rollback capabilities for failed deployments.
+We implement control deployment using AWS CodePipeline with integrated compliance validation stages that execute pre-deployment testing, resource provisioning with embedded controls, and post-deployment verification. Our pipeline design includes infrastructure scanning, compliance validation, and automated rollback capabilities for failed deployments.
 
-Deployment automation includes AWS Config rule deployment, Service Control Policy management, and IAM policy distribution through AWS Organizations. Central logging and monitoring provide visibility into control deployment status, compliance drift detection, and remediation progress across the entire infrastructure estate.
+Our deployment automation includes AWS Config rule deployment, Service Control Policy management, and IAM policy distribution through AWS Organizations. We provide central logging and monitoring that delivers visibility into control deployment status, compliance drift detection, and remediation progress across the entire infrastructure estate.
 
 #### Configuration Management and Drift Detection
 
-Configuration management implements AWS Systems Manager State Manager and AWS Config to maintain desired configuration states and detect configuration drift. Automated remediation workflows trigger corrective actions when configuration deviations are detected, ensuring continuous compliance.
+We implement configuration management using AWS Systems Manager State Manager and AWS Config to maintain desired configuration states and detect configuration drift. Our automated remediation workflows trigger corrective actions when configuration deviations are detected, ensuring continuous compliance.
 
-Drift detection utilizes AWS Config rules, custom Lambda functions, and third-party tools to identify configuration changes that violate compliance requirements. Automated remediation includes configuration restoration, alert generation, and compliance reporting to maintain security and regulatory adherence.
+Our drift detection utilizes AWS Config rules, custom Lambda functions, and third-party tools to identify configuration changes that violate compliance requirements. We deliver automated remediation including configuration restoration, alert generation, and compliance reporting to maintain security and regulatory adherence.
 
 ### 2. Proactive, Preventive, and Detective Controls Catalog
 
@@ -37,8 +37,8 @@ Drift detection utilizes AWS Config rules, custom Lambda functions, and third-pa
 
 **Infrastructure Validation Controls**
 
-| Control | Implementation | Compliance Framework |
-|---------|---------------|---------------------|
+| Control | Implementation Approach | Compliance Framework |
+|---------|------------------------|---------------------|
 | **Template Security Scanning** | CloudFormation Guard, Checkov integration | CIS, NIST, SOC 2 |
 | **Resource Policy Validation** | AWS IAM Policy Simulator, custom validation | CIS, PCI DSS, HIPAA |
 | **Network Configuration Analysis** | VPC Flow Logs analysis, security group validation | NIST, ISO 27001 |
@@ -47,8 +47,8 @@ Drift detection utilizes AWS Config rules, custom Lambda functions, and third-pa
 
 **Deployment Gate Controls**
 
-| Control | Implementation | Compliance Framework |
-|---------|---------------|---------------------|
+| Control | Implementation Approach | Compliance Framework |
+|---------|------------------------|---------------------|
 | **Infrastructure Compliance Scanning** | AWS Config pre-deployment rules | CIS, NIST, ISO 27001 |
 | **Security Baseline Validation** | AWS Security Hub integration | CIS, NIST, SOC 2 |
 | **Cost Optimization Gates** | AWS Cost Explorer integration | FinOps, internal governance |
@@ -59,8 +59,8 @@ Drift detection utilizes AWS Config rules, custom Lambda functions, and third-pa
 
 **Access Control Prevention**
 
-| Control | Implementation | Compliance Framework |
-|---------|---------------|---------------------|
+| Control | Implementation Approach | Compliance Framework |
+|---------|------------------------|---------------------|
 | **Privileged Access Prevention** | Service Control Policies, IAM boundaries | CIS, NIST, SOC 2 |
 | **Public Resource Access Block** | S3 Block Public Access, security group restrictions | CIS, PCI DSS, HIPAA |
 | **Unauthorized Region Prevention** | SCP region restrictions, resource blocking | Data residency, GDPR |
@@ -69,8 +69,8 @@ Drift detection utilizes AWS Config rules, custom Lambda functions, and third-pa
 
 **Network Security Prevention**
 
-| Control | Implementation | Compliance Framework |
-|---------|---------------|---------------------|
+| Control | Implementation Approach | Compliance Framework |
+|---------|------------------------|---------------------|
 | **Insecure Protocol Prevention** | Security group rules, NACLs | CIS, NIST, PCI DSS |
 | **Unrestricted Inbound Access** | Automatic security group remediation | CIS, NIST, ISO 27001 |
 | **VPC Configuration Enforcement** | VPC endpoint policies, route table validation | NIST, internal security |
@@ -81,8 +81,8 @@ Drift detection utilizes AWS Config rules, custom Lambda functions, and third-pa
 
 **Security Monitoring Controls**
 
-| Control | Implementation | Compliance Framework |
-|---------|---------------|---------------------|
+| Control | Implementation Approach | Compliance Framework |
+|---------|------------------------|---------------------|
 | **Anomalous API Activity Detection** | CloudTrail analysis, GuardDuty integration | CIS, NIST, SOC 2 |
 | **Privilege Escalation Detection** | AWS Config rules, CloudWatch alarms | CIS, NIST, ISO 27001 |
 | **Data Exfiltration Detection** | VPC Flow Logs, CloudWatch metrics | PCI DSS, HIPAA, SOX |
@@ -91,8 +91,8 @@ Drift detection utilizes AWS Config rules, custom Lambda functions, and third-pa
 
 **Compliance Monitoring Controls**
 
-| Control | Implementation | Compliance Framework |
-|---------|---------------|---------------------|
+| Control | Implementation Approach | Compliance Framework |
+|---------|------------------------|---------------------|
 | **Regulatory Compliance Monitoring** | AWS Config conformance packs | GDPR, HIPAA, SOX |
 | **Security Baseline Deviation** | Security Hub compliance scores | CIS, NIST, SOC 2 |
 | **Encryption Compliance Monitoring** | KMS key usage analysis, S3 encryption status | PCI DSS, HIPAA, SOX |
@@ -105,8 +105,8 @@ Drift detection utilizes AWS Config rules, custom Lambda functions, and third-pa
 
 **Compute Services**
 
-| Configuration | Compliance Features | Framework Alignment |
-|---------------|-------------------|-------------------|
+| Configuration | Compliance Features We Implement | Framework Alignment |
+|---------------|---------------------------------|-------------------|
 | **Secure EC2 Instances** | Encrypted storage, security groups, IAM roles | CIS, NIST, SOC 2 |
 | **Compliant ECS Clusters** | Container security, logging, encryption | CIS, NIST, PCI DSS |
 | **Hardened Lambda Functions** | Execution roles, VPC configuration, monitoring | CIS, NIST, SOC 2 |
@@ -115,8 +115,8 @@ Drift detection utilizes AWS Config rules, custom Lambda functions, and third-pa
 
 **Storage and Database Services**
 
-| Configuration | Compliance Features | Framework Alignment |
-|---------------|-------------------|-------------------|
+| Configuration | Compliance Features We Implement | Framework Alignment |
+|---------------|---------------------------------|-------------------|
 | **Encrypted S3 Buckets** | KMS encryption, public access blocking, logging | CIS, PCI DSS, HIPAA |
 | **Compliant RDS Instances** | Encryption at rest, backup retention, monitoring | CIS, PCI DSS, HIPAA |
 | **Secure DynamoDB Tables** | Point-in-time recovery, encryption, access control | CIS, NIST, SOC 2 |
@@ -125,8 +125,8 @@ Drift detection utilizes AWS Config rules, custom Lambda functions, and third-pa
 
 **Networking and Security Services**
 
-| Configuration | Compliance Features | Framework Alignment |
-|---------------|-------------------|-------------------|
+| Configuration | Compliance Features We Implement | Framework Alignment |
+|---------------|---------------------------------|-------------------|
 | **Secure VPC Templates** | Private subnets, NAT gateways, flow logs | CIS, NIST, SOC 2 |
 | **Compliant Security Groups** | Least privilege access, documentation, monitoring | CIS, NIST, ISO 27001 |
 | **WAF Rule Sets** | OWASP protection, rate limiting, logging | CIS, NIST, PCI DSS |
@@ -137,33 +137,33 @@ Drift detection utilizes AWS Config rules, custom Lambda functions, and third-pa
 
 **AWS Service Catalog Integration**
 
-Self-service delivery utilizes AWS Service Catalog portfolios containing pre-approved, compliant infrastructure templates. Product deployment includes automated compliance validation, resource tagging, and lifecycle management to ensure ongoing compliance adherence.
+We implement self-service delivery using AWS Service Catalog portfolios containing pre-approved, compliant infrastructure templates. Our product deployment includes automated compliance validation, resource tagging, and lifecycle management to ensure ongoing compliance adherence.
 
-Catalog management includes template versioning, approval workflows, and automated testing to maintain compliance standards while enabling developer self-service. Integration with AWS Organizations provides centralized governance and policy enforcement across all self-service deployments.
+Our catalog management includes template versioning, approval workflows, and automated testing to maintain compliance standards while enabling developer self-service. We integrate with AWS Organizations to provide centralized governance and policy enforcement across all self-service deployments.
 
 **Infrastructure Template Library**
 
-Template library includes CloudFormation templates, CDK constructs, and Terraform modules for common infrastructure patterns with embedded compliance controls. Templates include parameterization for environment-specific requirements while maintaining core compliance features.
+We develop template libraries including CloudFormation templates, CDK constructs, and Terraform modules for common infrastructure patterns with embedded compliance controls. Our templates include parameterization for environment-specific requirements while maintaining core compliance features.
 
-Template governance includes automated security scanning, compliance validation, and approval workflows before publication to self-service catalogs. Version control and change management ensure template integrity and compliance alignment.
+Our template governance includes automated security scanning, compliance validation, and approval workflows before publication to self-service catalogs. We implement version control and change management to ensure template integrity and compliance alignment.
 
 **Automated Provisioning Workflows**
 
-Provisioning workflows include request validation, resource deployment, compliance verification, and post-deployment monitoring. Automated workflows integrate with existing ITSM systems for change management and approval processes.
+We implement provisioning workflows that include request validation, resource deployment, compliance verification, and post-deployment monitoring. Our automated workflows integrate with existing ITSM systems for change management and approval processes.
 
-Workflow orchestration includes rollback capabilities, error handling, and notification systems to ensure reliable self-service provisioning. Integration with monitoring systems provides visibility into provisioning status and compliance posture.
+Our workflow orchestration includes rollback capabilities, error handling, and notification systems to ensure reliable self-service provisioning. We integrate with monitoring systems to provide visibility into provisioning status and compliance posture.
 
 ## Implementation Approach
 
-Implementation begins with control framework development, followed by automated deployment pipeline creation and self-service catalog establishment. Control testing includes compliance validation, security scanning, and integration testing to ensure effective governance.
+Implementation begins with control framework development, followed by automated deployment pipeline creation and self-service catalog establishment. Our control testing includes compliance validation, security scanning, and integration testing to ensure effective governance.
 
-Service delivery includes methodology documentation, automation tool deployment, and staff training for self-service capabilities. Ongoing operations include control monitoring, compliance reporting, and continuous improvement of automated controls.
+Our service delivery includes methodology documentation, automation tool deployment, and staff training for self-service capabilities. Ongoing operations include control monitoring, compliance reporting, and continuous improvement of automated controls.
 
 ## Success Metrics
 
-Control effectiveness measures include proactive control coverage above 95%, preventive control blocking rate above 98%, and detective control response time under 5 minutes. Self-service adoption metrics include catalog utilization above 80% and provisioning success rate above 95%.
+Our control effectiveness approach targets proactive control coverage above 95%, preventive control blocking rate above 98%, and detective control response time under 5 minutes. Self-service adoption targets include catalog utilization above 80% and provisioning success rate above 95%.
 
-Compliance metrics include configuration compliance above 98%, automated remediation success rate above 90%, and control deployment consistency across all environments. Operational metrics include mean time to deployment, self-service request fulfillment time, and control management overhead reduction.
+Compliance targets include configuration compliance above 98%, automated remediation success rate above 90%, and control deployment consistency across all environments. Operational improvements include reduced mean time to deployment, faster self-service request fulfillment, and lower control management overhead.
 
 ---
 
