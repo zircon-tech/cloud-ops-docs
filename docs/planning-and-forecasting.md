@@ -19,58 +19,58 @@ Our approach encompasses discovery-based TCO analysis, pre and post-migration va
 
 #### Highly Accurate Forecasting and TCO Analysis
 
-**Inventory-Based TCO Analysis**
+##### Inventory-Based TCO Analysis
 - **IT Inventory Discovery**: CMDB integration, RVTools exports, and hardware/software inventory imports
-- **Migration Evaluator Integration**: Automated lift-and-shift vs. right-sized workload modeling
+- **Migration Evaluator Integration**: Automated lift-and-shift vs. right-sized workload modeling  
 - **Business Case Analysis**: OpEx/CapEx baseline comparison with quantified cloud value propositions
 
-**Pre and Post-Migration Value Quantification**
+##### Pre and Post-Migration Value Quantification
 - **Baseline Assessment**: Current state cost structure including support contracts and licensing
 - **Value Tracking**: KPI dashboards measuring agility gains, MTTR improvements, and release velocity
 - **ROI Validation**: Day 30, Day 90, and quarterly checkpoints comparing actual vs. forecasted outcomes
 
-**Pricing Model Optimization**
+##### Pricing Model Optimization
 - **Purchase Option Analysis**: On-Demand, Savings Plans, Reserved Instances, and Spot Instance modeling
-- **Blended Optimization**: Mixed commitment strategies balancing flexibility and cost efficiency
+- **Blended Optimization**: Mixed commitment strategies balancing flexibility and cost efficiency  
 - **EDP and Private Offer**: Enterprise discount program qualification and negotiation support
 
-**Bottoms-Up Forecasting for New Workloads**
+##### Bottoms-Up Forecasting for New Workloads
 - **Infrastructure as Code Integration**: Terraform module resource counts feeding automated forecasting
 - **Feature-Level Budgeting**: Per-feature monthly cost projections and tracking
 - **Automated Budget Updates**: Daily dashboard refreshes with build-out vs. budget variance
 
-**Demand Driver Based Forecasting**
+##### Demand Driver Based Forecasting
 - **Unit Economics Integration**: CUR data joined with business KPIs (MAU, transactions, storage)
 - **Regression Modeling**: Historical data analysis creating cost-per-unit predictive models
 - **Business Driver Projections**: Product roadmap integration for demand-based scaling forecasts
 
 #### Value Realization Beyond Cost Savings
 
-**Business Agility Metrics**
+##### Business Agility Metrics
 - **Developer Productivity**: Revenue-per-developer and release frequency improvements
 - **Operational Excellence**: MTTR reduction and outage minutes tracking
 - **Customer Experience**: Churn reduction and performance improvement correlation
 
-**Revenue Attribution**
+##### Revenue Attribution
 - **Feature-Level Tagging**: Resource costs correlated to specific revenue-generating features
 - **Customer Profitability**: Per-customer cost allocation and lifetime value analysis
 - **Market Expansion**: Geographic and product line cost efficiency tracking
 
 #### Predictive Cost Estimates and Modeling
 
-**Advanced Forecasting Techniques**
+##### Advanced Forecasting Techniques
 - **Machine Learning Integration**: Amazon Forecast with Prophet algorithm for 12-month projections
 - **Linear Regression**: Historical trend analysis with confidence intervals
 - **Scenario Modeling**: Low, medium, and high growth projections with variance analysis
 
-**Time-Horizon Analysis**
+##### Time-Horizon Analysis
 - **Monthly Estimates**: Short-term operational budget planning and variance tracking
 - **Quarterly Projections**: Business planning alignment with seasonal patterns
 - **Annual Forecasts**: Strategic planning integration with Enterprise Discount Program commitments
 
 #### Historical Cost Trend Analysis
 
-**Trailing Twelve Months (TTM) Analysis**
+##### Trailing Twelve Months (TTM) Analysis
 - **Comprehensive Data Pipeline**: Glue crawlers with partitioned CUR data and Athena views
 - **Year-over-Year Comparisons**: Rolling 12-month spend analysis with trend identification
 - **Seasonal Pattern Recognition**: Holiday, end-of-quarter, and business cycle impact analysis
