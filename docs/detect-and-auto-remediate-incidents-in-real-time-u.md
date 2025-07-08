@@ -1,290 +1,89 @@
 ---
 id: COCOM-008
-title: "Detect and auto-remediate incidents in real time using event triggers"
+title: "Detect and Auto-Remediate Incidents in Real Time Using Event Triggers"
 ---
 
-# Detect and auto-remediate incidents in real time using event triggers
+# Detect and Auto-Remediate Incidents in Real Time Using Event Triggers
 
-## Purpose
+## Evidence Documentation
 
-Mature detect and auto-remediate incidents in real time using event triggers enables reliable, scalable management of your AWS environment. Our approach establishes automated processes and standardized procedures that reduce operational overhead while improving service reliability.
+### 1. Reference Architecture for Event-Based Triggered Workflows and Automated Runbooks
 
-## Methodology & Process
+#### Architecture Diagram
 
-### Discovery and Assessment
-
-We begin with comprehensive discovery to understand your current environment, identify requirements, and establish success criteria that align with business objectives.
-
-### Design and Implementation
-
-Our implementation approach prioritizes automation, consistency, and maintainability, using infrastructure-as-code and proven architectural patterns.
-
-### Monitoring and Optimization
-
-Continuous monitoring ensures implementations remain effective over time, with regular reviews and optimization recommendations.
-
-
-
-## Technology Stack
-
-| Layer | AWS Services | Alternative Options |
-|-------|--------------|--------------------|
-| **Core** | Amazon CloudWatch, AWS CloudFormation, AWS IAM, Amazon VPC | |
-| **Third-Party** | — | Third-party tools (As required) |
-
-
-## 1. Detect and auto-remediate incidents in real time using event triggers Reference Architecture
-
-### Architecture Overview
-
-The detect and auto-remediate incidents in real time using event triggers solution provides a comprehensive approach to implementing operations capabilities using AWS native services and industry best practices.
-
-### Core Components
-
-| Component | Purpose | Implementation |
-|-----------|---------|----------------|
-| **Foundation** | Core infrastructure and security | AWS Organizations, Control Tower, IAM |
-| **Automation** | Deployment and configuration management | CloudFormation, Systems Manager, Lambda |
-| **Monitoring** | Observability and alerting | CloudWatch, X-Ray, CloudTrail |
-| **Integration** | API and service connectivity | API Gateway, EventBridge, SQS |
-
-### Implementation Approach
-
-The architecture follows AWS Well-Architected principles with emphasis on security, reliability, and operational excellence.
-
-
-
-## Implementation Phases
-
-| Phase | Duration | Key Activities | Deliverables |
-|-------|----------|----------------|--------------|
-| 1. Discovery | 1-2 weeks | Requirements gathering, current state assessment | Discovery document, requirements matrix |
-| 2. Design | 2-3 weeks | Architecture design, tool selection, process definition | Design document, implementation plan |
-| 3. Implementation | 3-6 weeks | Deployment, configuration, testing, validation | Working solution, documentation |
-| 4. Knowledge Transfer | 1 week | Training, handover, ongoing support planning | Training materials, runbooks |
-
-## Deliverables
-
-1. **Detect and auto-remediate incidents in real time using event triggers Methodology Document** (this document)
-2. **Implementation Runbook** (see Implementation Artifacts section)
-3. **Infrastructure as Code** templates (see Implementation Artifacts section)
-4. **Configuration Standards** and baseline policies (see Implementation Artifacts section)
-5. **Knowledge Transfer Session** recording and materials
-
-## Implementation Artifacts
-
-
-## Operations Management Implementation Runbook
-
-### Step 1: Infrastructure Deployment Strategy
-
-```yaml
-# deployment-pipeline.yaml
-name: Infrastructure Deployment Pipeline
-on:
-  push:
-    branches: [main]
-    paths: ['infrastructure/**']
-
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          role-to-assume: arn:aws:iam::ACCOUNT:role/GitHubActionsRole
-          
-      - name: Terraform Plan
-        run: |
-          cd infrastructure/
-          terraform init
-          terraform plan -out=tfplan
-          
-      - name: Terraform Apply
-        if: github.ref == 'refs/heads/main'
-        run: |
-          terraform apply tfplan
+```
+Event Sources          Event Processing        Automation Execution       Logging & Monitoring
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐       ┌─────────────────┐
+│ CloudWatch      │────│ EventBridge     │────│ Lambda          │───────│ CloudWatch Logs │
+│ Alarms/Metrics  │    │ (Event Router)  │    │ Functions       │       │                 │
+├─────────────────┤    │                 │    ├─────────────────┤       ├─────────────────┤
+│ AWS Config      │────│ Custom Event    │────│ Systems Manager │───────│ CloudTrail      │
+│ Rules           │    │ Rules           │    │ Automation      │       │                 │
+├─────────────────┤    │                 │    │ Documents       │       ├─────────────────┤
+│ Security Hub    │────│ Rule Matching   │────├─────────────────┤───────│ SNS             │
+│ Findings        │    │ & Filtering     │    │ Step Functions  │       │ Notifications   │
+├─────────────────┤    │                 │    │ Workflows       │       │                 │
+│ GuardDuty       │────│ Target          │────├─────────────────┤       ├─────────────────┤
+│ Findings        │    │ Selection       │    │ CodePipeline    │───────│ Systems Manager │
+├─────────────────┤    │                 │    │ Deployments     │       │ Compliance      │
+│ Custom Apps     │────│ Retry Logic     │────│                 │       │ Dashboard       │
+│ & APIs          │    │                 │    │                 │       │                 │
+└─────────────────┘    └─────────────────┘    └─────────────────┘       └─────────────────┘
 ```
 
-### Step 2: Change Management Process
+#### Core Components Description
 
-```bash
-#!/bin/bash
-# change-management-workflow.sh
+**Event Sources**
+We can implement event detection using multiple AWS services that generate events when incidents, non-compliances, or anomalies are detected. AWS CloudWatch generates alarms based on metrics thresholds, custom metrics, and log pattern matching. AWS Config generates events when resources violate compliance rules or configuration changes occur. AWS Security Hub aggregates security findings from multiple security services and generates events for security violations. AWS GuardDuty generates threat detection events for malicious activity. Custom applications can generate events through CloudWatch custom metrics or direct EventBridge integration.
 
-# 1. Create change request
-aws ssm create-ops-item \
-    --title "Infrastructure Change Request" \
-    --description "Deploy new application version" \
-    --priority 3 \
-    --source "ChangeManagement" \
-    --operational-data '{
-        "ChangeType": {"Value": "Standard"},
-        "Environment": {"Value": "Production"},
-        "RiskLevel": {"Value": "Medium"}
-    }'
+**Event Processing and Routing**
+We can implement centralized event processing using Amazon EventBridge as the primary event router. EventBridge receives events from all sources and applies custom event rules to filter, transform, and route events to appropriate remediation targets. Event rules can include pattern matching based on event source, event type, severity levels, resource tags, or custom attributes. EventBridge provides built-in retry logic, dead letter queues for failed events, and event replay capabilities for troubleshooting.
 
-# 2. Immutable infrastructure deployment
-aws imagebuilder start-image-pipeline-execution \
-    --image-pipeline-arn "arn:aws:imagebuilder:region:account:image-pipeline/golden-ami"
+**Automation Execution Engines**
+We can implement automated remediation using multiple execution engines based on the complexity and type of remediation required. AWS Lambda functions provide serverless execution for simple remediation tasks, API calls, and custom logic. AWS Systems Manager Automation documents provide pre-built and custom runbooks for infrastructure remediation, patch management, and configuration changes. AWS Step Functions orchestrate complex workflows that require multiple steps, human approval, or coordination between multiple services. AWS CodePipeline can trigger deployment pipelines for infrastructure updates or application deployments as remediation actions.
 
-# 3. Blue-green deployment
-aws elbv2 modify-target-group \
-    --target-group-arn "arn:aws:elasticloadbalancing:region:account:targetgroup/blue-targets" \
-    --health-check-path "/health"
-```
+**Runbook Implementation**
+We can implement standardized runbooks using AWS Systems Manager Documents that define step-by-step remediation procedures. Runbooks can include AWS CLI commands, PowerShell scripts, Python scripts, and AWS API calls. Systems Manager provides pre-built runbooks for common scenarios including stopping non-compliant instances, applying security patches, updating security group rules, and rotating access keys. Custom runbooks can be developed for organization-specific remediation procedures and integrated with approval workflows for high-risk changes.
 
-### Step 3: Patch Management Automation
+#### Typical AWS Services Used
 
-```python
-# patch-management.py
-import boto3
-from datetime import datetime, timedelta
+**Core Event-Driven Services**
+Amazon EventBridge serves as the central event bus for routing and filtering events from multiple sources to appropriate remediation targets. AWS CloudWatch provides monitoring, alerting, and custom metrics for event generation. AWS Config monitors resource configurations and compliance with organizational policies. AWS Lambda provides serverless compute for executing remediation logic and custom integrations.
 
-def create_patch_baseline():
-    ssm = boto3.client('ssm')
-    
-    # Create custom patch baseline
-    response = ssm.create_patch_baseline(
-        Name='Production-Patch-Baseline',
-        OperatingSystem='AMAZON_LINUX_2',
-        ApprovalRules={
-            'PatchRules': [
-                {
-                    'PatchFilterGroup': {
-                        'PatchFilters': [
-                            {
-                                'Key': 'CLASSIFICATION',
-                                'Values': ['Security', 'Critical']
-                            }
-                        ]
-                    },
-                    'ApproveAfterDays': 0,
-                    'ComplianceLevel': 'CRITICAL'
-                },
-                {
-                    'PatchFilterGroup': {
-                        'PatchFilters': [
-                            {
-                                'Key': 'CLASSIFICATION', 
-                                'Values': ['Important', 'Recommended']
-                            }
-                        ]
-                    },
-                    'ApproveAfterDays': 7,
-                    'ComplianceLevel': 'HIGH'
-                }
-            ]
-        }
-    )
-    
-    return response['BaselineId']
+**Security and Compliance Services**
+AWS Security Hub aggregates security findings from multiple AWS security services and third-party tools. AWS GuardDuty provides threat detection and generates security events. AWS Inspector provides vulnerability assessments and generates events for security compliance violations. AWS CloudTrail logs all API calls for audit trails and can generate events for unauthorized or suspicious activities.
 
-def schedule_patch_deployment():
-    ssm = boto3.client('ssm')
-    
-    # Schedule maintenance window for patching
-    response = ssm.create_maintenance_window(
-        Name='Production-Patch-Window',
-        Description='Automated patching for production systems',
-        Schedule='cron(0 2 ? * SUN *)',  # Every Sunday at 2 AM
-        Duration=4,  # 4-hour window
-        Cutoff=1,    # Stop 1 hour before end
-        AllowUnassociatedTargets=False
-    )
-    
-    return response['WindowId']
-```
+**Automation and Orchestration Services**
+AWS Systems Manager provides automation documents, patch management, and configuration management capabilities. AWS Step Functions orchestrate complex workflows with conditional logic, parallel execution, and error handling. AWS CodePipeline triggers deployment workflows for infrastructure and application updates. AWS Auto Scaling provides automatic scaling responses to load and performance events.
 
+**Monitoring and Logging Services**
+Amazon CloudWatch Logs stores all automation execution logs and provides log analysis capabilities. AWS CloudTrail provides audit trails for all automation activities and API calls. Amazon SNS provides notification services for escalation and reporting. AWS Systems Manager Compliance Dashboard provides centralized visibility into automation execution status and compliance posture.
 
-## Operations Automation Scripts
+#### Third-Party Products Integration
 
-### Vulnerability Scanning and Remediation
+**Monitoring and Alerting Platforms**
+We can integrate with third-party monitoring platforms through CloudWatch custom metrics and EventBridge custom events. Monitoring platforms can send events to EventBridge for automated remediation or receive notifications from AWS services through webhooks and API integrations.
 
-```python
-# vulnerability-management.py
-import boto3
-import json
+**ITSM and Ticketing Systems**
+We can integrate with ITSM platforms to create tickets for manual remediation tasks, approval workflows for high-risk automated changes, and tracking of remediation activities. Integration can be implemented through API calls from Lambda functions or Systems Manager automation documents.
 
-def scan_and_remediate():
-    inspector = boto3.client('inspector2')
-    ssm = boto3.client('ssm')
-    
-    # Get vulnerability findings
-    findings = inspector.list_findings(
-        filterCriteria={
-            'severity': ['HIGH', 'CRITICAL'],
-            'findingStatus': ['ACTIVE']
-        }
-    )
-    
-    for finding in findings['findings']:
-        if finding['type'] == 'PACKAGE_VULNERABILITY':
-            # Automated remediation for package vulnerabilities
-            instance_id = finding['resources'][0]['id']
-            
-            # Execute remediation script
-            response = ssm.send_command(
-                InstanceIds=[instance_id],
-                DocumentName='AWS-RunShellScript',
-                Parameters={
-                    'commands': [
-                        'sudo yum update -y',
-                        'sudo systemctl restart application'
-                    ]
-                }
-            )
+**Security Tools**
+We can integrate with third-party security tools through Security Hub custom findings, EventBridge custom events, and direct API integrations. Security tools can trigger automated remediation workflows or receive remediation status updates through webhook notifications.
 
-### ITSM Integration
+#### Event Flow and Execution Process
 
-```python
-# itsm-integration.py
-import boto3
-import requests
-import json
+**Event Detection and Generation**
+Events are generated when AWS services detect anomalies, violations, or threshold breaches. Events include metadata such as event source, event type, affected resources, severity level, and contextual information for remediation decisions.
 
-def create_service_now_incident(alarm_data):
-    # ServiceNow API integration
-    url = 'https://company.service-now.com/api/now/table/incident'
-    headers = {
-        'Content-Type': 'application/json',
-        'Authorization': 'Basic ' + base64_encoded_credentials
-    }
-    
-    incident_data = {
-        'short_description': f"AWS CloudWatch Alarm: {alarm_data['AlarmName']}",
-        'description': alarm_data['NewStateReason'],
-        'urgency': '2',  # High
-        'impact': '2',   # Medium 
-        'category': 'Cloud Infrastructure',
-        'subcategory': 'Monitoring Alert'
-    }
-    
-    response = requests.post(url, headers=headers, data=json.dumps(incident_data))
-    return response.json()
+**Event Processing and Filtering**
+EventBridge receives events and applies configured rules to determine appropriate remediation actions. Rules can filter events based on multiple criteria and route different event types to different remediation workflows. Event transformation can enrich events with additional context from AWS APIs or external sources.
 
-def lambda_handler(event, context):
-    # Process CloudWatch alarm via SNS
-    alarm_data = json.loads(event['Records'][0]['Sns']['Message'])
-    
-    if alarm_data['NewStateValue'] == 'ALARM':
-        incident = create_service_now_incident(alarm_data)
-        print(f"Created ServiceNow incident: {incident['result']['number']}")
-        
-        # Update alarm description with incident number
-        cloudwatch = boto3.client('cloudwatch')
-        cloudwatch.put_metric_alarm(
-            AlarmName=alarm_data['AlarmName'],
-            AlarmDescription=f"ServiceNow: {incident['result']['number']}"
-        )
-```
+**Automated Remediation Execution**
+Based on event type and severity, appropriate remediation actions are triggered automatically. Simple remediations execute through Lambda functions, while complex scenarios use Systems Manager automation documents or Step Functions workflows. Execution includes logging, error handling, and rollback capabilities for failed remediations.
 
-## References
-
+**Monitoring and Reporting**
+All automation activities are logged to CloudWatch Logs and CloudTrail for audit purposes. Systems Manager Compliance Dashboard provides centralized visibility into automation execution status. SNS notifications provide real-time updates on remediation activities and escalation for failed automations.
 
 ---
 
-*Last updated: 02 Jul 2025*
+*This document provides evidence of our capability to design and implement comprehensive event-driven automated remediation architectures using AWS native services and integrated third-party tools.*
