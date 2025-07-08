@@ -5,21 +5,13 @@ title: "Automate Controls Deployment and Management Using Code"
 
 # Automate Controls Deployment and Management Using Code
 
-## Overview
-
-The AWS Partner has methodology, process and relevant tooling experience to enable customers to identify and react to infrastructure misconfigurations programmatically using proactive, preventive, and detective controls, while providing self-servicing capabilities for compliant configurations across the organization.
-
 ## Evidence Documentation
 
 ### 1. Controls Implementation and Central Management Through Code
 
-#### Infrastructure as Code Control Framework
-
 We implement centralized control management through AWS CloudFormation templates, AWS CDK constructs, and Terraform modules that codify compliance requirements as executable infrastructure definitions. All controls are version-controlled in Git repositories with automated CI/CD pipelines for deployment and testing.
 
 Our control deployment utilizes AWS CodePipeline with integrated compliance validation stages, AWS Config rule deployment, and Service Control Policy management through AWS Organizations. We implement policy-as-code workflows that ensure consistent application of compliance controls across all AWS accounts and regions.
-
-#### Automated Control Deployment Pipeline
 
 **Code Repository Structure:**
 - Control definitions stored in version-controlled repositories
@@ -32,10 +24,6 @@ Our control deployment utilizes AWS CodePipeline with integrated compliance vali
 - Service Control Policies managed through AWS Organizations
 - IAM policies distributed centrally with automated updates
 - Compliance validation integrated into deployment workflows
-
-#### Configuration Management and Drift Detection
-
-We implement continuous compliance monitoring using AWS Systems Manager State Manager and AWS Config to maintain desired configuration states. Our automated remediation workflows trigger corrective actions when configuration deviations are detected, ensuring continuous compliance through code-driven remediation.
 
 ### 2. Proactive, Preventive, and Detective Controls Supported
 
@@ -126,26 +114,6 @@ We implement continuous compliance monitoring using AWS Systems Manager State Ma
 | **Certificate Manager** | Automated renewal, validation, monitoring, compliance reporting | CIS, NIST, PCI DSS |
 | **Identity Federation** | SAML/OIDC integration, MFA enforcement, session management | CIS, NIST, SOC 2 |
 
-#### Self-Service Implementation Methodology
-
-**AWS Service Catalog Integration:**
-- Pre-approved, compliant infrastructure templates
-- Automated compliance validation and resource tagging
-- Lifecycle management with ongoing compliance monitoring
-- Integration with AWS Organizations for centralized governance
-
-**Template Library Management:**
-- CloudFormation templates, CDK constructs, and Terraform modules
-- Automated security scanning and compliance validation
-- Version control with approval workflows
-- Parameterization for environment-specific requirements
-
-**Automated Provisioning Workflows:**
-- Request validation and resource deployment
-- Compliance verification and post-deployment monitoring
-- Integration with ITSM systems for change management
-- Rollback capabilities and error handling
-
 ---
 
-*This document provides evidence of our automated controls deployment and management capabilities including centralized code-based control management, comprehensive proactive/preventive/detective controls catalog, and self-service compliant configuration offerings.*
+*This document provides evidence of automated controls deployment and management capabilities including centralized code-based control management, comprehensive proactive/preventive/detective controls catalog, and self-service compliant configuration offerings.*
