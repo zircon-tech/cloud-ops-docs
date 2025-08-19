@@ -6,7 +6,7 @@
 
 ## 1. Objectives
 
-* Design and deploy an AWS multi-account landing zone that meets security, operations, and cost-management requirements.
+* To design and deploy an AWS multi-account landing zone that meets security, operations, and cost-management requirements.
 * Enable automated and auditable account provisioning.
 
 ## 2. In-Scope Activities
