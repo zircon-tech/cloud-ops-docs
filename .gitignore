@@ -77,4 +77,8 @@ Thumbs.db
 # Configuration files that shouldn't be shared
 config.json
 *.config
-.env 
+.env
+
+# Answer files that shouldn't be tracked
+mith-answers.md
+suku-answers.md 
