@@ -125,6 +125,9 @@ nav:
     - Runbook – Forecast Drivers: cloud-operations/runbook-update-forecast-drivers.md
     - Runbook – Dashboard Edit Workflow: cloud-operations/runbook-dash-edit.md
 
+- Generative AI:
+  - Customer Onboarding & Adoption Strategy: genai/customer-onboarding-adoption-strategy.md
+
 extra:
   social:
   - icon: fontawesome/brands/aws
