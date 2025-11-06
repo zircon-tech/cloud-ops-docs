@@ -127,6 +127,7 @@ nav:
 
 - Generative AI:
   - Customer Onboarding & Adoption Strategy: genai/customer-onboarding-adoption-strategy.md
+  - Foundation Model Selection & Customization: genai/foundation-model-selection-customization.md
 
 extra:
   social:
