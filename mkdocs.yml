@@ -130,6 +130,7 @@ nav:
   - Foundation Model Selection & Customization: genai/foundation-model-selection-customization.md
   - Privacy, Security & Compliance: genai/privacy-security-compliance.md
   - Responsible & Ethical AI: genai/responsible-ethical-ai.md
+  - Production Launch & Operations: genai/production-launch-operations.md
 
 extra:
   social:
