@@ -1,0 +1,3460 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Internal documentation - Not for public access">
+      
+      
+        <meta name="author" content="ZirconTech">
+      
+      
+      
+        <link rel="prev" href="../scope/">
+      
+      
+        <link rel="next" href="../project-manager/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.23">
+    
+    
+      
+        <title>Statement of Work - Zircontech on AWS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.84d31ad4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#statement-of-work" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Zircontech on AWS" class="md-header__button md-logo" aria-label="Zircontech on AWS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Zircontech on AWS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Statement of Work
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Share" aria-label="Share" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91s2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../multi-account-methodology/" class="md-tabs__link">
+          
+  
+  
+  Cloud Operations
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../genai/customer-onboarding-adoption-strategy/" class="md-tabs__link">
+          
+  
+  
+  Generative AI
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Zircontech on AWS" class="md-nav__button md-logo" aria-label="Zircontech on AWS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Zircontech on AWS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cloud Operations
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Cloud Operations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Methodology
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            Methodology
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../multi-account-methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Multi-Account Strategy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../account-lifecycle/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Account Lifecycle
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitops-methodology/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GitOps Methodology
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tagging-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Tagging Strategy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../preventive-detective-controls/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Controls Framework
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../control-matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Controls Matrix
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../third-party-procurement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Third-Party Procurement
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vendor-matrix/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vendor Matrix
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../account-ownership-transfer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Account Ownership Transfer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hybrid-cloud-governance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hybrid Cloud Governance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cost-allocation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cost Allocation & Accountability
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../planning-forecasting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Planning & Forecasting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cost-reporting-visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cost Reporting & Visualization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cost-resource-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Resource Optimization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cost-purchase-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Purchase-Option Optimization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../financial-operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Financial Operations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring-observability-baseline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitoring & Observability
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hybrid-cloud-environment-observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hybrid Cloud Environment Observability
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hybrid-cloud-environment-operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hybrid Cloud Environment Operations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../signal-analytics-visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Dashboards & Alerts
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../observability-modern-apps/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Observability – Modern Apps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../security-observability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Security Observability & Auto-Remediation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../synthetic-monitoring/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Synthetic Monitoring
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../compliance-and-auditing-overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Compliance and Auditing Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../define-multi-account-strategy-for-the-organization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Define multi account strategy for the organization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../identify-quantify-and-manage-risks-relating-to-tec/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Identify, quantify, and manage risks relating to technology and business needs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../creating-cleanroom-environment-for-forensic-analys/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Creating cleanroom environment for forensic analysis
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../data-classification-and-protection/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Data classification and protection
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automate-controls-deployment-and-manage-them-using/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Automate controls deployment and manage them using code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gather-and-organize-the-documentary-evidence-to-su/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gather and organize the documentary evidence to support audit assessments
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../operations-management-baseline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Operations Management Baseline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../manage-configuration-items-lifecycle-for-aws-resou/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Manage configuration items lifecycle for AWS resources
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../automate-controls-deployment-and-manage-them-using/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Automate controls deployment and manage them using code
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../distribute-and-apply-patch-updates-to-infrastructu/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Distribute and apply patch updates to infrastructure components
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../identify-remediate-and-report-security-vulnerabili/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Identify, remediate and report security vulnerabilities
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../access-compute-instances-in-the-cloud-from-a-centr/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Access compute instances in the cloud from a central location
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../itsm-integration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ITSM Integration
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../detect-and-auto-remediate-incidents-in-real-time-u/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Detect and auto-remediate incidents in real time using event triggers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aiops/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AIOps
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../centralized-change-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Centralized Change Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../customer-presentation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Customer Presentation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../maintaining-aws-expertise/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Maintaining AWS Expertise
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws-partner-solution-selling/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS Partner Solution Selling
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws-sales-engagement/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS Sales Engagement
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../training-for-internal-personnel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Training for Internal Personnel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../expected-outcomes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Expected Outcomes
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../scope/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Scope
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Statement of Work
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Statement of Work
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-sow-template-for-cloud-operations-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default SOW Template for Cloud Operations Projects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Default SOW Template for Cloud Operations Projects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws-cloud-operations-statement-of-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Cloud Operations Statement of Work
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-1-definitions-and-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 1 - Definitions and References
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-2-project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 2 - Project Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-3-services-and-deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 3 - Services and Deliverables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-4-project-timeline-and-milestones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 4 - Project Timeline and Milestones
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-5-roles-and-responsibilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 5 - Roles and Responsibilities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-6-pricing-and-payment-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 6 - Pricing and Payment Terms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-7-success-criteria-and-acceptance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 7 - Success Criteria and Acceptance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-8-risk-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 8 - Risk Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-9-change-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 9 - Change Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-10-terms-and-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 10 - Terms and Conditions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-11-signatures-and-approvals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 11 - Signatures and Approvals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exhibit-a-detailed-technical-specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exhibit A - Detailed Technical Specifications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exhibit-b-service-level-agreements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exhibit B - Service Level Agreements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-manager/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Project Manager
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../change-management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Change Management
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../customer-acceptance-for-projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Customer Acceptance for Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../customer-satisfaction-aligned-to-project-milestone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Customer Satisfaction Aligned to Project Milestones
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cost-allocation-measurement-and-accountability/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cost Allocation Measurement and Accountability
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../define-account-life-cycle-process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Define Account life cycle process
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitops-deployment-for-infrastructure/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GitOps deployment for infrastructure
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../implement-and-enforce-tagging-strategy-to-support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Implement and enforce tagging strategy to support business needs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../effective-usage-of-preventive-and-detective-contro/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Effective usage of preventive and detective controls
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../third-party-products-and-procurement-process/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Third party products and procurement process
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../aws-account-ownership-transfer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    AWS Account Ownership transfer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../planning-and-forecasting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Planning and Forecasting
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cost-reporting-and-visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Cost Reporting and Visualization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimize-cloud-costs-through-resource-optimization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Optimize Cloud Costs Through Resource Optimization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../optimize-cloud-costs-through-purchase-option-optim/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Optimize Cloud Costs Through Purchase Option Optimization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../monitoring-and-observability-baseline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Monitoring and Observability Baseline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../signal-analytics-and-visualization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Signal Analytics and Visualization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../observability-for-modern-application-architectures/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Observability for Modern Application Architectures
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../application-performance-and-ux-related-metrics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Application Performance and UX related metrics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    SOW Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            SOW Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sow-multi-account-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Multi-Account SOW
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitops-sow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GitOps SOW
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+          
+          
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Deliverables
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Deliverables
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../forecast-tco-workbook/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Forecast & TCO Workbook
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quicksight-dashboard-sample/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    QuickSight Dashboard Samples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ri-sp-coverage-plan/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RI / SP Coverage Plan
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runbook-update-forecast-drivers/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Runbook – Forecast Drivers
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runbook-dash-edit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Runbook – Dashboard Edit Workflow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Generative AI
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Generative AI
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../genai/customer-onboarding-adoption-strategy/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Customer Onboarding & Adoption Strategy
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../genai/foundation-model-selection-customization/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Foundation Model Selection & Customization
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../genai/privacy-security-compliance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Privacy, Security & Compliance
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../genai/responsible-ethical-ai/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Responsible & Ethical AI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../genai/production-launch-operations/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Production Launch & Operations
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../genai/maintenance-support-services/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Maintenance & Support Services
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-sow-template-for-cloud-operations-projects" class="md-nav__link">
+    <span class="md-ellipsis">
+      Default SOW Template for Cloud Operations Projects
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Default SOW Template for Cloud Operations Projects">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws-cloud-operations-statement-of-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      AWS Cloud Operations Statement of Work
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-1-definitions-and-references" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 1 - Definitions and References
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-2-project-overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 2 - Project Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-3-services-and-deliverables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 3 - Services and Deliverables
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-4-project-timeline-and-milestones" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 4 - Project Timeline and Milestones
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-5-roles-and-responsibilities" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 5 - Roles and Responsibilities
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-6-pricing-and-payment-terms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 6 - Pricing and Payment Terms
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-7-success-criteria-and-acceptance" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 7 - Success Criteria and Acceptance
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-8-risk-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 8 - Risk Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-9-change-management" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 9 - Change Management
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-10-terms-and-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 10 - Terms and Conditions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#section-11-signatures-and-approvals" class="md-nav__link">
+    <span class="md-ellipsis">
+      Section 11 - Signatures and Approvals
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exhibit-a-detailed-technical-specifications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exhibit A - Detailed Technical Specifications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exhibit-b-service-level-agreements" class="md-nav__link">
+    <span class="md-ellipsis">
+      Exhibit B - Service Level Agreements
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="statement-of-work">Statement of Work</h1>
+<h2 id="overview">Overview</h2>
+<p>ZirconTech's Statement of Work (SOW) template provides a standardized framework for defining AWS Cloud Operations projects with clear scope, deliverables, timelines, and responsibilities. This template can be customized to meet specific customer needs while maintaining consistency in project definition and governance.</p>
+<p>Our SOW template incorporates industry best practices for cloud operations engagements, ensuring comprehensive coverage of all project aspects including technical requirements, business objectives, risk management, and success criteria.</p>
+<hr />
+<h2 id="default-sow-template-for-cloud-operations-projects">Default SOW Template for Cloud Operations Projects</h2>
+<h3 id="aws-cloud-operations-statement-of-work">AWS Cloud Operations Statement of Work</h3>
+<p><strong>Work Order # [NUMBER]</strong></p>
+<p><em>(Governed by the Independent Contractor Consulting Agreement)</em></p>
+<hr />
+<p><strong>Project Title:</strong> [Project Name] - AWS Cloud Operations Implementation</p>
+<p><strong>Agreement Date:</strong> [Effective Date]</p>
+<p><strong>Customer:</strong> [Customer Company Name]<br />
+<strong>Address:</strong> [Customer Address]</p>
+<p><strong>Contractor:</strong> ZirconTech (Codly SA)<br />
+<strong>Address:</strong> Bulevar España 2253, Montevideo, Uruguay</p>
+<hr />
+<h3 id="section-1-definitions-and-references">Section 1 - Definitions and References</h3>
+<p><strong>1.1 Agreement Framework</strong>
+This Work Order is governed by the Independent Contractor Consulting Agreement (ICCA) executed between ZirconTech and Customer, dated [Date].</p>
+<p><strong>1.2 Service Delivery Model</strong>
+- <strong>Time and Materials (T&amp;M):</strong> Contractor will be compensated for actual time spent and materials used
+- <strong>Fixed Price:</strong> Specific deliverables provided for agreed fixed cost
+- <strong>Hybrid Model:</strong> Combination of T&amp;M and fixed price components</p>
+<p><strong>1.3 Key Terminology</strong>
+- <strong>AWS Cloud Operations:</strong> Management, monitoring, optimization, and maintenance of AWS cloud infrastructure
+- <strong>Deliverables:</strong> Specific outputs, documents, or implementations as defined in this SOW
+- <strong>Milestone:</strong> Significant project checkpoints requiring formal approval
+- <strong>Go-Live:</strong> Production deployment and operational handover</p>
+<hr />
+<h3 id="section-2-project-overview">Section 2 - Project Overview</h3>
+<p><strong>2.1 Business Objectives</strong>
+[Customizable Section]
+- Primary business goals and expected outcomes
+- Strategic alignment with customer objectives
+- Success metrics and measurement criteria
+- Return on investment expectations</p>
+<p><strong>2.2 Technical Objectives</strong>
+[Customizable Section]
+- AWS infrastructure requirements and specifications
+- Performance, security, and compliance requirements
+- Integration needs with existing systems
+- Scalability and future growth considerations</p>
+<p><strong>2.3 Project Scope</strong>
+[Customizable Section]</p>
+<table>
+<thead>
+<tr>
+<th>Scope Category</th>
+<th>Included</th>
+<th>Excluded</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Infrastructure</strong></td>
+<td>[List included components]</td>
+<td>[List excluded components]</td>
+</tr>
+<tr>
+<td><strong>Applications</strong></td>
+<td>[List included applications]</td>
+<td>[List excluded applications]</td>
+</tr>
+<tr>
+<td><strong>Data/Integrations</strong></td>
+<td>[List included data/integrations]</td>
+<td>[List excluded data/integrations]</td>
+</tr>
+<tr>
+<td><strong>Geographic Coverage</strong></td>
+<td>[List included regions/locations]</td>
+<td>[List excluded regions/locations]</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="section-3-services-and-deliverables">Section 3 - Services and Deliverables</h3>
+<p><strong>3.1 Service Categories</strong>
+[Customizable Section]</p>
+<p><strong>A. Discovery and Assessment Services</strong>
+- Current state infrastructure assessment
+- Cloud readiness evaluation
+- Gap analysis and recommendations
+- Risk assessment and mitigation planning</p>
+<p><strong>B. Design and Architecture Services</strong>
+- Target state architecture design
+- AWS service selection and configuration
+- Integration architecture planning
+- Security and compliance design</p>
+<p><strong>C. Implementation Services</strong>
+- Infrastructure deployment and configuration
+- Application migration and integration
+- Security implementation
+- Performance optimization</p>
+<p><strong>D. Testing and Validation Services</strong>
+- Functional testing and validation
+- Performance and load testing
+- Security testing and compliance validation
+- User acceptance testing support</p>
+<p><strong>E. Knowledge Transfer and Training Services</strong>
+- Technical documentation and runbooks
+- Operations team training
+- Best practices workshops
+- Ongoing support procedures</p>
+<p><strong>3.2 Deliverables Matrix</strong>
+[Customizable Section]</p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Deliverable</th>
+<th>Description</th>
+<th>Acceptance Criteria</th>
+<th>Timeline</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Discovery</strong></td>
+<td>Current State Assessment</td>
+<td>Comprehensive analysis of existing environment</td>
+<td>Customer approval of findings</td>
+<td>Week 2</td>
+</tr>
+<tr>
+<td><strong>Discovery</strong></td>
+<td>Requirements Specification</td>
+<td>Detailed functional and non-functional requirements</td>
+<td>Stakeholder sign-off</td>
+<td>Week 3</td>
+</tr>
+<tr>
+<td><strong>Design</strong></td>
+<td>Solution Architecture</td>
+<td>Target state architecture and design</td>
+<td>Architecture review board approval</td>
+<td>Week 5</td>
+</tr>
+<tr>
+<td><strong>Design</strong></td>
+<td>Implementation Plan</td>
+<td>Detailed project plan with timelines</td>
+<td>Project sponsor approval</td>
+<td>Week 6</td>
+</tr>
+<tr>
+<td><strong>Implementation</strong></td>
+<td>Infrastructure Deployment</td>
+<td>Fully configured AWS infrastructure</td>
+<td>Testing validation passed</td>
+<td>Week 10</td>
+</tr>
+<tr>
+<td><strong>Implementation</strong></td>
+<td>Application Integration</td>
+<td>Applications integrated and functional</td>
+<td>User acceptance testing passed</td>
+<td>Week 12</td>
+</tr>
+<tr>
+<td><strong>Testing</strong></td>
+<td>Test Results Report</td>
+<td>Comprehensive testing documentation</td>
+<td>Quality assurance approval</td>
+<td>Week 13</td>
+</tr>
+<tr>
+<td><strong>Knowledge Transfer</strong></td>
+<td>Documentation Package</td>
+<td>Complete technical documentation</td>
+<td>Knowledge transfer session completed</td>
+<td>Week 14</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="section-4-project-timeline-and-milestones">Section 4 - Project Timeline and Milestones</h3>
+<p><strong>4.1 Project Phases</strong>
+[Customizable Section]</p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Duration</th>
+<th>Key Activities</th>
+<th>Milestone</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Phase 1: Discovery</strong></td>
+<td>[X weeks]</td>
+<td>Requirements gathering, current state assessment</td>
+<td>Discovery Complete</td>
+</tr>
+<tr>
+<td><strong>Phase 2: Design</strong></td>
+<td>[X weeks]</td>
+<td>Architecture design, planning, approvals</td>
+<td>Design Approved</td>
+</tr>
+<tr>
+<td><strong>Phase 3: Implementation</strong></td>
+<td>[X weeks]</td>
+<td>Infrastructure deployment, configuration, integration</td>
+<td>Implementation Complete</td>
+</tr>
+<tr>
+<td><strong>Phase 4: Testing</strong></td>
+<td>[X weeks]</td>
+<td>Comprehensive testing, validation, optimization</td>
+<td>Testing Approved</td>
+</tr>
+<tr>
+<td><strong>Phase 5: Go-Live</strong></td>
+<td>[X weeks]</td>
+<td>Production deployment, training, handover</td>
+<td>Go-Live Successful</td>
+</tr>
+</tbody>
+</table>
+<p><strong>4.2 Critical Dependencies</strong>
+[Customizable Section]
+- Customer resource availability and decision-making
+- Third-party vendor coordination and delivery
+- Regulatory approval and compliance validation
+- Infrastructure access and security clearances</p>
+<hr />
+<h3 id="section-5-roles-and-responsibilities">Section 5 - Roles and Responsibilities</h3>
+<p><strong>5.1 ZirconTech Team Structure</strong>
+[Customizable Section]</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Responsibilities</th>
+<th>Key Qualifications</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Project Manager</strong></td>
+<td>Overall project coordination, stakeholder management</td>
+<td>PMP certified, AWS project experience</td>
+</tr>
+<tr>
+<td><strong>Solutions Architect</strong></td>
+<td>Technical architecture, AWS best practices</td>
+<td>AWS Solutions Architect certification</td>
+</tr>
+<tr>
+<td><strong>Technical Lead</strong></td>
+<td>Implementation oversight, technical delivery</td>
+<td>AWS certifications, hands-on experience</td>
+</tr>
+<tr>
+<td><strong>DevOps Engineer</strong></td>
+<td>Infrastructure automation, deployment</td>
+<td>AWS DevOps certification</td>
+</tr>
+<tr>
+<td><strong>Security Specialist</strong></td>
+<td>Security implementation, compliance</td>
+<td>AWS Security certification</td>
+</tr>
+</tbody>
+</table>
+<p><strong>5.2 Customer Team Requirements</strong>
+[Customizable Section]</p>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Responsibilities</th>
+<th>Availability Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Executive Sponsor</strong></td>
+<td>Strategic decision-making, resource allocation</td>
+<td>2-4 hours/week</td>
+</tr>
+<tr>
+<td><strong>Technical Lead</strong></td>
+<td>Technical decisions, validation, knowledge transfer</td>
+<td>10-15 hours/week</td>
+</tr>
+<tr>
+<td><strong>Business Analyst</strong></td>
+<td>Requirements definition, user acceptance testing</td>
+<td>5-10 hours/week</td>
+</tr>
+<tr>
+<td><strong>Operations Team</strong></td>
+<td>Daily operations, monitoring, maintenance</td>
+<td>Full-time post go-live</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="section-6-pricing-and-payment-terms">Section 6 - Pricing and Payment Terms</h3>
+<p><strong>6.1 Service Rates</strong>
+[Customizable Section]</p>
+<table>
+<thead>
+<tr>
+<th>Service Type</th>
+<th>Rate (USD)</th>
+<th>Billing Method</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Solutions Architect</strong></td>
+<td>$[X] per hour</td>
+<td>Time and Materials</td>
+</tr>
+<tr>
+<td><strong>Technical Lead</strong></td>
+<td>$[X] per hour</td>
+<td>Time and Materials</td>
+</tr>
+<tr>
+<td><strong>DevOps Engineer</strong></td>
+<td>$[X] per hour</td>
+<td>Time and Materials</td>
+</tr>
+<tr>
+<td><strong>Project Manager</strong></td>
+<td>$[X] per hour</td>
+<td>Time and Materials</td>
+</tr>
+<tr>
+<td><strong>Security Specialist</strong></td>
+<td>$[X] per hour</td>
+<td>Time and Materials</td>
+</tr>
+</tbody>
+</table>
+<p><strong>6.2 Fixed Price Components</strong>
+[Customizable Section]</p>
+<table>
+<thead>
+<tr>
+<th>Deliverable</th>
+<th>Fixed Price (USD)</th>
+<th>Payment Schedule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Discovery and Assessment</strong></td>
+<td>$[X]</td>
+<td>Upon milestone completion</td>
+</tr>
+<tr>
+<td><strong>Architecture Design</strong></td>
+<td>$[X]</td>
+<td>Upon design approval</td>
+</tr>
+<tr>
+<td><strong>Documentation Package</strong></td>
+<td>$[X]</td>
+<td>Upon knowledge transfer</td>
+</tr>
+</tbody>
+</table>
+<p><strong>6.3 Payment Terms</strong>
+- Invoicing: Monthly in arrears for T&amp;M services
+- Payment: Net 30 days from invoice date
+- Travel expenses: Actual cost plus 10% administrative fee
+- AWS service costs: Customer direct billing or pass-through at cost</p>
+<hr />
+<h3 id="section-7-success-criteria-and-acceptance">Section 7 - Success Criteria and Acceptance</h3>
+<p><strong>7.1 Technical Success Criteria</strong>
+[Customizable Section]
+- All infrastructure components deployed and operational
+- Performance benchmarks met or exceeded
+- Security and compliance requirements satisfied
+- Integration testing completed successfully
+- Documentation complete and approved</p>
+<p><strong>7.2 Business Success Criteria</strong>
+[Customizable Section]
+- Business objectives achieved and measurable
+- User acceptance testing passed
+- Operations team trained and ready
+- Go-live executed without critical issues
+- Customer satisfaction survey results positive</p>
+<p><strong>7.3 Acceptance Process</strong>
+- Milestone-based acceptance with formal sign-off
+- 30-day warranty period for defect resolution
+- Final acceptance upon successful go-live
+- Performance monitoring for 90 days post go-live</p>
+<hr />
+<h3 id="section-8-risk-management">Section 8 - Risk Management</h3>
+<p><strong>8.1 Risk Categories</strong>
+[Customizable Section]</p>
+<table>
+<thead>
+<tr>
+<th>Risk Type</th>
+<th>Potential Impact</th>
+<th>Mitigation Strategy</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Technical</strong></td>
+<td>Implementation delays, performance issues</td>
+<td>Proof of concept, testing, expert resources</td>
+</tr>
+<tr>
+<td><strong>Resource</strong></td>
+<td>Team availability, skill gaps</td>
+<td>Resource planning, training, backup resources</td>
+</tr>
+<tr>
+<td><strong>Business</strong></td>
+<td>Scope changes, priority shifts</td>
+<td>Change management process, stakeholder alignment</td>
+</tr>
+<tr>
+<td><strong>External</strong></td>
+<td>Vendor delays, regulatory changes</td>
+<td>Vendor management, compliance monitoring</td>
+</tr>
+</tbody>
+</table>
+<p><strong>8.2 Risk Management Process</strong>
+- Weekly risk review and assessment
+- Monthly risk register updates
+- Escalation procedures for high-impact risks
+- Contingency planning for critical risks</p>
+<hr />
+<h3 id="section-9-change-management">Section 9 - Change Management</h3>
+<p><strong>9.1 Scope Change Process</strong>
+- Formal change request documentation
+- Impact assessment (scope, timeline, cost)
+- Stakeholder review and approval
+- Contract amendment if required</p>
+<p><strong>9.2 Change Authority Matrix</strong>
+[Customizable Section]</p>
+<table>
+<thead>
+<tr>
+<th>Change Type</th>
+<th>Approval Authority</th>
+<th>Documentation Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Minor (&lt;5% budget)</strong></td>
+<td>Project Manager</td>
+<td>Change log entry</td>
+</tr>
+<tr>
+<td><strong>Moderate (5-15% budget)</strong></td>
+<td>Customer Sponsor</td>
+<td>Formal change request</td>
+</tr>
+<tr>
+<td><strong>Major (&gt;15% budget)</strong></td>
+<td>Executive Sponsor</td>
+<td>Contract amendment</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="section-10-terms-and-conditions">Section 10 - Terms and Conditions</h3>
+<p><strong>10.1 Intellectual Property</strong>
+- Customer retains ownership of their data and business processes
+- ZirconTech retains ownership of methodologies and templates
+- Joint ownership of custom solutions developed specifically for customer</p>
+<p><strong>10.2 Confidentiality</strong>
+- All customer information treated as confidential
+- Non-disclosure agreements in effect
+- Secure handling of sensitive data and systems</p>
+<p><strong>10.3 Warranty and Support</strong>
+- 30-day warranty on all deliverables
+- Defect resolution at no additional cost
+- Post-go-live support available separately</p>
+<p><strong>10.4 Termination</strong>
+- Either party may terminate with 30 days written notice
+- Customer responsible for payment of services rendered
+- Orderly transition and knowledge transfer upon termination</p>
+<hr />
+<h3 id="section-11-signatures-and-approvals">Section 11 - Signatures and Approvals</h3>
+<p><strong>Customer Approval:</strong></p>
+<p><strong>[Customer Company Name]</strong></p>
+<p>Signature: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong> Date: <strong><em>_</em></strong>__</p>
+<p>Print Name: <strong><em>_</em></strong><strong><em>_</em></strong>______</p>
+<p>Title: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong>____</p>
+<p><strong>ZirconTech Approval:</strong></p>
+<p><strong>ZirconTech (Codly SA)</strong></p>
+<p>Signature: <strong><em>_</em></strong><strong><em>_</em></strong><strong><em>_</em></strong> Date: <strong><em>_</em></strong>__</p>
+<p>Print Name: Andrés Zunino</p>
+<p>Title: CEO</p>
+<hr />
+<h3 id="exhibit-a-detailed-technical-specifications">Exhibit A - Detailed Technical Specifications</h3>
+<p><strong>A.1 Infrastructure Requirements</strong>
+[Customizable Section]
+- AWS account structure and organization
+- Network architecture and connectivity
+- Compute resources and scaling requirements
+- Storage solutions and data management
+- Database requirements and configurations</p>
+<p><strong>A.2 Security Requirements</strong>
+[Customizable Section]
+- Identity and access management
+- Data encryption and protection
+- Network security and monitoring
+- Compliance and audit requirements
+- Incident response procedures</p>
+<p><strong>A.3 Operational Requirements</strong>
+[Customizable Section]
+- Monitoring and alerting setup
+- Backup and disaster recovery
+- Performance management
+- Cost optimization strategies
+- Maintenance and support procedures</p>
+<hr />
+<h3 id="exhibit-b-service-level-agreements">Exhibit B - Service Level Agreements</h3>
+<p><strong>B.1 Availability Targets</strong>
+[Customizable Section]
+- Infrastructure availability: 99.9% uptime
+- Application availability: 99.5% uptime
+- Monitoring system availability: 99.95% uptime</p>
+<p><strong>B.2 Performance Targets</strong>
+[Customizable Section]
+- Response time: &lt;2 seconds for web applications
+- Database query performance: &lt;100ms average
+- API response time: &lt;500ms for standard calls</p>
+<p><strong>B.3 Support Response Times</strong>
+[Customizable Section]
+- Critical issues: 1 hour response
+- High priority issues: 4 hours response
+- Medium priority issues: 8 hours response
+- Low priority issues: 24 hours response</p>
+<hr />
+<p><em>This SOW template can be customized for specific customer requirements while maintaining the standard structure and governance framework.</em></p>
+<hr />
+<p><em>Last updated: December 2024</em></p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://aws.amazon.com" target="_blank" rel="noopener" title="AWS" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M180.4 203c-.7 22.6 10.6 32.7 10.9 39-.1 1.3-.6 2.5-1.3 3.6s-1.7 2-2.8 2.6l-12.8 9c-1.7 1.2-3.6 1.8-5.6 1.9-.4 0-8.2 1.8-20.5-25.6-7.5 9.4-17 16.9-27.9 22s-22.7 7.7-34.7 7.5c-16.3.9-60.4-9.2-58.1-56.2-1.6-38.3 34.1-62.1 70.9-60 7.1 0 21.6.4 47 6.3v-15.6c2.7-26.5-14.7-47-44.8-43.9-2.4 0-19.4-.5-45.8 10.1-7.4 3.4-8.3 2.8-10.8 2.8-7.4 0-4.4-21.5-2.9-24.2 5.2-6.4 35.9-18.4 65.9-18.2 20.1-1.8 40.1 4.4 55.7 17.3 6.3 7.1 11.2 15.4 14.2 24.4s4.2 18.5 3.5 28v69.3zM94 235.4c32.4-.5 46.2-20 49.3-30.5 2.5-10.1 2.1-16.4 2.1-27.4-9.7-2.3-23.6-4.9-39.6-4.9-15.2-1.1-42.8 5.6-41.7 32.3-1.2 16.8 11.1 31.4 30 30.5zm170.9 23.1c-7.9.7-11.5-4.9-12.7-10.4L202.4 83.4c-1-2.8-1.6-5.6-1.9-8.6-.2-1.2.1-2.4.8-3.4s1.8-1.6 3-1.8h22.2c8.8-.9 11.6 6 12.6 10.4l35.8 140.8L308.1 80c.5-3.2 2.9-11.1 12.8-10.2h17.2c2.2-.2 11.1-.5 12.7 10.4l33.3 142.5L421 80.1c.5-2.2 2.7-11.4 12.7-10.4h19.7c.9-.1 6.2-.8 5.3 8.6-.4 1.8 3.4-10.7-52.8 169.9-1.1 5.5-4.8 11.1-12.7 10.4h-18.7c-10.9 1.2-12.5-9.7-12.7-10.7l-33.2-137.1-32.8 137c-.2 1.1-1.7 11.9-12.7 10.7h-18.3zm273.5 5.6c-5.9 0-33.9-.3-57.4-12.3-2.3-1-4.3-2.6-5.7-4.8s-2.1-4.6-2.1-7.1v-10.7c0-8.5 6.2-6.9 8.8-5.9 10 4.1 16.5 7.1 28.8 9.6 36.7 7.5 52.8-2.3 56.7-4.5 13.2-7.8 14.2-25.7 5.3-34.9-10.5-8.8-15.5-9.1-53.1-21-4.6-1.3-43.7-13.6-43.8-52.4-.6-28.2 25-56.2 69.5-56 12.7 0 46.4 4.1 55.6 15.6 1.4 2.1 2 4.6 1.9 7v10.1c0 4.4-1.6 6.7-4.9 6.7-7.7-.9-21.4-11.2-49.2-10.8-6.9-.4-39.9.9-38.4 25-.4 19 26.6 26.1 29.7 26.9 36.5 11 48.6 12.8 63.1 29.6 17.1 22.2 7.9 48.3 4.3 55.4-19.1 37.5-68.4 34.4-69.3 34.4zM578.6 369c-70 51.7-171.7 79.2-258.5 79.2C203 449 89.8 405.9 2.8 327.5c-6.5-5.9-.8-14 7.2-9.5 96.5 55.2 205.7 84.2 316.9 84.1 83-.4 165.1-17.3 241.6-49.5 11.8-5 21.8 7.8 10.1 16.4m29.2-33.3c-9-11.5-59.3-5.4-81.8-2.7-6.8.8-7.9-5.1-1.8-9.5 40.1-28.2 105.9-20.1 113.4-10.6s-2.1 75.4-39.6 106.9c-5.8 4.9-11.3 2.3-8.7-4.1 8.4-21.3 27.4-68.5 18.4-80z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.expand", "navigation.top", "search.highlight", "search.share", "content.code.copy"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
