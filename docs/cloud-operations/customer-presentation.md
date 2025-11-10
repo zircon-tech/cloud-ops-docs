@@ -11,7 +11,7 @@ title: "Customer Presentation - AWS Capabilities"
 
 Founded in 2016, ZirconTech emerged from a simple belief: enterprises deserve cloud partners who combine deep technical expertise with clear communication and predictable delivery. What started as a focused blockchain practice has evolved into a comprehensive AWS Advanced Partner helping organizations transform through cloud operations, generative AI, and Web3 technologies.
 
-Based in Montevideo, Uruguay at 8 de Octubre 2956, we serve clients across the Americas and Europe with a remote-first delivery model that prioritizes collaboration through overlapping time zones and responsive communication.
+Based in Montevideo, Uruguay at 8 de Octubre 2956, we serve clients across the Americas and Europe with a remote-first delivery model that prioritizes collaboration through overlapping time zones and responsive communication. Our team of over 50 technology professionals brings diverse expertise across cloud architecture, AI/ML, DevOps, and software engineering.
 
 ## What Sets Us Apart
 
@@ -66,6 +66,16 @@ Event-driven architectures reach their full potential on AWS. EventBridge, SQS, 
 ## Web3 and Blockchain on AWS
 
 AWS-native Web3 applications leverage serverless architectures, managed databases, and security services for scalable, cost-effective blockchain solutions. We build systems that connect traditional applications with blockchain technologies through secure APIs, custody integration, and smart contract interaction, all running on AWS infrastructure optimized for performance and cost.
+
+## Notable AWS Projects
+
+**SUKU - Web3 Infrastructure Platform**: Suite of Web3 tools and APIs connecting traditional users to blockchain capabilities including Twitter minting bot and stablecoin payment APIs. Serverless-first architecture using Lambda and API Gateway with multi-account AWS Organizations separating environments. Data layer combines RDS PostgreSQL with MongoDB Atlas via VPC peering. Observability through CloudWatch, X-Ray tracing, and custom dashboards. Security via GuardDuty, Config Rules, and Service Control Policies. Cost controls through tag-based budgets and QuickSight dashboards using CUR and Athena.
+
+**RedSwan - Real Estate Tokenization Platform**: Blockchain-based investment platform facilitating tokenized ownership, investor onboarding, and smart contract operations. Architecture transitioning from EC2 to Lambda-based services with TCO assessment showing 60% cost reduction potential. Backend integrates with Fireblocks and custody solutions via secure APIs. RDS MySQL primary datastore with S3 for contracts and compliance documents. IAM roles and KMS for wallet API key management. Control Tower deploys sandbox environments with budget alerts. Service dashboards track asset onboarding time, token issuance events, and broker activity.
+
+**MITH - Social and Blockchain Creator Platform**: Creator-first social platform enabling content posting, community participation, and live interactions with blockchain reward traceability. Containerized microservices on AppRunner with Amplify frontend. Event-driven architecture using EventBridge and Kinesis Video Streams. DynamoDB for user activity tracking with RDS for session metadata. Cognito authentication with IAM federation. Infrastructure as Code through Terraform. Security via WAF, Service Control Policies, and Security Hub with automated remediation.
+
+**Repose - Funeral Planning Platform**: SaaS platform helping funeral homes and customers organize services, compare plans, and manage logistics digitally. Multi-account setup with ECS Fargate, RDS PostgreSQL, and API Gateway. Route 53 and CloudFront power frontend distribution. Step Functions coordinate booking and payment workflows. CodePipeline and CodeBuild manage blue/green deployments. Governance through Service Control Policies, Config, and Trusted Advisor. FinOps practices include chargeback by team, cost forecasting dashboards, and automated tagging enforcement.
 
 ## How We Work Together
 
