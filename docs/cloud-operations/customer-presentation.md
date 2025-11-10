@@ -1,241 +1,88 @@
 ---
 id: POV-001
-title: "Customer Presentation"
+title: "Customer Presentation - AWS Capabilities"
 ---
 
-# ZirconTech - AWS Cloud Operations Capabilities
+# ZirconTech - AWS Advanced Partner
 
-## Company Overview
+*Delivering Excellence in Cloud Operations and Generative AI*
 
-### Who We Are
-ZirconTech brings **more than 8 years of delivery experience** across web, mobile, blockchain, and cloud technologies as an **AWS Select Partner**. Our multidisciplinary team has successfully completed **100+ projects** for clients across **America and Europe**.
+## Who We Are
 
-### Company History
-Founded in **2016** when CEO Andrés Zunino joined forces with blockchain expert Alejandro Narancio to launch ZirconTech. The company was established to help enterprises adopt blockchain, cloud, and AI technologies at scale, with a focus on AWS-native solutions.
+Founded in 2016, ZirconTech emerged from a simple belief: enterprises deserve cloud partners who combine deep technical expertise with clear communication and predictable delivery. What started as a focused blockchain practice has evolved into a comprehensive AWS Advanced Partner helping organizations transform through cloud operations, generative AI, and Web3 technologies.
 
-### Global Presence
-**Headquarters**: Montevideo, Uruguay  
-**Service Regions**: North America, South America, and Europe  
-**Delivery Model**: Remote-first with near-shore time-zone overlap for American clients
+Based in Montevideo, Uruguay at 8 de Octubre 2956, we serve clients across the Americas and Europe with a remote-first delivery model that prioritizes collaboration through overlapping time zones and responsive communication.
 
-### Team Profile
-- **50+ Technology Professionals**
-- **AWS-Certified Solutions Architects and Engineers**
-- **Multidisciplinary Expertise**: Cloud, Blockchain, AI/ML, DevOps
-- **Industry Experience**: Financial Services, Healthcare, Real Estate, Web3
+## What Sets Us Apart
 
-## Our Management Team
+We don't just use AWS—we architect solutions that leverage what makes AWS unique. Every project follows AWS Well-Architected principles from day one, ensuring you get infrastructure that meets enterprise standards for operational excellence, security, reliability, performance, and cost optimization.
 
-### Andrés Zunino – Chief Executive Officer
-Civil Engineer with Business Administration background and proven experience in sales and operations of technology companies. Previously ran multi-country operations at **Ericsson** before turning to tech entrepreneurship. Member of the **Forbes Technology Council**, writing on digital transformation and data security.
+You'll never wonder what's happening with your project. Our real-time integration, aligned time zones, and transparent tracking mean you're always informed. We consistently deliver on time through proven processes, automated quality gates, and proactive risk management. Our implementations pass AWS Well-Architected reviews, include comprehensive testing, and follow security best practices as standard.
 
-### Martín Machin – Managing Partner
-Mentor, investor, and advisor to high-growth tech companies. As Managing Partner at Pyxis, transformed the firm into Uruguay's fastest-growing IT provider. Founded and led **Tata Consultancy Services' Global Delivery Center** in Montevideo, with previous leadership roles at **IBM** and major financial institutions.
+## Our Customers
 
-### Williams Olivera – Chief Technology Officer
-Senior software and solutions architect driving ZirconTech's **AWS-first technology strategy**. Early advocate of cloud-native architectures, leading adoption of AWS services for scalable, secure deployments. Computer Science engineer with extensive experience in AWS Well-Architected frameworks.
+We work with organizations ranging from innovative startups to Fortune 500 enterprises. In financial services, we build payment platforms, custody solutions, and regulatory compliance frameworks. Healthcare organizations trust us with HIPAA-compliant applications and secure patient data processing. Web3 and blockchain companies partner with us for token platforms, creator economies, and real estate tokenization. We also serve real estate firms with property management and investment platforms, along with SaaS companies building multi-tenant architectures and scalable API platforms.
 
-### Marcelo Acosta – Chief Operating Officer
-Directs sales, delivery and operations, embedding **AWS Well-Architected and cost-optimization practices** across all client projects. Previously scaled Chilean fintech Pago Fácil as Sales Director and CISO. Holds MBA from Edinburgh Business School with AWS, machine-learning, and blockchain credentials.
+Our clients span three continents, with particularly strong presence in North America where our near-shore model provides optimal collaboration. We've delivered over 100 projects across web, mobile, blockchain, and cloud technologies, building deep expertise in both technical implementation and business outcomes.
 
-### Alejandro Narancio – Board Member & Advisor
-Recognized thought leader in blockchain and decentralised infrastructure. Co-Founder & CEO of Infuy, RSK ambassador and RIF product owner. Nearly a decade with **Tata Consultancy Services** delivering mission-critical solutions for U.S. financial-services clients.
+## AWS Partner Excellence
 
-## Customer Profile
+AWS has audited and granted our Cloud Operations Services Competency, validating our expertise in multi-account governance, cost optimization, security and compliance, and operational excellence. Our Generative AI Services capabilities demonstrate proficiency in readiness assessment, foundation model customization, production deployment, and responsible AI implementation.
 
-### Client Demographics
-- **100+ Completed Projects**
-- **Client Regions**: North America (60%), South America (30%), Europe (10%)
-- **Company Sizes**: Startups to Fortune 500 enterprises
-- **Industries**: Financial Services, Web3/Blockchain, Real Estate, Healthcare, SaaS
+We maintain Advanced-level AWS Service Validations for Lambda Delivery, API Gateway Delivery, and our Cloud Operations Accelerator. Our team holds current AWS certifications including Solutions Architect, DevOps Professional, Machine Learning Specialty, AI Engineer, and AI Practitioner credentials, ensuring we stay current with AWS innovations.
 
-### Industry Expertise
-- **Financial Services**: Payment platforms, custody solutions, compliance frameworks
-- **Web3/Blockchain**: Token platforms, creator economies, real estate tokenization
-- **Healthcare**: HIPAA-compliant platforms, secure data processing
-- **SaaS Platforms**: Multi-tenant architectures, scalable APIs
+## Cloud Operations Excellence
 
-## AWS Cloud Operations Practice Overview
+When organizations need multi-account governance, we design and implement enterprise-grade AWS Organizations structures with centralized control, automated compliance, and clear cost allocation. Our approach to cost optimization achieves significant reductions through systematic analysis, right-sizing, Reserved Instance optimization, and comprehensive FinOps practices that provide unprecedented visibility into spending patterns.
 
-### Core Capabilities
+Security and compliance form the foundation of everything we build. We implement layered security controls meeting SOC 2, HIPAA, and financial services requirements using AWS-native security services. Our observability implementations establish comprehensive monitoring, alerting, and analytics providing full visibility into application and infrastructure performance.
 
-#### 1. AWS-Native Architecture Design
-- **Serverless-First Approach**: Lambda, API Gateway, EventBridge for event-driven architectures
-- **Container Orchestration**: ECS/Fargate, AppRunner for scalable microservices
-- **Multi-Account Strategy**: AWS Organizations, Control Tower, Service Control Policies
+We automate everything through Infrastructure as Code, using Terraform, CloudFormation, or Serverless Framework with CI/CD pipelines ensuring consistent, repeatable deployments. This approach eliminates configuration drift and enables rapid, confident changes to production systems.
 
-#### 2. Cost Optimization Excellence
-- **FinOps Implementation**: Tag-based budgets, consolidated billing, Cost Categories
-- **Resource Optimization**: Right-sizing, Reserved Instances, Savings Plans
-- **Cost Visibility**: QuickSight dashboards using CUR + Athena for detailed analysis
+## Generative AI Implementation
 
-#### 3. Security & Compliance
-- **Preventive Controls**: SCPs, IAM roles, KMS encryption, Secrets Manager
-- **Detective Controls**: GuardDuty, AWS Config Rules, Security Hub
-- **Compliance Frameworks**: SOC-2, HIPAA, financial services regulations
+Strategic assessment is where successful GenAI initiatives begin. We evaluate organizational readiness, identify high-value use cases, and develop adoption roadmaps aligned with business objectives. This ensures GenAI investments deliver measurable business value rather than becoming technology experiments.
 
-#### 4. Observability & Monitoring
-- **Full-Stack Monitoring**: CloudWatch, X-Ray, custom metrics and dashboards
-- **Alerting & Automation**: CloudWatch Alarms, Lambda-based auto-remediation
-- **Performance Optimization**: Service-level KPIs, latency tracking
+Model selection and customization requires navigating complex foundation model options. We implement RAG architectures, optimize prompts, and customize models for specific requirements, leveraging Amazon Bedrock for managed model access or SageMaker for deeper customization needs. Our approach considers cost, performance, and business requirements to select the right foundation model and customization strategy.
 
-#### 5. Infrastructure as Code
-- **Multi-Framework Expertise**: Terraform, CloudFormation, Serverless Framework
-- **CI/CD Pipelines**: GitHub Actions, CodePipeline, automated deployments
-- **Environment Management**: Dev, staging, prod separation with automated promotion
+Production deployment of GenAI applications demands robust MLOps, monitoring, security controls, and continuous optimization. We operationalize GenAI with the same rigor as mission-critical business systems, ensuring reliability, performance, and cost-effectiveness. Responsible AI implementation includes bias detection, transparency measures, user consent frameworks, and compliance controls ensuring ethical deployment.
 
-## AWS-Specific Differentiators
+Continuous improvement establishes feedback loops, performance monitoring, and iterative optimization maintaining sustained value. GenAI systems improve over time through systematic incorporation of user feedback, model retraining, and performance optimization.
 
-### What Makes Our AWS Practice Unique
+## Why AWS With ZirconTech
 
-#### 1. AWS Well-Architected Framework Integration
-**Unique Capability**: Every project includes formal Well-Architected reviews across all five pillars (Operational Excellence, Security, Reliability, Performance Efficiency, Cost Optimization). We don't just implement AWS services – we architect solutions that follow AWS best practices from day one.
+AWS provides unique advantages we leverage for your benefit. The Well-Architected Framework offers a systematic approach to operational excellence, security, reliability, performance efficiency, and cost optimization that exists only within AWS. We implement solutions following these five pillars, ensuring your infrastructure meets enterprise standards from day one.
 
-#### 2. Advanced Cost Engineering
-**AWS-Only Advantage**: Deep expertise in AWS billing complexities, using native tools like Cost Explorer, Budgets, and Cost Categories combined with custom QuickSight dashboards. Our FinOps approach leverages AWS-specific features that can't be replicated on other cloud platforms.
+Multi-account governance reaches enterprise scale through AWS Organizations, Control Tower, and Service Control Policies. This governance sophistication is impossible on other platforms. We design account structures supporting your organizational model with automated compliance and clear cost allocation, enabling both centralized control and team autonomy.
 
-#### 3. Multi-Account Governance at Scale
-**AWS Organizations Mastery**: Proven expertise in designing and implementing enterprise-grade multi-account strategies using AWS Organizations, Control Tower, and Service Control Policies. This level of account governance and automation is uniquely possible on AWS.
+AWS pioneered serverless computing and offers the richest ecosystem. We build solutions leveraging Lambda, API Gateway, EventBridge, and Step Functions that scale automatically while minimizing operational overhead and cost. Serverless architectures eliminate server management, reduce operational complexity, and provide pay-per-use pricing that dramatically lowers costs for variable workloads.
 
-#### 4. Event-Driven Architecture Excellence
-**AWS Native Integration**: Expertise in building complex event-driven systems using EventBridge, SQS, SNS, and Lambda that leverage AWS's native event routing capabilities for scalable, loosely-coupled architectures.
+Advanced cost engineering becomes possible through AWS's sophisticated cost management tools. We leverage Cost Explorer, Budgets, Cost Categories, and custom QuickSight dashboards to provide unprecedented cost visibility and optimization opportunities. This level of granular cost analysis and optimization simply doesn't exist on other cloud platforms.
 
-### Why Choose Our AWS Practice
+Amazon Bedrock provides managed access to leading foundation models with enterprise security. Combined with SageMaker's comprehensive MLOps capabilities, AWS offers the most complete platform for production GenAI applications. We leverage these services to deliver GenAI solutions that meet enterprise requirements for security, compliance, and operational excellence.
 
-#### 1. Clear and Continuous Communication
-- **Real-time Integration**: Slack/Teams integration with 30-minute response SLA
-- **Business Hours Availability**: Aligned time zones for American clients
-- **Weekly Demos**: Regular stakeholder alignment sessions
-- **Escalation Path**: Two-hour escalation for critical issues
+Event-driven architectures reach their full potential on AWS. EventBridge, SQS, SNS, and native AWS service integrations enable systems that decouple components, improve resilience, and scale automatically. These capabilities emerge from AWS's integrated service ecosystem and simply aren't available with the same richness on other platforms.
 
-#### 2. Control of Project Deliverables
-- **Real-time Visibility**: Shared Jira boards and transparent metrics
-- **Agile Ceremonies**: Sprint planning, daily standups, retrospectives
-- **Near-shore Advantage**: Time-zone overlap for real-time collaboration
-- **Budget Transparency**: Detailed burn-down tracking and risk management
+## Web3 and Blockchain on AWS
 
-#### 3. On-time Delivery
-- **Focused Discovery**: Scope locking and talent matching
-- **Continuous Integration**: Automated quality gates and testing
-- **AWS Well-Architected Reviews**: Early issue detection and resolution
-- **Proven Track Record**: Consistent on-time or early delivery
+AWS-native Web3 applications leverage serverless architectures, managed databases, and security services for scalable, cost-effective blockchain solutions. We build systems that connect traditional applications with blockchain technologies through secure APIs, custody integration, and smart contract interaction, all running on AWS infrastructure optimized for performance and cost.
 
-#### 4. Low-risk Engagement
-- **IP Protection**: 100% intellectual property assignment to clients
-- **SOC-2 Ready Processes**: Enterprise-grade security and compliance
-- **Transparent Pricing**: Clear cost tracking and change control
-- **Data Security**: End-to-end data protection protocols
+## How We Work Together
 
-## Notable AWS Projects
+Discovery establishes the foundation for successful projects. We understand your current state, business objectives, and success criteria through AWS Well-Architected reviews that identify opportunities and risks, establishing a clear baseline for improvement.
 
-### 1. SUKU – Web3 Infrastructure Platform
+Design translates requirements into target architectures aligned with AWS best practices. We select services that optimize for your priorities whether cost, performance, security, or speed to market. This phase produces detailed architecture documentation, cost estimates, and implementation roadmaps.
 
-**Overview**: Suite of Web3 tools and APIs connecting traditional users to blockchain capabilities, including Twitter minting bot and SUKU Pay API for stablecoin payments.
+Implementation follows phased delivery with regular milestones ensuring you see progress continuously. Infrastructure as Code, automated testing, and CI/CD pipelines maintain quality while accelerating delivery. You receive working systems at regular intervals rather than waiting months for a big-bang deployment.
 
-**AWS Architecture Highlights**:
-- **Serverless-First**: AWS Lambda and API Gateway for scalability and event-driven operation
-- **Multi-Account Setup**: AWS Organizations separating dev/staging/prod environments
-- **Data Layer**: Amazon RDS (PostgreSQL) + MongoDB Atlas via VPC peering
-- **Security**: Secrets Manager and SSM Parameter Store for secure configuration
-- **Observability**: CloudWatch, X-Ray tracing, custom dashboards by service
-- **Cost Controls**: Tag-based budgets, QuickSight dashboards using CUR+Athena
+Optimization continues post-launch through performance monitoring, cost optimization, knowledge transfer, and ongoing enhancement planning. We ensure sustained value from your AWS investment through continuous improvement based on operational insights and evolving requirements.
 
-**Operational Excellence**:
-- **IaC**: Serverless Framework with staged deployments
-- **CI/CD**: GitHub Actions for automated testing and deployment
-- **Security**: GuardDuty, AWS Config Rules, Service Control Policies
-- **FinOps**: Regular Lambda cost-per-function and RDS throughput reviews
+## Let's Start a Conversation
 
-### 2. MITH – Social + Blockchain Creator Platform
+We're ready to discuss your AWS challenges and opportunities. Whether you're beginning your cloud journey, optimizing existing infrastructure, or exploring generative AI, we bring proven expertise and clear communication to every engagement.
 
-**Overview**: Creator-first social platform enabling content posting, community participation, and live interactions with blockchain-based reward traceability.
+Technical discussions provide deep-dives into your specific requirements and our recommended approaches. Customer references connect you with similar organizations we've helped, providing unfiltered perspectives on our partnership. Pilot projects demonstrate our approach through focused implementation, delivering tangible value while building confidence. Custom proposals provide detailed solution designs with transparent pricing, clear timelines, and defined success criteria.
 
-**AWS Architecture Highlights**:
-- **Containerized Microservices**: Amazon AppRunner for scalable service deployment
-- **Frontend**: AWS Amplify for web application hosting and deployment
-- **Event-Driven**: EventBridge and Kinesis Video Streams for notifications and streaming
-- **Database**: DynamoDB for high-performance user activity tracking, RDS for metadata
-- **Authentication**: AWS Cognito with IAM federation for secure access
-- **Monitoring**: CloudWatch + X-Ray for performance and latency tracking
+---
 
-**Operational Excellence**:
-- **IaC**: Terraform including full ECS cluster provisioning
-- **KPIs**: Content delivery latency, video uptime, transaction success rates
-- **Security**: WAF, Security Hub with auto-remediation of critical findings
-- **Cost Management**: Team-based tagging (infra, content, payments) with Cost Categories
-
-### 3. RedSwan – Real Estate Tokenization Platform
-
-**Overview**: Blockchain-based investment platform for real estate tokenization, facilitating investor onboarding, broker management, and smart contract operations.
-
-**AWS Architecture Highlights**:
-- **Compute Evolution**: EC2/Elastic Beanstalk transitioning to Lambda-based services
-- **Integration**: Secure APIs with Fireblocks and on-chain custody solutions
-- **Data Storage**: Amazon RDS (MySQL) primary data, S3 for contracts and compliance PDFs
-- **Security**: IAM roles and AWS KMS for wallet API key management
-- **Compliance**: AWS Config enforcing encryption, MFA, and tagging requirements
-
-**Operational Excellence**:
-- **TCO Optimization**: Assessment showing ~60% cost reduction potential with Lambda migration
-- **Environment Management**: Control Tower for sandbox environments with budget alerts
-- **Observability**: End-to-end asset onboarding time, token issuance events, broker activity dashboards
-- **Governance**: Central logging via CloudTrail across all accounts
-
-### 4. Repose – Funeral Planning Platform
-
-**Overview**: SaaS platform helping funeral homes and customers organize services, compare plans, access providers via map-based search, and manage logistics digitally.
-
-**AWS Architecture Highlights**:
-- **Multi-Account Setup**: AWS Organizations with environment separation
-- **Container Orchestration**: ECS with Fargate for scalable microservices
-- **Database**: RDS (PostgreSQL) for transactional data
-- **API Management**: API Gateway for public endpoints
-- **Global Distribution**: Route 53 + CloudFront across U.S. regions
-- **Workflow Orchestration**: Step Functions for service booking and payment workflows
-
-**Operational Excellence**:
-- **CI/CD**: CodePipeline and CodeBuild with blue/green deployments
-- **Governance**: SCPs, AWS Config, Trusted Advisor integration
-- **Well-Architected**: Continuous improvement based on framework reviews
-- **FinOps**: Chargeback by product team, cost forecasting, automated tagging enforcement
-- **Monitoring**: Custom metrics including booking conversion rates
-
-## Engagement Model
-
-### Discovery Phase
-- **Current State Assessment**: Architecture review, requirements gathering
-- **Stakeholder Alignment**: Success criteria definition and KPI establishment
-- **Risk Assessment**: Technical and business risk identification
-- **Timeline Planning**: Phased delivery approach with milestone definition
-
-### Design Phase
-- **Target State Architecture**: AWS Well-Architected framework application
-- **Solution Design**: Service selection and integration planning
-- **Implementation Roadmap**: Detailed project plan with dependencies
-- **Cost Optimization**: TCO analysis and optimization recommendations
-
-### Implementation Phase
-- **Phased Deployment**: Iterative delivery with regular milestone reviews
-- **Quality Assurance**: Automated testing and validation at each phase
-- **Monitoring Setup**: Observability and alerting configuration
-- **Security Implementation**: Preventive and detective controls deployment
-
-### Optimization Phase
-- **Performance Tuning**: Continuous monitoring and optimization
-- **Cost Management**: Ongoing FinOps practices and cost optimization
-- **Knowledge Transfer**: Team training and documentation handover
-- **Ongoing Support**: Maintenance and enhancement planning
-
-## Next Steps
-
-### Technical Deep Dive
-Schedule detailed discussion of your specific requirements and our recommended solution approach.
-
-### Reference Conversations
-Connect with similar customers to discuss their experience with ZirconTech's AWS Cloud Operations practice.
-
-### Pilot Project
-Consider a small-scale implementation to demonstrate our value proposition and delivery approach.
-
-### Proposal Development
-Receive a customized solution proposal with detailed timeline, team composition, and transparent pricing.
+*Case studies and detailed project examples available upon request*
