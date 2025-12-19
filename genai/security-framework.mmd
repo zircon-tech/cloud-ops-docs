@@ -1,0 +1,23 @@
+flowchart TD
+    A[Data Classification] --> B[Access Control]
+    B --> C[Encryption at Rest]
+    C --> D[Encryption in Transit]
+    D --> E[Network Isolation]
+    E --> F[Monitoring & Logging]
+    
+    G[Compliance Framework] --> H[Risk Assessment]
+    H --> I[Policy Enforcement]
+    I --> J[Audit & Reporting]
+    
+    K[Model Security] --> L[Input Validation]
+    L --> M[Output Filtering]
+    M --> N[Runtime Monitoring]
+    
+    A --> G
+    F --> H
+    N --> J
+    
+    style A fill:#e1f5fe
+    style G fill:#f3e5f5
+    style K fill:#fff3e0
+    style J fill:#e8f5e8

@@ -1,0 +1,9 @@
+graph LR
+    A[Source] --> B[Build & Test]
+    B --> C[Development]
+    C --> D[Staging]
+    D --> E[Production]
+    
+    F[Model Training] --> G[Model Validation]
+    G --> D
+
