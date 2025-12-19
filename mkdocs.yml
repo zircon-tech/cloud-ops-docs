@@ -132,6 +132,9 @@ nav:
   - Responsible & Ethical AI: genai/responsible-ethical-ai.md
   - Production Launch & Operations: genai/production-launch-operations.md
   - Maintenance & Support Services: genai/maintenance-support-services.md
+  - Agentic AI Implementation Methodology: genai/agentic-ai-implementation-methodology.md
+  - Agent Security & Interoperability: genai/agent-security-interoperability.md
+  - Agent Compute Deployment: genai/agent-compute-deployment.md
 
 extra:
   social:
